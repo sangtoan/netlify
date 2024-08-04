@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikZ Archive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Public TikZ Code Archive</h1>
+        <div id="tree-container"></div>
+        <div id="cards-container"></div>
+        <h2>Submit Your TikZ Code</h2>
+        <form id="tikz-form">
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="3" required></textarea><br>
+            <label for="tikz-code">TikZ Code:</label><br>
+            <textarea id="tikz-code" name="tikz-code" rows="10" required></textarea><br>
+            <label for="group">Group:</label><br>
+            <select id="group" name="group">
+                <!-- Nhóm hiện có sẽ được tải động -->
+            </select><br>
+            <label for="new-group">Or propose a new group:</label><br>
+            <input type="text" id="new-group" name="new-group"><br>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        // Tải danh sách các nhóm hiện có
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const groupSelect = document.getElementById('group');
+                data.groups.forEach(group => {
+                    const option = document.createElement('option');
+                    option.value = group.name;
+                    option.textContent = group.name;
+                    groupSelect.appendChild(option);
+                });
+            });
+
+        document.getElementById('tikz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append('author', document.getElementById('author').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('title', document.getElementById('title').value);
+            formData.append('description', document.getElementById('description').value);
+            formData.append('tikz-code', document.getElementById('tikz-code').value);
+            formData.append('group', document.getElementById('group').value);
+            formData.append('new-group', document.getElementById('new-group').value);
+            formData.append('image', document.getElementById('image').files[0]);
+
+            fetch('/.netlify/functions/submit', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      alert('Submitted successfully! Your submission is under review.');
+                      location.reload();
+                  } else {
+                      alert('Submission failed: ' + data.error);
+                  }
+              });
+        });
+
+        // Hiển thị danh sách các nhóm và mục nhập
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const treeContainer = document.getElementById('tree-container');
+                const cardsContainer = document.getElementById('cards-container');
+
+                data.groups.forEach(group => {
+                    const groupElement = document.createElement('div');
+                    groupElement.classList.add('group');
+                    groupElement.innerHTML = `<h3>${group.name}</h3>`;
+                    treeContainer.appendChild(groupElement);
+
+                    group.items.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('item');
+                        itemElement.innerHTML = `<span>${item.title}</span>`;
+                        itemElement.addEventListener('click', () => {
+                            cardsContainer.innerHTML = `
+                                <div class="card">
+                                    <h2>${item.title}</h2>
+                                    <p><strong>Author:</strong> ${item.author}</p>
+                                    <p><strong>Description:</strong> ${item.description}</p>
+                                    <img src="${item.image}" alt="${item.title}">
+                                    <pre>${item.code}</pre>
+                                </div>
+                            `;
+                        });
+                        groupElement.appendChild(itemElement);
+                    });
+                });
+            });
+    </script>
+</body>
+</html>

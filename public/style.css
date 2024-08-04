@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.group, .submission {
+    margin: 20px 0;
+}
+.item, .submission {
+    margin-left: 20px;
+    cursor: pointer;
+}
+.item span {
+    color: blue;
+    text-decoration: underline;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card img, .submission img {
+    max-width: 100%;
+    height: auto;
+}
+.card h2, .submission h2 {
+    margin: 0;
+}
+.card pre, .submission pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+}

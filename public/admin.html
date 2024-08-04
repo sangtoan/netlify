@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikZ Archive Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div id="submissions-container"></div>
+    </div>
+    <script>
+        fetch('submissions.json')
+            .then(response => response.json())
+            .then(submissions => {
+                const submissionsContainer = document.getElementById('submissions-container');
+                submissions.forEach(sub => {
+                    const submissionElement = document.createElement('div');
+                    submissionElement.classList.add('submission');
+                    submissionElement.innerHTML = `
+                        <h2>${sub.title}</h2>
+                        <p><strong>Author:</strong> ${sub.author}</p>
+                        <p><strong>Email:</strong> ${sub.email}</p>
+                        <p><strong>Description:</strong> ${sub.description}</p>
+                        <img src="${sub.image}" alt="${sub.title}">
+                        <pre>${sub.code}</pre>
+                        <button onclick="approveSubmission(${sub.id})">Approve</button>
+                    `;
+                    submissionsContainer.appendChild(submissionElement);
+                });
+            });
+
+        function approveSubmission(id) {
+            fetch('/.netlify/functions/approveSubmission', {
+                method: 'POST',
+                body: JSON.stringify({ id }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      alert('Submission approved successfully!');
+                      location.reload();
+                  } else {
+                      alert('Approval failed: ' + data.error);
+                  }
+              });
+        }
+    </script>
+</body>
+</html>

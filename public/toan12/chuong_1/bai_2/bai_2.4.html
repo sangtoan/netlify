@@ -1,0 +1,81 @@
+\begin{dang}{Tìm cực trị hàm số lượng giác - Quy tắc 2}
+	Cho hàm số $y = f(x)$ có đạo hàm cấp hai trên khoảng $K$ chứa $x_0$.
+	\begin{itemize}
+		\item Nếu $f'(x_0) = 0$ và $f''(x_0)  >  0$ thì $x_0$ là điểm cực tiểu.
+		\item Nếu $f'(x_0) = 0$ và $f''(x_0)  <  0$ thì $x_0$ là điểm cực đại.
+	\end{itemize}
+\end{dang}
+\begin{vd}
+	Cho hàm số $y=x-\sin 2x+3.$ Mệnh đề nào dưới đây đúng?
+	\choice
+	{Hàm số nhận điểm $x=-\dfrac{\pi}{2}$ làm điểm cực tiểu}
+	{Hàm số nhận điểm $x=\dfrac{\pi}{2}$ làm điểm cực đại}
+	{\True Hàm số nhận điểm $x=-\dfrac{\pi}{6}$ làm điểm cực đại}
+	{Hàm số nhận điểm $x=-\dfrac{\pi}{6}$ làm điểm cực tiểu}
+	\loigiai{
+		Ta có
+		$y'=1-2\cos 2x$.\\
+		$y'=0\Leftrightarrow 1-2\cos 2x=0\Leftrightarrow \cos 2x=\dfrac{1}{2}=\cos \dfrac{\pi}{3}\Leftrightarrow \left[\begin{array}{l}  x=\dfrac{\pi}{6}+k\pi \\
+			 x=-\dfrac{\pi}{6}+k\pi. \\ \end{array}\right.$\\
+		Ta có $y''=4\sin 2x$. \\
+		$y''\left(-\dfrac{\pi}{6}+k\pi \right)=4\sin \left(2\left(-\dfrac{\pi}{6}+k\pi \right)\right)=4\sin \left(-\dfrac{\pi}{3}+k2\pi \right)=4\sin \left(-\dfrac{\pi}{3}\right)=-2\sqrt{3} < 0$.\\
+		Hay $y''\left(-\dfrac{\pi}{6}\right)=4\sin \left(-\dfrac{\pi}{3} \right)=-2\sqrt{3} < 0$.\\
+		Suy ra $x=-\dfrac{\pi}{6}$ là điểm cực đại.\\
+		Vậy hàm số nhận điểm $x=-\dfrac{\pi}{6}$ làm điểm cực đại.}
+\end{vd}
+\begin{vd}
+	Trên khoảng $(0;\pi)$, hàm số $f(x)=x+2\cos^2 x$ đạt cực tiểu tại điểm nào sau đây?
+	\choice
+	{\True $x=\dfrac{5\pi}{12}$}
+	{$x=\dfrac{\pi}{6}$}
+	{$x=\dfrac{\pi}{12}$}
+	{$x=-\dfrac{7\pi}{12}$}
+	\loigiai{
+		Ta có $f(x)=x+2\cos^2 x=x+1+\cos 2x$.\\
+		$f'(x)=1-2\sin 2x$.\\
+		$f''(x)=-4\cos 2x$.\\
+		Với $x=\dfrac{5\pi}{12}$ ta có $\begin{cases} f'\left(\dfrac{5\pi}{12}\right)=1-2\sin\dfrac{5\pi}{6}=0\\ f''\left(\dfrac{5\pi}{12}\right)=-4\cos\dfrac{5\pi}{6}=\dfrac{\sqrt{3}}{2} > 0. \end{cases}$\\
+		Vậy hàm số đạt cực tiểu tại $x=\dfrac{5\pi}{6}$.}
+\end{vd}
+\begin{vd}
+	Hàm số $y=x+2\sin^2x$ có bao nhiêu điểm cực tiểu trên khoảng $(0;2\pi)$?
+	\choice
+	{\True $1$}
+	{$0$}
+	{$2$}
+	{$4$}
+	\loigiai{
+		Ta có\\
+		$y'=1+4\sin x\cdot\cos x=1+2\sin 2x$.
+		$$\Rightarrow y'=0\Leftrightarrow\sin 2x=-\dfrac{1}{2}\Leftrightarrow\left[\begin{array}{l} x=-\dfrac{\pi}{12}+k\pi\\ x=\dfrac{7\pi}{12}+k\pi \end{array}\right. \Leftrightarrow \left[\begin{array}{l} x=\dfrac{11\pi}{12}\in(0;2\pi)\\x=\dfrac{23\pi}{12}\in(0;2\pi)\\x=\dfrac{7\pi}{12}\in(0;2\pi)\\x=\dfrac{19\pi}{12}\in(0;2\pi). \end{array}\right.$$
+		$y''=4\cos 2x$. Khi đó
+		\begin{itemize}
+			\item[$\bullet$]  $y''\left(\dfrac{11\pi}{12}\right)=4\cos\left(\dfrac{11\pi}{6}\right)=2\sqrt{3} > 0$ nên hàm số đạt cực tiểu tại $x=\dfrac{11\pi}{12}+k\pi$.
+			\item[$\bullet$] $y''\left(\dfrac{23\pi}{12}\right)=4\cos\left(\dfrac{23\pi}{6}\right)=2\sqrt{3} > 0$ nên hàm số đạt cực tiểu tại $x=\dfrac{23\pi}{12}+k\pi$.
+			\item[$\bullet$] $y''\left(\dfrac{7\pi}{12}\right)=4\cos\left(\dfrac{7\pi}{6}\right)=-2\sqrt{3} < 0$ nên hàm số đạt cực đại tại $x=\dfrac{7\pi}{12}+k\pi$.
+			\item[$\bullet$] $y''\left(\dfrac{19\pi}{12}\right)=4\cos\left(\dfrac{19\pi}{6}\right)=-2\sqrt{3} > 0$ nên hàm số đạt cực đại tại $x=\dfrac{19\pi}{12}+k\pi$.
+		\end{itemize}
+		}
+\end{vd}
+\begin{vd}
+	Hỏi trong khoảng $(0;3\pi)$ có bao nhiêu điểm để hàm số $y=x +\sin x+\cos x$ đạt cực đại?
+	\choice
+	{$1$}
+	{\True $2$}
+	{$3$}
+	{$4$}
+	\loigiai{
+		Ta có\\
+		$y' = 1+\cos x -\sin x$.\\
+		$y'=0 \Leftrightarrow \sin x-\cos x=1 \Leftrightarrow \sin\left(x-\dfrac{\pi}{4}\right)=\dfrac{\sqrt{2}}{2}$
+		$$\Leftrightarrow \left[\begin{array}{l} x-\dfrac{\pi}{4}=\dfrac{\pi}{4}+k2\pi\\ x-\dfrac{\pi}{4}=\pi-\dfrac{\pi}{4}+k2\pi \end{array}\right.
+		 \Leftrightarrow \left[\begin{array}{l} x=\dfrac{\pi}{2}+k2\pi\\ x=\pi+k2\pi \end{array}\right. \Leftrightarrow  \left[\begin{array}{l} x=\dfrac{\pi}{2}\in(0;3\pi)\\ x=\dfrac{5\pi}{2}\in(0;3\pi)\\ x=\pi\in(0;3\pi). \end{array}\right.$$
+		$y''=-\sin x -\cos x$.
+		\begin{itemize}
+			\item $y''\left ( \dfrac{\pi}{2}\right ) = -1 < 0 \Rightarrow $ hàm số đạt cực đại tại $x=\dfrac{\pi}{2}$.
+			\item $y''\left ( \dfrac{5\pi}{2}\right ) = -1 < 0 \Rightarrow $ hàm số đạt cực đại tại $x=\dfrac{5\pi}{2}$.
+			\item $y''\left ( \dfrac{9\pi}{4}\right ) = 1 > 0 \Rightarrow $ hàm số đạt cực tiểu tại $x=\pi$.
+		\end{itemize}
+		Vậy hàm số có $2$ điểm cực đại trên khoảng $(0;3\pi)$.
+	}
+\end{vd}

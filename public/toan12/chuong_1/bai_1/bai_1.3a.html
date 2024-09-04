@@ -1,0 +1,129 @@
+\begin{dang}{Tính đơn điệu của hàm số phân thức bậc nhất}
+	\begin{enumerate}
+	\item Tập xác định: $\mathscr{D}=\mathbb{R} \setminus \left\{-\dfrac{d}{c} \right\}$.
+	\item Đạo hàm: $y'=\dfrac{a\cdot d-c\cdot b}{(c x+d)^2}$. 
+	\end{enumerate}
+\textbf{Bài toán 1.} Tìm $m$ để hàm số $y=\dfrac{ax+b}{cx+d}$ đơn điệu trên từng khoảng xác định
+\begin{itemize}
+	\item Hàm số đồng biến trên từng khoảng xác định của nó $\Leftrightarrow y' > 0\Leftrightarrow a\cdot d-c\cdot b > 0$.
+	\item Hàm số nghịch biến trên từng khoảng xác định của nó $\Leftrightarrow y'  <  0\Leftrightarrow a\cdot d-c\cdot b  <  0$. 
+\end{itemize}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[2-GHK1-19-THPTQuangTrung-HaiPhong]%[Trần Minh-Dự án 12-EX-2-2019]%[2D1B1-3]
+	Tìm tất cả các giá trị của tham số $m$ để hàm số $y=\dfrac{mx+2}{2x+m}$ đồng biến trên mỗi khoảng xác định của hàm số.
+	\loigiai{
+	Với $y=\dfrac{mx+2}{2x+m}$ $(1)$ ta có $y'=\dfrac{m^2-4}{(2x+m)^2}$.\\
+	Hàm số $(1)$ đồng biến trên mỗi khoảng của tập xác định $ \Leftrightarrow y'>0,\, \forall x\neq -\dfrac{m}{2}$ $$ \Leftrightarrow m^2-4>0 \Leftrightarrow m>2 \text{ hoặc } m < -2.$$}
+\end{vd}
+\begin{vd}%[Đề thi khảo sát chất lượng trường THCS-THPT Lômônôxốp, Hà Nội 2018 ,Nhật Thiện 12EX1-2019]%[2D1B1-3]
+	Tìm tất cả các giá trị của m để hàm số $y=\dfrac{mx+4m-8}{x+2}$ luôn nghịch biến trên mỗi khoảng xác định của hàm số.
+	\loigiai{
+	Ta có $y'=\dfrac{2m-4m+8}{(x+2)^2}$. Để hàm số luôn nghịch biến trên mỗi khoảng xác định thì $$2m-4m+8 < 0\Leftrightarrow -2m+8 < 0\Leftrightarrow m>4.$$
+	}
+\end{vd}
+
+\begin{vd}%[Đề kiểm tra định kỳ, THPT Nguyễn Huệ - Huế, 2019]%[Bùi Quốc Hoàn, dự án EX9]%[2D1B1-3]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \dfrac{mx + 1}{4x + m}$ luôn nghịch biến trên từng khoảng xác định của hàm số?
+	\loigiai{Tập xác định $\mathscr{D} = \mathbb{R}\setminus\left\{- \dfrac{m}{4}\right\}$.\\
+	Ta có $y' = \dfrac{m\left(4x + m\right) - 4\left(mx + 1\right)}{\left(4x + m\right)^2} = \dfrac{m^2 - 4}{\left(4x + m\right)^2}$.\\
+	Để thỏa mãn bài toán khi $m^2 - 4  <  0\Leftrightarrow - 2  <  m  <  2$.\\
+	Do $m$ nguyên suy ra $m = - 1$, $m = 0$ và $m = 1$. Vậy có $3$ giá trị của $m$ thỏa mãn.
+	}
+\end{vd}
+\begin{vd}%[Kiểm tra khảo sát L1, Lý Thánh Tông, Hà Nội, 2019]%[Đặng Tân Hoài, 12-EX-2-2019]%[2D1B1-3]
+	Cho hàm số $y=\dfrac{mx-2m-3}{x-m}$ với $m$ là tham số. Gọi $S$ là tập hợp tất cả các giá trị nguyên của $m$ để hàm số đồng biến trên các khoảng xác định. Tìm số phần tử của $S$.
+	\loigiai{Tập xác định là $\mathscr{D}=\mathbb{R} \setminus \{m\}$.
+	Ta có $y'=\dfrac{-m^2+2m+3}{(x-m)^2}$. Hàm số đã cho đồng biến trên các khoảng xác định khi và chỉ khi $y'>0,~\forall x \neq m \Leftrightarrow -m^2+2m+3>0 \Leftrightarrow -1 < m < 3$.\\
+	Kết hợp $m \in \mathbb{Z}$ ta được $m \in \left\{0;1;2\right\}$.\\
+	Vậy số phần tử của tập $S$ là $3$.
+	}
+\end{vd}
+
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}%[Kiểm tra giữa học kì I, Nguyễn Tất Thành, 2019]%[Nguyễn Kiều Nhã Tú, dự án EX2]%[2D1Y1-3]
+	Tìm $m$ để hàm số $y = \dfrac{mx+5}{2x+1}$ đồng biến trên từng khoảng xác định.
+	\choice
+	{$m > -\dfrac{1}{2}$}
+	{$m > -10$}
+	{$m  <  10$}
+	{\True $m > 10$}
+	\loigiai{
+		Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}\setminus\{-\dfrac{1}{2}\}$.\\
+		Ta có $y'(x) = \dfrac{m - 10}{(2x+1)^2}, \forall x \in \mathscr{D}$.\\
+		Vì vậy, hàm số đồng biến trên từng khoảng xác định khi và chỉ khi $m - 10 > 0$, hay $m > 10$.
+	}
+\end{ex}
+\begin{ex}%[Thi thử, THPT Bình Minh - Ninh Bình, 2019]%[Lê Quốc Hiệp, 12EX3-2019]%[2D1B1-3]
+	Tìm tất cả giá trị thực của tham số $m$ để hàm số $y=\dfrac{x+2-m}{x+1}$ nghịch biến trên các khoảng mà nó xác định.
+	\choice
+	{$m\le1$}
+	{\True $m < 1$}
+	{$m < -3$}
+	{$b\le-3$}
+	\loigiai
+	{
+		Tập xác định của hàm số đã cho là $\mathscr{D}=\mathbb{R}\setminus\{-1\}$.\\
+		Ta có $y'=\dfrac{m-1}{(x+1)^2}$.\\
+		Để hàm số đã cho nghịch biến trên các khoảng mà nó xác định thì
+		\[y' < 0,~\forall x\in\mathscr{D}\Leftrightarrow m-1 < 0\Leftrightarrow m < 1.\]
+	}
+\end{ex}
+\begin{ex}
+	Cho hàm số $y=\dfrac{m x-2m-3}{x-m}$ với $m$ là tham số. Gọi $S$ là tập hợp tất cả các giá trị nguyên của $m$ để hàm số đồng biến trên các khoảng xác định. Tìm số phân tử của $S$?
+	\choice
+	{$4$}
+	{Vô số}
+	{\True $3$}
+	{$5$}
+	\loigiai
+	{Tập xác định $\mathscr D= \mathbb{R} \setminus \{m\}$.\\
+	Ta có $y'=\dfrac{-m^2+2m+3}{(x-m)^2}$. \\
+	Hàm số đồng biến trên từng khoảng xác định khi và chỉ khi
+	$$y'>0\Leftrightarrow -m^2+2m+3 >0 \Leftrightarrow -1< m < 3$$
+	Vậy có $3$ giá trị nguyên của tham số $m$.
+	}
+\end{ex}
+\begin{ex}
+	Cho hàm số $y= \dfrac{mx+4}{ x+m}.$ Có bao nhiêu giá trị nguyên của $m$ để hàm số nghịch biến trên từng khoảng xác định?
+	\choice
+	{$ 2$}
+	{\True $3 $}
+	{$5 $}
+	{Vô số}
+	\loigiai{
+	Tập xác định $\mathscr D= \mathbb{R} \setminus \{-m\}$.\\
+	Ta có $y' = \dfrac{m^2 - 4}{(x+m)^2}$.\\
+	Hàm số nghịch biến trên từng khoảng xác định khi và chỉ khi $y'< 0$ với mọi $x \in \mathscr{D}$
+	$$\Leftrightarrow m^2 -4< 0 \Leftrightarrow m \in (-2;2).$$
+	Do $m \in \mathbb{Z}$ nên $m \in \{-1;0;1\}$.\\
+	Vậy có $3$ giá trị của $m$ thỏa yêu cầu bài toán.}
+\end{ex}
+\begin{ex}
+	Có bao nhiêu giá trị nguyên của tham số $m$ sao cho hàm số $y=\dfrac{mx+7m-8}{x-m}$ đồng biến trên từng khoảng xác định của nó?
+	\choice
+	{\True $8$}
+	{$5$}
+	{$3$}
+	{Vô số}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{m\}$.\\
+	Hàm số đồng biến trên từng khoảng xác định khi và chỉ khi $y'>0$, $\forall x\in \mathscr{D}$.
+	$$\Leftrightarrow \dfrac{-m^2-7m+8}{(x-m)^2}>0\Leftrightarrow -m^2-7m+8>0\Leftrightarrow -8< m < 1.$$
+	Do $m\in \mathbb{Z}$ suy ra $m\in \{-7;-6;-5;-4;-3;-2;-1;0\}$.\\
+	Vậy có $8$ giá trị $m$ thỏa mãn.
+	}
+\end{ex}
+\begin{ex}[D1B1194]%[2D1B1-3]
+	Tìm tất cả giá trị $m$ để hàm số $y= \dfrac{mx+4m}{x+m}$ nghịch biến trên từng khoảng xác định?
+	\choice
+	{$m< 0$}
+	{\True $0< m< 4$}
+	{$0\le m \le 4$}
+	{$m>4$}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R} \backslash \left\{-m\right\}$. Ta có $y'= \dfrac{m^2-4m}{(x+m)^2}$.\\
+	Hàm số nghịch biến trên từng khoảng xác định khi và chỉ khi
+	$$y'< 0 \Leftrightarrow m^2-4m < 0 \Leftrightarrow 0< m< 4.$$
+	}
+\end{ex}

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoán vị file LaTeX</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+        }
+
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+        <a href="menu_tree.html">Menu ID</a>
+    </div>
+    <div class="container">
+        <h1 class="mt-5">Trộn Đề Cấu Trúc 2025</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="upload-tab" data-toggle="tab" href="#upload" role="tab" aria-controls="upload" aria-selected="true">Tải lên file</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="paste-tab" data-toggle="tab" href="#paste" role="tab" aria-controls="paste" aria-selected="false">Dán nội dung</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+                <form id="uploadForm" method="post" enctype="multipart/form-data" class="mt-3">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="school">Tên Trường:</label>
+                            <input type="text" class="form-control" id="school" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="teacher">Tên Giáo Viên:</label>
+                            <input type="text" class="form-control" id="teacher" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exam">Tên Kỳ Thi:</label>
+                            <input type="text" class="form-control" id="exam" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="subject">Tên Môn Thi:</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="time">Thời Gian Làm Bài (phút):</label>
+                            <input type="number" class="form-control" id="time" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="made">Mã Đề Thi:</label>
+                            <input type="text" class="form-control" id="made" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="uploadFile">Chọn file LaTeX:</label>
+                            <input type="file" class="form-control" id="uploadFile" name="file" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="numFiles">Số lượng file hoán vị:</label>
+                            <input type="number" class="form-control" id="numFiles" name="num_files" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="hoanViType">Loại hoán vị:</label>
+                            <select class="form-control" id="hoanViType" name="hoan_vi_type">
+                                <option value="ngoac">Hoán vị các cặp ngoặc</option>
+                                <option value="cau_truc">Hoán vị các cặp ngoặc và cấu trúc</option>
+                                <option value="giu_nguyen">Giữ nguyên</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="headerType">Loại khai báo đầu file:</label>
+                            <select class="form-control" id="headerType" name="header_type">
+                                <option value="default">Default</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="phieuTo">Phiếu Tô:</label>
+                            <select class="form-control" id="phieuTo" name="phieu_to">
+                                <option value="phieu1">Phiếu 1</option>
+                                <option value="phieu2">Phiếu 2</option>
+                                <option value="phieu3">Phiếu 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dapAn">Đáp Án:</label>
+                            <select class="form-control" id="dapAn" name="dap_an">
+                                <option value="dap_an_1">Đáp án loại 1</option>
+                                <option value="dap_an_2">Đáp án loại 2</option>
+                                <option value="dap_an_3">Đáp án loại 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-primary">Tải file lên</button>
+                        <button id="permuteButton" class="btn btn-success">Trộn Đề</button>
+                        <button id="downloadXlsxButton" class="btn btn-secondary">Tải Excel Mẫu1</button>
+                        <button id="downloadXlsxButtonTwo" class="btn btn-secondary">Tải Excel Mẫu 2</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="paste" role="tabpanel" aria-labelledby="paste-tab">
+                <form id="pasteForm" class="mt-3">
+                    <div class="form-group">
+                        <label for="pasteContent">Dán nội dung LaTeX:</label>
+                        <textarea class="form-control" id="pasteContent" name="content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="numPasteFiles">Số lượng file hoán vị:</label>
+                            <input type="number" class="form-control" id="numPasteFiles" name="num_files" min="1" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="hoanViTypePaste">Loại hoán vị:</label>
+                            <select class="form-control" id="hoanViTypePaste" name="hoan_vi_type">
+                                <option value="ngoac">Hoán vị các cặp ngoặc</option>
+                                <option value="cau_truc">Hoán vị các cặp ngoặc và cấu trúc</option>
+                                <option value="giu_nguyen">Giữ nguyên</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="headerTypePaste">Loại khai báo đầu file:</label>
+                            <select class="form-control" id="headerTypePaste" name="header_type">
+                                <option value="default">Default</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="phieuToPaste">Phiếu Tô:</label>
+                            <select class="form-control" id="phieuToPaste" name="phieu_to">
+                                <option value="phieu1">Phiếu 1</option>
+                                <option value="phieu2">Phiếu 2</option>
+                                <option value="phieu3">Phiếu 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dapAnPaste">Đáp Án:</label>
+                            <select class="form-control" id="dapAnPaste" name="dap_an">
+                                <option value="dap_an_1">Đáp án loại 1</option>
+                                <option value="dap_an_2">Đáp án loại 2</option>
+                                <option value="dap_an_3">Đáp án loại 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Trộn Đề 2</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-5" id="resultSection" style="display: none;">
+            <h2>Kết quả:</h2>
+            <div id="results"></div>
+        </div>
+        <table id="latexTable" class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Số thứ tự</th>
+                    <th>ID</th>
+                    <th>ID Ý NGHĨA</th>
+                    <th>Nội dung câu hỏi</th>
+                    <th>Không trộn</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script>
+        function extractChoices(text) {
+            const regex = /\\choice\s*(\{[^}]*\})\s*(\{[^}]*\})\s*(\{[^}]*\})\s*(\{[^}]*\})/;
+            const match = text.match(regex);
+            if (match) {
+                for (let i = 1; i <= 4; i++) {
+                    if (match[i].includes('\\True')) {
+                        return String.fromCharCode(64 + i); // Chuyển đổi sang A, B, C, D
+                    }
+                }
+            }
+            return ""; // Trả về chuỗi rỗng nếu không có lựa chọn đúng
+        }
+
+        function extractTrueFalse(text) {
+            const regex = /\\choiceTF\s*(\{[^}]*\})\s*(\{[^}]*\})\s*(\{[^}]*\})\s*(\{[^}]*\})/;
+            const match = text.match(regex);
+            if (match) {
+                return match.slice(1, 5).map(choice => choice.includes('\\True') ? 'Đ' : 'S').join('');
+            }
+            return "SSSS"; // Trả về SSSS nếu không có lựa chọn đúng/sai
+        }
+
+        function extractShortAnswer(text) {
+            const regex = /\\shortans\{([^}]*)\}/;
+            const match = text.match(regex);
+            if (match) {
+                return match[1].trim();
+            }
+            return ""; // Trả về chuỗi rỗng nếu không tìm thấy câu trả lời
+        }
+
+        function layCacNgoacLon(text) {
+            let ngoacLon = [];
+            let demNgoac = 0;
+            let batDau = null;
+
+            for (let i = 0; i < text.length; i++) {
+                let kyTu = text[i];
+                if (kyTu === "{") {
+                    if (demNgoac === 0) {
+                        batDau = i;
+                    }
+                    demNgoac += 1;
+                } else if (kyTu === "}") {
+                    demNgoac -= 1;
+                    if (demNgoac === 0 && batDau !== null) {
+                        let ketThuc = i;
+                        ngoacLon.push([batDau, ketThuc]);
+                        batDau = null;
+                    }
+                }
+            }
+
+            return ngoacLon;
+        }
+
+        function extractLatexData(content) {
+            const regexType1 = /\\begin\{ex\}[^]*?\\choice\s*(?!TF\s*\{)\s*([^]*?)\\loigiai/gs;
+            const regexType2 = /\\begin\{ex\}[^]*?\\choiceTF\s*([^]*?)\\loigiai/gs;
+            const regexType3 = /\\begin\{ex\}[^]*?\\shortans\{([^\}]*)\}/gs;
+
+            let matches, extractedData = [];
+
+            while ((matches = regexType1.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let correctAnswerIndex = answers.findIndex(answer => answer.includes('\\True'));
+                    if (correctAnswerIndex !== -1) {
+                        extractedData.push(String.fromCharCode(65 + correctAnswerIndex)); // Chuyển đổi sang A, B, C, D
+                    } else {
+                        extractedData.push("N/A");
+                    }
+                } else {
+                    extractedData.push("N/A");
+                }
+            }
+
+            while ((matches = regexType2.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let result = answers.map(answer => answer.includes('\\True') ? 'Đ' : 'S').join('');
+                    extractedData.push(result);
+                } else {
+                    extractedData.push("N/A");
+                }
+            }
+
+            while ((matches = regexType3.exec(content)) !== null) {
+                let answer = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(answer);
+                if (ngoacLon.length > 0) {
+                    answer = answer.substring(ngoacLon[0][0] + 1, ngoacLon[0][1]).trim();
+                }
+                extractedData.push(answer.replace(/\$|\{|\}/g, '').trim());
+            }
+
+            return extractedData;
+        }
+
+        // function mergeExtractedData(allExtractedData) {
+        //     let headers = ['Câu\\Mã đề'];
+        //     let maxLength = Math.max(...allExtractedData.map(data => data.length));
+        //     let mergedData = [];
+
+        //     allExtractedData.forEach((data, index) => {
+        //         headers.push(`Mã đề ${index + 1}`);
+        //         for (let i = 0; i < maxLength; i++) {
+        //             if (!mergedData[i]) {
+        //                 mergedData[i] = [i + 1];
+        //             }
+        //             mergedData[i].push(data[i] || "N/A");
+        //         }
+        //     });
+
+        //     return [headers, ...mergedData];
+        // }
+        function mergeExtractedData(allExtractedData, currentMades) {
+    let headers = ['Câu\\Mã đề'];
+    let maxLength = Math.max(...allExtractedData.map(data => data.length));
+    let mergedData = [];
+
+    currentMades.forEach((currentMade, index) => {
+        headers.push(`${currentMade}`);
+    });
+
+    allExtractedData.forEach((data, index) => {
+        for (let i = 0; i < maxLength; i++) {
+            if (!mergedData[i]) {
+                mergedData[i] = [i + 1];
+            }
+            mergedData[i].push(data[i] || "N/A");
+        }
+    });
+
+    return [headers, ...mergedData];
+}
+
+
+        // function extractAndExport(files) {
+        //     const allExtractedData = files.map(fileContent => extractLatexData(fileContent));
+        //     const mergedData = mergeExtractedData(allExtractedData);
+
+        //     const ws = XLSX.utils.aoa_to_sheet(mergedData);
+        //     const wb = XLSX.utils.book_new();
+        //     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        //     XLSX.writeFile(wb, "extracted_data.xlsx");
+        // }
+        function extractAndExport(files, currentMades) {
+    const allExtractedData = files.map(fileContent => extractLatexData(fileContent));
+    const mergedData = mergeExtractedData(allExtractedData, currentMades);
+
+    const ws = XLSX.utils.aoa_to_sheet(mergedData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, "extracted_data.xlsx");
+}
+
+        $(document).ready(function () {
+            $('#uploadForm').on('submit', function (e) {
+                e.preventDefault();
+                let fileInput = document.getElementById('uploadFile');
+                let file = fileInput ? fileInput.files[0] : null;
+                let school = $('#school').val();
+                let teacher = $('#teacher').val();
+                let exam = $('#exam').val();
+                let subject = $('#subject').val();
+                let time = $('#time').val();
+                let made = $('#made').val().split(',').map(item => item.trim());
+                let numFiles = document.getElementById('numFiles') ? document.getElementById('numFiles').value : null;
+                let hoanViType = document.getElementById('hoanViType') ? document.getElementById('hoanViType').value : 'ngoac';
+                let headerType = document.getElementById('headerType') ? document.getElementById('headerType').value : 'default';
+                let phieuTo = document.getElementById('phieuTo') ? document.getElementById('phieuTo').value : 'phieu1';
+                let dapAn = document.getElementById('dapAn') ? document.getElementById('dapAn').value : 'dap_an_1';
+
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        let content = event.target.result;
+                        parseFile(content, school, teacher, exam, subject, time, made, numFiles, hoanViType, headerType, phieuTo, dapAn);
+                    };
+                    reader.readAsText(file);
+                }
+            });
+
+            $('#permuteButton').on('click', function () {
+                let content = collectContentFromTable();
+                let numFiles = document.getElementById('numFiles') ? document.getElementById('numFiles').value : null;
+                let hoanViType = document.getElementById('hoanViType') ? document.getElementById('hoanViType').value : 'ngoac';
+                let headerType = document.getElementById('headerType') ? document.getElementById('headerType').value : 'default';
+
+                let school = $('#school').val();
+                let teacher = $('#teacher').val();
+                let exam = $('#exam').val();
+                let subject = $('#subject').val();
+                let time = $('#time').val();
+                let made = $('#made').val().split(',').map(item => item.trim());
+                let phieuTo = document.getElementById('phieuTo') ? document.getElementById('phieuTo').value : 'phieu1';
+                let dapAn = document.getElementById('dapAn') ? document.getElementById('dapAn').value : 'dap_an_1';
+
+                if (content && numFiles) {
+                    let { results, files } = generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn);
+                    displayResults(results);
+                    alert('Hoán vị xong!');
+                }
+            });
+
+            $('#pasteForm').on('submit', function (e) {
+                e.preventDefault();
+                let content = $('#pasteContent').val();
+                let numFiles = document.getElementById('numPasteFiles') ? document.getElementById('numPasteFiles').value : null;
+                let hoanViType = document.getElementById('hoanViTypePaste') ? document.getElementById('hoanViTypePaste').value : 'ngoac';
+                let headerType = document.getElementById('headerTypePaste') ? document.getElementById('headerTypePaste').value : 'default';
+
+                let school = $('#school').val();
+                let teacher = $('#teacher').val();
+                let exam = $('#exam').val();
+                let subject = $('#subject').val();
+                let time = $('#time').val();
+                let made = $('#made').val().split(',').map(item => item.trim());
+                let phieuTo = document.getElementById('phieuToPaste') ? document.getElementById('phieuToPaste').value : 'phieu1';
+                let dapAn = document.getElementById('dapAnPaste') ? document.getElementById('dapAnPaste').value : 'dap_an_1';
+
+                if (content && numFiles) {
+                    let { results, files } = generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn);
+                    displayResults(results);
+                    alert('Hoán vị xong!');
+                }
+            });
+
+            // $('#downloadXlsxButton').on('click', function () {
+            //     let content = collectContentFromTable();
+            //     let numFiles = document.getElementById('numFiles') ? document.getElementById('numFiles').value : null;
+            //     let hoanViType = document.getElementById('hoanViType') ? document.getElementById('hoanViType').value : 'ngoac';
+            //     let headerType = document.getElementById('headerType') ? document.getElementById('headerType').value : 'default';
+            //     let school = $('#school').val();
+            //     let teacher = $('#teacher').val();
+            //     let exam = $('#exam').val();
+            //     let subject = $('#subject').val();
+            //     let time = $('#time').val();
+            //     let made = $('#made').val().split(',').map(item => item.trim());
+            //     let phieuTo = document.getElementById('phieuTo') ? document.getElementById('phieuTo').value : 'phieu1';
+            //     let dapAn = document.getElementById('dapAn') ? document.getElementById('dapAn').value : 'dap_an_1';
+
+            //     if (content && numFiles) {
+            //         let { results, files } = generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn);
+            //         displayResults(results);
+            //         extractAndExport(files);
+            //         alert('Hoán vị và ghi Excel xong!');
+            //     }
+            // });
+            $('#downloadXlsxButton').on('click', function () {
+    let content = collectContentFromTable();
+    let numFiles = document.getElementById('numFiles') ? document.getElementById('numFiles').value : null;
+    let hoanViType = document.getElementById('hoanViType') ? document.getElementById('hoanViType').value : 'ngoac';
+    let headerType = document.getElementById('headerType') ? document.getElementById('headerType').value : 'default';
+    let school = $('#school').val();
+    let teacher = $('#teacher').val();
+    let exam = $('#exam').val();
+    let subject = $('#subject').val();
+    let time = $('#time').val();
+    let made = $('#made').val().split(',').map(item => item.trim());
+    let phieuTo = document.getElementById('phieuTo') ? document.getElementById('phieuTo').value : 'phieu1';
+    let dapAn = document.getElementById('dapAn') ? document.getElementById('dapAn').value : 'dap_an_1';
+
+    if (content && numFiles) {
+        let { results, files, currentMades } = generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn);
+        displayResults(results);
+        extractAndExport(files, currentMades);
+        alert('Hoán vị và ghi Excel xong!');
+    }
+});
+
+
+            function parseFile(content, school, teacher, exam, subject, time, made, numFiles, hoanViType, headerType, phieuTo, dapAn) {
+                let sentences = content.match(/\\begin{ex}[\s\S]+?\\end{ex}/g);
+                let tableBody = $('#latexTable tbody');
+                tableBody.empty();
+
+                sentences.forEach((sentence, index) => {
+                    let idPattern = /([6-9|0-2])([A-Z])([0-9])([YBKGTNHVC])([0-9])-([0-9])/g;
+                    let ids = Array.from(sentence.matchAll(idPattern)).map(match => match[0]).join(', ');
+                    let id_meaning = "ID Ý NGHĨA";  // Thay đổi tùy theo ý nghĩa của ID
+
+                    let row = $('<tr></tr>');
+                    row.append(`<td>${index + 1}</td>`);
+                    row.append(`<td>${ids}</td>`);
+                    row.append(`<td>${id_meaning}</td>`);
+
+                    let textArea = $('<textarea class="form-control"></textarea>');
+                    textArea.val(sentence);
+                    let cell = $('<td></td>');
+                    cell.append(textArea);
+                    row.append(cell);
+
+                    let checkbox = $('<input type="checkbox">');
+                    let checkboxCell = $('<td></td>');
+                    checkboxCell.append(checkbox);
+                    row.append(checkboxCell);
+
+                    if (sentence.includes('choice') && !sentence.includes('choiceTF')) {
+                        row.css('background-color', '#FFEB3B'); // Yellow for choice
+                    } else if (sentence.includes('choiceTF')) {
+                        row.css('background-color', '#8BC34A'); // Green for choiceTF
+                    } else {
+                        row.css('background-color', '#03A9F4'); // Blue for others
+                    }
+
+                    tableBody.append(row);
+                });
+
+                $('#resultSection').show();
+            }
+
+            function collectContentFromTable() {
+                let tableBody = $('#latexTable tbody');
+                let content = '';
+
+                tableBody.find('tr').each(function () {
+                    let textArea = $(this).find('textarea');
+                    let sentence = textArea.val();
+                    content += sentence + '\n';
+                });
+
+                return content;
+            }
+
+            function displayResults(results) {
+                $('#results').empty();
+                results.forEach(function (result, index) {
+                    let resultHtml = `
+                <h3>File ${index + 1}</h3>
+                <textarea class="form-control mb-3" rows="10" readonly>${result.content}</textarea>
+                <a href="${result.download_url}" class="btn btn-success mb-3" download="hoanvi_${index + 1}.tex">Tải về file đã hoán vị</a>
+                <button class="btn btn-primary mb-3" onclick="copyToClipboard(\`${result.content.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r')}\`)">Copy nội dung</button>
+            `;
+                    $('#results').append(resultHtml);
+                });
+                $('#resultSection').show();
+            }
+
+            function copyToClipboard(text) {
+                let tempTextarea = document.createElement('textarea');
+                tempTextarea.value = text;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+                alert('Đã copy nội dung vào clipboard!');
+            }
+
+            function hoanViCacNgoacLon(noiDung) {
+                let cacVitriNgoacLon = layCacNgoacLon(noiDung).slice(0, 4);
+
+                if (cacVitriNgoacLon.length === 4) {
+                    let cacNgoacLonGoc = cacVitriNgoacLon.map(([dau, cuoi]) => noiDung.slice(dau, cuoi + 1));
+                    let cacNgoacLonHoanVi = [...cacNgoacLonGoc];
+
+                    for (let i = cacNgoacLonHoanVi.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [cacNgoacLonHoanVi[i], cacNgoacLonHoanVi[j]] = [cacNgoacLonHoanVi[j], cacNgoacLonHoanVi[i]];
+                    }
+
+                    cacNgoacLonGoc.forEach((goc, index) => {
+                        noiDung = noiDung.replace(goc, cacNgoacLonHoanVi[index]);
+                    });
+                }
+
+                return noiDung;
+            }
+
+            function hoanViNgoacLonNgauNhien(text) {
+                let sentences = text.match(/\\begin{ex}[\s\S]+?\\end{ex}/g);
+
+                let groupChoice = [];
+                let groupchoiceTF = [];
+                let groupNone = [];
+
+                sentences.forEach(sentence => {
+                    if (sentence.includes('choice') && !sentence.includes('choiceTF')) {
+                        groupChoice.push(sentence);
+                    } else if (sentence.includes('choiceTF')) {
+                        groupchoiceTF.push(sentence);
+                    } else {
+                        groupNone.push(sentence);
+                    }
+                });
+
+                function processGroup(group) {
+                    return group.map(sentence => {
+                        let indexChoice = sentence.search(/\\choice|\\choiceTF|\\choiceTFt|\\choiceTF\[t\]|\\choiceTF\[n\]/);
+                        if (indexChoice !== -1) {
+                            let noiDungTruocChoice = sentence.slice(0, indexChoice);
+                            let noiDungSauChoice = sentence.slice(indexChoice);
+                            noiDungSauChoice = hoanViCacNgoacLon(noiDungSauChoice);
+
+                            return noiDungTruocChoice + noiDungSauChoice;
+                        }
+                        return sentence;
+                    });
+                }
+
+                groupChoice = processGroup(groupChoice);
+                groupchoiceTF = processGroup(groupchoiceTF);
+                groupNone = groupNone.map(sentence => sentence);
+
+                return {
+                    groupChoice: groupChoice.join('\n'),
+                    groupchoiceTF: groupchoiceTF.join('\n'),
+                    groupNone: groupNone.join('\n'),
+                    countChoice: groupChoice.length,
+                    countchoiceTF: groupchoiceTF.length,
+                    countNone: groupNone.length
+                };
+            }
+
+            function hoanViCauTruc(text) {
+                let sentences = text.match(/\\begin{ex}[\s\S]+?\\end{ex}/g);
+
+                sentences.sort(() => Math.random() - 0.5);
+
+                let groupChoice = [];
+                let groupchoiceTF = [];
+                let groupNone = [];
+
+                sentences.forEach(sentence => {
+                    if (sentence.includes('choice') && !sentence.includes('choiceTF')) {
+                        groupChoice.push(sentence);
+                    } else if (sentence.includes('choiceTF')) {
+                        groupchoiceTF.push(sentence);
+                    } else {
+                        groupNone.push(sentence);
+                    }
+                });
+
+                function processGroup(group) {
+                    return group.map(sentence => {
+                        let indexChoice = sentence.search(/\\choice|\\motcot|\\haicot|\\choice\[2\]|\\choiceTF|\\choiceTFt|\\choiceTF\[t\]|\\choiceTF\[n\]/);
+                        if (indexChoice !== -1) {
+                            let noiDungTruocChoice = sentence.slice(0, indexChoice);
+                            let noiDungSauChoice = sentence.slice(indexChoice);
+                            noiDungSauChoice = hoanViCacNgoacLon(noiDungSauChoice);
+
+                            return noiDungTruocChoice + noiDungSauChoice;
+                        }
+                        return sentence;
+                    });
+                }
+
+                groupChoice = processGroup(groupChoice);
+                groupchoiceTF = processGroup(groupchoiceTF);
+                groupNone = processGroup(groupNone);
+
+                return {
+                    groupChoice: groupChoice.join('\n'),
+                    groupchoiceTF: groupchoiceTF.join('\n'),
+                    groupNone: groupNone.join('\n'),
+                    countChoice: groupChoice.length,
+                    countchoiceTF: groupchoiceTF.length,
+                    countNone: groupNone.length
+                };
+            }
+
+            function getHeaderContent(type, school, teacher, exam, subject, time) {
+                const headers = {
+                    default: `
+\\documentclass[12pt,a4paper]{article}
+
+\\newcommand{\\tengv}{${teacher}}
+\\newcommand{\\tenkythi}{${exam}}
+\\newcommand{\\tenmonthi}{${subject}}
+\\newcommand{\\thoigian}{${time}}
+
+`,
+                    option1: `
+\\newcommand{\\tentruong}{${school}}
+\\newcommand{\\tengv}{${teacher}}
+\\newcommand{\\tenkythi}{${exam}}
+\\newcommand{\\tenmonthi}{${subject}}
+\\newcommand{\\thoigian}{${time}}
+\\newcommand{\\tieude}[2]{
+\\noindent
+`
+                };
+
+                return headers[type] || headers['default'];
+            }
+
+            // function generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn) {
+            //     let results = [];
+            //     let headerContent = getHeaderContent(headerType, school, teacher, exam, subject, time);
+            //     const phieuToContent = `\\section*{Phiếu Tô ${phieuTo}}\n\\section*{Đáp án ${dapAn}}\n`;
+            //     let files = [];
+
+            //     for (let i = 0; i < numFiles; i++) {
+            //         let resultContent;
+            //         let hoanViKetQua;
+
+            //         if (hoanViType === 'ngoac') {
+            //             hoanViKetQua = hoanViNgoacLonNgauNhien(content);
+            //         } else if (hoanViType === 'cau_truc') {
+            //             hoanViKetQua = hoanViCauTruc(content);
+            //         } else if (hoanViType === 'giu_nguyen') {
+            //             hoanViKetQua = {
+            //                 groupChoice: content,
+            //                 groupchoiceTF: '',
+            //                 groupNone: '',
+            //                 countChoice: 0,
+            //                 countchoiceTF: 0,
+            //                 countNone: 0
+            //             };
+            //         }
+
+            //         let currentMade = made[i % made.length];
+            function generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn) {
+    let results = [];
+    let headerContent = getHeaderContent(headerType, school, teacher, exam, subject, time);
+    const phieuToContent = `\\section*{Phiếu Tô ${phieuTo}}\n\\section*{Đáp án ${dapAn}}\n`;
+    let files = [];
+    let currentMades = []; // Mảng chứa các currentMade
+
+    for (let i = 0; i < numFiles; i++) {
+        let resultContent;
+        let hoanViKetQua;
+
+        if (hoanViType === 'ngoac') {
+            hoanViKetQua = hoanViNgoacLonNgauNhien(content);
+        } else if (hoanViType === 'cau_truc') {
+            hoanViKetQua = hoanViCauTruc(content);
+        } else if (hoanViType === 'giu_nguyen') {
+            hoanViKetQua = {
+                groupChoice: content,
+                groupchoiceTF: '',
+                groupNone: '',
+                countChoice: 0,
+                countchoiceTF: 0,
+                countNone: 0
+            };
+        }
+
+        let currentMade = made[i % made.length];
+        currentMades.push(currentMade); // Lưu lại currentMade
+                    resultContent = `
+${headerContent}
+\\newcommand{\\made}{${currentMade}}
+\\begin{document}
+${phieuToContent}
+\\tieude{${hoanViKetQua.countChoice + hoanViKetQua.countchoiceTF + hoanViKetQua.countNone}}{${currentMade}}
+\\subsection*{PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến câu ${hoanViKetQua.countChoice}}. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+\\setcounter{ex}{0}
+\\Opensolutionfile{ans}[ans/ans-phanI]
+${hoanViKetQua.groupChoice}
+\\Closesolutionfile{ans}
+
+\\subsection*{PHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu ${hoanViKetQua.countchoiceTF}}. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.
+\\setcounter{ex}{0}
+\\Opensolutionfile{ans}[ans/ans-phanII]
+${hoanViKetQua.groupchoiceTF}
+\\Closesolutionfile{ans}
+
+\\subsection*{PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu ${hoanViKetQua.countNone}.}
+\\setcounter{ex}{0}
+\\Opensolutionfile{ans}[ans/ans-phanIII]
+${hoanViKetQua.groupNone}
+\\Closesolutionfile{ans}
+
+\\newpage
+\\begin{center}
+\\textbf{\\large BẢNG ĐÁP ÁN}
+\\end{center}
+\\noindent\\textbf{A. ĐÁP ÁN PHẦN I}
+\\inputansbox{10}{ans/ans-phanI}
+\\noindent\\textbf{B. ĐÁP ÁN PHẦN II}
+\\inputansbox[2]{2}{ans/ans-phanII}
+\\noindent\\textbf{C. ĐÁP ÁN PHẦN III}
+\\inputansbox[3]{6}{ans/ans-phanIII}
+\\end{document}
+`;
+
+            //         results.push({
+            //             content: resultContent,
+            //             download_url: `data:text/plain;charset=utf-8,${encodeURIComponent(resultContent)}`
+            //         });
+            //         files.push(resultContent);
+            //     }
+
+            //     return { results, files };
+            // }
+            results.push({
+            content: resultContent,
+            download_url: `data:text/plain;charset=utf-8,${encodeURIComponent(resultContent)}`
+        });
+        files.push(resultContent);
+    }
+
+    return { results, files, currentMades }; // Trả về thêm currentMades
+}
+            $('#downloadXlsxButton').on('click', function () {
+                let content = collectContentFromTable();
+                let numFiles = document.getElementById('numFiles') ? document.getElementById('numFiles').value : null;
+                let hoanViType = document.getElementById('hoanViType') ? document.getElementById('hoanViType').value : 'ngoac';
+                let headerType = document.getElementById('headerType') ? document.getElementById('headerType').value : 'default';
+                let school = $('#school').val();
+                let teacher = $('#teacher').val();
+                let exam = $('#exam').val();
+                let subject = $('#subject').val();
+                let time = $('#time').val();
+                let made = $('#made').val().split(',').map(item => item.trim());
+                let phieuTo = document.getElementById('phieuTo') ? document.getElementById('phieuTo').value : 'phieu1';
+                let dapAn = document.getElementById('dapAn') ? document.getElementById('dapAn').value : 'dap_an_1';
+
+                if (content && numFiles) {
+                    let { results, files } = generateFiles(content, numFiles, hoanViType, headerType, school, teacher, exam, subject, time, made, phieuTo, dapAn);
+                    displayResults(results);
+                    extractAndExport(files);
+                    alert('Hoán vị và ghi Excel xong!');
+                }
+            });
+        });
+    </script>
+<!-- Mẫu số 2 Chấm Thi-->
+
+
+
+</body>
+
+</html>

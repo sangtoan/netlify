@@ -1,0 +1,56 @@
+\begin{dang}{Biện luận đơn điệu của hàm đa thức trên khoảng, đoạn cho trước}
+\textbf{Nghiệm KHÔNG Đẹp}: Phương trình $y'= 0$ giải được nghiệm "đẹp": Ta thiết lập bảng xét dấu $y'$ theo các nghiệm vừa tìm \textbf{(xét hết các khả năng nghiệm trùng, nghiệm phân biệt)}.
+\end{dang}
+\begin{vd}
+Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m\in \left[-30;30 \right]$ để hàm số $f\left( x \right)=x^3+3\left( m^2-1 \right)x^2+6mx-1$ nghịch biến trên khoảng $\left( -2;1 \right)$?
+\choice
+{\True 0}
+{1}
+{31}
+{3}
+\loigiai{
+Ta có $f\left( x \right)=x^3+3\left( m^2-1 \right)x^2+6mx-1\Rightarrow f'\left( x \right)=3x^2+6\left( m^2-1 \right)x+6m$.\\
+Xét $f'\left( x \right)=0\Leftrightarrow x^2+2\left( m^2-1 \right)x+2m=0$. \hfill $(1)$.\\
+Để hàm số $f\left( x \right)$ nghịch biến trên khoảng $\left( -2;1 \right)$ thì phương trình $\left( 1 \right)$ có 2 nghiệm phân biệt và $\begin{cases} \\f'\left( -2 \right)\le 0 \\\\f'\left( 1 \right)\le 0 \end{cases}$.
+\\Ta có hệ điều kiện sau\\
+$\begin{cases} \\\Delta'=\left( m^2-1 \right)-2m > 0 \\f'\left( -2 \right)=4-4\left( m^2-1 \right)+2m\le 0 \\f'\left( 1 \right)=1+2\left( m^2-1 \right)+2m\le 0 \end{cases}$\\
+$\Leftrightarrow \begin{cases} m^2-2m-1 > 0 \\-4m^2+2m+8\le 0 \\2m^2+2m-1\le 0 \end{cases}$\\
+$\Leftrightarrow \begin{cases} \\\left[\begin{array}{l} m < 1-\sqrt{2} \\m > 1+\sqrt{2} \end{array}\right. \\\left[\begin{array}{l} m\le \dfrac{1-\sqrt{33}}{4} \\m\ge \dfrac{1+\sqrt{33}}{4} \end{array}\right. \\\dfrac{-1-\sqrt{3}}{2}\le m\le \dfrac{-1+\sqrt{3}}{2}. \end{cases}$\\
+Suy ra $\dfrac{-1-\sqrt{3}}{2}\le m\le \dfrac{1-\sqrt{33}}{4}$ mà $m\in \mathbb{Z}$ nên không tồn tại giá trị của $m$ thỏa mãn bài toán.
+}
+\end{vd}
+\begin{vd}
+Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m\in \left[-30;30 \right]$ để hàm số $f\left( x \right)=-x^3+3m^2x^2+3mx+2$ đồng biến trên đoạn $\left(1;2 \right)$?
+\choice
+{60}
+{\True 59}
+{30}
+{29}
+\loigiai{
+Ta có $f\left( x \right)=-x^3+3m^2x^2+3mx+2\Rightarrow f'\left( x \right)=-3x^2+6m^2x+3m=-3\left( x^2-2m^2x-m \right)$.\\
+Do hệ số của $x^3$ là $-1 < 0$ nên để hàm số $f\left( x \right)$ đồng biến trên $\left(;2 \right)$ thì phương trình $f'\left( x \right)=0$ có hai nghiệm phân biệt và $\begin{cases} f'\left( 1 \right)\ge 0 \\ f'\left( 2 \right)\ge 0 \end{cases}$.\\
+Từ đó ta có hệ điều kiện sau \\
+$\begin{cases} \Delta'=m^4+m > 0 \\ f'\left( 1 \right)=-3\left( -2m^2-m+1 \right)\ge 0 \\ f'\left( 2 \right)=-3\left( -4m^2-m+4 \right)\ge 0 \end{cases} $ $\Leftrightarrow \begin{cases} \left[\begin{array}{l} m < -1 \\ m > 0 \end{array}\right. \\ \left[\begin{array}{l} m\ge \dfrac{1}{2} \\ m\le -1 \end{array}\right. \\ \left[\begin{array}{l} m\ge \dfrac{-1+\sqrt{65}}{8} \\ m\le \dfrac{-1-\sqrt{65}}{8} \end{array}\right. \end{cases}\Leftrightarrow \left[\begin{array}{l} m\ge \dfrac{-1+\sqrt{65}}{8} \\ m\le \dfrac{-1-\sqrt{65}}{8}. \end{array}\right.$\\
+Mà $m\in \mathbb{Z}\cap \left[-30;30 \right]$ nên có 59 giá trị của $m$ thỏa mãn bài toán.
+}
+\end{vd}
+\begin{vd}
+		Cho hàm số $y=x^3-3(m^2+3m+3)x^2+3(m^2+1)^2x+m+2$. Gọi $S$ là tập các giá trị của tham số $m$ sao cho hàm số đồng biến trên $(1;+\infty)$. $S$ là tập hợp con của tập hợp nào sau đây?
+	\choice
+	{$(-1;+\infty)$}
+	{$(-3;2)$}
+	{$(-\infty;-2)$}
+	{\True $(-\infty;0)$}
+	\loigiai{
+		Ta có: $y'=3x^2-3\left(m^2+3m+3\right)\cdot 2x+3\left(m^2+1\right)^2$.\\
+		Khi đó: $\Delta'=9\left(m^2+3m+3\right)^2-9\cdot\left(m^2+1\right)^2 =9(3m+2)\cdot\left(2m^2+3m+4\right)$.
+		\begin{enumerate}
+		\item Nếu $\Delta'\leq 0\Leftrightarrow m\leq-\dfrac{2}{3}$. Khi đó ta có $a=3 > 0$ nên $y'\geq 0$ với mọi $x\in\mathbb{R}$. Do đó hàm số đã cho đồng biến trên $(1;+\infty)$.
+		\item Nếu $\Delta' > 0\Leftrightarrow m  > -\dfrac{2}{3}$. Khi đó $y'=0$ có hai nghiệm phân biệt $x_1$ và $x_2$.\\
+		Ta có $y' > 0\Leftrightarrow x\in(-\infty;x_1)\cup(x_2;+\infty)$ và $y' < 0\Leftrightarrow x\in(x_1;x_2)$. Do đó để hàm số đã cho đồng biến trên $(1;+\infty)$ thì $(1;+\infty)\subset(x_2;+\infty)$.\\
+		Ta có: $x_1 < x_2\leq 1\Leftrightarrow\begin{cases} \dfrac{x_1+x_2}{2} < 1\\ (x_1-1)\cdot (x_2-1)\leq 0. \end{cases}$ \\
+		Xét $\dfrac{x_1+x_2}{2} < 1\Leftrightarrow m^2+3m+3 < 1\Leftrightarrow m^2+3m+2 < 0\Leftrightarrow-2 < m  < -1$ (vô lý vì $m  > -\dfrac{2}{3}$).
+		\end{enumerate}
+		Vậy hàm số đã cho đồng biến trên $(1;+\infty)$ thì $m\leq-\dfrac{2}{3}$.
+	}
+\end{vd}

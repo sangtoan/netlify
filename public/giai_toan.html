@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải Toán</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <script defer src="giai_toan_js/giai_toan_functions.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 25%;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 75%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+        .latex-result {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Phép Toán</h2>
+        <ul>
+            <li><a onclick="showCalculation('expansion')">Khai triển đa thức</a></li>
+            <li><a onclick="showCalculation('large-number')">Tính toán số lớn</a></li>
+            <!-- Thêm các phép toán khác ở đây -->
+        </ul>
+    </div>
+    <div class="content">
+        <div id="expansion" class="calculation" style="display:none;">
+            <h2>Khai triển đa thức</h2>
+            <label for="polynomial">Nhập đa thức:</label>
+            <input type="text" id="polynomial" value="(x+y-a^3)^5">
+            <button onclick="calculateExpansion()">Tính</button>
+            <div id="expansion-result" class="result-container">
+                <h3>Kết quả:</h3>
+                <div id="rendered-result" class="latex-result"></div>
+                <div id="latex-code" class="latex-result"></div>
+            </div>
+        </div>
+        <div id="large-number" class="calculation" style="display:none;">
+            <h2>Tính toán số lớn</h2>
+            <input type="text" id="number" value="123">
+            <input type="text" id="exponent" value="1000">
+            <button onclick="calculatePower()">Tính</button>
+            <p>Kết quả: <span id="result"></span></p>
+        </div>
+        <!-- Thêm các khối nội dung khác ở đây -->
+    </div>
+</body>
+</html>

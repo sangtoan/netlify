@@ -1,0 +1,135 @@
+\section{Bài 1. Véctơ và các phép toán trong không gian}
+\subsection{Tóm tắt lý thuyết}
+\textbf{Quy Tắc Cộng}: Với ba điểm $A$, $B$, $C$ ta luôn có
+$\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$.\\
+\textbf{Quy Tắc Trừ}: Với ba điểm $A$, $B$, $C$ ta có
+$$\overrightarrow{AB}-\overrightarrow{AC}=\overrightarrow{CB}.$$
+\textbf{Quy Tắc Hình Bình Hành}: Nếu $ABCD$ là hình bình hành thì ta có
+$\overrightarrow{AB}+\overrightarrow{AD}=\overrightarrow{AC}$.\\
+\textbf{Quy Tắc Trung Tuyến}
+Cho hai điểm $A$, $B$, gọi $M$ là trung điểm $A,B$. Ta có
+\begin{itemize}
+\item $\overrightarrow{AM}+\overrightarrow{BM}=\overrightarrow{0}$
+\item Với mọi $I$, luôn có $\overrightarrow{IA}+\overrightarrow{IB}=2\overrightarrow{IM}$
+\end{itemize}
+\textbf{Quy Tắc Trọng Tâm}
+Cho tam giác $ABC$, gọi $G$ là trọng tâm. Ta có
+\begin{itemize}
+\item $\overrightarrow{AG}+\overrightarrow{BG}+\overrightarrow{CG}=\overrightarrow{0}$
+\item Với mọi $M$, luôn có $\overrightarrow{MA}+\overrightarrow{MB}+\overrightarrow{MC}=3\overrightarrow{MG}$
+\end{itemize}
+\textbf{Quy tắc hình hộp}
+Cho hình hộp $ABCD.A'B'C'D'$ ta luôn có
+$$\overrightarrow{AB}+\overrightarrow{AD}+\overrightarrow{AA'}=\overrightarrow{AC'}.$$
+\begin{dn}
+Trong không gian, cho hai véctơ $\overrightarrow{u}$ và $\overrightarrow{v}$ khác $\overrightarrow{0}$.\\
+Tích vô hướng của hai véctơ $\overrightarrow{u}$ và $\overrightarrow{v}$ là một số, kí hiệu $\overrightarrow{u} \cdot
+\overrightarrow{v}$, được xác định bởi công thức
+$\overrightarrow{u} \cdot \overrightarrow{v}=|\overrightarrow{u}| \cdot |\overrightarrow{v}| \cdot \cos
+(\overrightarrow{u}, \overrightarrow{v})$
+\end{dn}
+\begin{note}
+\begin{enumerate}
+\item Trong trường hợp $\overrightarrow{u}=0$ hoặc $\overrightarrow{v}=0$, ta quy ước $\overrightarrow{u} \cdot
+\overrightarrow{v}=0$.
+\item $\overrightarrow{u} \cdot \overrightarrow{u}=|\overrightarrow{u}|^2$; $\overrightarrow{u}^2 \geqslant 0,
+\overrightarrow{u}^2 = 0 \Leftrightarrow \overrightarrow{u}=\overrightarrow{0}$.
+\item Với hai véctơ $\overrightarrow{u}$, $\overrightarrow{v}$ khác $\overrightarrow{0}$, ta có $\cos
+(\overrightarrow{u},\overrightarrow{v}) = \dfrac{\overrightarrow{u} \cdot \overrightarrow{v}}{|\overrightarrow{u}| \cdot
+|\overrightarrow{v}|}$
+\item Với hai véctơ $\overrightarrow{u}$, $\overrightarrow{v}$ khác $\overrightarrow{0}$, ta có $\overrightarrow{u}
+\perp \overrightarrow{v} \Leftrightarrow \overrightarrow{u} \cdot \overrightarrow{v}= \overrightarrow{0}$.
+\end{enumerate}
+\end{note}
+\subsection{Ví Dụ Minh Hoạ}
+\begin{dang}{Chứng Minh Đẳng Thức Vecto}
+\end{dang} 
+    \begin{vd}%[2H2H1-2]
+    Cho hình hộp $ABCD.A'B'C'D'$. Chứng minh rằng:
+    \begin{enumerate}
+    \item $\overrightarrow{AB}+\overrightarrow{B'C'}+\overrightarrow{DD'}=\overrightarrow{AC'}$;
+    \item $\overrightarrow{DB'}+\overrightarrow{D'D}+\overrightarrow{BD'}=\overrightarrow{BB'}$;
+    \item $\overrightarrow{AC}+\overrightarrow{BA'}+\overrightarrow{DB}+\overrightarrow{C'D}=\overrightarrow{0}$.
+    \end{enumerate}
+    \loigiai{
+    <img src="khohinh/hchuong2/hinh11.png" alt="Mô tả hình ảnh" class="right-img small-size">  
+    \begin{enumerate}
+    \item Ta có \\ $\begin{aligned}
+    \overrightarrow{AB}+\overrightarrow{B'C'}+\overrightarrow{DD'}
+    &=(\overrightarrow{AB}+\overrightarrow{BB'})+\overrightarrow{B'C'} \text{ (do }
+    \overrightarrow{DD'}=\overrightarrow{BB'} \text{)} \\
+    &=\overrightarrow{AB'}+\overrightarrow{B'C'}\\
+    &=\overrightarrow{AC'}.
+    \end{aligned}$
+    \item Ta có \\$\begin{aligned}
+    \overrightarrow{DB'}+\overrightarrow{D'D}+\overrightarrow{BD'}
+    &=(\overrightarrow{DB}+\overrightarrow{DD'})+\overrightarrow{D'D}+(\overrightarrow{BD}+\overrightarrow{BB'})\\
+    &=(\overrightarrow{DB}+\overrightarrow{BD})+(\overrightarrow{DD'}+\overrightarrow{D'D})+\overrightarrow{BB'}\\
+    &=\overrightarrow{BB'}.
+    \end{aligned}$
+    \item Ta có \\$\begin{aligned}
+    \overrightarrow{AC}+\overrightarrow{BA'}+\overrightarrow{DB}+\overrightarrow{C'D}
+    &=(\overrightarrow{AD}+\overrightarrow{AB})+(\overrightarrow{BA}+\overrightarrow{BB'})+(\overrightarrow{DA}+\overrightarrow{DC})+(\overrightarrow{C'C}+\overrightarrow{C'D'})\\
+    &=(\overrightarrow{AD}+\overrightarrow{DA})+(\overrightarrow{AB}+\overrightarrow{BA})+(\overrightarrow{DC}+\overrightarrow{C'D'})+(\overrightarrow{BB'}+\overrightarrow{C'C})\\
+    &=\overrightarrow{0}.
+    \end{aligned}$
+    \end{enumerate}
+    }
+    \end{vd}
+\begin{vd}
+Cho hình bình hành $ABCD$. Gọi $S$ là một điểm không thuộc mặt phẳng chứa hình bình hành. Chứng minh rằng
+$\overrightarrow{SA}+\overrightarrow{SC}=\overrightarrow{SB}+\overrightarrow{SD}$.
+\loigiai{
+<img src="khohinh/hchuong2/hinh12.png" alt="Mô tả hình ảnh" class="right-img tiny-size">
+Gọi $O$ là giao điểm của hai đường chéo $AC$ và $BD$.\\
+Khi đó
+$\overrightarrow{SA}+\overrightarrow{SC}=2\overrightarrow{SO}$ và
+$\overrightarrow{SB}+\overrightarrow{SD}=2\overrightarrow{SO}$.\\
+Từ đó suy ra $\overrightarrow{SA}+\overrightarrow{SC}=\overrightarrow{SB}+\overrightarrow{SD}$.
+}
+\end{vd}
+\begin{vd}%[2H2H1-2]
+Cho tứ diện $ABCD$. Gọi $M$, $N$ lần lượt là trung điểm của các cạnh $AD$, $BC$; $G$ là trọng tâm của tam giác $BCD$.
+Chứng minh rằng
+\begin{enumerate}
+\item $\overrightarrow{MN}=\dfrac{1}{2}\left(\overrightarrow{AB}+\overrightarrow{DC}\right)$;
+\item $\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AD}=3\overrightarrow{AG}$.
+\end{enumerate}
+\loigiai{
+    <img src="khohinh/hchuong2/hinh4.png" alt="Mô tả hình ảnh" class="right-img small-size">  
+\begin{enumerate}
+\item Ta có $\overrightarrow{MN}=\overrightarrow{MA}+\overrightarrow{AB}+\overrightarrow{BN}$,
+$\overrightarrow{MN}=\overrightarrow{MD}+\overrightarrow{DC}+\overrightarrow{CN}$.\\
+Do đó
+$2\overrightarrow{MN}=\overrightarrow{MA}+\overrightarrow{MD}+\overrightarrow{AB}+\overrightarrow{DC}+\overrightarrow{BN}+\overrightarrow{CN}$.\\
+Vì $M$ là trung điểm $AD$ và $N$ là trung điểm $BC$ nên
+$$\overrightarrow{MA}+\overrightarrow{MD}=\overrightarrow{0} \text{ và }
+\overrightarrow{BN}+\overrightarrow{CN}=\overrightarrow{0}.$$
+Do đó $\overrightarrow{MN}=\dfrac{1}{2}\left(\overrightarrow{AB}+\overrightarrow{DC}\right)$.
+\item Ta có $\overrightarrow{AB}=\overrightarrow{AG}+\overrightarrow{GB}$,
+$\overrightarrow{AC}=\overrightarrow{AG}+\overrightarrow{GC}$,
+$\overrightarrow{AD}=\overrightarrow{AG}+\overrightarrow{GD}$.\\
+Suy ra
+$\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AD}=3\overrightarrow{AG}+\overrightarrow{GB}+\overrightarrow{GC}+\overrightarrow{GD}$.\\
+Vì $G$ là trọng tâm tam giác $BCD$ nên
+$\overrightarrow{GB}+\overrightarrow{GC}+\overrightarrow{GD}=\overrightarrow{0}$.\\
+Vậy $\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AD}=3\overrightarrow{AG}$.
+\end{enumerate}
+}
+\end{vd}
+\begin{vd}%[2H2H1-2]
+Cho hình chóp $S.ABCD$. Gọi $I$ là trọng tâm của tam giác $ABC$ và $J$ là trọng tâm tam giác $ADC$. Chứng minh rằng
+$$2\overrightarrow{SA}+\overrightarrow{SB}+2\overrightarrow{SC}+\overrightarrow{SD}=3(\overrightarrow{SI}+\overrightarrow{SJ})$$
+\loigiai{
+<img src="khohinh/hchuong2/hinh14.png" alt="Mô tả hình ảnh" class="right-img tiny-size">  
+Ta có $3\overrightarrow{SI} = \overrightarrow{SA} + \overrightarrow{SB} +\overrightarrow{SC}$.\\
+và $3\overrightarrow{SJ}=\overrightarrow{SA} + \overrightarrow{SB} + \overrightarrow{SD}$.\\
+Từ đó suy ra
+$$2\overrightarrow{SA}+\overrightarrow{SB}+2\overrightarrow{SC}+\overrightarrow{SD}=3(\overrightarrow{SI}+\overrightarrow{SJ}).$$
+}
+\end{vd}
+
+
+
+
+

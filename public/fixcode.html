@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Code</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS for the menu */
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .menu a, .dropbtn {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .menu a:hover, .dropbtn:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-left: 0;
+            background-color: #f1f1f1;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-submenu:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <div class="dropdown">
+            <span class="dropbtn">Tiện ích</span>
+            <div class="dropdown-content">
+                <a href="find_latex.html">Tìm Kiếm</a>
+                <a href="Ve_hinh.html">Vẽ Hình</a>
+                <a href="menu_tree.html">Menu ID</a>
+                <a href="symbols.html">Mathtype Latex</a>
+                <a href="contact.html">Tác Giả</a>
+                <div class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle">Menu ID</a>
+                    <div class="dropdown-content">
+                        <a href="menu_tree.html">Menu Tree</a>
+                        <a href="cay_giai_toan.html">Menu Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Fix Code</h1>
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="word2tex()">Chuyển Câu Trắc Nghiệm</button>
+            <button class="btn btn-secondary" onclick="wordtotex()">Chuyển Câu Tự Luận</button>
+            <button class="btn btn-success" onclick="fixCode()">Fix Mathpix</button>
+        </div>
+        <div class="form-group mt-3">
+            <label for="inputCode">Dán mã cần sửa:</label>
+            <textarea class="form-control" id="inputCode" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="outputCode">Kết quả sau khi sửa:</label>
+            <textarea class="form-control" id="outputCode" rows="10" readonly></textarea>
+        </div>
+    </div>
+
+    <script type="module">
+        import { wordtotex } from './wordtotex.js';
+        import { word2tex } from './word2tex.js';
+        import { fixCode } from './fixCode.js';
+        // Gắn các hàm vào window để có thể gọi từ HTML
+        window.wordtotex = wordtotex;
+        window.word2tex = word2tex;
+        window.fixCode = fixCode;
+    </script>
+</body>
+</html>

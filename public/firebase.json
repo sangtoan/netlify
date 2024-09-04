@@ -1,0 +1,24 @@
+{
+  "functions": {
+    "source": "functions",
+    "runtime": "python3.7"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "sympy_solver"
+      },
+      {
+        "source": "/1_gpt.html",
+        "destination": "/1_gpt.html"
+      }
+    ]
+  }
+}

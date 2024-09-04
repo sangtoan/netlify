@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Toán với GeoGebra</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Ensure no scrollbars */
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            width: 100%;
+            height: calc(100% - 50px); /* Adjust height to fit below the menu */
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+        <a href="menu_tree.html">Menu ID</a>
+        <a href="note.html">Ghi Chú</a>
+        <a href="symbols.html">Symbols</a>
+    </div>
+    <div class="content">
+        <iframe scrolling="no" src="https://www.geogebra.org/calculator"></iframe>
+    </div>
+</body>
+</html>

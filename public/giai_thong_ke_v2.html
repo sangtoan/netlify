@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính Thống kê</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        input, button, select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        .hide {
+            display: none;
+        }
+        canvas {
+            max-width: 100%;
+            height: 400px; /* Adjusted height for better visibility */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Máy tính Thống kê</h1>
+        <label for="dataType">Chọn loại nhập liệu:</label>
+        <select id="dataType" onchange="toggleInput()">
+            <option value="raw">Dữ liệu thô</option>
+            <option value="frequency">Dữ liệu tần số</option>
+            <option value="grouped">Dữ liệu nhóm</option>
+        </select>
+        <div id="rawInput">
+            <label for="numbers">Nhập danh sách số, cách nhau bởi dấu phẩy:</label>
+            <input type="text" id="numbers" placeholder="vd: 45,67,78,89,90,56,67,78,78,99">
+        </div>
+        <div id="frequencyInput" class="hide">
+            <label for="values">Nhập các giá trị, cách nhau bởi dấu phẩy:</label>
+            <input type="text" id="values" placeholder="vd: 45,67,78,89,90">
+            <label for="frequencies">Nhập các tần số tương ứng, cách nhau bởi dấu phẩy:</label>
+            <input type="text" id="frequencies" placeholder="vd: 1,2,3,4,5">
+        </div>
+        <div id="groupedInput" class="hide">
+            <label for="classIntervals">Nhập các lớp (khoảng), cách nhau bởi dấu phẩy:</label>
+            <input type="text" id="classIntervals" placeholder="vd: 0-10,11-20,21-30">
+            <label for="groupFrequencies">Nhập các tần số tương ứng, cách nhau bởi dấu phẩy:</label>
+            <input type="text" id="groupFrequencies" placeholder="vd: 5,10,15">
+        </div>
+        <button onclick="calculateStats()">Tính toán</button>
+        <h2>Kết quả:</h2>
+        <p>Trung bình: <span id="mean"></span></p>
+        <p>Mốt: <span id="mode"></span></p>
+        <p>Số trung vị: <span id="median"></span></p>
+        <p>Tứ phân vị thứ nhất (Q1): <span id="q1"></span></p>
+        <p>Tứ phân vị thứ ba (Q3): <span id="q3"></span></p>
+        <p>Khoảng tứ phân vị (IQR): <span id="iqr"></span></p>
+        <p>Khoảng biến thiên: <span id="range"></span></p>
+        <p>Giá trị ngoại lai: <span id="outliers"></span></p>
+        <p>Phương sai: <span id="variance"></span></p>
+        <p>Độ lệch chuẩn: <span id="stdDev"></span></p>
+        <h2>Biểu đồ:</h2>
+        <canvas id="barChart"></canvas>
+        <canvas id="lineChart"></canvas>
+    </div>
+
+    <script>
+        let barChart, lineChart;
+
+        function toggleInput() {
+            const dataType = document.getElementById('dataType').value;
+            document.getElementById('rawInput').classList.add('hide');
+            document.getElementById('frequencyInput').classList.add('hide');
+            document.getElementById('groupedInput').classList.add('hide');
+            if (dataType === 'raw') {
+                document.getElementById('rawInput').classList.remove('hide');
+            } else if (dataType === 'frequency') {
+                document.getElementById('frequencyInput').classList.remove('hide');
+            } else {
+                document.getElementById('groupedInput').classList.remove('hide');
+            }
+        }
+
+        function calculateStats() {
+            const dataType = document.getElementById('dataType').value;
+            let numbers = [];
+            let midpoints = [];
+            let frequencies = [];
+
+            if (dataType === 'raw') {
+                const input = document.getElementById('numbers').value;
+                numbers = input.split(',').map(Number).sort((a, b) => a - b);
+            } else if (dataType === 'frequency') {
+                const values = document.getElementById('values').value.split(',').map(Number);
+                frequencies = document.getElementById('frequencies').value.split(',').map(Number);
+                if (values.length !== frequencies.length || values.some(isNaN) || frequencies.some(isNaN)) {
+                    alert('Vui lòng nhập đúng định dạng số và tần số tương ứng.');
+                    return;
+                }
+                values.forEach((value, index) => {
+                    for (let i = 0; i < frequencies[index]; i++) {
+                        numbers.push(value);
+                    }
+                });
+                numbers.sort((a, b) => a - b);
+            } else if (dataType === 'grouped') {
+                const classIntervals = document.getElementById('classIntervals').value.split(',');
+                frequencies = document.getElementById('groupFrequencies').value.split(',').map(Number);
+                if (classIntervals.length !== frequencies.length || frequencies.some(isNaN)) {
+                    alert('Vui lòng nhập đúng định dạng lớp và tần số tương ứng.');
+                    return;
+                }
+                midpoints = classIntervals.map(interval => {
+                    const [lower, upper] = interval.split('-').map(Number);
+                    return (lower + upper) / 2;
+                });
+                midpoints.forEach((midpoint, index) => {
+                    for (let i = 0; i < frequencies[index]; i++) {
+                        numbers.push(midpoint);
+                    }
+                });
+                numbers.sort((a, b) => a - b);
+            }
+
+            if (numbers.length === 0 || numbers.some(isNaN)) {
+                alert('Vui lòng nhập một danh sách số hợp lệ.');
+                return;
+            }
+
+            const totalFrequency = frequencies.reduce((a, b) => a + b, 0);
+
+            // Tính trung bình
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+
+            // Tính mốt
+            const mode = numbers.reduce((acc, num) => {
+                acc[num] = (acc[num] || 0) + 1;
+                return acc;
+            }, {});
+            const maxFrequency = Math.max(...Object.values(mode));
+            const modes = Object.keys(mode).filter(key => mode[key] === maxFrequency).map(Number);
+
+            // Tính số trung vị
+            const median = (numbers.length % 2 === 0) ? 
+                (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2 : 
+                numbers[Math.floor(numbers.length / 2)];
+
+            // Tính tứ phân vị
+            const q1 = numbers[Math.floor((numbers.length / 4))];
+            const q3 = numbers[Math.floor((numbers.length * (3 / 4)))];
+            const iqr = q3 - q1;
+
+            // Tính khoảng biến thiên
+            const range = numbers[numbers.length - 1] - numbers[0];
+
+            // Tính giá trị ngoại lai
+            const lowerBound = q1 - 1.5 * iqr;
+            const upperBound = q3 + 1.5 * iqr;
+            const outliers = numbers.filter(num => num < lowerBound || num > upperBound);
+
+            // Tính phương sai
+            const variance = numbers.reduce((sum, num) => sum + Math.pow(num - mean, 2), 0) / numbers.length;
+
+            // Tính độ lệch chuẩn
+            const stdDev = Math.sqrt(variance);
+
+            // Hiển thị kết quả
+            document.getElementById('mean').textContent = mean.toFixed(2);
+            document.getElementById('mode').textContent = modes.join(', ');
+            document.getElementById('median').textContent = median.toFixed(2);
+            document.getElementById('q1').textContent = q1.toFixed(2);
+            document.getElementById('q3').textContent = q3.toFixed(2);
+            document.getElementById('iqr').textContent = iqr.toFixed(2);
+            document.getElementById('range').textContent = range.toFixed(2);
+            document.getElementById('outliers').textContent = outliers.join(', ') || 'Không có';
+            document.getElementById('variance').textContent = variance.toFixed(2);
+            document.getElementById('stdDev').textContent = stdDev.toFixed(2);
+
+            // Xóa các biểu đồ cũ trước khi vẽ biểu đồ mới
+            if (barChart) barChart.destroy();
+            if (lineChart) lineChart.destroy();
+
+            // Vẽ biểu đồ
+            drawBarChart(numbers, modes);
+            drawLineChart(numbers);
+        }
+
+        function drawBarChart(numbers, modes) {
+            const ctx = document.getElementById('barChart').getContext('2d');
+            const counts = numbers.reduce((acc, num) => {
+                acc[num] = (acc[num] || 0) + 1;
+                return acc;
+            }, {});
+            const labels = Object.keys(counts);
+            const data = Object.values(counts);
+
+            barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Tần số',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function drawLineChart(numbers) {
+            const ctx = document.getElementById('lineChart').getContext('2d');
+            const labels = numbers.map((_, index) => index + 1);
+
+            lineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Dữ liệu',
+                        data: numbers,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

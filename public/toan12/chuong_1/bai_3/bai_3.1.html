@@ -1,0 +1,320 @@
+\begin{dang}{Ứng dụng giá trị lớn nhất, giá trị nhỏ nhất của hàm số vào bài toán thực tế}
+	Để giải quyết được các bài toán ở dạng này, ta cần thực hiện các bước sau:
+	\begin{enumerate}
+	\item $\checkmark$  Phân tích giả thiết và gọi biến (chẳng hạn $x$) có liên quan.
+	\item $\checkmark$  Tìm điều kiện của $x$.
+	\item $\checkmark$  Lập hàm $f(x)$ theo giả thiết.
+	\item $\checkmark$  Tìm $\max, \min$ của $f(x)$ và kết luận.
+	\end{enumerate}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}
+	Đợt xuất khẩu gạo của tỉnh A thường kéo dài $2$ tháng ($60$ ngày). Người ta nhận thấy số lượng gạo xuất khẩu tính theo ngày thứ $t$ được xác định bởi công thức $$S(t) = \dfrac{2}{5}t^3 - 63t^2 + 3240t - 3100 \text{ (tấn), với } 1 \leq t \leq 60.$$ Hỏi trong $60$ ngày đó thì ngày thứ mấy có số lượng gạo xuất khẩu cao nhất?
+	\loigiai{
+	Xét hàm số $S(t) = \dfrac{2}{5}t^3 - 63t^2 + 3240t - 3100$ liên tục trên đoạn $[1;60]$.\\
+	Ta có $S'(t)=\dfrac{6}{5}t^2-126t+3240$. Khi đó
+	$$S'(t)=0 \Leftrightarrow \dfrac{6}{5}t^2-126t+3240=0 \Leftrightarrow \left[\begin{aligned}&t=45 \\&t=60.\end{aligned}\right.$$
+	Lại có $S(1)=\dfrac{387}{5}$, $S(45)=51575$, $S(60)=50900$.\\
+	Vậy ngày thứ $45$ tỉnh A có số lượng gạo xuất khẩu cao nhất.
+	}
+\end{vd}
+\begin{vd}%[GHK1, THPT Đội Cấn, Vĩnh Phúc, 2018-2019]%[Vũ Nguyễn Hoàng Anh, 12EX4-19]%[2D1B3-6]
+	Một vật chuyển động theo quy luật $s=\dfrac{t^3}{3}-t^2+9t$, với $t$ (giây) là khoảng thời gian tính từ lúc bắt đầu chuyển động, $s$ (mét) là quãng đường vật đi được trong thời gian đó. Hỏi trong khoảng thời gian $10$ giây, kể từ lúc bắt đầu chuyển động, vận tốc lớn nhất của vật đạt được bằng bao nhiêu?
+	\loigiai{
+	Ta có $v(t)=s'(t)=t^2-2t+9$.\\
+    Cho $v'(t)=0 \Leftrightarrow t=1$ và $v(0)=9$, $v(1)=8$, $v(10)=89$ nên $\max\limits_{[0;10]}v(t)=89$.
+	}
+\end{vd}
+\begin{vd}%[Dự án EX6-2019]%[Phạm Tuấn]%[2D1B3-6]
+	Sau khi phát hiện một bệnh dịch, các chuyên gia y tế ước tính số người nhiễm bệnh kể
+	từ ngày xuất hiện bệnh nhân đầu tiên đến ngày thứ $t$ là $f(t) =15t^2 -t^3$ (theo kết quả khảo sát
+	các năm vừa qua). Nếu xem $f'(t)$ là tốc độ truyền bệnh (người/ngày) tại thời điểm $t$, hỏi vào
+	ngày mà tốc độ truyền bệnh lớn nhất, số người nhiễm bệnh là bao nhiêu?
+	\loigiai{
+	Ta có $f'(t) = -3t^2 +30t$; $f''(t) =0 \Leftrightarrow t=5$.\\
+    Bảng biến thiên của hàm số $f'(t)$ ($t>0$).
+<img src="../../khohinh/hchuong1/hinh73.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	Vậy vào ngày tốc độ truyền bệnh lớn nhất, số người nhiễm bệnh là $f(5)=250$ người.
+	}
+\end{vd}
+\begin{vd}%[DTH, Sở GD và ĐT - Hà Nam, 2019]%[Đào-V- Thủy, 12EX5]%[2D1K3-6]
+	Ông An muốn xây một cái bể chứa nước lớn dạng một khối hộp chữ nhật không nắp có thể tích bằng $288 \mathrm{\, m^3}$. Đáy bể là hình chữ nhật có chiều dài gấp đôi chiều rộng, giá thuê nhân công để xây bể là $500000$ đồng/$\mathrm{m^2}$. Nếu ông An biết xác định các kích thước của bể hợp lí thì chi phí thuê nhân công sẽ thấp nhất. Hỏi ông An trả chi phí thấp nhất để xây dựng bể đó là bao nhiêu?
+	\loigiai{
+	Theo bài ra ta có để chi phí thuê nhân công là thấp nhất thì ta phải xây dựng bể sao cho tổng diện tích xung quanh và diện tích đáy là nhỏ nhất.\\
+	Gọi ba kích thước của bể là $a \mathrm{\, m}$, $2a \mathrm{\, m}$, $c \mathrm{\, m}$ (với $a>0$, $c>0$).\\
+	Ta có diện tích các mặt cần xây là $S= 2a^2+ 4ac+ 2ac= 2a^2+ 6ac$.\\
+	Thể tích bể là $V= a\cdot 2a\cdot c= 2a^2c= 288\Rightarrow c= \dfrac{144}{a^2}$.\\
+	Do đó $S= 2a^2+ 6a\cdot \dfrac{144}{a^2}= 2a^2+ \dfrac{864}{a}= 2a^2+ \dfrac{432}{a}+ \dfrac{432}{a}\ge 3\sqrt[3]{2a^2\cdot \dfrac{432}{a}\cdot \dfrac{432}{a}}= 216$.\\
+	Vậy chi phí thấp nhất để xây dựng bể là $216\times 500000= 108$ triệu đồng.
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{dang}{Liên Môn}
+\end{dang}
+\begin{ex}%[Thi giữa kì 1, Nhân Chính, Hà Nội, 2019]%[Đinh Thanh Hoàng, dự án 12EX-2-2019]%[2D1B3-1]
+	Một vật chuyển động theo quy luật $S = 10t^2 - \dfrac{1}{3}t^3$, với $t$(giây) là khoảng thời gian tính từ lúc vật bắt đầu chuyển động và $S$(m) là quãng đường vật đi được trong khoảng thời gian đó. Hỏi trong khoảng thời gian $15$ giây, kể từ khi vật bắt đầu chuyển động vận tốc $v$(m/s) của vật đạt giá trị lớn nhất tại thời điểm $t$(s) bằng
+	\choice
+	{$8$(s)}
+	{$20$(s)}
+	{\True $10$(s)}
+	{$15$(s)}
+	\loigiai{
+	Ta có $S(t) = 10t^2 - \dfrac{1}{3}t^3 \Rightarrow v(t) = S'(t) = 20t - t^2 = -(t - 10)^2 + 100 \leq 100$.\\
+	Đẳng thức xảy ra khi và chỉ khi $t = 10$.
+	}
+\end{ex}
+\begin{ex}%[Đề TT,Sở GD-ĐT Kiên Giang 2018]%[Hung Tran,12EX-11]%[2D1T3-6]
+Một chất điểm chuyển động có phương trình $s(t)=t^3-3t^2+9t+2$, trong đó $t>0$ với $t$ tính bằng giây (s) và $s(t)$ tính bằng mét (m). Hỏi tại thời điểm nào thì vận tốc của vật đạt giá trị nhỏ nhất?
+\choice
+{\True $t=1$\,s}
+{$t=3$\,s}
+{$t=2$\,s}
+{$t=6$\,s}
+\loigiai{
+Vận tốc tức thời $v(t)=s'(t)=3t^2-6t+9=3(t-1)^2+6\ge 6$.\\
+Vậy vận tốc của vật đạt giá trị nhỏ nhất bằng $6$ tại thời điểm $t=1$\,s.
+}
+\end{ex}
+
+
+\begin{dang}{Có Yếu Kinh Tế}
+\end{dang}
+\begin{ex}%[Thi thử L2, Quỳnh Lưu 2, Nghệ An]%[Vinh Vo, dự án EX11]%[2D1T3-6]
+	Sau khi phát hiện dịch sốt xuất huyết, các chuyên gia y tế ước tính số người nhiễm bệnh kể từ ngày xuất hiện bệnh nhân đầu tiên đế ngày thứ $ t $ là $ f(t) = 45t^2 - t^3,\ t = 0, 1, 2, \ldots, 25 $. Nếu coi $ f(t) $ là hàm số xác định trên đoạn $ [0;25] $ thì đạo hàm $ f'(t) $ được xem là tốc độ truyền bệnh (người/ngày) tại thời điểm $ t $. Xác định ngày mà tốc độ truyền bệnh là lớn nhất.
+	\choice
+	{Ngày thứ $ 5 $}
+	{Ngày thứ $ 19 $}
+	{Ngày thứ $ 16 $}
+	{\True Ngày thứ $ 15 $}
+	\loigiai{
+		Ta có $ f'(t) = -3t^2 + 90t, f''(t) = -6t + 90 $.
+		Ta có bảng biến thiên 
+        <img src="../../khohinh/hchuong1/hinh77.png" alt="Mô tả hình ảnh" class="center-img small-size">  	
+		Dựa vào bảng biến thiên, ta thấy ngày thứ $ 15 $ thì tốc độ truyền bệnh là lớn nhất.
+	}
+\end{ex}
+\begin{ex}%[KSCL, Sở GD Cần Thơ, 2018 - mã đề 232]%[Dương Phước Sang, Ex-10-2018]%[2D1T3-6]
+	Một loại thuốc được dùng cho một bệnh nhân và nồng độ thuốc trong máu của bệnh nhân được giám sát bởi bác sĩ. Biết rằng nồng độ thuốc trong máu của bệnh nhân sau khi tiêm vào cơ thể trong $t$ giờ được tính theo công thức $c(t)=\dfrac{t}{t^2+1}$ (mg/L). Sau khi tiêm thuốc bao lâu thì nồng độ thuốc trong máu của bệnh nhân cao nhất?
+	\choice
+	{$4$ giờ}
+	{\True $1$ giờ}
+	{$3$ giờ}
+	{$2$ giờ}
+	\loigiai{
+		Với $c(t)=\dfrac{t}{t^2+1}$, $t>0$ ta có $c'(t)=\dfrac{-t^2+1}{(t^2+1)^2}$. \\
+		Cho $c'(t)=0 \Leftrightarrow \dfrac{-t^2+1}{(t^2+1)^2}=0 \Leftrightarrow t=1$. \\
+		Bảng biến thiên
+        <img src="../../khohinh/hchuong1/hinh79.png" alt="Mô tả hình ảnh" class="center-img small-size"> 
+		Vậy $\max\limits_{(0;+\infty)} c(t)=\dfrac{1}{2}$ khi $t=1$. \\
+		\textbf{\underline{Cách 2}}: \\
+		Với $t>0$, ta có $t^2+1\ge 2t$. Dấu “$=$” xảy ra $ \Leftrightarrow t=1$. \\
+		Do đó, $c(t)=\dfrac{t}{t^2+1}\le \dfrac{t}{2t}=\dfrac{1}{2}$. Vậy $\max\limits_{(0;+\infty)} c(t)=\dfrac{1}{2}$ khi $t=1$.}
+\end{ex}
+\begin{ex}%[TT-Đặng Thúc Hứa- Nghệ An lần 2 - 2018]%[PhanMinhTâm, Ex10]%[2D1T3-6]
+	Độ giảm huyết áp của một bệnh nhân được cho bởi công thức $f(x)=0{,}025x^2(30-x)$, trong đó $x$ (miligam) là liều lượng thuốc được tiêm cho bệnh nhân. Khi đó liều lượng thuốc được tiêm cho bệnh nhân để huyết áp giảm nhiều nhất là
+	\choice
+	{\True $20$ miligam}
+	{$10$ miligam}
+	{$15$ miligam}
+	{$30$ miligam}
+	\loigiai{
+		Điều kiện: $0\le x\le 30$.\\
+		Ta có $f(x)=\dfrac{3}{4}x^2-\dfrac{1}{40}x^3\Rightarrow f'(x)=\dfrac{3}{2}x-\dfrac{3}{40}x^2$. Do đó,  $f'(x)=0\Leftrightarrow \hoac{&x=0\\& x=20.}$\\
+		Mà $f(0)=0; f(20)=100; f(30)=0$. \\
+		Vậy huyết áp giảm nhiều nhất khi bệnh nhân được tiêm $20$ miligam thuốc.
+	}
+\end{ex}
+\begin{ex}%[Đề KSCL lần 1 trường THPT chuyên Vĩnh Phúc, Vĩnh Phúc, năm 2018 - 2019]%[Nguyễn Tiến Thuỳ, dự án 12-EX-2-2019]%[2D1T3-6]
+	Một xe buýt của hãng xe $A$ có sức chứa tối đa $50$ hành khách. Nếu một chuyến xe buýt chở $x$ hành khách thì giá tiền cho mỗi hành khách là $20\left(3-\dfrac{x}{40}\right)^2$ (nghìn đồng). Khẳng định nào sau đây là khẳng định đúng?
+	\choice
+	{Một chiếc xe buýt thu được số tiền nhiều nhất khi có $50$ hành khách}
+	{Một chiếc xe buýt thu được số tiền nhiều nhất khi có $45$ hành khách}
+	{Một chiếc xe buýt thu được số tiền nhiều nhất bằng $2.700.000$ (đồng)}
+	{\True Một chiếc xe buýt thu được số tiền nhiều nhất bằng $3.200.000$ (đồng)}
+	\loigiai{
+		Số tiền một chuyến xe buýt thu được khi chở $x$ hành khách ($0\le x\le 50,\ x\in\mathbb{N}$) là $f(x)=20x\left(3-\dfrac{x}{40}\right)^2$.\\
+		Áp dụng bất đẳng thức $abc\le \left(\dfrac{a+b+c}{3}\right)^3$ với $a,b,c>0$, ta có
+		$$f(x)=400\cdot\dfrac{x}{20}\cdot\left(3-\dfrac{x}{40}\right)\cdot\left(3-\dfrac{x}{40}\right)\le 400\left(\dfrac{3+3}{3}\right)^3=3.200\ (\mbox{nghìn đồng}).$$
+		Dấu bằng xảy ra khi và chỉ khi $\dfrac{x}{20}=3-\dfrac{x}{40}\Leftrightarrow x=40$.
+	}
+%Bạn đã lấy 1 lần
+\end{ex}
+\begin{ex}%[HK1 lớp 12, Kỳ Anh - Hà Tĩnh, 2019]%[Huỳnh Xuân Tín, 12EX6]%[2D1T3-6]
+	Một công ty bất động sản có $50$ căn hộ cho thuê. Biết rằng nếu cho thuê mỗi căn hộ với giá $2 000 000$ đồng thì mỗi tháng mọi căn hộ đều có người thuê và cứ tăng thêm giá cho thuê mỗi căn hộ $100000$ đồng một tháng thì sẽ có $2$ căn hộ bị bỏ trống. Hỏi muốn thu nhập cao nhất thì công ty đó cho thuê mỗi căn hộ với giá bao nhiêu một tháng?
+	\choice
+	{$2 225 000$ đồng}
+	{\True $2 250000$ đồng}
+	{$2 200 000$ đồng}
+	{$2 100 000$ đồng}
+	\loigiai{Giả sử giá thuê mỗi căn hộ là 2 triệu $+x$ trăm ngàn (đồng) ($x$  dương). Khi đó, số căn hộ bị bỏ trống là $2x$. Do đó, tổng số tiền (đơn vị trăm ngàn đồng) cho thuê nhà là $$S=(50-2x)(20+x)=-2x^2+10x+1000=-2\left(x-\dfrac52\right)^2+1012{,}5\le 1012{,}5$$
+		dấu bằng xảy ra khi $x=2{,}5$ trăm ngàn đồng\\ Vậy để thu nhập cao nhất thì giá thuê mỗi căn hộ là $2 250 000$ đồng.}
+\end{ex}
+\begin{ex}%[Thi thử, Sở GD và ĐT - BRVT, 2019]%[Phan Văn Thành, 12EX8]%[2D1T3-6]
+	Một công ty bất động sản có $40$ căn hộ cho thuê. Biết rằng nếu cho thuê mỗi căn hộ với giá $3000000$ đồng một tháng thì mọi căn hộ đều có người thuê và cứ tăng thêm giá cho thuê mỗi căn hộ $100000$ đồng một tháng (theo quy định trong hợp đồng ) thì sẽ có $1$ căn hộ bị bỏ trống. Hỏi muốn có thu nhập cao nhất thì công ty đó phải cho thuê mỗi căn hộ với giá bao nhiêu một tháng.
+	\choice
+	{$ 3900000  $ đồng}
+	{$  3700000 $ đồng}
+	{\True $  3500000 $ đồng}
+	{$  4000000 $ đồng}
+	\loigiai{
+		Gọi $x$ (đồng/tháng) là số tiền tăng thêm mỗi lần ($x \geq 0$).\\  
+		Khi đó tổng số tiền công ty thu được là  
+		\begin{eqnarray*}
+			T(x)& = & (3000000 + x)\left(40 - \dfrac{x}{100000}\right)\\
+			& = & 120000000 + 10x - \dfrac{x^2}{100000}
+		\end{eqnarray*}\\
+        $\Rightarrow & T'(x) = 10 - \dfrac{x}{50000} = 0 \Leftrightarrow x = 500000.$\\
+		Vậy $\max\limits_{x \geq 0} T(x) = T(500000) = 122500000$. Vậy giá thuê mỗi căn hộ là $3500000$ đồng.
+	}
+\end{ex}
+\begin{dang}{Có Yếu Tố Hình Học 2 Chiều}
+\end{dang}
+\begin{ex}%[GHK1 Toán 12, Nguyễn Chí Thanh, HCM, 2018-2019]%[Vũ Nguyễn Hoàng Anh, 12EX2-19]%[2D1B3-6]
+	Tìm diện tích lớn nhất của hình chữ nhật nội tiếp trong nửa đường tròn có bán kính $10$ cm biết một cạnh của hình chữ nhật nằm dọc theo đường kính của hình tròn.
+<img src="../../khohinh/hchuong1/hinh74.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	\choice
+	{\True $100$ cm$^2$}
+	{$80$ cm$^2$}
+	{$160$ cm$^2$}
+	{$200$ cm$^2$}
+	\loigiai{
+	Đặt $AB=CD=x$ ($0 < x < 20$). Khi dó $AD=\sqrt{DO^2-AO^2}=\dfrac{\sqrt{400-x^2}}{2}$. Suy ra
+	\begin{align*}
+	S_{ABCD}=\dfrac{1}{2}x\sqrt{400-x^2}\le \dfrac{1}{2}\cdot \dfrac{x^2+400-x^2}{2}=100.
+	\end{align*}
+	Dấu bằng xảy ra khi $x=\sqrt{400-x^2}$ hay $x=10\sqrt{2}$. Vậy giá trị lớn nhất của diện tích hình chữ nhật $ABCD$ là $100$ cm$^2$.
+	}
+\end{ex}
+\begin{ex}%[Đề kiểm tra bán kỳ 1 Toán 12, THPT Nho Quan A Ninh Bình, 2018]%[Tuan Nguyen, Dự Án 12EX2-2019]%[2D1K3-6]
+	Một bác nông dân cần xây dựng một hố ga không nắp dạng hình hộp chữ nhật có thể tích $3200$ cm$^3$,
+	tỉ số giữa chiều cao của hố và chiều rộng của đáy bằng $2$. Hãy xác định diện tích của đáy hố ga để khi xây tiết
+	kiệm nguyên vật liệu nhất?
+	\choice{$1200$ cm$^2$}{$1600$ cm$^2$}{\True $160$ cm$^2$}{$120$ cm$^2$}
+	\loigiai{
+        <img src="../../khohinh/hchuong1/hinh75.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	Đặt chiều rộng, chiều dài của đáy và chiều cao của hố ga lần lượt là $x, y, h=2x$ ($0 < x < y$).\\
+	Khi đó ta có $x\cdot y\cdot 2x=3200 \Leftrightarrow x^2y=1600$.\\
+	Diện tích bốn thành và đáy hố ga là \\
+	$S=2yh+2xh+xy=5xy+4x^2$.\\
+	Từ $x^2y=1{,}6\Leftrightarrow y=\dfrac{1600}{x^2}$, thay vào $S$ ta có
+	$$S=\dfrac{8000}{x}+4x^2=\dfrac{4000}{x}+\dfrac{4000}{x}+4x^2\ge 3\sqrt[3]{\dfrac{4000}{x}\cdot \dfrac{4000}{x}\cdot 4x^2}=1200.$$
+	Dấu bằng xảy ra khi $x=10$ cm, $y=16$ cm.\\
+	Vậy diện tích đáy của hố ga là $160$ cm$^2$.
+	}
+\end{ex}
+\begin{ex}%[Đề KSCL Toán 12 lần 2 năm 2017 - 2018, Phan Chu Trinh, Đắk LắK]%[Cao Thành Thái, dự án 12EX-7]%[2D1T3-6]
+	Người ta cần xây một hồ chứa nước với dạng khối hộp chữ nhật không nắp có thể tích bằng $\dfrac{500}{3}$ m$^3$. Đáy hồ là hình chữ nhật có chiều dài gấp đôi chiều rộng. Giá thuê nhân công để xây hồ là $500.000$ đồng/m$^2$. Người ta xác định kích thước của hồ nước sao cho chi phí thuê nhân công thấp nhất và chi phí đó là
+	\choice
+	{$74$ triệu đồng}
+	{\True $75$ triệu đồng}
+	{$76$ triệu đồng}
+	{$77$ triệu đồng}
+	\loigiai{
+		Gọi $x$, $y$, $z \, \left(x, y, z>0\right)$ lần lượt là chiều dài, chiều rộng và chiều cao của hồ nước.\\
+		Theo giả thiết, ta có $\heva{
+			& x=2y \\ 
+			& V=xyz=\dfrac{500}{3} \\}\Leftrightarrow \heva{
+			& x=2y \\ 
+			& z=\dfrac{250}{3y^2}\cdot \\} $\\
+		Diện tích xây dựng của hồ nước là $S=xy+2xz+2yz=2y^2+6yz=2y^2+\dfrac{500}{y}\cdot $\\
+		Chi phí thuê nhân công thấp nhất khi diện tích nhỏ nhất.\\
+		Xét hàm số $f(y)=2y^2+\dfrac{500}{y}$ với $y>0$.\\
+		Ta có $f'(y)=4y-\dfrac{500}{y^2}=\dfrac{4\left(y^3-125\right)}{y^2}$; $f'(y)=0\Leftrightarrow y^3-125=0\Leftrightarrow y=5.$\\
+		Bảng biến thiên
+<img src="../../khohinh/hchuong1/hinh76.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+		Dựa vào bảng biến thiên ta thấy $S$ nhỏ nhất khi $y=5$.\\
+		Suy ra kích thước của hồ là $x=10$ m; $y=5$ m, $z=\dfrac{10}{3}$ m. Tiền thuê nhân công là $75$ triệu đồng.}
+%Bạn đã lấy 1 lần
+\end{ex}
+\begin{ex}%[Đề KSCL Toán 12 THPT năm học 2017 – 2018 sở GD và ĐT Thanh Hóa]%[Phạm Doãn Lê Bình, 12-Ex-9]%[2D1T3-6]
+Một cái ao có hình $ABCDE$ (như hình vẽ), ở giữa ao có một mảnh vườn hình tròn bán kính $10$m, người ta muốn bắc một cây cầu từ bờ $AB$ của ao đến vườn. Tính gần đúng độ dài tối thiểu $l$ của cây cầu biết:
+	\begin{itemize}
+	\item Hai bờ $AE$ và $BC$ nằm trên hai đường thẳng vuông góc với nhau, hai đường thẳng này cắt nhau tại điểm $O$;
+	\item Bờ $AB$ là một phần của một parabol có đỉnh là điểm $A$ và có trục đối xứng là đường thẳng $OA$;
+	\end{itemize}
+    <img src="../../khohinh/hchuong1/hinh81.png" alt="Mô tả hình ảnh" class="center-img small-size">
+\begin{itemize}
+	\item Độ dài đoạn $OA$ và $OB$ lần lượt là $40$m và $20$m;
+	\item Tâm $I$ của mảnh vườn cách đường thẳng $AE$ và $BC$ lần lượt là $40$m và $30$m.	
+	\end{itemize}
+\choice
+{\True $l \approx 17{,}7$m}
+{$l \approx 25{,}7$m}
+{$l \approx 27{,}7$m}
+{$l \approx 15{,}7$m}
+\loigiai{
+Ta coi một đơn vị bằng $10$m và gắn hệ trục tọa độ $Oxy$ sao cho $A,B$ lần lượt thuộc các tia $Oy,Ox$. Khi đó bờ của mảnh vườn là hình tròn $(C): (x-4)^2 + (y-3)^2 = 1$, bờ $AB$ của ao là phần parabol $(P):y=4-x^2$ ứng với $x\in[0;2]$. Bài toán trở thành tìm $M \in (C)$ và $N \in (P)$ sao cho $MN$ ngắn nhất. \\
+Ta thấy rằng để $MN$ ngắn nhất thì $M,N,I$ phải thẳng hàng với $I(4;3)$ là tâm của $(C)$.\\
+Khi đó $MN = IN - IM = IN -1$, vì vậy ta chỉ cần tìm $N \in (P)$ sao cho $IN$ ngắn nhất.
+<img src="../../khohinh/hchuong1/hinh80.png" alt="Mô tả hình ảnh" class="center-img small-size">
+ Do $N\in (P)$ nên $N\left( x; 4-x^2 \right)$ với $x\in[0;2]$.\\
+$IN^2 = (x-4)^2 +\left( 1-x^2 \right)^2 = x^4 -x^2 -8x +17$.\\
+Xét $f(x) = x^4 -x^2 -8x +17$ với $x\in [0;2]$, $f'(x) = 4x^3 -2x - 8$.\\
+$f'(x) = 0 \Leftrightarrow 4x^3 - 2x - 8 = 0 \Leftrightarrow x = x_0 \approx 1{,}392768772 \in (0;2)$.\\
+$f(0) = 17$, $f(2) = 13$, $f(x_0) \approx 7{,}68$ suy ra $\displaystyle \min \limits_{[0;2]} f(x) \approx 7{,}68$.\\
+Vậy $\min IN \approx 2{,}77$ tức là $l \approx 17{,}7$m.
+}
+\end{ex}
+\begin{ex}%[THPT Chuyên Thái Nguyên - Lần 1]%[Bùi Mạnh Tiến - EX5]%[2D1T3-6]
+		Trên một mảnh đất hình vuông có diện tích $81$ m$^2$ người ta đào một cái ao nuôi cá hình trụ (như hình vẽ) sao cho tâm của hình tròn đáy trùng với tâm của mảnh đất. Ở giữa mép ao và mép mảnh đất người ta để lại một khoảng đất trống để đi lại, biết khoảng cách nhỏ nhất giữa mép ao và mép mảnh đất là $x$ m. Giả sử chiều sâu của ao cũng là $x$ m. Tính thể tích lớn nhất $V$ của ao.
+	<img src="../../khohinh/hchuong1/hinh82.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	\choice
+	{$V=36\pi$ m$^3$}
+	{$V=27\pi$ m$^3$}
+	{\True $V=13{,}5\pi$ m$^3$}
+	{$V=72\pi$ m$^3$}
+	\loigiai
+	{
+		Gọi cạnh hình vuông là $a$. Diện tích hình vuông là $a^2=81\Rightarrow a=9$.\\
+		Bán kính hình tròn đáy là $R=\dfrac{9}{2}-x$.\\
+		Thể tích của ao là
+		\begin{align*}
+		V=x\cdot \pi \left(\dfrac{9}{2}-x\right)^2=\dfrac{\pi}{16}4x\cdot (9-2x)^2\le \dfrac{\pi}{16}\left(\dfrac{4x+9-2x+9-2x}{3}\right)^3=\dfrac{27\pi}{2}=13{,}5\pi \text{ m}^3.
+		\end{align*}
+		Dấu \lq\lq =\rq\rq \text{} xảy ra khi và chỉ khi $4x=9-2x\Leftrightarrow x=1{,}5$ m.
+	}
+\end{ex}
+\begin{dang}{Có Yếu Tố Hình Học 3 Chiều}
+\end{dang}
+\begin{ex}%[Đề thi HK2, Lương Thế Vinh, Hà Nội 2018]%[Lê Nguyễn Viết Tường]%[2D1T3-6]
+Từ một tấm tôn hình chữ nhật có kích thước $40$ cm và $60$ cm người ta cắt bỏ bốn hình vuông ở bốn góc để gập lại được một cái hộp không nấp. 
+<img src="../../khohinh/hchuong1/hinh78.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+Để thể tích hộp đó lớn nhất thì cạnh của hình vuông cắt bỏ có giá trị gần với
+\choice
+{\True $7{,}85$ cm}
+{$15$ cm}
+{$3{,}92$ cm}
+{$18$ cm}
+\loigiai{
+Gọi $x$ (cm) là độ dài của cạnh hình vuông cắt bỏ đi $(40< x < 60)$.\\
+Khi đó thể tích của chiếc hộp là $$V=(60-2x)(40-2x)x=4x^3-200x^2+2400x.$$
+Đặt $f(x)=4x^3-200x^2+2400x$.\\
+$\Rightarrow f'(x)=12x^2-400x+2400$.
+<img src="../../khohinh/hchuong1/hinh78.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+Ta có $f'(x)=0\Leftrightarrow x=\dfrac{50\pm 10\sqrt{7}}{3}$.\\
+Hàm số $f(x)$ liên tục trên $(40;60)$, đồng thời\\
+$f(40)=0=f(60)$; $f\left(\dfrac{50+10\sqrt{7}}{3}\right) \approx -2524{,}5$; $f\left(\dfrac{50-10\sqrt{7}}{3}\right)\approx 8450{,}4$.\\
+Vậy để thể tích hộp đó lớn nhất thì cạnh của hình vuông cắt bỏ là $\dfrac{50-10\sqrt{7}}{3}\approx 7{,}85$ cm.
+}
+\end{ex}
+\begin{ex}%[WTT-VD2, Thong Pro]%[2H2G1-1]
+Cho hình nón $(H)$ đỉnh $O,$ chiều cao là $h$ và mặt phẳng $(P)$ song song với mặt phẳng đáy của khối nón. Một khối nón $(T)$ có đỉnh là tâm của đường tròn đáy của $(H)$ và đáy của $(T)$ là thiết diện của $(P)$ với hình nón. Thể tích lớn nhất của $(T)$ là bao nhiêu?
+\choice
+{\True $\dfrac{4\pi R^2h}{81}$}
+{$\dfrac{4\pi R^2h}{27}$}
+{$\dfrac{\pi R^2h}{24}$}
+{$\dfrac{\pi R^2h^2}{3}$}
+\loigiai{
+<img src="../../khohinh/hchuong1/hinh84.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	Đặt: $AE = x\,(0 < x < h),\,AC = R$ \\
+	* Xét $\Delta SAC,$ có: $\dfrac{SE}{SA} = \dfrac{EN}{AC} \Leftrightarrow \dfrac{h - x}{h} = \dfrac{EN}{R} \Rightarrow EN = \dfrac{R\left(h - x \right)}{h}$ \\
+	Thể tích khối nón $(T)$ là $V = \dfrac{1}{3}\pi\cdot EN^2\cdot x = \dfrac{1}{3}\pi\cdot \dfrac{R^2}{h^2}\left(h - x \right)^2\cdot x$ \\
+	* Đặt $f(x) = (h - x)^2\cdot x,\,x \in (0;h)$ \\
+	Ta có: \\
+	$\begin{aligned} & f'\left(x \right) = 3x^2 - 4hx + h^2\\ & f'\left(x \right) = 0 \Leftrightarrow \hoac{ & x = h \notin \left(0;h \right)\\ & x = \dfrac{h}{3} \Rightarrow f\left(\dfrac{h}{3} \right) = \dfrac{4h^3}{27}}\end{aligned}$ \\
+	Bảng biến thiên của $f(x)$
+	<img src="../../khohinh/hchuong1/hinh85.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+	Vậy $V_{{\mathop{\rm m}\nolimits} ax} = \dfrac{1}{3}\pi\cdot\dfrac{R^2}{h^2}\cdot\dfrac{4}{27}{h}^3 = \dfrac{4\pi\cdot R^2h}{81} \Leftrightarrow x = \dfrac{1}{3}{h}$. \\
+}
+\end{ex}
+

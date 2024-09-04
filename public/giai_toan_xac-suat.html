@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Xác Suất Có Điều Kiện</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result, .example {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+            border-radius: 5px;
+        }
+        .example {
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+            color: #31708f;
+        }
+        .solution {
+            display: none;
+            margin-top: 10px;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"></script>
+    <script>
+        function calculateConditionalProbability() {
+            const pa = parseFloat(document.getElementById('pa').value);
+            const pb = parseFloat(document.getElementById('pb').value);
+            const pba = parseFloat(document.getElementById('pba').value);
+
+            if (isNaN(pa) || isNaN(pb) || isNaN(pba) || pa < 0 || pa > 1 || pb < 0 || pb > 1 || pba < 0 || pba > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pab = (pba * pa) / pb;
+            const resultText = `\\[ P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)} = \\frac{${pba} \\cdot ${pa}}{${pb}} = ${pab.toFixed(4)} \\]`;
+            document.getElementById('result').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result'));
+        }
+
+        function calculateTotalProbability() {
+            const pa_general = parseFloat(document.getElementById('pa_general').value);
+            const pb1 = parseFloat(document.getElementById('pb1').value);
+            const pab2 = parseFloat(document.getElementById('pab2').value);
+            const pb2 = parseFloat(document.getElementById('pb2').value);
+
+            if (isNaN(pa_general) || isNaN(pb1) || isNaN(pab2) || isNaN(pb2) || pa_general < 0 || pa_general > 1 || pb1 < 0 || pb1 > 1 || pab2 < 0 || pab2 > 1 || pb2 < 0 || pb2 > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pA = pa_general * pb1 + pab2 * pb2;
+            const resultText = `\\[ P(A) = P(A|B_1)P(B_1) + P(A|B_2)P(B_2) = ${pa_general} \\cdot ${pb1} + ${pab2} \\cdot ${pb2} = ${pA.toFixed(4)} \\]`;
+            document.getElementById('result_general').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result_general'));
+        }
+
+        function calculateTotalProbabilityB3() {
+            const pa_general = parseFloat(document.getElementById('pa_general').value);
+            const pb1 = parseFloat(document.getElementById('pb1').value);
+            const pab2 = parseFloat(document.getElementById('pab2').value);
+            const pb2 = parseFloat(document.getElementById('pb2').value);
+            const pab3 = parseFloat(document.getElementById('pab3').value);
+            const pb3 = parseFloat(document.getElementById('pb3').value);
+
+            if (isNaN(pa_general) || isNaN(pb1) || isNaN(pab2) || isNaN(pb2) || isNaN(pab3) || isNaN(pb3) || pa_general < 0 || pa_general > 1 || pb1 < 0 || pb1 > 1 || pab2 < 0 || pab2 > 1 || pb2 < 0 || pb2 > 1 || pab3 < 0 || pab3 > 1 || pb3 < 0 || pb3 > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pA = pa_general * pb1 + pab2 * pb2 + pab3 * pb3;
+            const resultText = `\\[ P(A) = P(A|B_1)P(B_1) + P(A|B_2)P(B_2) + P(A|B_3)P(B_3) = ${pa_general} \\cdot ${pb1} + ${pab2} \\cdot ${pb2} + ${pab3} \\cdot ${pb3} = ${pA.toFixed(4)} \\]`;
+            document.getElementById('result_general_b3').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result_general_b3'));
+        }
+
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Tính Xác Suất Có Điều Kiện</h1>
+        <label for="pa">Nhập P(A):</label>
+        <input type="number" id="pa" step="0.01" min="0" max="1" placeholder="Xác suất của A">
+
+        <label for="pb">Nhập P(B):</label>
+        <input type="number" id="pb" step="0.01" min="0" max="1" placeholder="Xác suất của B">
+
+        <label for="pba">Nhập P(B|A):</label>
+        <input type="number" id="pba" step="0.01" min="0" max="1" placeholder="Xác suất của B khi biết A">
+
+        <button onclick="calculateConditionalProbability()">Tính P(A|B)</button>
+
+        <div class="result" id="result"></div>
+
+        <h2>Công Thức Tổng Xác Suất</h2>
+        <p>Giả sử có các sự kiện \(B_1, B_2, \ldots, B_n\) tạo thành một phân hoạch của không gian mẫu và A là một sự kiện bất kỳ, khi đó:</p>
+        <p>\[ P(A) = \sum_{i=1}^n P(A | B_i)P(B_i) \]</p>
+
+        <div class="diagram">
+            <img src="https://via.placeholder.com/400" alt="Sơ đồ tổng xác suất" width="400">
+        </div>
+
+        <h2>Ví dụ về Tổng Xác Suất</h2>
+        <div>
+            <label for="pa_general">Nhập P(A|B1):</label>
+            <input type="number" id="pa_general" step="0.01" min="0" max="1" placeholder="Xác suất của A khi biết B1">
+
+            <label for="pb1">Nhập P(B1):</label>
+            <input type="number" id="pb1" step="0.01" min="0" max="1" placeholder="Xác suất của B1">
+
+            <label for="pab2">Nhập P(A|B2):</label>
+            <input type="number" id="pab2" step="0.01" min="0" max="1" placeholder="Xác suất của A khi biết B2">
+
+            <label for="pb2">Nhập P(B2):</label>
+            <input type="number" id="pb2" step="0.01" min="0" max="1" placeholder="Xác suất của B2">
+
+            <button onclick="calculateTotalProbability()">Tính P(A) với B1 và B2</button>
+
+            <div class="result" id="result_general"></div>
+        </div>
+        <div>
+            <label for="pab3">Nhập P(A|B3):</label>
+            <input type="number" id="pab3" step="0.01" min="0" max="1" placeholder="Xác suất của A khi biết B3">
+
+            <label for="pb3">Nhập P(B3):</label>
+            <input type="number" id="pb3" step="0.01" min="0" max="1" placeholder="Xác suất của B3">
+
+            <button onclick="calculateTotalProbabilityB3()">Tính P(A) với B1, B2 và B3</button>
+
+            <div class="result" id="result_general_b3"></div>
+        </div>
+
+        <h2>Các Ví Dụ</h2>
+
+        <!-- Ví dụ 1 -->
+        <div class="example">
+            <h3>Ví dụ 1: Kiểm tra y tế</h3>
+            <p>Một bệnh có tỉ lệ 1% trong dân số. Xét nghiệm bệnh có độ nhạy (tỉ lệ dương tính thật) là 99% và độ đặc hiệu (tỉ lệ âm tính thật) là 95%. Tính xác suất một người mắc bệnh nếu họ có kết quả xét nghiệm dương tính.</p>
+            <button onclick="toggleSolution('solution1')">Hiển Thị Giải</button>
+            <div class="solution" id="solution1">
+                <p>Giả sử:</p>
+                <p>\[ P(D) = 0.01 \]</p>
+                <p>\[ P(T^+ | D) = 0.99 \]</p>
+                <p>\[ P(T^+ | D^c) = 1 - 0.95 = 0.05 \]</p>
+                <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+                <p>\[ P(T^+) = P(T^+ | D)P(D) + P(T^+ | D^c)P(D^c) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(T^+) = 0.99 \times 0.01 + 0.05 \times 0.99 = 0.0584 \]</p>
+                <p>Bây giờ ta có thể tính xác suất một người mắc bệnh nếu họ có kết quả dương tính \( P(D | T^+) \):</p>
+                <p>\[ P(D | T^+) = \frac{P(T^+ | D) P(D)}{P(T^+)} \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(D | T^+) = \frac{0.99 \times 0.01}{0.0584} \approx 0.1695 \]</p>
+                <p>Vậy, xác suất một người mắc bệnh nếu họ có kết quả xét nghiệm dương tính là khoảng 16.95%.</p>
+            </div>
+        </div>
+        
+        <!-- Ví dụ 2 -->
+        <div class="example">
+            <h3>Ví dụ 2: Tung đồng xu</h3>
+            <p>Hai đồng xu được tung lên. Một đồng là đồng xu công bằng và đồng còn lại có 70% xác suất ra mặt ngửa. Một đồng xu được chọn ngẫu nhiên và tung lên, kết quả là ngửa. Tính xác suất đồng xu công bằng được chọn khi biết kết quả là ngửa.</p>
+            <button onclick="toggleSolution('solution2')">Hiển Thị Giải</button>
+            <div class="solution" id="solution2">
+                <p>Giả sử:</p>
+                <p>\[ P(F) = 0.5 \] (Xác suất chọn đồng xu công bằng)</p>
+                <p>\[ P(H | F) = 0.5 \] (Xác suất ra mặt ngửa khi chọn đồng xu công bằng)</p>
+                <p>\[ P(H | B) = 0.7 \] (Xác suất ra mặt ngửa khi chọn đồng xu không công bằng)</p>
+                <p>Tổng xác suất ra mặt ngửa \( P(H) \) được tính như sau:</p>
+                <p>\[ P(H) = P(H | F)P(F) + P(H | B)P(B) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(H) = 0.5 \times 0.5 + 0.7 \times 0.5 = 0.6 \]</p>
+                <p>Bây giờ ta có thể tính xác suất đồng xu công bằng được chọn khi biết kết quả là ngửa \( P(F | H) \):</p>
+                <p>\[ P(F | H) = \frac{P(H | F) P(F)}{P(H)} \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(F | H) = \frac{0.5 \times 0.5}{0.6} \approx 0.4167 \]</p>
+                <p>Vậy, xác suất đồng xu công bằng được chọn khi biết kết quả là ngửa là khoảng 41.67%.</p>
+            </div>
+        </div>
+
+        <!-- Ví dụ 3 -->
+        <div class="example">
+            <h3>Ví dụ 3: Dự báo thời tiết</h3>
+            <p>Một người dự báo thời tiết dự đoán 70% khả năng mưa. Lịch sử cho thấy 80% thời gian khi dự báo có mưa thì trời mưa, và 10% thời gian khi dự báo không có mưa thì trời vẫn mưa. Tính xác suất trời sẽ mưa khi người dự báo dự đoán có mưa.</p>
+            <button onclick="toggleSolution('solution3')">Hiển Thị Giải</button>
+            <div class="solution" id="solution3">
+                <p>Giả sử:</p>
+                <p>\[ P(R) = 0.7 \] (Xác suất dự báo có mưa)</p>
+                <p>\[ P(F^+ | R) = 0.8 \] (Xác suất trời mưa khi dự báo có mưa)</p>
+                <p>\[ P(F^+ | R^c) = 0.1 \] (Xác suất trời mưa khi dự báo không có mưa)</p>
+                <p>Tổng xác suất trời mưa \( P(F^+) \) được tính như sau:</p>
+                <p>\[ P(F^+) = P(F^+ | R)P(R) + P(F^+ | R^c)P(R^c) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(F^+) = 0.8 \times 0.7 + 0.1 \times 0.3 = 0.59 \]</p>
+                <p>Bây giờ ta có thể tính xác suất trời mưa khi người dự báo dự đoán có mưa \( P(R | F^+) \):</p>
+                <p>\[ P(R | F^+) = \frac{P(F^+ | R) P(R)}{P(F^+)} \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(R | F^+) = \frac{0.8 \times 0.7}{0.59} \approx 0.9492 \]</p>
+                <p>Vậy, xác suất trời sẽ mưa khi người dự báo dự đoán có mưa là khoảng 94.92%.</p>
+            </div>
+        </div>
+
+        <!-- Ví dụ 4 -->
+        <div class="example">
+            <h3>Ví dụ 4: Máy móc hỏng hóc</h3>
+            <p>Một nhà máy có hai máy sản xuất, máy A và máy B. Máy A sản xuất 60% sản phẩm, máy B sản xuất 40%. Máy A có 1% sản phẩm hỏng, máy B có 2% sản phẩm hỏng. Nếu một sản phẩm được chọn ngẫu nhiên là hỏng, tính xác suất sản phẩm đó được sản xuất bởi máy A.</p>
+            <button onclick="toggleSolution('solution4')">Hiển Thị Giải</button>
+            <div class="solution" id="solution4">
+                <p>Giả sử:</p>
+                <p>\[ P(A) = 0.6 \] (Xác suất sản phẩm từ máy A)</p>
+                <p>\[ P(B) = 0.4 \] (Xác suất sản phẩm từ máy B)</p>
+                <p>\[ P(H | A) = 0.01 \] (Xác suất sản phẩm hỏng từ máy A)</p>
+                <p>\[ P(H | B) = 0.02 \] (Xác suất sản phẩm hỏng từ máy B)</p>
+                <p>Tổng xác suất sản phẩm hỏng \( P(H) \) được tính như sau:</p>
+                <p>\[ P(H) = P(H | A)P(A) + P(H | B)P(B) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(H) = 0.01 \times 0.6 + 0.02 \times 0.4 = 0.014 \]</p>
+                <p>Bây giờ ta có thể tính xác suất sản phẩm hỏng từ máy A \( P(A | H) \):</p>
+                <p>\[ P(A | H) = \frac{P(H | A) P(A)}{P(H)} \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(A | H) = \frac{0.01 \times 0.6}{0.014} \approx 0.4286 \]</p>
+                <p>Vậy, xác suất sản phẩm hỏng từ máy A là khoảng 42.86%.</p>
+            </div>
+        </div>
+
+        <!-- Ví dụ 5 -->
+        <div class="example">
+            <h3>Ví dụ 5: Câu hỏi thi trắc nghiệm</h3>
+            <p>Trong một kỳ thi trắc nghiệm, xác suất để một học sinh trả lời đúng một câu hỏi là 70% nếu học sinh đó học bài và 20% nếu học sinh đó không học bài. Xác suất học sinh học bài là 60%. Nếu một học sinh trả lời đúng một câu hỏi, tính xác suất học sinh đó đã học bài.</p>
+            <button onclick="toggleSolution('solution5')">Hiển Thị Giải</button>
+            <div class="solution" id="solution5">
+                <p>Giả sử:</p>
+                <p>\[ P(H) = 0.6 \] (Xác suất học sinh học bài)</p>
+                <p>\[ P(NH) = 0.4 \] (Xác suất học sinh không học bài)</p>
+                <p>\[ P(D | H) = 0.7 \] (Xác suất trả lời đúng khi học sinh học bài)</p>
+                <p>\[ P(D | NH) = 0.2 \] (Xác suất trả lời đúng khi học sinh không học bài)</p>
+                <p>Tổng xác suất trả lời đúng \( P(D) \) được tính như sau:</p>
+                <p>\[ P(D) = P(D | H)P(H) + P(D | NH)P(NH) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(D) = 0.7 \times 0.6 + 0.2 \times 0.4 = 0.5 \]</p>
+                <p>Bây giờ ta có thể tính xác suất học sinh học bài khi trả lời đúng \( P(H | D) \):</p>
+                <p>\[ P(H | D) = \frac{P(D | H) P(H)}{P(D)} \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(H | D) = \frac{0.7 \times 0.6}{0.5} = 0.84 \]</p>
+                <p>Vậy, xác suất học sinh học bài khi trả lời đúng là khoảng 84%.</p>
+            </div>
+        </div>
+
+        <!-- Ví dụ 6 -->
+        <div class="example">
+            <h3>Ví dụ 6: Chọn kẹo</h3>
+            <p>Một hộp có 3 viên kẹo đỏ và 2 viên kẹo xanh. Một viên kẹo được chọn ngẫu nhiên và được trả lại hộp, sau đó một viên kẹo khác được chọn. Tính xác suất viên kẹo thứ hai là kẹo đỏ nếu viên kẹo đầu tiên là kẹo đỏ.</p>
+            <button onclick="toggleSolution('solution6')">Hiển Thị Giải</button>
+            <div class="solution" id="solution6">
+                <p>Giả sử:</p>
+                <p>\[ P(R1) = \frac{3}{5} \] (Xác suất chọn viên kẹo đỏ đầu tiên)</p>
+                <p>\[ P(R2 | R1) = \frac{3}{5} \] (Xác suất chọn viên kẹo đỏ thứ hai khi viên đầu tiên là đỏ)</p>
+                <p>Tổng xác suất chọn viên kẹo đỏ thứ hai \( P(R2 \cap R1) \) được tính như sau:</p>
+                <p>\[ P(R2 \cap R1) = P(R1) \cdot P(R2 | R1) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(R2 \cap R1) = \frac{3}{5} \cdot \frac{3}{5} = \frac{9}{25} \]</p>
+                <p>Vậy, xác suất viên kẹo thứ hai là kẹo đỏ nếu viên kẹo đầu tiên là kẹo đỏ là \(\frac{9}{25}\) hay 36%.</p>
+            </div>
+        </div>
+
+        <!-- Ví dụ 7 -->
+        <div class="example">
+            <h3>Ví dụ 7: Xổ số</h3>
+            <p>Một xổ số có 1000 vé, trong đó có 5 vé trúng thưởng. Một người mua 2 vé. Tính xác suất người đó trúng ít nhất 1 vé.</p>
+            <button onclick="toggleSolution('solution7')">Hiển Thị Giải</button>
+            <div class="solution" id="solution7">
+                <p>Giả sử:</p>
+                <p>\[ P(T1) = \frac{5}{1000} \] (Xác suất trúng vé thứ nhất)</p>
+                <p>\[ P(T2 | T1) = \frac{4}{999} \] (Xác suất trúng vé thứ hai khi vé thứ nhất trúng)</p>
+                <p>Tổng xác suất trúng ít nhất 1 vé \( P(T1 \cup T2) \) được tính như sau:</p>
+                <p>\[ P(T1 \cup T2) = P(T1) + P(T2) - P(T1 \cap T2) \]</p>
+                <p>Thay các giá trị vào:</p>
+                <p>\[ P(T1 \cup T2) = \frac{5}{1000} + \frac{5}{1000} - \frac{5}{1000} \cdot \frac{4}{999} \]</p>
+                <p>\[ P(T1 \cup T2) = 0.009995 \]</p>
+                <p>Vậy, xác suất người đó trúng ít nhất 1 vé là khoảng 0.9995%.</p>
+            </div>
+        </div>
+        <!-- Ví dụ 8 -->
+<div class="example">
+    <h3>Ví dụ 8: Sản xuất linh kiện</h3>
+    <p>Một nhà máy sản xuất hai loại linh kiện, loại A và loại B. Linh kiện loại A chiếm 70% sản phẩm và có xác suất bị lỗi là 2%. Linh kiện loại B chiếm 30% sản phẩm và có xác suất bị lỗi là 5%. Tính xác suất một linh kiện bị lỗi là loại A.</p>
+    <button onclick="toggleSolution('solution8')">Hiển Thị Giải</button>
+    <div class="solution" id="solution8">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.7 \] (Xác suất sản xuất linh kiện loại A)</p>
+        <p>\[ P(B) = 0.3 \] (Xác suất sản xuất linh kiện loại B)</p>
+        <p>\[ P(L | A) = 0.02 \] (Xác suất bị lỗi khi sản xuất linh kiện loại A)</p>
+        <p>\[ P(L | B) = 0.05 \] (Xác suất bị lỗi khi sản xuất linh kiện loại B)</p>
+        <p>Tổng xác suất bị lỗi \( P(L) \) được tính như sau:</p>
+        <p>\[ P(L) = P(L | A)P(A) + P(L | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L) = 0.02 \times 0.7 + 0.05 \times 0.3 = 0.014 + 0.015 = 0.029 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một linh kiện bị lỗi là loại A \( P(A | L) \):</p>
+        <p>\[ P(A | L) = \frac{P(L | A) P(A)}{P(L)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(A | L) = \frac{0.02 \times 0.7}{0.029} \approx 0.4828 \]</p>
+        <p>Vậy, xác suất một linh kiện bị lỗi là loại A là khoảng 48.28%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 9 -->
+<div class="example">
+    <h3>Ví dụ 9: Học sinh đi học</h3>
+    <p>Một trường học có 80% học sinh thường xuyên đi học. Nếu một học sinh thường xuyên đi học, xác suất đạt điểm cao là 90%. Nếu học sinh không thường xuyên đi học, xác suất đạt điểm cao là 50%. Tính xác suất một học sinh đạt điểm cao là học sinh thường xuyên đi học.</p>
+    <button onclick="toggleSolution('solution9')">Hiển Thị Giải</button>
+    <div class="solution" id="solution9">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = 0.8 \] (Xác suất học sinh thường xuyên đi học)</p>
+        <p>\[ P(NT) = 0.2 \] (Xác suất học sinh không thường xuyên đi học)</p>
+        <p>\[ P(C | T) = 0.9 \] (Xác suất đạt điểm cao khi học sinh thường xuyên đi học)</p>
+        <p>\[ P(C | NT) = 0.5 \] (Xác suất đạt điểm cao khi học sinh không thường xuyên đi học)</p>
+        <p>Tổng xác suất đạt điểm cao \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | T)P(T) + P(C | NT)P(NT) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.9 \times 0.8 + 0.5 \times 0.2 = 0.72 + 0.1 = 0.82 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một học sinh đạt điểm cao là học sinh thường xuyên đi học \( P(T | C) \):</p>
+        <p>\[ P(T | C) = \frac{P(C | T) P(T)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | C) = \frac{0.9 \times 0.8}{0.82} \approx 0.878 \]</p>
+        <p>Vậy, xác suất một học sinh đạt điểm cao là học sinh thường xuyên đi học là khoảng 87.8%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 10 -->
+<div class="example">
+    <h3>Ví dụ 10: Quảng cáo trực tuyến</h3>
+    <p>Một chiến dịch quảng cáo trực tuyến có tỷ lệ nhấp chuột (CTR) là 2%. Nếu người dùng nhấp chuột vào quảng cáo, xác suất họ mua sản phẩm là 30%. Nếu người dùng không nhấp chuột vào quảng cáo, xác suất họ mua sản phẩm là 1%. Tính xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo.</p>
+    <button onclick="toggleSolution('solution10')">Hiển Thị Giải</button>
+    <div class="solution" id="solution10">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.02 \] (Xác suất người dùng nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(KN) = 0.98 \] (Xác suất người dùng không nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(M | N) = 0.3 \] (Xác suất mua sản phẩm khi nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(M | KN) = 0.01 \] (Xác suất mua sản phẩm khi không nhấp chuột vào quảng cáo)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | N)P(N) + P(M | KN)P(KN) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.3 \times 0.02 + 0.01 \times 0.98 = 0.006 + 0.0098 = 0.0158 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo \( P(N | M) \):</p>
+        <p>\[ P(N | M) = \frac{P(M | N) P(N)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(N | M) = \frac{0.3 \times 0.02}{0.0158} \approx 0.379 \]</p>
+        <p>Vậy, xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo là khoảng 37.9%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 11 -->
+<div class="example">
+    <h3>Ví dụ 11: Khảo sát thị trường</h3>
+    <p>Một công ty khảo sát thị trường để đánh giá sản phẩm mới. Kết quả cho thấy 60% khách hàng thích sản phẩm. Trong số những khách hàng thích sản phẩm, 75% sẽ mua sản phẩm. Trong số những khách hàng không thích sản phẩm, chỉ 10% sẽ mua sản phẩm. Tính xác suất một khách hàng mua sản phẩm là khách hàng thích sản phẩm.</p>
+    <button onclick="toggleSolution('solution11')">Hiển Thị Giải</button>
+    <div class="solution" id="solution11">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = 0.6 \] (Xác suất khách hàng thích sản phẩm)</p>
+        <p>\[ P(KT) = 0.4 \] (Xác suất khách hàng không thích sản phẩm)</p>
+        <p>\[ P(M | T) = 0.75 \] (Xác suất mua sản phẩm khi thích sản phẩm)</p>
+        <p>\[ P(M | KT) = 0.1 \] (Xác suất mua sản phẩm khi không thích sản phẩm)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | T)P(T) + P(M | KT)P(KT) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.75 \times 0.6 + 0.1 \times 0.4 = 0.45 + 0.04 = 0.49 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm là khách hàng thích sản phẩm \( P(T | M) \):</p>
+        <p>\[ P(T | M) = \frac{P(M | T) P(T)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | M) = \frac{0.75 \times 0.6}{0.49} \approx 0.918 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm là khách hàng thích sản phẩm là khoảng 91.8%.</p>
+    </div>
+</div>
+<!-- Ví dụ 12 -->
+<div class="example">
+    <h3>Ví dụ 12: Bài thi toán</h3>
+    <p>Một giáo viên toán phát hiện rằng 70% học sinh trong lớp đã làm bài tập về nhà. Nếu học sinh đã làm bài tập về nhà, xác suất đạt điểm cao trong bài thi là 80%. Nếu học sinh không làm bài tập về nhà, xác suất đạt điểm cao trong bài thi là 30%. Tính xác suất một học sinh đạt điểm cao đã làm bài tập về nhà.</p>
+    <button onclick="toggleSolution('solution12')">Hiển Thị Giải</button>
+    <div class="solution" id="solution12">
+        <p>Giả sử:</p>
+        <p>\[ P(B) = 0.7 \] (Xác suất học sinh làm bài tập về nhà)</p>
+        <p>\[ P(NB) = 0.3 \] (Xác suất học sinh không làm bài tập về nhà)</p>
+        <p>\[ P(G | B) = 0.8 \] (Xác suất đạt điểm cao khi học sinh làm bài tập về nhà)</p>
+        <p>\[ P(G | NB) = 0.3 \] (Xác suất đạt điểm cao khi học sinh không làm bài tập về nhà)</p>
+        <p>Tổng xác suất đạt điểm cao \( P(G) \) được tính như sau:</p>
+        <p>\[ P(G) = P(G | B)P(B) + P(G | NB)P(NB) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(G) = 0.8 \times 0.7 + 0.3 \times 0.3 = 0.56 + 0.09 = 0.65 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một học sinh đạt điểm cao đã làm bài tập về nhà \( P(B | G) \):</p>
+        <p>\[ P(B | G) = \frac{P(G | B) P(B)}{P(G)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B | G) = \frac{0.8 \times 0.7}{0.65} \approx 0.8615 \]</p>
+        <p>Vậy, xác suất một học sinh đạt điểm cao đã làm bài tập về nhà là khoảng 86.15%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 13 -->
+<div class="example">
+    <h3>Ví dụ 13: Bệnh viện</h3>
+    <p>Một bệnh viện phát hiện rằng 5% bệnh nhân mắc một loại bệnh A. Xét nghiệm cho bệnh A có độ nhạy là 90% (xác suất dương tính thật) và độ đặc hiệu là 95% (xác suất âm tính thật). Tính xác suất một bệnh nhân có kết quả xét nghiệm dương tính mắc bệnh A.</p>
+    <button onclick="toggleSolution('solution13')">Hiển Thị Giải</button>
+    <div class="solution" id="solution13">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.05 \] (Xác suất mắc bệnh A)</p>
+        <p>\[ P(T^+ | A) = 0.9 \] (Xác suất dương tính khi mắc bệnh A)</p>
+        <p>\[ P(T^- | A^c) = 0.95 \] (Xác suất âm tính khi không mắc bệnh A)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | A^c) = 1 - 0.95 = 0.05 \] (Xác suất dương tính khi không mắc bệnh A)</p>
+        <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | A)P(A) + P(T^+ | A^c)P(A^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.9 \times 0.05 + 0.05 \times 0.95 = 0.045 + 0.0475 = 0.0925 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân có kết quả dương tính mắc bệnh A \( P(A | T^+) \):</p>
+        <p>\[ P(A | T^+) = \frac{P(T^+ | A) P(A)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(A | T^+) = \frac{0.9 \times 0.05}{0.0925} \approx 0.4865 \]</p>
+        <p>Vậy, xác suất một bệnh nhân có kết quả xét nghiệm dương tính mắc bệnh A là khoảng 48.65%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 14 -->
+<div class="example">
+    <h3>Ví dụ 14: Sản phẩm bị lỗi</h3>
+    <p>Một nhà máy sản xuất hai loại sản phẩm, loại X và loại Y. Loại X chiếm 60% tổng sản lượng và có tỷ lệ lỗi là 3%. Loại Y chiếm 40% tổng sản lượng và có tỷ lệ lỗi là 2%. Tính xác suất một sản phẩm bị lỗi là loại X.</p>
+    <button onclick="toggleSolution('solution14')">Hiển Thị Giải</button>
+    <div class="solution" id="solution14">
+        <p>Giả sử:</p>
+        <p>\[ P(X) = 0.6 \] (Xác suất sản xuất sản phẩm loại X)</p>
+        <p>\[ P(Y) = 0.4 \] (Xác suất sản xuất sản phẩm loại Y)</p>
+        <p>\[ P(L | X) = 0.03 \] (Xác suất bị lỗi khi sản xuất sản phẩm loại X)</p>
+        <p>\[ P(L | Y) = 0.02 \] (Xác suất bị lỗi khi sản xuất sản phẩm loại Y)</p>
+        <p>Tổng xác suất bị lỗi \( P(L) \) được tính như sau:</p>
+        <p>\[ P(L) = P(L | X)P(X) + P(L | Y)P(Y) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L) = 0.03 \times 0.6 + 0.02 \times 0.4 = 0.018 + 0.008 = 0.026 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sản phẩm bị lỗi là loại X \( P(X | L) \):</p>
+        <p>\[ P(X | L) = \frac{P(L | X) P(X)}{P(L)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(X | L) = \frac{0.03 \times 0.6}{0.026} \approx 0.6923 \]</p>
+        <p>Vậy, xác suất một sản phẩm bị lỗi là loại X là khoảng 69.23%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 15 -->
+<div class="example">
+    <h3>Ví dụ 15: Kết quả bầu cử</h3>
+    <p>Trong một cuộc bầu cử, có hai ứng cử viên: A và B. Ứng cử viên A có 60% cơ hội thắng cử. Nếu A thắng cử, xác suất họ thực hiện chính sách X là 80%. Nếu B thắng cử, xác suất họ thực hiện chính sách X là 30%. Tính xác suất chính sách X được thực hiện.</p>
+    <button onclick="toggleSolution('solution15')">Hiển Thị Giải</button>
+    <div class="solution" id="solution15">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.6 \] (Xác suất A thắng cử)</p>
+        <p>\[ P(B) = 0.4 \] (Xác suất B thắng cử)</p>
+        <p>\[ P(X | A) = 0.8 \] (Xác suất thực hiện chính sách X khi A thắng cử)</p>
+        <p>\[ P(X | B) = 0.3 \] (Xác suất thực hiện chính sách X khi B thắng cử)</p>
+        <p>Tổng xác suất thực hiện chính sách X \( P(X) \) được tính như sau:</p>
+        <p>\[ P(X) = P(X | A)P(A) + P(X | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(X) = 0.8 \times 0.6 + 0.3 \times 0.4 = 0.48 + 0.12 = 0.6 \]</p>
+        <p>Vậy, xác suất chính sách X được thực hiện là 60%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 16 -->
+<div class="example">
+    <h3>Ví dụ 16: Hiệu suất làm việc</h3>
+    <p>Một công ty có 70% nhân viên là người có kinh nghiệm. Trong số nhân viên có kinh nghiệm, 90% hoàn thành công việc đúng hạn. Trong số nhân viên không có kinh nghiệm, chỉ 50% hoàn thành công việc đúng hạn. Tính xác suất một nhân viên hoàn thành công việc đúng hạn là nhân viên có kinh nghiệm.</p>
+    <button onclick="toggleSolution('solution16')">Hiển Thị Giải</button>
+    <div class="solution" id="solution16">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.7 \] (Xác suất nhân viên có kinh nghiệm)</p>
+        <p>\[ P(NE) = 0.3 \] (Xác suất nhân viên không có kinh nghiệm)</p>
+        <p>\[ P(O | E) = 0.9 \] (Xác suất hoàn thành công việc đúng hạn khi có kinh nghiệm)</p>
+        <p>\[ P(O | NE) = 0.5 \] (Xác suất hoàn thành công việc đúng hạn khi không có kinh nghiệm)</p>
+        <p>Tổng xác suất hoàn thành công việc đúng hạn \( P(O) \) được tính như sau:</p>
+        <p>\[ P(O) = P(O | E)P(E) + P(O | NE)P(NE) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(O) = 0.9 \times 0.7 + 0.5 \times 0.3 = 0.63 + 0.15 = 0.78 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một nhân viên hoàn thành công việc đúng hạn là nhân viên có kinh nghiệm \( P(E | O) \):</p>
+        <p>\[ P(E | O) = \frac{P(O | E) P(E)}{P(O)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E | O) = \frac{0.9 \times 0.7}{0.78} \approx 0.8077 \]</p>
+        <p>Vậy, xác suất một nhân viên hoàn thành công việc đúng hạn là nhân viên có kinh nghiệm là khoảng 80.77%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 17 -->
+<div class="example">
+    <h3>Ví dụ 17: Thử nghiệm thuốc</h3>
+    <p>Một loại thuốc mới có tỷ lệ thành công là 85% đối với bệnh nhân mắc bệnh X. Trong một thử nghiệm lâm sàng, 60% bệnh nhân được tiêm thuốc này. Tính xác suất một bệnh nhân khỏi bệnh là bệnh nhân được tiêm thuốc.</p>
+    <button onclick="toggleSolution('solution17')">Hiển Thị Giải</button>
+    <div class="solution" id="solution17">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = 0.6 \] (Xác suất bệnh nhân được tiêm thuốc)</p>
+        <p>\[ P(NT) = 0.4 \] (Xác suất bệnh nhân không được tiêm thuốc)</p>
+        <p>\[ P(S | T) = 0.85 \] (Xác suất khỏi bệnh khi được tiêm thuốc)</p>
+        <p>\[ P(S | NT) = 0.1 \] (Xác suất khỏi bệnh khi không được tiêm thuốc)</p>
+        <p>Tổng xác suất khỏi bệnh \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | T)P(T) + P(S | NT)P(NT) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.85 \times 0.6 + 0.1 \times 0.4 = 0.51 + 0.04 = 0.55 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân khỏi bệnh là bệnh nhân được tiêm thuốc \( P(T | S) \):</p>
+        <p>\[ P(T | S) = \frac{P(S | T) P(T)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | S) = \frac{0.85 \times 0.6}{0.55} \approx 0.9273 \]</p>
+        <p>Vậy, xác suất một bệnh nhân khỏi bệnh là bệnh nhân được tiêm thuốc là khoảng 92.73%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 18 -->
+<div class="example">
+    <h3>Ví dụ 18: Khả năng thắng trong trò chơi</h3>
+    <p>Một trò chơi có 40% khả năng thắng. Nếu một người chơi thắng, xác suất họ chơi tiếp là 60%. Nếu họ thua, xác suất họ chơi tiếp là 30%. Tính xác suất một người chơi tiếp tục trò chơi là họ đã thắng trò chơi.</p>
+    <button onclick="toggleSolution('solution18')">Hiển Thị Giải</button>
+    <div class="solution" id="solution18">
+        <p>Giả sử:</p>
+        <p>\[ P(W) = 0.4 \] (Xác suất thắng trò chơi)</p>
+        <p>\[ P(L) = 0.6 \] (Xác suất thua trò chơi)</p>
+        <p>\[ P(C | W) = 0.6 \] (Xác suất chơi tiếp khi thắng trò chơi)</p>
+        <p>\[ P(C | L) = 0.3 \] (Xác suất chơi tiếp khi thua trò chơi)</p>
+        <p>Tổng xác suất chơi tiếp \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | W)P(W) + P(C | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.6 \times 0.4 + 0.3 \times 0.6 = 0.24 + 0.18 = 0.42 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người chơi tiếp tục trò chơi là họ đã thắng trò chơi \( P(W | C) \):</p>
+        <p>\[ P(W | C) = \frac{P(C | W) P(W)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(W | C) = \frac{0.6 \times 0.4}{0.42} \approx 0.5714 \]</p>
+        <p>Vậy, xác suất một người chơi tiếp tục trò chơi là họ đã thắng trò chơi là khoảng 57.14%.</p>
+    </div>
+</div>
+<!-- Ví dụ 19 -->
+<div class="example">
+    <h3>Ví dụ 19: Tỷ lệ chuyển đổi quảng cáo</h3>
+    <p>Một công ty quảng cáo nhận thấy rằng tỷ lệ chuyển đổi từ quảng cáo của họ là 5%. Nếu một khách hàng nhìn thấy quảng cáo, xác suất họ nhấp vào quảng cáo là 10%. Nếu không nhấp vào quảng cáo, xác suất họ chuyển đổi là 1%. Tính xác suất một khách hàng chuyển đổi là họ đã nhấp vào quảng cáo.</p>
+    <button onclick="toggleSolution('solution19')">Hiển Thị Giải</button>
+    <div class="solution" id="solution19">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.1 \] (Xác suất nhấp vào quảng cáo)</p>
+        <p>\[ P(KN) = 0.9 \] (Xác suất không nhấp vào quảng cáo)</p>
+        <p>\[ P(C | N) = 0.5 \] (Xác suất chuyển đổi khi nhấp vào quảng cáo)</p>
+        <p>\[ P(C | KN) = 0.01 \] (Xác suất chuyển đổi khi không nhấp vào quảng cáo)</p>
+        <p>Tổng xác suất chuyển đổi \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | N)P(N) + P(C | KN)P(KN) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.5 \times 0.1 + 0.01 \times 0.9 = 0.05 + 0.009 = 0.059 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng chuyển đổi là họ đã nhấp vào quảng cáo \( P(N | C) \):</p>
+        <p>\[ P(N | C) = \frac{P(C | N) P(N)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(N | C) = \frac{0.5 \times 0.1}{0.059} \approx 0.8475 \]</p>
+        <p>Vậy, xác suất một khách hàng chuyển đổi là họ đã nhấp vào quảng cáo là khoảng 84.75%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 20 -->
+<div class="example">
+    <h3>Ví dụ 20: Thời tiết</h3>
+    <p>Dự báo thời tiết dự đoán có 40% khả năng mưa ngày mai. Nếu trời mưa, xác suất đường bị ngập là 70%. Nếu không mưa, xác suất đường bị ngập là 10%. Tính xác suất đường bị ngập ngày mai.</p>
+    <button onclick="toggleSolution('solution20')">Hiển Thị Giải</button>
+    <div class="solution" id="solution20">
+        <p>Giả sử:</p>
+        <p>\[ P(M) = 0.4 \] (Xác suất trời mưa)</p>
+        <p>\[ P(NM) = 0.6 \] (Xác suất không mưa)</p>
+        <p>\[ P(F | M) = 0.7 \] (Xác suất đường ngập khi trời mưa)</p>
+        <p>\[ P(F | NM) = 0.1 \] (Xác suất đường ngập khi không mưa)</p>
+        <p>Tổng xác suất đường ngập \( P(F) \) được tính như sau:</p>
+        <p>\[ P(F) = P(F | M)P(M) + P(F | NM)P(NM) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(F) = 0.7 \times 0.4 + 0.1 \times 0.6 = 0.28 + 0.06 = 0.34 \]</p>
+        <p>Vậy, xác suất đường bị ngập ngày mai là 34%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 21 -->
+<div class="example">
+    <h3>Ví dụ 21: Chẩn đoán bệnh</h3>
+    <p>Một bệnh viện sử dụng một xét nghiệm để chẩn đoán một bệnh hiếm gặp. Xét nghiệm có độ nhạy là 95% và độ đặc hiệu là 98%. Tỷ lệ mắc bệnh trong dân số là 0.5%. Tính xác suất một người có kết quả dương tính thực sự mắc bệnh.</p>
+    <button onclick="toggleSolution('solution21')">Hiển Thị Giải</button>
+    <div class="solution" id="solution21">
+        <p>Giả sử:</p>
+        <p>\[ P(D) = 0.005 \] (Xác suất mắc bệnh)</p>
+        <p>\[ P(T^+ | D) = 0.95 \] (Xác suất dương tính khi mắc bệnh)</p>
+        <p>\[ P(T^- | D^c) = 0.98 \] (Xác suất âm tính khi không mắc bệnh)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | D^c) = 1 - 0.98 = 0.02 \] (Xác suất dương tính khi không mắc bệnh)</p>
+        <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | D)P(D) + P(T^+ | D^c)P(D^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.95 \times 0.005 + 0.02 \times 0.995 = 0.00475 + 0.0199 = 0.02465 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người có kết quả dương tính thực sự mắc bệnh \( P(D | T^+) \):</p>
+        <p>\[ P(D | T^+) = \frac{P(T^+ | D) P(D)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D | T^+) = \frac{0.95 \times 0.005}{0.02465} \approx 0.1928 \]</p>
+        <p>Vậy, xác suất một người có kết quả dương tính thực sự mắc bệnh là khoảng 19.28%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 22 -->
+<div class="example">
+    <h3>Ví dụ 22: Điểm thi</h3>
+    <p>Trong một kỳ thi, 70% học sinh ôn bài kỹ và 30% học sinh không ôn bài. Nếu học sinh ôn bài kỹ, xác suất đạt điểm cao là 90%. Nếu không ôn bài, xác suất đạt điểm cao là 40%. Tính xác suất một học sinh đạt điểm cao là học sinh ôn bài kỹ.</p>
+    <button onclick="toggleSolution('solution22')">Hiển Thị Giải</button>
+    <div class="solution" id="solution22">
+        <p>Giả sử:</p>
+        <p>\[ P(K) = 0.7 \] (Xác suất ôn bài kỹ)</p>
+        <p>\[ P(NK) = 0.3 \] (Xác suất không ôn bài)</p>
+        <p>\[ P(G | K) = 0.9 \] (Xác suất đạt điểm cao khi ôn bài kỹ)</p>
+        <p>\[ P(G | NK) = 0.4 \] (Xác suất đạt điểm cao khi không ôn bài)</p>
+        <p>Tổng xác suất đạt điểm cao \( P(G) \) được tính như sau:</p>
+        <p>\[ P(G) = P(G | K)P(K) + P(G | NK)P(NK) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(G) = 0.9 \times 0.7 + 0.4 \times 0.3 = 0.63 + 0.12 = 0.75 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một học sinh đạt điểm cao là học sinh ôn bài kỹ \( P(K | G) \):</p>
+        <p>\[ P(K | G) = \frac{P(G | K) P(K)}{P(G)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(K | G) = \frac{0.9 \times 0.7}{0.75} = 0.84 \]</p>
+        <p>Vậy, xác suất một học sinh đạt điểm cao là học sinh ôn bài kỹ là khoảng 84%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 23 -->
+<div class="example">
+    <h3>Ví dụ 23: Kiểm tra hàng hóa</h3>
+    <p>Một công ty kiểm tra chất lượng hàng hóa. Họ phát hiện rằng 3% sản phẩm bị lỗi. Kiểm tra chất lượng có độ nhạy là 90% và độ đặc hiệu là 95%. Tính xác suất một sản phẩm có kết quả kiểm tra dương tính là sản phẩm bị lỗi.</p>
+    <button onclick="toggleSolution('solution23')">Hiển Thị Giải</button>
+    <div class="solution" id="solution23">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.03 \] (Xác suất sản phẩm bị lỗi)</p>
+        <p>\[ P(T^+ | L) = 0.9 \] (Xác suất dương tính khi sản phẩm bị lỗi)</p>
+        <p>\[ P(T^- | L^c) = 0.95 \] (Xác suất âm tính khi sản phẩm không bị lỗi)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | L^c) = 1 - 0.95 = 0.05 \] (Xác suất dương tính khi sản phẩm không bị lỗi)</p>
+        <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | L)P(L) + P(T^+ | L^c)P(L^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.9 \times 0.03 + 0.05 \times 0.97 = 0.027 + 0.0485 = 0.0755 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sản phẩm có kết quả kiểm tra dương tính là sản phẩm bị lỗi \( P(L | T^+) \):</p>
+        <p>\[ P(L | T^+) = \frac{P(T^+ | L) P(L)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L | T^+) = \frac{0.9 \times 0.03}{0.0755} \approx 0.3576 \]</p>
+        <p>Vậy, xác suất một sản phẩm có kết quả kiểm tra dương tính là sản phẩm bị lỗi là khoảng 35.76%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 24 -->
+<div class="example">
+    <h3>Ví dụ 24: Quản lý rủi ro</h3>
+    <p>Một công ty bảo hiểm ước tính rằng 10% khách hàng của họ có nguy cơ cao xảy ra tai nạn. Trong số khách hàng có nguy cơ cao, 20% sẽ nộp đơn yêu cầu bồi thường. Trong số khách hàng có nguy cơ thấp, chỉ 5% sẽ nộp đơn yêu cầu bồi thường. Tính xác suất một khách hàng nộp đơn yêu cầu bồi thường là khách hàng có nguy cơ cao.</p>
+    <button onclick="toggleSolution('solution24')">Hiển Thị Giải</button>
+    <div class="solution" id="solution24">
+        <p>Giả sử:</p>
+        <p>\[ P(HR) = 0.1 \] (Xác suất khách hàng có nguy cơ cao)</p>
+        <p>\[ P(LR) = 0.9 \] (Xác suất khách hàng có nguy cơ thấp)</p>
+        <p>\[ P(C | HR) = 0.2 \] (Xác suất nộp đơn yêu cầu bồi thường khi có nguy cơ cao)</p>
+        <p>\[ P(C | LR) = 0.05 \] (Xác suất nộp đơn yêu cầu bồi thường khi có nguy cơ thấp)</p>
+        <p>Tổng xác suất nộp đơn yêu cầu bồi thường \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | HR)P(HR) + P(C | LR)P(LR) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.2 \times 0.1 + 0.05 \times 0.9 = 0.02 + 0.045 = 0.065 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng nộp đơn yêu cầu bồi thường là khách hàng có nguy cơ cao \( P(HR | C) \):</p>
+        <p>\[ P(HR | C) = \frac{P(C | HR) P(HR)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(HR | C) = \frac{0.2 \times 0.1}{0.065} \approx 0.3077 \]</p>
+        <p>Vậy, xác suất một khách hàng nộp đơn yêu cầu bồi thường là khách hàng có nguy cơ cao là khoảng 30.77%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 25 -->
+<div class="example">
+    <h3>Ví dụ 25: Kết quả đầu tư</h3>
+    <p>Một nhà đầu tư có 70% cơ hội thành công khi đầu tư vào cổ phiếu và 30% cơ hội thành công khi đầu tư vào trái phiếu. Xác suất nhà đầu tư chọn cổ phiếu là 60% và chọn trái phiếu là 40%. Tính xác suất nhà đầu tư thành công khi biết họ đã chọn cổ phiếu.</p>
+    <button onclick="toggleSolution('solution25')">Hiển Thị Giải</button>
+    <div class="solution" id="solution25">
+        <p>Giả sử:</p>
+        <p>\[ P(C) = 0.6 \] (Xác suất chọn cổ phiếu)</p>
+        <p>\[ P(B) = 0.4 \] (Xác suất chọn trái phiếu)</p>
+        <p>\[ P(S | C) = 0.7 \] (Xác suất thành công khi chọn cổ phiếu)</p>
+        <p>\[ P(S | B) = 0.3 \] (Xác suất thành công khi chọn trái phiếu)</p>
+        <p>Tổng xác suất thành công \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | C)P(C) + P(S | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.7 \times 0.6 + 0.3 \times 0.4 = 0.42 + 0.12 = 0.54 \]</p>
+        <p>Bây giờ ta có thể tính xác suất nhà đầu tư thành công khi biết họ đã chọn cổ phiếu \( P(C | S) \):</p>
+        <p>\[ P(C | S) = \frac{P(S | C) P(C)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C | S) = \frac{0.7 \times 0.6}{0.54} \approx 0.7778 \]</p>
+        <p>Vậy, xác suất nhà đầu tư thành công khi biết họ đã chọn cổ phiếu là khoảng 77.78%.</p>
+    </div>
+</div>
+<!-- Ví dụ 26 -->
+<div class="example">
+    <h3>Ví dụ 26: Kiểm tra sản phẩm</h3>
+    <p>Một công ty sản xuất hai loại sản phẩm, loại A và loại B. Loại A chiếm 70% sản phẩm và loại B chiếm 30% sản phẩm. Loại A có 1% sản phẩm bị lỗi, trong khi loại B có 2% sản phẩm bị lỗi. Nếu một sản phẩm bị lỗi được chọn ngẫu nhiên, tính xác suất nó là sản phẩm loại A.</p>
+    <button onclick="toggleSolution('solution26')">Hiển Thị Giải</button>
+    <div class="solution" id="solution26">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.7 \] (Xác suất sản xuất sản phẩm loại A)</p>
+        <p>\[ P(B) = 0.3 \] (Xác suất sản xuất sản phẩm loại B)</p>
+        <p>\[ P(L | A) = 0.01 \] (Xác suất sản phẩm bị lỗi khi sản xuất loại A)</p>
+        <p>\[ P(L | B) = 0.02 \] (Xác suất sản phẩm bị lỗi khi sản xuất loại B)</p>
+        <p>Tổng xác suất sản phẩm bị lỗi \( P(L) \) được tính như sau:</p>
+        <p>\[ P(L) = P(L | A)P(A) + P(L | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L) = 0.01 \times 0.7 + 0.02 \times 0.3 = 0.007 + 0.006 = 0.013 \]</p>
+        <p>Bây giờ ta có thể tính xác suất sản phẩm bị lỗi là loại A \( P(A | L) \):</p>
+        <p>\[ P(A | L) = \frac{P(L | A) P(A)}{P(L)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(A | L) = \frac{0.01 \times 0.7}{0.013} \approx 0.5385 \]</p>
+        <p>Vậy, xác suất sản phẩm bị lỗi là loại A là khoảng 53.85%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 27 -->
+<div class="example">
+    <h3>Ví dụ 27: Phát hiện lỗi trong phần mềm</h3>
+    <p>Một công ty phần mềm ước tính rằng 2% mã nguồn của họ chứa lỗi. Một công cụ phát hiện lỗi có độ nhạy 95% và độ đặc hiệu 90%. Tính xác suất một đoạn mã có lỗi khi nó bị công cụ phát hiện lỗi.</p>
+    <button onclick="toggleSolution('solution27')">Hiển Thị Giải</button>
+    <div class="solution" id="solution27">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.02 \] (Xác suất đoạn mã có lỗi)</p>
+        <p>\[ P(T^+ | E) = 0.95 \] (Xác suất công cụ phát hiện lỗi khi đoạn mã có lỗi)</p>
+        <p>\[ P(T^- | E^c) = 0.9 \] (Xác suất công cụ không phát hiện lỗi khi đoạn mã không có lỗi)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | E^c) = 1 - 0.9 = 0.1 \] (Xác suất công cụ phát hiện lỗi khi đoạn mã không có lỗi)</p>
+        <p>Tổng xác suất phát hiện lỗi \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | E)P(E) + P(T^+ | E^c)P(E^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.95 \times 0.02 + 0.1 \times 0.98 = 0.019 + 0.098 = 0.117 \]</p>
+        <p>Bây giờ ta có thể tính xác suất đoạn mã có lỗi khi công cụ phát hiện lỗi \( P(E | T^+) \):</p>
+        <p>\[ P(E | T^+) = \frac{P(T^+ | E) P(E)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E | T^+) = \frac{0.95 \times 0.02}{0.117} \approx 0.1624 \]</p>
+        <p>Vậy, xác suất đoạn mã có lỗi khi công cụ phát hiện lỗi là khoảng 16.24%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 28 -->
+<div class="example">
+    <h3>Ví dụ 28: Dự báo thời tiết</h3>
+    <p>Một người dự báo thời tiết dự đoán 60% khả năng có mưa. Lịch sử cho thấy rằng khi dự báo có mưa, xác suất trời mưa là 80%, và khi không dự báo mưa, xác suất trời mưa là 20%. Tính xác suất trời mưa khi dự báo mưa.</p>
+    <button onclick="toggleSolution('solution28')">Hiển Thị Giải</button>
+    <div class="solution" id="solution28">
+        <p>Giả sử:</p>
+        <p>\[ P(F) = 0.6 \] (Xác suất dự báo có mưa)</p>
+        <p>\[ P(NF) = 0.4 \] (Xác suất không dự báo mưa)</p>
+        <p>\[ P(R | F) = 0.8 \] (Xác suất trời mưa khi dự báo có mưa)</p>
+        <p>\[ P(R | NF) = 0.2 \] (Xác suất trời mưa khi không dự báo mưa)</p>
+        <p>Tổng xác suất trời mưa \( P(R) \) được tính như sau:</p>
+        <p>\[ P(R) = P(R | F)P(F) + P(R | NF)P(NF) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R) = 0.8 \times 0.6 + 0.2 \times 0.4 = 0.48 + 0.08 = 0.56 \]</p>
+        <p>Bây giờ ta có thể tính xác suất trời mưa khi dự báo mưa \( P(F | R) \):</p>
+        <p>\[ P(F | R) = \frac{P(R | F) P(F)}{P(R)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(F | R) = \frac{0.8 \times 0.6}{0.56} \approx 0.8571 \]</p>
+        <p>Vậy, xác suất trời mưa khi dự báo mưa là khoảng 85.71%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 29 -->
+<div class="example">
+    <h3>Ví dụ 29: Hiệu quả tiếp thị</h3>
+    <p>Một chiến dịch tiếp thị gửi email đến khách hàng và thu được 5% tỷ lệ phản hồi. Nếu khách hàng phản hồi, xác suất họ mua sản phẩm là 60%. Nếu khách hàng không phản hồi, xác suất họ mua sản phẩm là 10%. Tính xác suất một khách hàng mua sản phẩm đã phản hồi email.</p>
+    <button onclick="toggleSolution('solution29')">Hiển Thị Giải</button>
+    <div class="solution" id="solution29">
+        <p>Giả sử:</p>
+        <p>\[ P(R) = 0.05 \] (Xác suất khách hàng phản hồi email)</p>
+        <p>\[ P(NR) = 0.95 \] (Xác suất khách hàng không phản hồi email)</p>
+        <p>\[ P(M | R) = 0.6 \] (Xác suất mua sản phẩm khi khách hàng phản hồi email)</p>
+        <p>\[ P(M | NR) = 0.1 \] (Xác suất mua sản phẩm khi khách hàng không phản hồi email)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | R)P(R) + P(M | NR)P(NR) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.6 \times 0.05 + 0.1 \times 0.95 = 0.03 + 0.095 = 0.125 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm đã phản hồi email \( P(R | M) \):</p>
+        <p>\[ P(R | M) = \frac{P(M | R) P(R)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R | M) = \frac{0.6 \times 0.05}{0.125} = 0.24 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm đã phản hồi email là khoảng 24%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 30 -->
+<div class="example">
+    <h3>Ví dụ 30: Chọn bánh kẹo</h3>
+    <p>Một hộp có 4 viên kẹo dâu và 6 viên kẹo cam. Một viên kẹo được chọn ngẫu nhiên và được trả lại hộp, sau đó một viên kẹo khác được chọn. Tính xác suất viên kẹo thứ hai là kẹo dâu nếu viên kẹo đầu tiên là kẹo cam.</p>
+    <button onclick="toggleSolution('solution30')">Hiển Thị Giải</button>
+    <div class="solution" id="solution30">
+        <p>Giả sử:</p>
+        <p>\[ P(C1) = \frac{6}{10} \] (Xác suất chọn viên kẹo cam đầu tiên)</p>
+        <p>\[ P(D2 | C1) = \frac{4}{10} \] (Xác suất chọn viên kẹo dâu thứ hai khi viên đầu tiên là cam)</p>
+        <p>Tổng xác suất chọn viên kẹo dâu thứ hai \( P(D2 \cap C1) \) được tính như sau:</p>
+        <p>\[ P(D2 \cap C1) = P(C1) \cdot P(D2 | C1) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D2 \cap C1) = \frac{6}{10} \cdot \frac{4}{10} = \frac{24}{100} = 0.24 \]</p>
+        <p>Vậy, xác suất viên kẹo thứ hai là kẹo dâu nếu viên kẹo đầu tiên là kẹo cam là 24%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 31 -->
+<div class="example">
+    <h3>Ví dụ 31: Bệnh viện</h3>
+    <p>Một bệnh viện phát hiện rằng 8% bệnh nhân bị mắc một bệnh hiếm gặp. Xét nghiệm cho bệnh này có độ nhạy là 85% và độ đặc hiệu là 90%. Tính xác suất một bệnh nhân có kết quả xét nghiệm dương tính thực sự mắc bệnh.</p>
+    <button onclick="toggleSolution('solution31')">Hiển Thị Giải</button>
+    <div class="solution" id="solution31">
+        <p>Giả sử:</p>
+        <p>\[ P(D) = 0.08 \] (Xác suất mắc bệnh)</p>
+        <p>\[ P(T^+ | D) = 0.85 \] (Xác suất dương tính khi mắc bệnh)</p>
+        <p>\[ P(T^- | D^c) = 0.9 \] (Xác suất âm tính khi không mắc bệnh)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | D^c) = 1 - 0.9 = 0.1 \] (Xác suất dương tính khi không mắc bệnh)</p>
+        <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | D)P(D) + P(T^+ | D^c)P(D^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.85 \times 0.08 + 0.1 \times 0.92 = 0.068 + 0.092 = 0.16 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân có kết quả dương tính thực sự mắc bệnh \( P(D | T^+) \):</p>
+        <p>\[ P(D | T^+) = \frac{P(T^+ | D) P(D)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D | T^+) = \frac{0.85 \times 0.08}{0.16} = 0.425 \]</p>
+        <p>Vậy, xác suất một bệnh nhân có kết quả xét nghiệm dương tính thực sự mắc bệnh là khoảng 42.5%.</p>
+    </div>
+</div>
+<!-- Ví dụ 32 -->
+<div class="example">
+    <h3>Ví dụ 32: Hiệu quả tiếp thị qua email</h3>
+    <p>Một công ty gửi email quảng cáo đến 1000 khách hàng và nhận được 100 phản hồi tích cực. Nếu một khách hàng phản hồi tích cực, xác suất họ mua sản phẩm là 50%. Nếu không phản hồi, xác suất họ mua sản phẩm là 5%. Tính xác suất một khách hàng mua sản phẩm đã phản hồi tích cực.</p>
+    <button onclick="toggleSolution('solution32')">Hiển Thị Giải</button>
+    <div class="solution" id="solution32">
+        <p>Giả sử:</p>
+        <p>\[ P(R) = \frac{100}{1000} = 0.1 \] (Xác suất khách hàng phản hồi tích cực)</p>
+        <p>\[ P(NR) = 0.9 \] (Xác suất khách hàng không phản hồi)</p>
+        <p>\[ P(M | R) = 0.5 \] (Xác suất mua sản phẩm khi phản hồi tích cực)</p>
+        <p>\[ P(M | NR) = 0.05 \] (Xác suất mua sản phẩm khi không phản hồi)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | R)P(R) + P(M | NR)P(NR) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.5 \times 0.1 + 0.05 \times 0.9 = 0.05 + 0.045 = 0.095 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm đã phản hồi tích cực \( P(R | M) \):</p>
+        <p>\[ P(R | M) = \frac{P(M | R) P(R)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R | M) = \frac{0.5 \times 0.1}{0.095} \approx 0.5263 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm đã phản hồi tích cực là khoảng 52.63%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 33 -->
+<div class="example">
+    <h3>Ví dụ 33: Sự cố máy tính</h3>
+    <p>Một công ty có hai loại máy tính: máy tính để bàn và máy tính xách tay. Máy tính để bàn chiếm 60% tổng số máy tính và máy tính xách tay chiếm 40%. Máy tính để bàn có tỷ lệ sự cố là 3% và máy tính xách tay có tỷ lệ sự cố là 2%. Nếu một máy tính gặp sự cố, tính xác suất đó là máy tính để bàn.</p>
+    <button onclick="toggleSolution('solution33')">Hiển Thị Giải</button>
+    <div class="solution" id="solution33">
+        <p>Giả sử:</p>
+        <p>\[ P(D) = 0.6 \] (Xác suất là máy tính để bàn)</p>
+        <p>\[ P(L) = 0.4 \] (Xác suất là máy tính xách tay)</p>
+        <p>\[ P(S | D) = 0.03 \] (Xác suất gặp sự cố khi là máy tính để bàn)</p>
+        <p>\[ P(S | L) = 0.02 \] (Xác suất gặp sự cố khi là máy tính xách tay)</p>
+        <p>Tổng xác suất gặp sự cố \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | D)P(D) + P(S | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.03 \times 0.6 + 0.02 \times 0.4 = 0.018 + 0.008 = 0.026 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một máy tính gặp sự cố là máy tính để bàn \( P(D | S) \):</p>
+        <p>\[ P(D | S) = \frac{P(S | D) P(D)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D | S) = \frac{0.03 \times 0.6}{0.026} \approx 0.6923 \]</p>
+        <p>Vậy, xác suất một máy tính gặp sự cố là máy tính để bàn là khoảng 69.23%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 34 -->
+<div class="example">
+    <h3>Ví dụ 34: Thử nghiệm thuốc</h3>
+    <p>Một loại thuốc mới được thử nghiệm trên hai nhóm bệnh nhân: nhóm A và nhóm B. Nhóm A chiếm 70% tổng số bệnh nhân và nhóm B chiếm 30%. Nhóm A có tỷ lệ thành công là 90% và nhóm B có tỷ lệ thành công là 80%. Tính xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm A.</p>
+    <button onclick="toggleSolution('solution34')">Hiển Thị Giải</button>
+    <div class="solution" id="solution34">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.7 \] (Xác suất bệnh nhân thuộc nhóm A)</p>
+        <p>\[ P(B) = 0.3 \] (Xác suất bệnh nhân thuộc nhóm B)</p>
+        <p>\[ P(S | A) = 0.9 \] (Xác suất thành công khi bệnh nhân thuộc nhóm A)</p>
+        <p>\[ P(S | B) = 0.8 \] (Xác suất thành công khi bệnh nhân thuộc nhóm B)</p>
+        <p>Tổng xác suất thành công \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | A)P(A) + P(S | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.9 \times 0.7 + 0.8 \times 0.3 = 0.63 + 0.24 = 0.87 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm A \( P(A | S) \):</p>
+        <p>\[ P(A | S) = \frac{P(S | A) P(A)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(A | S) = \frac{0.9 \times 0.7}{0.87} \approx 0.7241 \]</p>
+        <p>Vậy, xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm A là khoảng 72.41%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 35 -->
+<div class="example">
+    <h3>Ví dụ 35: Lựa chọn thực phẩm</h3>
+    <p>Một cửa hàng có 60% khách hàng mua thực phẩm hữu cơ và 40% khách hàng mua thực phẩm không hữu cơ. Trong số những khách hàng mua thực phẩm hữu cơ, 70% hài lòng với sản phẩm. Trong số những khách hàng mua thực phẩm không hữu cơ, 50% hài lòng với sản phẩm. Tính xác suất một khách hàng hài lòng với sản phẩm đã mua thực phẩm hữu cơ.</p>
+    <button onclick="toggleSolution('solution35')">Hiển Thị Giải</button>
+    <div class="solution" id="solution35">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.6 \] (Xác suất khách hàng mua thực phẩm hữu cơ)</p>
+        <p>\[ P(NH) = 0.4 \] (Xác suất khách hàng mua thực phẩm không hữu cơ)</p>
+        <p>\[ P(S | H) = 0.7 \] (Xác suất hài lòng khi mua thực phẩm hữu cơ)</p>
+        <p>\[ P(S | NH) = 0.5 \] (Xác suất hài lòng khi mua thực phẩm không hữu cơ)</p>
+        <p>Tổng xác suất hài lòng \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | H)P(H) + P(S | NH)P(NH) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.7 \times 0.6 + 0.5 \times 0.4 = 0.42 + 0.2 = 0.62 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng hài lòng với sản phẩm đã mua thực phẩm hữu cơ \( P(H | S) \):</p>
+        <p>\[ P(H | S) = \frac{P(S | H) P(H)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H | S) = \frac{0.7 \times 0.6}{0.62} \approx 0.6774 \]</p>
+        <p>Vậy, xác suất một khách hàng hài lòng với sản phẩm đã mua thực phẩm hữu cơ là khoảng 67.74%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 36 -->
+<div class="example">
+    <h3>Ví dụ 36: Phân tích thị trường</h3>
+    <p>Một công ty thực hiện khảo sát thị trường và phát hiện rằng 20% khách hàng có ý định mua sản phẩm mới. Trong số những khách hàng có ý định mua sản phẩm mới, 80% thực sự mua sản phẩm. Trong số những khách hàng không có ý định mua, chỉ 10% thực sự mua sản phẩm. Tính xác suất một khách hàng mua sản phẩm mới có ý định mua từ trước.</p>
+    <button onclick="toggleSolution('solution36')">Hiển Thị Giải</button>
+    <div class="solution" id="solution36">
+        <p>Giả sử:</p>
+        <p>\[ P(I) = 0.2 \] (Xác suất khách hàng có ý định mua sản phẩm mới)</p>
+        <p>\[ P(NI) = 0.8 \] (Xác suất khách hàng không có ý định mua sản phẩm mới)</p>
+        <p>\[ P(B | I) = 0.8 \] (Xác suất thực sự mua sản phẩm khi có ý định mua)</p>
+        <p>\[ P(B | NI) = 0.1 \] (Xác suất thực sự mua sản phẩm khi không có ý định mua)</p>
+        <p>Tổng xác suất mua sản phẩm mới \( P(B) \) được tính như sau:</p>
+        <p>\[ P(B) = P(B | I)P(I) + P(B | NI)P(NI) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B) = 0.8 \times 0.2 + 0.1 \times 0.8 = 0.16 + 0.08 = 0.24 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm mới có ý định mua từ trước \( P(I | B) \):</p>
+        <p>\[ P(I | B) = \frac{P(B | I) P(I)}{P(B)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(I | B) = \frac{0.8 \times 0.2}{0.24} \approx 0.6667 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm mới có ý định mua từ trước là khoảng 66.67%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 37 -->
+<div class="example">
+    <h3>Ví dụ 37: Đánh giá chất lượng sản phẩm</h3>
+    <p>Một công ty sản xuất có tỷ lệ lỗi sản phẩm là 4%. Họ sử dụng một hệ thống kiểm tra có độ nhạy 90% và độ đặc hiệu 85%. Tính xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính.</p>
+    <button onclick="toggleSolution('solution37')">Hiển Thị Giải</button>
+    <div class="solution" id="solution37">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.04 \] (Xác suất sản phẩm bị lỗi)</p>
+        <p>\[ P(T^+ | E) = 0.9 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm bị lỗi)</p>
+        <p>\[ P(T^- | E^c) = 0.85 \] (Xác suất hệ thống kiểm tra âm tính khi sản phẩm không bị lỗi)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | E^c) = 1 - 0.85 = 0.15 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm không bị lỗi)</p>
+        <p>Tổng xác suất hệ thống kiểm tra dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | E)P(E) + P(T^+ | E^c)P(E^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.9 \times 0.04 + 0.15 \times 0.96 = 0.036 + 0.144 = 0.18 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính \( P(E | T^+) \):</p>
+        <p>\[ P(E | T^+) = \frac{P(T^+ | E) P(E)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E | T^+) = \frac{0.9 \times 0.04}{0.18} \approx 0.2 \]</p>
+        <p>Vậy, xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính là khoảng 20%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 38 -->
+<div class="example">
+    <h3>Ví dụ 38: Sự cố kỹ thuật</h3>
+    <p>Một công ty phần mềm ước tính rằng 5% sản phẩm của họ gặp sự cố kỹ thuật. Họ sử dụng một hệ thống kiểm tra với độ nhạy 92% và độ đặc hiệu 88%. Tính xác suất một sản phẩm gặp sự cố kỹ thuật khi hệ thống kiểm tra cho kết quả dương tính.</p>
+    <button onclick="toggleSolution('solution38')">Hiển Thị Giải</button>
+    <div class="solution" id="solution38">
+        <p>Giả sử:</p>
+        <p>\[ P(F) = 0.05 \] (Xác suất sản phẩm gặp sự cố kỹ thuật)</p>
+        <p>\[ P(T^+ | F) = 0.92 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm gặp sự cố kỹ thuật)</p>
+        <p>\[ P(T^- | F^c) = 0.88 \] (Xác suất hệ thống kiểm tra âm tính khi sản phẩm không gặp sự cố kỹ thuật)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | F^c) = 1 - 0.88 = 0.12 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm không gặp sự cố kỹ thuật)</p>
+        <p>Tổng xác suất hệ thống kiểm tra dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | F)P(F) + P(T^+ | F^c)P(F^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.92 \times 0.05 + 0.12 \times 0.95 = 0.046 + 0.114 = 0.16 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sản phẩm gặp sự cố kỹ thuật khi hệ thống kiểm tra cho kết quả dương tính \( P(F | T^+) \):</p>
+        <p>\[ P(F | T^+) = \frac{P(T^+ | F) P(F)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(F | T^+) = \frac{0.92 \times 0.05}{0.16} = 0.2875 \]</p>
+        <p>Vậy, xác suất một sản phẩm gặp sự cố kỹ thuật khi hệ thống kiểm tra cho kết quả dương tính là khoảng 28.75%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 39 -->
+<div class="example">
+    <h3>Ví dụ 39: Đánh giá hiệu suất làm việc</h3>
+    <p>Một công ty có 80% nhân viên hoàn thành công việc đúng hạn. Trong số những nhân viên hoàn thành công việc đúng hạn, 90% sẽ được khen thưởng. Trong số những nhân viên không hoàn thành công việc đúng hạn, chỉ 10% sẽ được khen thưởng. Tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn.</p>
+    <button onclick="toggleSolution('solution39')">Hiển Thị Giải</button>
+    <div class="solution" id="solution39">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = 0.8 \] (Xác suất hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(NT) = 0.2 \] (Xác suất không hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | T) = 0.9 \] (Xác suất được khen thưởng khi hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | NT) = 0.1 \] (Xác suất được khen thưởng khi không hoàn thành công việc đúng hạn)</p>
+        <p>Tổng xác suất được khen thưởng \( P(R) \) được tính như sau:</p>
+        <p>\[ P(R) = P(R | T)P(T) + P(R | NT)P(NT) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R) = 0.9 \times 0.8 + 0.1 \times 0.2 = 0.72 + 0.02 = 0.74 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn \( P(T | R) \):</p>
+        <p>\[ P(T | R) = \frac{P(R | T) P(T)}{P(R)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | R) = \frac{0.9 \times 0.8}{0.74} \approx 0.97297 \]</p>
+        <p>Vậy, xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn là khoảng 97.3%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 40 -->
+<div class="example">
+    <h3>Ví dụ 40: Kết quả thử nghiệm sản phẩm</h3>
+    <p>Một công ty thực hiện thử nghiệm sản phẩm và phát hiện rằng 5% sản phẩm bị lỗi. Hệ thống kiểm tra có độ nhạy 95% và độ đặc hiệu 90%. Tính xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính.</p>
+    <button onclick="toggleSolution('solution40')">Hiển Thị Giải</button>
+    <div class="solution" id="solution40">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.05 \] (Xác suất sản phẩm bị lỗi)</p>
+        <p>\[ P(T^+ | E) = 0.95 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm bị lỗi)</p>
+        <p>\[ P(T^- | E^c) = 0.9 \] (Xác suất hệ thống kiểm tra âm tính khi sản phẩm không bị lỗi)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | E^c) = 1 - 0.9 = 0.1 \] (Xác suất hệ thống kiểm tra dương tính khi sản phẩm không bị lỗi)</p>
+        <p>Tổng xác suất hệ thống kiểm tra dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | E)P(E) + P(T^+ | E^c)P(E^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.95 \times 0.05 + 0.1 \times 0.95 = 0.0475 + 0.095 = 0.1425 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính \( P(E | T^+) \):</p>
+        <p>\[ P(E | T^+) = \frac{P(T^+ | E) P(E)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E | T^+) = \frac{0.95 \times 0.05}{0.1425} \approx 0.3333 \]</p>
+        <p>Vậy, xác suất một sản phẩm thực sự bị lỗi khi hệ thống kiểm tra cho kết quả dương tính là khoảng 33.33%.</p>
+    </div>
+</div>
+<!-- Ví dụ 41 -->
+<div class="example">
+    <h3>Ví dụ 41: Khách hàng bảo hành sản phẩm</h3>
+    <p>Một công ty sản xuất điện thoại di động có tỷ lệ lỗi sản phẩm là 3%. Khách hàng có thể yêu cầu bảo hành nếu sản phẩm bị lỗi. Xác suất khách hàng yêu cầu bảo hành khi sản phẩm bị lỗi là 90%. Nếu sản phẩm không bị lỗi, xác suất khách hàng yêu cầu bảo hành là 1%. Tính xác suất sản phẩm bị lỗi khi khách hàng yêu cầu bảo hành.</p>
+    <button onclick="toggleSolution('solution41')">Hiển Thị Giải</button>
+    <div class="solution" id="solution41">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.03 \] (Xác suất sản phẩm bị lỗi)</p>
+        <p>\[ P(B | L) = 0.9 \] (Xác suất yêu cầu bảo hành khi sản phẩm bị lỗi)</p>
+        <p>\[ P(B | L^c) = 0.01 \] (Xác suất yêu cầu bảo hành khi sản phẩm không bị lỗi)</p>
+        <p>Tổng xác suất yêu cầu bảo hành \( P(B) \) được tính như sau:</p>
+        <p>\[ P(B) = P(B | L)P(L) + P(B | L^c)P(L^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B) = 0.9 \times 0.03 + 0.01 \times 0.97 = 0.027 + 0.0097 = 0.0367 \]</p>
+        <p>Bây giờ ta có thể tính xác suất sản phẩm bị lỗi khi khách hàng yêu cầu bảo hành \( P(L | B) \):</p>
+        <p>\[ P(L | B) = \frac{P(B | L) P(L)}{P(B)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L | B) = \frac{0.9 \times 0.03}{0.0367} \approx 0.7353 \]</p>
+        <p>Vậy, xác suất sản phẩm bị lỗi khi khách hàng yêu cầu bảo hành là khoảng 73.53%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 42 -->
+<div class="example">
+    <h3>Ví dụ 42: Xác suất trúng thưởng</h3>
+    <p>Một chương trình khuyến mãi có 1% cơ hội trúng thưởng. Nếu một người tham gia, xác suất họ trúng thưởng là 50%. Nếu họ không trúng thưởng, xác suất họ tham gia lần nữa là 10%. Tính xác suất một người trúng thưởng khi biết họ đã tham gia.</p>
+    <button onclick="toggleSolution('solution42')">Hiển Thị Giải</button>
+    <div class="solution" id="solution42">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = 0.01 \] (Xác suất trúng thưởng)</p>
+        <p>\[ P(P | T) = 0.5 \] (Xác suất tham gia khi trúng thưởng)</p>
+        <p>\[ P(P | T^c) = 0.1 \] (Xác suất tham gia khi không trúng thưởng)</p>
+        <p>Tổng xác suất tham gia \( P(P) \) được tính như sau:</p>
+        <p>\[ P(P) = P(P | T)P(T) + P(P | T^c)P(T^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(P) = 0.5 \times 0.01 + 0.1 \times 0.99 = 0.005 + 0.099 = 0.104 \]</p>
+        <p>Bây giờ ta có thể tính xác suất trúng thưởng khi biết họ đã tham gia \( P(T | P) \):</p>
+        <p>\[ P(T | P) = \frac{P(P | T) P(T)}{P(P)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | P) = \frac{0.5 \times 0.01}{0.104} \approx 0.0481 \]</p>
+        <p>Vậy, xác suất một người trúng thưởng khi biết họ đã tham gia là khoảng 4.81%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 43 -->
+<div class="example">
+    <h3>Ví dụ 43: Thử nghiệm sản phẩm</h3>
+    <p>Một công ty thử nghiệm sản phẩm mới với 1000 khách hàng. Trong số đó, 20% khách hàng thích sản phẩm. Trong số những khách hàng thích sản phẩm, 90% sẽ mua sản phẩm. Trong số những khách hàng không thích sản phẩm, chỉ 5% sẽ mua sản phẩm. Tính xác suất một khách hàng mua sản phẩm là họ thích sản phẩm.</p>
+    <button onclick="toggleSolution('solution43')">Hiển Thị Giải</button>
+    <div class="solution" id="solution43">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.2 \] (Xác suất khách hàng thích sản phẩm)</p>
+        <p>\[ P(NL) = 0.8 \] (Xác suất khách hàng không thích sản phẩm)</p>
+        <p>\[ P(M | L) = 0.9 \] (Xác suất mua sản phẩm khi thích sản phẩm)</p>
+        <p>\[ P(M | NL) = 0.05 \] (Xác suất mua sản phẩm khi không thích sản phẩm)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | L)P(L) + P(M | NL)P(NL) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.9 \times 0.2 + 0.05 \times 0.8 = 0.18 + 0.04 = 0.22 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm là họ thích sản phẩm \( P(L | M) \):</p>
+        <p>\[ P(L | M) = \frac{P(M | L) P(L)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L | M) = \frac{0.9 \times 0.2}{0.22} \approx 0.8182 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm là họ thích sản phẩm là khoảng 81.82%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 44 -->
+<div class="example">
+    <h3>Ví dụ 44: Xác suất đậu đại học</h3>
+    <p>Một trường đại học có tỷ lệ đậu là 20%. Nếu một sinh viên học chăm chỉ, xác suất đậu là 80%. Nếu không học chăm chỉ, xác suất đậu là 10%. Tính xác suất một sinh viên đậu là họ đã học chăm chỉ.</p>
+    <button onclick="toggleSolution('solution44')">Hiển Thị Giải</button>
+    <div class="solution" id="solution44">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.2 \] (Xác suất học chăm chỉ)</p>
+        <p>\[ P(NH) = 0.8 \] (Xác suất không học chăm chỉ)</p>
+        <p>\[ P(D | H) = 0.8 \] (Xác suất đậu khi học chăm chỉ)</p>
+        <p>\[ P(D | NH) = 0.1 \] (Xác suất đậu khi không học chăm chỉ)</p>
+        <p>Tổng xác suất đậu \( P(D) \) được tính như sau:</p>
+        <p>\[ P(D) = P(D | H)P(H) + P(D | NH)P(NH) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D) = 0.8 \times 0.2 + 0.1 \times 0.8 = 0.16 + 0.08 = 0.24 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sinh viên đậu là họ đã học chăm chỉ \( P(H | D) \):</p>
+        <p>\[ P(H | D) = \frac{P(D | H) P(H)}{P(D)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H | D) = \frac{0.8 \times 0.2}{0.24} \approx 0.6667 \]</p>
+        <p>Vậy, xác suất một sinh viên đậu là họ đã học chăm chỉ là khoảng 66.67%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 45 -->
+<div class="example">
+    <h3>Ví dụ 45: Phân tích thị trường</h3>
+    <p>Một công ty thực hiện khảo sát thị trường và phát hiện rằng 30% khách hàng quan tâm đến sản phẩm mới. Trong số những khách hàng quan tâm, 60% sẽ mua sản phẩm. Trong số những khách hàng không quan tâm, chỉ 20% sẽ mua sản phẩm. Tính xác suất một khách hàng mua sản phẩm mới là họ quan tâm đến sản phẩm.</p>
+    <button onclick="toggleSolution('solution45')">Hiển Thị Giải</button>
+    <div class="solution" id="solution45">
+        <p>Giả sử:</p>
+        <p>\[ P(Q) = 0.3 \] (Xác suất khách hàng quan tâm đến sản phẩm mới)</p>
+        <p>\[ P(NQ) = 0.7 \] (Xác suất khách hàng không quan tâm đến sản phẩm mới)</p>
+        <p>\[ P(M | Q) = 0.6 \] (Xác suất mua sản phẩm khi quan tâm)</p>
+        <p>\[ P(M | NQ) = 0.2 \] (Xác suất mua sản phẩm khi không quan tâm)</p>
+        <p>Tổng xác suất mua sản phẩm mới \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | Q)P(Q) + P(M | NQ)P(NQ) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.6 \times 0.3 + 0.2 \times 0.7 = 0.18 + 0.14 = 0.32 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm mới là họ quan tâm đến sản phẩm \( P(Q | M) \):</p>
+        <p>\[ P(Q | M) = \frac{P(M | Q) P(Q)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(Q | M) = \frac{0.6 \times 0.3}{0.32} = 0.5625 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm mới là họ quan tâm đến sản phẩm là khoảng 56.25%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 46 -->
+<div class="example">
+    <h3>Ví dụ 46: Khảo sát khách hàng</h3>
+    <p>Một công ty thực hiện khảo sát và phát hiện rằng 70% khách hàng hài lòng với dịch vụ của họ. Trong số những khách hàng hài lòng, 90% sẽ quay lại sử dụng dịch vụ. Trong số những khách hàng không hài lòng, chỉ 20% sẽ quay lại. Tính xác suất một khách hàng quay lại là họ hài lòng với dịch vụ.</p>
+    <button onclick="toggleSolution('solution46')">Hiển Thị Giải</button>
+    <div class="solution" id="solution46">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.7 \] (Xác suất khách hàng hài lòng với dịch vụ)</p>
+        <p>\[ P(NH) = 0.3 \] (Xác suất khách hàng không hài lòng với dịch vụ)</p>
+        <p>\[ P(Q | H) = 0.9 \] (Xác suất quay lại khi hài lòng)</p>
+        <p>\[ P(Q | NH) = 0.2 \] (Xác suất quay lại khi không hài lòng)</p>
+        <p>Tổng xác suất quay lại \( P(Q) \) được tính như sau:</p>
+        <p>\[ P(Q) = P(Q | H)P(H) + P(Q | NH)P(NH) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(Q) = 0.9 \times 0.7 + 0.2 \times 0.3 = 0.63 + 0.06 = 0.69 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng quay lại là họ hài lòng với dịch vụ \( P(H | Q) \):</p>
+        <p>\[ P(H | Q) = \frac{P(Q | H) P(H)}{P(Q)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H | Q) = \frac{0.9 \times 0.7}{0.69} \approx 0.913 \]</p>
+        <p>Vậy, xác suất một khách hàng quay lại là họ hài lòng với dịch vụ là khoảng 91.3%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 47 -->
+<div class="example">
+    <h3>Ví dụ 47: Kiểm tra chất lượng</h3>
+    <p>Một công ty sản xuất linh kiện điện tử với tỷ lệ lỗi 2%. Một hệ thống kiểm tra có độ nhạy 85% và độ đặc hiệu 90%. Tính xác suất một linh kiện bị lỗi khi hệ thống kiểm tra cho kết quả dương tính.</p>
+    <button onclick="toggleSolution('solution47')">Hiển Thị Giải</button>
+    <div class="solution" id="solution47">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.02 \] (Xác suất linh kiện bị lỗi)</p>
+        <p>\[ P(T^+ | L) = 0.85 \] (Xác suất hệ thống kiểm tra dương tính khi linh kiện bị lỗi)</p>
+        <p>\[ P(T^- | L^c) = 0.9 \] (Xác suất hệ thống kiểm tra âm tính khi linh kiện không bị lỗi)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | L^c) = 1 - 0.9 = 0.1 \] (Xác suất hệ thống kiểm tra dương tính khi linh kiện không bị lỗi)</p>
+        <p>Tổng xác suất hệ thống kiểm tra dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | L)P(L) + P(T^+ | L^c)P(L^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.85 \times 0.02 + 0.1 \times 0.98 = 0.017 + 0.098 = 0.115 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một linh kiện bị lỗi khi hệ thống kiểm tra cho kết quả dương tính \( P(L | T^+) \):</p>
+        <p>\[ P(L | T^+) = \frac{P(T^+ | L) P(L)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L | T^+) = \frac{0.85 \times 0.02}{0.115} \approx 0.1478 \]</p>
+        <p>Vậy, xác suất một linh kiện bị lỗi khi hệ thống kiểm tra cho kết quả dương tính là khoảng 14.78%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 48 -->
+<div class="example">
+    <h3>Ví dụ 48: Đánh giá hiệu suất làm việc</h3>
+    <p>Một công ty đánh giá hiệu suất làm việc của nhân viên. Họ phát hiện rằng 80% nhân viên hoàn thành công việc đúng hạn. Trong số những nhân viên hoàn thành công việc đúng hạn, 90% được khen thưởng. Trong số những nhân viên không hoàn thành công việc đúng hạn, chỉ 10% được khen thưởng. Tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn.</p>
+    <button onclick="toggleSolution('solution48')">Hiển Thị Giải</button>
+    <div class="solution" id="solution48">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.8 \] (Xác suất hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(NH) = 0.2 \] (Xác suất không hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | H) = 0.9 \] (Xác suất được khen thưởng khi hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | NH) = 0.1 \] (Xác suất được khen thưởng khi không hoàn thành công việc đúng hạn)</p>
+        <p>Tổng xác suất được khen thưởng \( P(R) \) được tính như sau:</p>
+        <p>\[ P(R) = P(R | H)P(H) + P(R | NH)P(NH) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R) = 0.9 \times 0.8 + 0.1 \times 0.2 = 0.72 + 0.02 = 0.74 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn \( P(H | R) \):</p>
+        <p>\[ P(H | R) = \frac{P(R | H) P(H)}{P(R)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H | R) = \frac{0.9 \times 0.8}{0.74} \approx 0.973 \]</p>
+        <p>Vậy, xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn là khoảng 97.3%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 49 -->
+<div class="example">
+    <h3>Ví dụ 49: Thử nghiệm thuốc</h3>
+    <p>Một loại thuốc mới được thử nghiệm trên 1000 bệnh nhân. Trong số đó, 25% bệnh nhân thuộc nhóm nguy cơ cao và 75% thuộc nhóm nguy cơ thấp. Nhóm nguy cơ cao có tỷ lệ thành công là 85% và nhóm nguy cơ thấp có tỷ lệ thành công là 60%. Tính xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm nguy cơ cao.</p>
+    <button onclick="toggleSolution('solution49')">Hiển Thị Giải</button>
+    <div class="solution" id="solution49">
+        <p>Giả sử:</p>
+        <p>\[ P(C) = 0.25 \] (Xác suất bệnh nhân thuộc nhóm nguy cơ cao)</p>
+        <p>\[ P(L) = 0.75 \] (Xác suất bệnh nhân thuộc nhóm nguy cơ thấp)</p>
+        <p>\[ P(S | C) = 0.85 \] (Xác suất thành công khi bệnh nhân thuộc nhóm nguy cơ cao)</p>
+        <p>\[ P(S | L) = 0.6 \] (Xác suất thành công khi bệnh nhân thuộc nhóm nguy cơ thấp)</p>
+        <p>Tổng xác suất thành công \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | C)P(C) + P(S | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.85 \times 0.25 + 0.6 \times 0.75 = 0.2125 + 0.45 = 0.6625 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm nguy cơ cao \( P(C | S) \):</p>
+        <p>\[ P(C | S) = \frac{P(S | C) P(C)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C | S) = \frac{0.85 \times 0.25}{0.6625} \approx 0.3208 \]</p>
+        <p>Vậy, xác suất một bệnh nhân được chữa khỏi là bệnh nhân thuộc nhóm nguy cơ cao là khoảng 32.08%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 50 -->
+<div class="example">
+    <h3>Ví dụ 50: Đánh giá hiệu suất làm việc</h3>
+    <p>Một công ty phát hiện rằng 70% nhân viên hoàn thành công việc đúng hạn. Trong số những nhân viên hoàn thành công việc đúng hạn, 80% được khen thưởng. Trong số những nhân viên không hoàn thành công việc đúng hạn, chỉ 30% được khen thưởng. Tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn.</p>
+    <button onclick="toggleSolution('solution50')">Hiển Thị Giải</button>
+    <div class="solution" id="solution50">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.7 \] (Xác suất hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(NH) = 0.3 \] (Xác suất không hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | H) = 0.8 \] (Xác suất được khen thưởng khi hoàn thành công việc đúng hạn)</p>
+        <p>\[ P(R | NH) = 0.3 \] (Xác suất được khen thưởng khi không hoàn thành công việc đúng hạn)</p>
+        <p>Tổng xác suất được khen thưởng \( P(R) \) được tính như sau:</p>
+        <p>\[ P(R) = P(R | H)P(H) + P(R | NH)P(NH) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R) = 0.8 \times 0.7 + 0.3 \times 0.3 = 0.56 + 0.09 = 0.65 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn \( P(H | R) \):</p>
+        <p>\[ P(H | R) = \frac{P(R | H) P(H)}{P(R)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H | R) = \frac{0.8 \times 0.7}{0.65} \approx 0.8615 \]</p>
+        <p>Vậy, xác suất một nhân viên được khen thưởng là nhân viên hoàn thành công việc đúng hạn là khoảng 86.15%.</p>
+    </div>
+</div>
+<!-- Ví dụ 51 -->
+<div class="example">
+    <h3>Ví dụ 51: Tỷ lệ nhấp chuột vào quảng cáo</h3>
+    <p>Một chiến dịch quảng cáo trực tuyến có tỷ lệ nhấp chuột (CTR) là 5%. Nếu người dùng nhấp chuột vào quảng cáo, xác suất họ mua sản phẩm là 20%. Nếu không nhấp chuột vào quảng cáo, xác suất họ mua sản phẩm là 1%. Tính xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo.</p>
+    <button onclick="toggleSolution('solution51')">Hiển Thị Giải</button>
+    <div class="solution" id="solution51">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.05 \] (Xác suất người dùng nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(KN) = 0.95 \] (Xác suất người dùng không nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(M | N) = 0.2 \] (Xác suất mua sản phẩm khi nhấp chuột vào quảng cáo)</p>
+        <p>\[ P(M | KN) = 0.01 \] (Xác suất mua sản phẩm khi không nhấp chuột vào quảng cáo)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | N)P(N) + P(M | KN)P(KN) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.2 \times 0.05 + 0.01 \times 0.95 = 0.01 + 0.0095 = 0.0195 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo \( P(N | M) \):</p>
+        <p>\[ P(N | M) = \frac{P(M | N) P(N)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(N | M) = \frac{0.2 \times 0.05}{0.0195} \approx 0.5128 \]</p>
+        <p>Vậy, xác suất một người mua sản phẩm đã nhấp chuột vào quảng cáo là khoảng 51.28%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 52 -->
+<div class="example">
+    <h3>Ví dụ 52: Tỷ lệ nhấp vào liên kết</h3>
+    <p>Một trang web có tỷ lệ nhấp vào liên kết là 8%. Nếu người dùng nhấp vào liên kết, xác suất họ đăng ký tài khoản là 30%. Nếu không nhấp vào liên kết, xác suất họ đăng ký tài khoản là 2%. Tính xác suất một người đăng ký tài khoản đã nhấp vào liên kết.</p>
+    <button onclick="toggleSolution('solution52')">Hiển Thị Giải</button>
+    <div class="solution" id="solution52">
+        <p>Giả sử:</p>
+        <p>\[ P(C) = 0.08 \] (Xác suất người dùng nhấp vào liên kết)</p>
+        <p>\[ P(NC) = 0.92 \] (Xác suất người dùng không nhấp vào liên kết)</p>
+        <p>\[ P(S | C) = 0.3 \] (Xác suất đăng ký tài khoản khi nhấp vào liên kết)</p>
+        <p>\[ P(S | NC) = 0.02 \] (Xác suất đăng ký tài khoản khi không nhấp vào liên kết)</p>
+        <p>Tổng xác suất đăng ký tài khoản \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | C)P(C) + P(S | NC)P(NC) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.3 \times 0.08 + 0.02 \times 0.92 = 0.024 + 0.0184 = 0.0424 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người đăng ký tài khoản đã nhấp vào liên kết \( P(C | S) \):</p>
+        <p>\[ P(C | S) = \frac{P(S | C) P(C)}{P(S)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C | S) = \frac{0.3 \times 0.08}{0.0424} \approx 0.566 \]</p>
+        <p>Vậy, xác suất một người đăng ký tài khoản đã nhấp vào liên kết là khoảng 56.6%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 53 -->
+<div class="example">
+    <h3>Ví dụ 53: Tỷ lệ mua sản phẩm</h3>
+    <p>Một cửa hàng trực tuyến có tỷ lệ mua sản phẩm là 15%. Nếu người dùng mua sản phẩm, xác suất họ để lại đánh giá tích cực là 70%. Nếu không mua sản phẩm, xác suất họ để lại đánh giá tích cực là 5%. Tính xác suất một người để lại đánh giá tích cực đã mua sản phẩm.</p>
+    <button onclick="toggleSolution('solution53')">Hiển Thị Giải</button>
+    <div class="solution" id="solution53">
+        <p>Giả sử:</p>
+        <p>\[ P(B) = 0.15 \] (Xác suất người dùng mua sản phẩm)</p>
+        <p>\[ P(NB) = 0.85 \] (Xác suất người dùng không mua sản phẩm)</p>
+        <p>\[ P(R | B) = 0.7 \] (Xác suất để lại đánh giá tích cực khi mua sản phẩm)</p>
+        <p>\[ P(R | NB) = 0.05 \] (Xác suất để lại đánh giá tích cực khi không mua sản phẩm)</p>
+        <p>Tổng xác suất để lại đánh giá tích cực \( P(R) \) được tính như sau:</p>
+        <p>\[ P(R) = P(R | B)P(B) + P(R | NB)P(NB) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R) = 0.7 \times 0.15 + 0.05 \times 0.85 = 0.105 + 0.0425 = 0.1475 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người để lại đánh giá tích cực đã mua sản phẩm \( P(B | R) \):</p>
+        <p>\[ P(B | R) = \frac{P(R | B) P(B)}{P(R)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B | R) = \frac{0.7 \times 0.15}{0.1475} \approx 0.7119 \]</p>
+        <p>Vậy, xác suất một người để lại đánh giá tích cực đã mua sản phẩm là khoảng 71.19%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 54 -->
+<div class="example">
+    <h3>Ví dụ 54: Tỷ lệ tham dự hội thảo</h3>
+    <p>Một công ty tổ chức hội thảo và mời 1000 khách hàng. Trong số đó, 200 khách hàng tham dự. Nếu khách hàng tham dự, xác suất họ mua sản phẩm là 40%. Nếu không tham dự, xác suất họ mua sản phẩm là 10%. Tính xác suất một khách hàng mua sản phẩm đã tham dự hội thảo.</p>
+    <button onclick="toggleSolution('solution54')">Hiển Thị Giải</button>
+    <div class="solution" id="solution54">
+        <p>Giả sử:</p>
+        <p>\[ P(T) = \frac{200}{1000} = 0.2 \] (Xác suất khách hàng tham dự hội thảo)</p>
+        <p>\[ P(NT) = 0.8 \] (Xác suất khách hàng không tham dự hội thảo)</p>
+        <p>\[ P(M | T) = 0.4 \] (Xác suất mua sản phẩm khi tham dự hội thảo)</p>
+        <p>\[ P(M | NT) = 0.1 \] (Xác suất mua sản phẩm khi không tham dự hội thảo)</p>
+        <p>Tổng xác suất mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | T)P(T) + P(M | NT)P(NT) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.4 \times 0.2 + 0.1 \times 0.8 = 0.08 + 0.08 = 0.16 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một khách hàng mua sản phẩm đã tham dự hội thảo \( P(T | M) \):</p>
+        <p>\[ P(T | M) = \frac{P(M | T) P(T)}{P(M)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T | M) = \frac{0.4 \times 0.2}{0.16} = 0.5 \]</p>
+        <p>Vậy, xác suất một khách hàng mua sản phẩm đã tham dự hội thảo là 50%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 55 -->
+<div class="example">
+    <h3>Ví dụ 55: Tỷ lệ mua bảo hiểm</h3>
+    <p>Một công ty bảo hiểm có tỷ lệ mua bảo hiểm là 10%. Nếu người dùng mua bảo hiểm, xác suất họ yêu cầu bồi thường là 30%. Nếu không mua bảo hiểm, xác suất họ yêu cầu bồi thường là 1%. Tính xác suất một người yêu cầu bồi thường đã mua bảo hiểm.</p>
+    <button onclick="toggleSolution('solution55')">Hiển Thị Giải</button>
+    <div class="solution" id="solution55">
+        <p>Giả sử:</p>
+        <p>\[ P(B) = 0.1 \] (Xác suất người dùng mua bảo hiểm)</p>
+        <p>\[ P(NB) = 0.9 \] (Xác suất người dùng không mua bảo hiểm)</p>
+        <p>\[ P(C | B) = 0.3 \] (Xác suất yêu cầu bồi thường khi mua bảo hiểm)</p>
+        <p>\[ P(C | NB) = 0.01 \] (Xác suất yêu cầu bồi thường khi không mua bảo hiểm)</p>
+        <p>Tổng xác suất yêu cầu bồi thường \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | B)P(B) + P(C | NB)P(NB) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.3 \times 0.1 + 0.01 \times 0.9 = 0.03 + 0.009 = 0.039 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người yêu cầu bồi thường đã mua bảo hiểm \( P(B | C) \):</p>
+        <p>\[ P(B | C) = \frac{P(C | B) P(B)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B | C) = \frac{0.3 \times 0.1}{0.039} \approx 0.7692 \]</p>
+        <p>Vậy, xác suất một người yêu cầu bồi thường đã mua bảo hiểm là khoảng 76.92%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 56 -->
+<div class="example">
+    <h3>Ví dụ 56: Xác suất trúng xổ số</h3>
+    <p>Một xổ số có xác suất trúng giải là 0.5%. Nếu một người trúng xổ số, xác suất họ mua vé lần tiếp theo là 70%. Nếu không trúng xổ số, xác suất họ mua vé lần tiếp theo là 20%. Tính xác suất một người mua vé lần tiếp theo đã trúng xổ số.</p>
+    <button onclick="toggleSolution('solution56')">Hiển Thị Giải</button>
+    <div class="solution" id="solution56">
+        <p>Giả sử:</p>
+        <p>\[ P(W) = 0.005 \] (Xác suất trúng xổ số)</p>
+        <p>\[ P(NW) = 0.995 \] (Xác suất không trúng xổ số)</p>
+        <p>\[ P(B | W) = 0.7 \] (Xác suất mua vé lần tiếp theo khi trúng xổ số)</p>
+        <p>\[ P(B | NW) = 0.2 \] (Xác suất mua vé lần tiếp theo khi không trúng xổ số)</p>
+        <p>Tổng xác suất mua vé lần tiếp theo \( P(B) \) được tính như sau:</p>
+        <p>\[ P(B) = P(B | W)P(W) + P(B | NW)P(NW) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B) = 0.7 \times 0.005 + 0.2 \times 0.995 = 0.0035 + 0.199 = 0.2025 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người mua vé lần tiếp theo đã trúng xổ số \( P(W | B) \):</p>
+        <p>\[ P(W | B) = \frac{P(B | W) P(W)}{P(B)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(W | B) = \frac{0.7 \times 0.005}{0.2025} \approx 0.0173 \]</p>
+        <p>Vậy, xác suất một người mua vé lần tiếp theo đã trúng xổ số là khoảng 1.73%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 57 -->
+<div class="example">
+    <h3>Ví dụ 57: Khả năng bị mất hành lý</h3>
+    <p>Một hãng hàng không có tỷ lệ mất hành lý là 1%. Nếu hành lý bị mất, xác suất nhận được bồi thường là 90%. Nếu hành lý không bị mất, xác suất nhận được bồi thường là 5%. Tính xác suất một người nhận được bồi thường là hành lý của họ bị mất.</p>
+    <button onclick="toggleSolution('solution57')">Hiển Thị Giải</button>
+    <div class="solution" id="solution57">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.01 \] (Xác suất mất hành lý)</p>
+        <p>\[ P(NL) = 0.99 \] (Xác suất không mất hành lý)</p>
+        <p>\[ P(C | L) = 0.9 \] (Xác suất nhận được bồi thường khi mất hành lý)</p>
+        <p>\[ P(C | NL) = 0.05 \] (Xác suất nhận được bồi thường khi không mất hành lý)</p>
+        <p>Tổng xác suất nhận được bồi thường \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | L)P(L) + P(C | NL)P(NL) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.9 \times 0.01 + 0.05 \times 0.99 = 0.009 + 0.0495 = 0.0585 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một người nhận được bồi thường là hành lý của họ bị mất \( P(L | C) \):</p>
+        <p>\[ P(L | C) = \frac{P(C | L) P(L)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(L | C) = \frac{0.9 \times 0.01}{0.0585} \approx 0.1538 \]</p>
+        <p>Vậy, xác suất một người nhận được bồi thường là hành lý của họ bị mất là khoảng 15.38%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 58 -->
+<div class="example">
+    <h3>Ví dụ 58: Tỷ lệ đăng ký khóa học</h3>
+    <p>Một trường đại học có tỷ lệ sinh viên đăng ký khóa học trực tuyến là 25%. Nếu sinh viên đăng ký khóa học, xác suất họ hoàn thành khóa học là 60%. Nếu không đăng ký, xác suất hoàn thành khóa học là 10%. Tính xác suất một sinh viên hoàn thành khóa học đã đăng ký khóa học trực tuyến.</p>
+    <button onclick="toggleSolution('solution58')">Hiển Thị Giải</button>
+    <div class="solution" id="solution58">
+        <p>Giả sử:</p>
+        <p>\[ P(R) = 0.25 \] (Xác suất đăng ký khóa học trực tuyến)</p>
+        <p>\[ P(NR) = 0.75 \] (Xác suất không đăng ký khóa học trực tuyến)</p>
+        <p>\[ P(C | R) = 0.6 \] (Xác suất hoàn thành khóa học khi đăng ký)</p>
+        <p>\[ P(C | NR) = 0.1 \] (Xác suất hoàn thành khóa học khi không đăng ký)</p>
+        <p>Tổng xác suất hoàn thành khóa học \( P(C) \) được tính như sau:</p>
+        <p>\[ P(C) = P(C | R)P(R) + P(C | NR)P(NR) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(C) = 0.6 \times 0.25 + 0.1 \times 0.75 = 0.15 + 0.075 = 0.225 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một sinh viên hoàn thành khóa học đã đăng ký khóa học trực tuyến \( P(R | C) \):</p>
+        <p>\[ P(R | C) = \frac{P(C | R) P(R)}{P(C)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(R | C) = \frac{0.6 \times 0.25}{0.225} = \frac{0.15}{0.225} = 0.6667 \]</p>
+        <p>Vậy, xác suất một sinh viên hoàn thành khóa học đã đăng ký khóa học trực tuyến là khoảng 66.67%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 59 -->
+<div class="example">
+    <h3>Ví dụ 59: Tỷ lệ thành công trong phỏng vấn</h3>
+    <p>Một công ty tuyển dụng có tỷ lệ thành công trong phỏng vấn là 10%. Nếu ứng viên thành công, xác suất họ được nhận việc là 90%. Nếu không thành công, xác suất họ được nhận việc là 5%. Tính xác suất một ứng viên được nhận việc đã thành công trong phỏng vấn.</p>
+    <button onclick="toggleSolution('solution59')">Hiển Thị Giải</button>
+    <div class="solution" id="solution59">
+        <p>Giả sử:</p>
+        <p>\[ P(S) = 0.1 \] (Xác suất thành công trong phỏng vấn)</p>
+        <p>\[ P(NS) = 0.9 \] (Xác suất không thành công trong phỏng vấn)</p>
+        <p>\[ P(J | S) = 0.9 \] (Xác suất được nhận việc khi thành công trong phỏng vấn)</p>
+        <p>\[ P(J | NS) = 0.05 \] (Xác suất được nhận việc khi không thành công trong phỏng vấn)</p>
+        <p>Tổng xác suất được nhận việc \( P(J) \) được tính như sau:</p>
+        <p>\[ P(J) = P(J | S)P(S) + P(J | NS)P(NS) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(J) = 0.9 \times 0.1 + 0.05 \times 0.9 = 0.09 + 0.045 = 0.135 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một ứng viên được nhận việc đã thành công trong phỏng vấn \( P(S | J) \):</p>
+        <p>\[ P(S | J) = \frac{P(J | S) P(S)}{P(J)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S | J) = \frac{0.9 \times 0.1}{0.135} = 0.6667 \]</p>
+        <p>Vậy, xác suất một ứng viên được nhận việc đã thành công trong phỏng vấn là khoảng 66.67%.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 60 -->
+<div class="example">
+    <h3>Ví dụ 60: Khả năng vượt qua kỳ thi</h3>
+    <p>Một lớp học có 30% học sinh học giỏi và 70% học sinh trung bình. Trong số học sinh học giỏi, 90% sẽ vượt qua kỳ thi. Trong số học sinh trung bình, chỉ 50% sẽ vượt qua kỳ thi. Tính xác suất một học sinh vượt qua kỳ thi là học sinh giỏi.</p>
+    <button onclick="toggleSolution('solution60')">Hiển Thị Giải</button>
+    <div class="solution" id="solution60">
+        <p>Giả sử:</p>
+        <p>\[ P(G) = 0.3 \] (Xác suất học sinh giỏi)</p>
+        <p>\[ P(TB) = 0.7 \] (Xác suất học sinh trung bình)</p>
+        <p>\[ P(V | G) = 0.9 \] (Xác suất vượt qua kỳ thi khi là học sinh giỏi)</p>
+        <p>\[ P(V | TB) = 0.5 \] (Xác suất vượt qua kỳ thi khi là học sinh trung bình)</p>
+        <p>Tổng xác suất vượt qua kỳ thi \( P(V) \) được tính như sau:</p>
+        <p>\[ P(V) = P(V | G)P(G) + P(V | TB)P(TB) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(V) = 0.9 \times 0.3 + 0.5 \times 0.7 = 0.27 + 0.35 = 0.62 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một học sinh vượt qua kỳ thi là học sinh giỏi \( P(G | V) \):</p>
+        <p>\[ P(G | V) = \frac{P(V | G) P(G)}{P(V)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(G | V) = \frac{0.9 \times 0.3}{0.62} \approx 0.4355 \]</p>
+        <p>Vậy, xác suất một học sinh vượt qua kỳ thi là học sinh giỏi là khoảng 43.55%.</p>
+    </div>
+</div>
+<!-- Ví dụ 61 -->
+<div class="example">
+    <h3>Ví dụ 61: Bệnh viện</h3>
+    <p>Một bệnh viện phát hiện rằng 8% bệnh nhân bị mắc một bệnh hiếm gặp. Xét nghiệm cho bệnh này có độ nhạy là 85% và độ đặc hiệu là 90%. Tính xác suất một bệnh nhân có kết quả xét nghiệm dương tính thực sự mắc bệnh.</p>
+    <button onclick="toggleSolution('solution61')">Hiển Thị Giải</button>
+    <div class="solution" id="solution61">
+        <p>Giả sử:</p>
+        <p>\[ P(D) = 0.08 \] (Xác suất mắc bệnh)</p>
+        <p>\[ P(T^+ | D) = 0.85 \] (Xác suất dương tính khi mắc bệnh)</p>
+        <p>\[ P(T^- | D^c) = 0.9 \] (Xác suất âm tính khi không mắc bệnh)</p>
+        <p>Do đó:</p>
+        <p>\[ P(T^+ | D^c) = 1 - 0.9 = 0.1 \] (Xác suất dương tính khi không mắc bệnh)</p>
+        <p>Tổng xác suất dương tính \( P(T^+) \) được tính như sau:</p>
+        <p>\[ P(T^+) = P(T^+ | D)P(D) + P(T^+ | D^c)P(D^c) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T^+) = 0.85 \times 0.08 + 0.1 \times 0.92 = 0.068 + 0.092 = 0.16 \]</p>
+        <p>Bây giờ ta có thể tính xác suất một bệnh nhân có kết quả dương tính thực sự mắc bệnh \( P(D | T^+) \):</p>
+        <p>\[ P(D | T^+) = \frac{P(T^+ | D) P(D)}{P(T^+)} \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D | T^+) = \frac{0.85 \times 0.08}{0.16} = 0.425 \]</p>
+        <p>Vậy, xác suất một bệnh nhân có kết quả xét nghiệm dương tính thực sự mắc bệnh là khoảng 42.5%.</p>
+    </div>
+</div>
+<!-- Ví dụ 2 -->
+<div class="example">
+    <h3>Ví dụ 2: Xác suất trúng tuyển</h3>
+    <p>Một công ty có ba loại ứng viên: A, B, và C. Xác suất trúng tuyển của mỗi loại ứng viên lần lượt là 0.3, 0.5 và 0.2. Xác suất ứng viên A có kỹ năng tốt là 0.8, ứng viên B là 0.6 và ứng viên C là 0.4. Tính xác suất một ứng viên ngẫu nhiên có kỹ năng tốt.</p>
+    <button onclick="toggleSolution('solution62')">Hiển Thị Giải</button>
+    <div class="solution" id="solution62">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.3, P(B) = 0.5, P(C) = 0.2 \]</p>
+        <p>\[ P(K | A) = 0.8, P(K | B) = 0.6, P(K | C) = 0.4 \]</p>
+        <p>Tổng xác suất một ứng viên ngẫu nhiên có kỹ năng tốt \( P(K) \) được tính như sau:</p>
+        <p>\[ P(K) = P(K | A)P(A) + P(K | B)P(B) + P(K | C)P(C) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(K) = 0.8 \times 0.3 + 0.6 \times 0.5 + 0.4 \times 0.2 \]</p>
+        <p>\[ P(K) = 0.24 + 0.3 + 0.08 = 0.62 \]</p>
+        <p>Vậy, xác suất một ứng viên ngẫu nhiên có kỹ năng tốt là 0.62.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 3 -->
+<div class="example">
+    <h3>Ví dụ 3: Xác suất nhiễm bệnh</h3>
+    <p>Một bệnh viện có ba loại bệnh nhân: mắc bệnh nhẹ (L), mắc bệnh nặng (S), và không mắc bệnh (H). Xác suất mỗi loại bệnh nhân lần lượt là 0.1, 0.2 và 0.7. Xác suất phát hiện bệnh khi mắc bệnh nhẹ là 0.9, khi mắc bệnh nặng là 0.95, và khi không mắc bệnh là 0.05. Tính xác suất một bệnh nhân được phát hiện mắc bệnh.</p>
+    <button onclick="toggleSolution('solution63')">Hiển Thị Giải</button>
+    <div class="solution" id="solution63">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.1, P(S) = 0.2, P(H) = 0.7 \]</p>
+        <p>\[ P(D | L) = 0.9, P(D | S) = 0.95, P(D | H) = 0.05 \]</p>
+        <p>Tổng xác suất một bệnh nhân được phát hiện mắc bệnh \( P(D) \) được tính như sau:</p>
+        <p>\[ P(D) = P(D | L)P(L) + P(D | S)P(S) + P(D | H)P(H) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D) = 0.9 \times 0.1 + 0.95 \times 0.2 + 0.05 \times 0.7 \]</p>
+        <p>\[ P(D) = 0.09 + 0.19 + 0.035 = 0.315 \]</p>
+        <p>Vậy, xác suất một bệnh nhân được phát hiện mắc bệnh là 0.315.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 4 -->
+<div class="example">
+    <h3>Ví dụ 4: Kiểm tra sản phẩm</h3>
+    <p>Một công ty sản xuất ba loại sản phẩm: X, Y và Z. Xác suất một sản phẩm X là 0.4, sản phẩm Y là 0.35 và sản phẩm Z là 0.25. Xác suất một sản phẩm đạt chất lượng khi là sản phẩm X là 0.9, khi là sản phẩm Y là 0.85 và khi là sản phẩm Z là 0.7. Tính xác suất một sản phẩm ngẫu nhiên đạt chất lượng.</p>
+    <button onclick="toggleSolution('solution64')">Hiển Thị Giải</button>
+    <div class="solution" id="solution64">
+        <p>Giả sử:</p>
+        <p>\[ P(X) = 0.4, P(Y) = 0.35, P(Z) = 0.25 \]</p>
+        <p>\[ P(Q | X) = 0.9, P(Q | Y) = 0.85, P(Q | Z) = 0.7 \]</p>
+        <p>Tổng xác suất một sản phẩm ngẫu nhiên đạt chất lượng \( P(Q) \) được tính như sau:</p>
+        <p>\[ P(Q) = P(Q | X)P(X) + P(Q | Y)P(Y) + P(Q | Z)P(Z) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(Q) = 0.9 \times 0.4 + 0.85 \times 0.35 + 0.7 \times 0.25 \]</p>
+        <p>\[ P(Q) = 0.36 + 0.2975 + 0.175 = 0.8325 \]</p>
+        <p>Vậy, xác suất một sản phẩm ngẫu nhiên đạt chất lượng là 0.8325.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 5 -->
+<div class="example">
+    <h3>Ví dụ 5: Đánh giá phim</h3>
+    <p>Một rạp chiếu phim phân loại khán giả thành ba nhóm: trẻ em (C), người lớn (A) và người già (S). Xác suất mỗi nhóm khán giả lần lượt là 0.3, 0.5 và 0.2. Xác suất khán giả đánh giá cao bộ phim khi họ là trẻ em là 0.7, khi là người lớn là 0.8 và khi là người già là 0.6. Tính xác suất một khán giả ngẫu nhiên đánh giá cao bộ phim.</p>
+    <button onclick="toggleSolution('solution65')">Hiển Thị Giải</button>
+    <div class="solution" id="solution65">
+        <p>Giả sử:</p>
+        <p>\[ P(C) = 0.3, P(A) = 0.5, P(S) = 0.2 \]</p>
+        <p>\[ P(H | C) = 0.7, P(H | A) = 0.8, P(H | S) = 0.6 \]</p>
+        <p>Tổng xác suất một khán giả ngẫu nhiên đánh giá cao bộ phim \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | C)P(C) + P(H | A)P(A) + P(H | S)P(S) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.7 \times 0.3 + 0.8 \times 0.5 + 0.6 \times 0.2 \]</p>
+        <p>\[ P(H) = 0.21 + 0.4 + 0.12 = 0.73 \]</p>
+        <p>Vậy, xác suất một khán giả ngẫu nhiên đánh giá cao bộ phim là 0.73.</p>
+    </div>
+</div>
+<!-- Ví dụ 6 -->
+<div class="example">
+    <h3>Ví dụ 6: Phân loại sinh viên</h3>
+    <p>Một trường đại học có ba loại sinh viên: sinh viên giỏi (G), sinh viên khá (K), và sinh viên trung bình (T). Xác suất mỗi loại sinh viên lần lượt là 0.2, 0.5, và 0.3. Xác suất sinh viên hoàn thành khóa học đúng hạn khi họ là sinh viên giỏi là 0.9, khi là sinh viên khá là 0.7, và khi là sinh viên trung bình là 0.4. Tính xác suất một sinh viên ngẫu nhiên hoàn thành khóa học đúng hạn.</p>
+    <button onclick="toggleSolution('solution66')">Hiển Thị Giải</button>
+    <div class="solution" id="solution66">
+        <p>Giả sử:</p>
+        <p>\[ P(G) = 0.2, P(K) = 0.5, P(T) = 0.3 \]</p>
+        <p>\[ P(H | G) = 0.9, P(H | K) = 0.7, P(H | T) = 0.4 \]</p>
+        <p>Tổng xác suất một sinh viên ngẫu nhiên hoàn thành khóa học đúng hạn \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | G)P(G) + P(H | K)P(K) + P(H | T)P(T) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.9 \times 0.2 + 0.7 \times 0.5 + 0.4 \times 0.3 \]</p>
+        <p>\[ P(H) = 0.18 + 0.35 + 0.12 = 0.65 \]</p>
+        <p>Vậy, xác suất một sinh viên ngẫu nhiên hoàn thành khóa học đúng hạn là 0.65.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 7 -->
+<div class="example">
+    <h3>Ví dụ 7: Chất lượng sản phẩm</h3>
+    <p>Một công ty sản xuất ba loại sản phẩm: sản phẩm cao cấp (H), sản phẩm trung cấp (M), và sản phẩm bình dân (L). Xác suất mỗi loại sản phẩm lần lượt là 0.25, 0.5 và 0.25. Xác suất một sản phẩm đạt tiêu chuẩn chất lượng khi là sản phẩm cao cấp là 0.95, khi là sản phẩm trung cấp là 0.85 và khi là sản phẩm bình dân là 0.6. Tính xác suất một sản phẩm ngẫu nhiên đạt tiêu chuẩn chất lượng.</p>
+    <button onclick="toggleSolution('solution67')">Hiển Thị Giải</button>
+    <div class="solution" id="solution67">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.25, P(M) = 0.5, P(L) = 0.25 \]</p>
+        <p>\[ P(Q | H) = 0.95, P(Q | M) = 0.85, P(Q | L) = 0.6 \]</p>
+        <p>Tổng xác suất một sản phẩm ngẫu nhiên đạt tiêu chuẩn chất lượng \( P(Q) \) được tính như sau:</p>
+        <p>\[ P(Q) = P(Q | H)P(H) + P(Q | M)P(M) + P(Q | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(Q) = 0.95 \times 0.25 + 0.85 \times 0.5 + 0.6 \times 0.25 \]</p>
+        <p>\[ P(Q) = 0.2375 + 0.425 + 0.15 = 0.8125 \]</p>
+        <p>Vậy, xác suất một sản phẩm ngẫu nhiên đạt tiêu chuẩn chất lượng là 0.8125.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 8 -->
+<div class="example">
+    <h3>Ví dụ 8: Khả năng thành công trong kinh doanh</h3>
+    <p>Một doanh nghiệp có ba loại dự án: dự án lớn (L), dự án vừa (M), và dự án nhỏ (S). Xác suất mỗi loại dự án lần lượt là 0.3, 0.4 và 0.3. Xác suất một dự án thành công khi là dự án lớn là 0.8, khi là dự án vừa là 0.6 và khi là dự án nhỏ là 0.5. Tính xác suất một dự án ngẫu nhiên thành công.</p>
+    <button onclick="toggleSolution('solution68')">Hiển Thị Giải</button>
+    <div class="solution" id="solution68">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.3, P(M) = 0.4, P(S) = 0.3 \]</p>
+        <p>\[ P(SC | L) = 0.8, P(SC | M) = 0.6, P(SC | S) = 0.5 \]</p>
+        <p>Tổng xác suất một dự án ngẫu nhiên thành công \( P(SC) \) được tính như sau:</p>
+        <p>\[ P(SC) = P(SC | L)P(L) + P(SC | M)P(M) + P(SC | S)P(S) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(SC) = 0.8 \times 0.3 + 0.6 \times 0.4 + 0.5 \times 0.3 \]</p>
+        <p>\[ P(SC) = 0.24 + 0.24 + 0.15 = 0.63 \]</p>
+        <p>Vậy, xác suất một dự án ngẫu nhiên thành công là 0.63.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 9 -->
+<div class="example">
+    <h3>Ví dụ 9: Xác suất học sinh đạt điểm cao</h3>
+    <p>Một trường học có ba loại học sinh: học sinh xuất sắc (E), học sinh giỏi (G), và học sinh trung bình (M). Xác suất mỗi loại học sinh lần lượt là 0.1, 0.3 và 0.6. Xác suất học sinh đạt điểm cao khi là học sinh xuất sắc là 0.9, khi là học sinh giỏi là 0.7 và khi là học sinh trung bình là 0.4. Tính xác suất một học sinh ngẫu nhiên đạt điểm cao.</p>
+    <button onclick="toggleSolution('solution69')">Hiển Thị Giải</button>
+    <div class="solution" id="solution69">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.1, P(G) = 0.3, P(M) = 0.6 \]</p>
+        <p>\[ P(H | E) = 0.9, P(H | G) = 0.7, P(H | M) = 0.4 \]</p>
+        <p>Tổng xác suất một học sinh ngẫu nhiên đạt điểm cao \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | E)P(E) + P(H | G)P(G) + P(H | M)P(M) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.9 \times 0.1 + 0.7 \times 0.3 + 0.4 \times 0.6 \]</p>
+        <p>\[ P(H) = 0.09 + 0.21 + 0.24 = 0.54 \]</p>
+        <p>Vậy, xác suất một học sinh ngẫu nhiên đạt điểm cao là 0.54.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 10 -->
+<div class="example">
+    <h3>Ví dụ 10: Xác suất phát hiện lỗi trong sản xuất</h3>
+    <p>Một công ty sản xuất ba loại sản phẩm: sản phẩm cao cấp (H), sản phẩm trung cấp (M), và sản phẩm bình dân (L). Xác suất mỗi loại sản phẩm lần lượt là 0.3, 0.4 và 0.3. Xác suất phát hiện lỗi khi là sản phẩm cao cấp là 0.05, khi là sản phẩm trung cấp là 0.1 và khi là sản phẩm bình dân là 0.2. Tính xác suất phát hiện lỗi trong một sản phẩm ngẫu nhiên.</p>
+    <button onclick="toggleSolution('solution70')">Hiển Thị Giải</button>
+    <div class="solution" id="solution70">
+        <p>Giả sử:</p>
+        <p>\[ P(H) = 0.3, P(M) = 0.4, P(L) = 0.3 \]</p>
+        <p>\[ P(E | H) = 0.05, P(E | M) = 0.1, P(E | L) = 0.2 \]</p>
+        <p>Tổng xác suất phát hiện lỗi trong một sản phẩm ngẫu nhiên \( P(E) \) được tính như sau:</p>
+        <p>\[ P(E) = P(E | H)P(H) + P(E | M)P(M) + P(E | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E) = 0.05 \times 0.3 + 0.1 \times 0.4 + 0.2 \times 0.3 \]</p>
+        <p>\[ P(E) = 0.015 + 0.04 + 0.06 = 0.115 \]</p>
+        <p>Vậy, xác suất phát hiện lỗi trong một sản phẩm ngẫu nhiên là 0.115.</p>
+    </div>
+</div>
+<!-- Ví dụ 11 -->
+<div class="example">
+    <h3>Ví dụ 11: Xác suất khách hàng hài lòng</h3>
+    <p>Một cửa hàng có ba loại khách hàng: khách hàng mới (N), khách hàng thường xuyên (R), và khách hàng VIP (V). Xác suất mỗi loại khách hàng lần lượt là 0.4, 0.4 và 0.2. Xác suất khách hàng hài lòng khi họ là khách hàng mới là 0.6, khi là khách hàng thường xuyên là 0.8 và khi là khách hàng VIP là 0.9. Tính xác suất một khách hàng ngẫu nhiên hài lòng.</p>
+    <button onclick="toggleSolution('solution71')">Hiển Thị Giải</button>
+    <div class="solution" id="solution71">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.4, P(R) = 0.4, P(V) = 0.2 \]</p>
+        <p>\[ P(H | N) = 0.6, P(H | R) = 0.8, P(H | V) = 0.9 \]</p>
+        <p>Tổng xác suất một khách hàng ngẫu nhiên hài lòng \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | N)P(N) + P(H | R)P(R) + P(H | V)P(V) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.6 \times 0.4 + 0.8 \times 0.4 + 0.9 \times 0.2 \]</p>
+        <p>\[ P(H) = 0.24 + 0.32 + 0.18 = 0.74 \]</p>
+        <p>Vậy, xác suất một khách hàng ngẫu nhiên hài lòng là 0.74.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 12 -->
+<div class="example">
+    <h3>Ví dụ 12: Xác suất vượt qua kỳ thi</h3>
+    <p>Một trường đại học có bốn loại sinh viên: sinh viên giỏi (E), sinh viên khá (G), sinh viên trung bình (A), và sinh viên yếu (P). Xác suất mỗi loại sinh viên lần lượt là 0.2, 0.3, 0.4, và 0.1. Xác suất vượt qua kỳ thi khi là sinh viên giỏi là 0.95, khi là sinh viên khá là 0.8, khi là sinh viên trung bình là 0.6 và khi là sinh viên yếu là 0.3. Tính xác suất một sinh viên ngẫu nhiên vượt qua kỳ thi.</p>
+    <button onclick="toggleSolution('solution72')">Hiển Thị Giải</button>
+    <div class="solution" id="solution72">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.2, P(G) = 0.3, P(A) = 0.4, P(P) = 0.1 \]</p>
+        <p>\[ P(T | E) = 0.95, P(T | G) = 0.8, P(T | A) = 0.6, P(T | P) = 0.3 \]</p>
+        <p>Tổng xác suất một sinh viên ngẫu nhiên vượt qua kỳ thi \( P(T) \) được tính như sau:</p>
+        <p>\[ P(T) = P(T | E)P(E) + P(T | G)P(G) + P(T | A)P(A) + P(T | P)P(P) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T) = 0.95 \times 0.2 + 0.8 \times 0.3 + 0.6 \times 0.4 + 0.3 \times 0.1 \]</p>
+        <p>\[ P(T) = 0.19 + 0.24 + 0.24 + 0.03 = 0.7 \]</p>
+        <p>Vậy, xác suất một sinh viên ngẫu nhiên vượt qua kỳ thi là 0.7.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 13 -->
+<div class="example">
+    <h3>Ví dụ 13: Xác suất thành công trong dự án</h3>
+    <p>Một công ty có bốn loại dự án: dự án lớn (L), dự án vừa (M), dự án nhỏ (S), và dự án rất nhỏ (XS). Xác suất mỗi loại dự án lần lượt là 0.1, 0.3, 0.4, và 0.2. Xác suất thành công khi là dự án lớn là 0.9, khi là dự án vừa là 0.7, khi là dự án nhỏ là 0.5 và khi là dự án rất nhỏ là 0.2. Tính xác suất một dự án ngẫu nhiên thành công.</p>
+    <button onclick="toggleSolution('solution73')">Hiển Thị Giải</button>
+    <div class="solution" id="solution73">
+        <p>Giả sử:</p>
+        <p>\[ P(L) = 0.1, P(M) = 0.3, P(S) = 0.4, P(XS) = 0.2 \]</p>
+        <p>\[ P(SC | L) = 0.9, P(SC | M) = 0.7, P(SC | S) = 0.5, P(SC | XS) = 0.2 \]</p>
+        <p>Tổng xác suất một dự án ngẫu nhiên thành công \( P(SC) \) được tính như sau:</p>
+        <p>\[ P(SC) = P(SC | L)P(L) + P(SC | M)P(M) + P(SC | S)P(S) + P(SC | XS)P(XS) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(SC) = 0.9 \times 0.1 + 0.7 \times 0.3 + 0.5 \times 0.4 + 0.2 \times 0.2 \]</p>
+        <p>\[ P(SC) = 0.09 + 0.21 + 0.2 + 0.04 = 0.54 \]</p>
+        <p>Vậy, xác suất một dự án ngẫu nhiên thành công là 0.54.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 14 -->
+<div class="example">
+    <h3>Ví dụ 14: Xác suất đỗ vào đại học</h3>
+    <p>Một trường cấp ba có bốn loại học sinh: học sinh giỏi (G), học sinh khá (K), học sinh trung bình (TB), và học sinh yếu (Y). Xác suất mỗi loại học sinh lần lượt là 0.15, 0.35, 0.4 và 0.1. Xác suất đỗ vào đại học khi là học sinh giỏi là 0.95, khi là học sinh khá là 0.8, khi là học sinh trung bình là 0.5 và khi là học sinh yếu là 0.2. Tính xác suất một học sinh ngẫu nhiên đỗ vào đại học.</p>
+    <button onclick="toggleSolution('solution74')">Hiển Thị Giải</button>
+    <div class="solution" id="solution74">
+        <p>Giả sử:</p>
+        <p>\[ P(G) = 0.15, P(K) = 0.35, P(TB) = 0.4, P(Y) = 0.1 \]</p>
+        <p>\[ P(D | G) = 0.95, P(D | K) = 0.8, P(D | TB) = 0.5, P(D | Y) = 0.2 \]</p>
+        <p>Tổng xác suất một học sinh ngẫu nhiên đỗ vào đại học \( P(D) \) được tính như sau:</p>
+        <p>\[ P(D) = P(D | G)P(G) + P(D | K)P(K) + P(D | TB)P(TB) + P(D | Y)P(Y) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(D) = 0.95 \times 0.15 + 0.8 \times 0.35 + 0.5 \times 0.4 + 0.2 \times 0.1 \]</p>
+        <p>\[ P(D) = 0.1425 + 0.28 + 0.2 + 0.02 = 0.6425 \]</p>
+        <p>Vậy, xác suất một học sinh ngẫu nhiên đỗ vào đại học là 0.6425.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 15 -->
+<div class="example">
+    <h3>Ví dụ 15: Xác suất nhân viên hoàn thành dự án</h3>
+    <p>Một công ty có bốn loại nhân viên: nhân viên rất giỏi (E), nhân viên giỏi (G), nhân viên trung bình (A), và nhân viên yếu (P). Xác suất mỗi loại nhân viên lần lượt là 0.2, 0.3, 0.4, và 0.1. Xác suất hoàn thành dự án đúng hạn khi là nhân viên rất giỏi là 0.95, khi là nhân viên giỏi là 0.8, khi là nhân viên trung bình là 0.6 và khi là nhân viên yếu là 0.3. Tính xác suất một nhân viên ngẫu nhiên hoàn thành dự án đúng hạn.</p>
+    <button onclick="toggleSolution('solution75')">Hiển Thị Giải</button>
+    <div class="solution" id="solution75">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.2, P(G) = 0.3, P(A) = 0.4, P(P) = 0.1 \]</p>
+        <p>\[ P(H | E) = 0.95, P(H | G) = 0.8, P(H | A) = 0.6, P(H | P) = 0.3 \]</p>
+        <p>Tổng xác suất một nhân viên ngẫu nhiên hoàn thành dự án đúng hạn \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | E)P(E) + P(H | G)P(G) + P(H | A)P(A) + P(H | P)P(P) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.95 \times 0.2 + 0.8 \times 0.3 + 0.6 \times 0.4 + 0.3 \times 0.1 \]</p>
+        <p>\[ P(H) = 0.19 + 0.24 + 0.24 + 0.03 = 0.7 \]</p>
+        <p>Vậy, xác suất một nhân viên ngẫu nhiên hoàn thành dự án đúng hạn là 0.7.</p>
+    </div>
+</div>
+<!-- Ví dụ 16 -->
+<div class="example">
+    <h3>Ví dụ 16: Xác suất trúng thưởng</h3>
+    <p>Một chương trình khuyến mãi có ba loại vé: vé loại A, vé loại B, và vé loại C. Xác suất mỗi loại vé lần lượt là 0.5, 0.3 và 0.2. Xác suất trúng thưởng khi là vé loại A là 0.1, khi là vé loại B là 0.2 và khi là vé loại C là 0.3. Tính xác suất một vé ngẫu nhiên trúng thưởng.</p>
+    <button onclick="toggleSolution('solution76')">Hiển Thị Giải</button>
+    <div class="solution" id="solution76">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.5, P(B) = 0.3, P(C) = 0.2 \]</p>
+        <p>\[ P(T | A) = 0.1, P(T | B) = 0.2, P(T | C) = 0.3 \]</p>
+        <p>Tổng xác suất một vé ngẫu nhiên trúng thưởng \( P(T) \) được tính như sau:</p>
+        <p>\[ P(T) = P(T | A)P(A) + P(T | B)P(B) + P(T | C)P(C) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T) = 0.1 \times 0.5 + 0.2 \times 0.3 + 0.3 \times 0.2 \]</p>
+        <p>\[ P(T) = 0.05 + 0.06 + 0.06 = 0.17 \]</p>
+        <p>Vậy, xác suất một vé ngẫu nhiên trúng thưởng là 0.17.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 17 -->
+<div class="example">
+    <h3>Ví dụ 17: Xác suất thành công trong thí nghiệm</h3>
+    <p>Một phòng thí nghiệm thực hiện ba loại thí nghiệm: thí nghiệm loại 1 (L1), thí nghiệm loại 2 (L2), và thí nghiệm loại 3 (L3). Xác suất mỗi loại thí nghiệm lần lượt là 0.4, 0.4 và 0.2. Xác suất thí nghiệm thành công khi là loại 1 là 0.7, khi là loại 2 là 0.5 và khi là loại 3 là 0.6. Tính xác suất một thí nghiệm ngẫu nhiên thành công.</p>
+    <button onclick="toggleSolution('solution77')">Hiển Thị Giải</button>
+    <div class="solution" id="solution77">
+        <p>Giả sử:</p>
+        <p>\[ P(L1) = 0.4, P(L2) = 0.4, P(L3) = 0.2 \]</p>
+        <p>\[ P(S | L1) = 0.7, P(S | L2) = 0.5, P(S | L3) = 0.6 \]</p>
+        <p>Tổng xác suất một thí nghiệm ngẫu nhiên thành công \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | L1)P(L1) + P(S | L2)P(L2) + P(S | L3)P(L3) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.7 \times 0.4 + 0.5 \times 0.4 + 0.6 \times 0.2 \]</p>
+        <p>\[ P(S) = 0.28 + 0.2 + 0.12 = 0.6 \]</p>
+        <p>Vậy, xác suất một thí nghiệm ngẫu nhiên thành công là 0.6.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 18 -->
+<div class="example">
+    <h3>Ví dụ 18: Xác suất sinh viên tham gia hoạt động ngoại khóa</h3>
+    <p>Một trường đại học có bốn loại sinh viên: sinh viên năm nhất (F), sinh viên năm hai (S), sinh viên năm ba (T), và sinh viên năm cuối (L). Xác suất mỗi loại sinh viên lần lượt là 0.25, 0.25, 0.25 và 0.25. Xác suất tham gia hoạt động ngoại khóa khi là sinh viên năm nhất là 0.7, khi là sinh viên năm hai là 0.6, khi là sinh viên năm ba là 0.5 và khi là sinh viên năm cuối là 0.4. Tính xác suất một sinh viên ngẫu nhiên tham gia hoạt động ngoại khóa.</p>
+    <button onclick="toggleSolution('solution78')">Hiển Thị Giải</button>
+    <div class="solution" id="solution78">
+        <p>Giả sử:</p>
+        <p>\[ P(F) = 0.25, P(S) = 0.25, P(T) = 0.25, P(L) = 0.25 \]</p>
+        <p>\[ P(A | F) = 0.7, P(A | S) = 0.6, P(A | T) = 0.5, P(A | L) = 0.4 \]</p>
+        <p>Tổng xác suất một sinh viên ngẫu nhiên tham gia hoạt động ngoại khóa \( P(A) \) được tính như sau:</p>
+        <p>\[ P(A) = P(A | F)P(F) + P(A | S)P(S) + P(A | T)P(T) + P(A | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(A) = 0.7 \times 0.25 + 0.6 \times 0.25 + 0.5 \times 0.25 + 0.4 \times 0.25 \]</p>
+        <p>\[ P(A) = 0.175 + 0.15 + 0.125 + 0.1 = 0.55 \]</p>
+        <p>Vậy, xác suất một sinh viên ngẫu nhiên tham gia hoạt động ngoại khóa là 0.55.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 19 -->
+<div class="example">
+    <h3>Ví dụ 19: Xác suất khách hàng mua sản phẩm</h3>
+    <p>Một cửa hàng có bốn loại khách hàng: khách hàng mới (N), khách hàng quay lại (R), khách hàng thường xuyên (F), và khách hàng VIP (V). Xác suất mỗi loại khách hàng lần lượt là 0.3, 0.3, 0.2 và 0.2. Xác suất mua sản phẩm khi là khách hàng mới là 0.5, khi là khách hàng quay lại là 0.6, khi là khách hàng thường xuyên là 0.8 và khi là khách hàng VIP là 0.9. Tính xác suất một khách hàng ngẫu nhiên mua sản phẩm.</p>
+    <button onclick="toggleSolution('solution79')">Hiển Thị Giải</button>
+    <div class="solution" id="solution79">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.3, P(R) = 0.3, P(F) = 0.2, P(V) = 0.2 \]</p>
+        <p>\[ P(M | N) = 0.5, P(M | R) = 0.6, P(M | F) = 0.8, P(M | V) = 0.9 \]</p>
+        <p>Tổng xác suất một khách hàng ngẫu nhiên mua sản phẩm \( P(M) \) được tính như sau:</p>
+        <p>\[ P(M) = P(M | N)P(N) + P(M | R)P(R) + P(M | F)P(F) + P(M | V)P(V) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(M) = 0.5 \times 0.3 + 0.6 \times 0.3 + 0.8 \times 0.2 + 0.9 \times 0.2 \]</p>
+        <p>\[ P(M) = 0.15 + 0.18 + 0.16 + 0.18 = 0.67 \]</p>
+        <p>Vậy, xác suất một khách hàng ngẫu nhiên mua sản phẩm là 0.67.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 20 -->
+<div class="example">
+    <h3>Ví dụ 20: Xác suất máy tính bị lỗi</h3>
+    <p>Một công ty sản xuất ba loại máy tính: loại A, loại B, và loại C. Xác suất mỗi loại máy tính lần lượt là 0.5, 0.3 và 0.2. Xác suất máy tính bị lỗi khi là loại A là 0.02, khi là loại B là 0.05 và khi là loại C là 0.1. Tính xác suất một máy tính ngẫu nhiên bị lỗi.</p>
+    <button onclick="toggleSolution('solution80')">Hiển Thị Giải</button>
+    <div class="solution" id="solution80">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.5, P(B) = 0.3, P(C) = 0.2 \]</p>
+        <p>\[ P(E | A) = 0.02, P(E | B) = 0.05, P(E | C) = 0.1 \]</p>
+        <p>Tổng xác suất một máy tính ngẫu nhiên bị lỗi \( P(E) \) được tính như sau:</p>
+        <p>\[ P(E) = P(E | A)P(A) + P(E | B)P(B) + P(E | C)P(C) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(E) = 0.02 \times 0.5 + 0.05 \times 0.3 + 0.1 \times 0.2 \]</p>
+        <p>\[ P(E) = 0.01 + 0.015 + 0.02 = 0.045 \]</p>
+        <p>Vậy, xác suất một máy tính ngẫu nhiên bị lỗi là 0.045.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 21 -->
+<div class="example">
+    <h3>Ví dụ 21: Xác suất học sinh đạt học bổng</h3>
+    <p>Một trường học có ba loại học sinh: học sinh giỏi (G), học sinh khá (K), và học sinh trung bình (T). Xác suất mỗi loại học sinh lần lượt là 0.2, 0.3 và 0.5. Xác suất học sinh đạt học bổng khi là học sinh giỏi là 0.9, khi là học sinh khá là 0.6 và khi là học sinh trung bình là 0.2. Tính xác suất một học sinh ngẫu nhiên đạt học bổng.</p>
+    <button onclick="toggleSolution('solution81')">Hiển Thị Giải</button>
+    <div class="solution" id="solution81">
+        <p>Giả sử:</p>
+        <p>\[ P(G) = 0.2, P(K) = 0.3, P(T) = 0.5 \]</p>
+        <p>\[ P(HB | G) = 0.9, P(HB | K) = 0.6, P(HB | T) = 0.2 \]</p>
+        <p>Tổng xác suất một học sinh ngẫu nhiên đạt học bổng \( P(HB) \) được tính như sau:</p>
+        <p>\[ P(HB) = P(HB | G)P(G) + P(HB | K)P(K) + P(HB | T)P(T) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(HB) = 0.9 \times 0.2 + 0.6 \times 0.3 + 0.2 \times 0.5 \]</p>
+        <p>\[ P(HB) = 0.18 + 0.18 + 0.1 = 0.46 \]</p>
+        <p>Vậy, xác suất một học sinh ngẫu nhiên đạt học bổng là 0.46.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 22 -->
+<div class="example">
+    <h3>Ví dụ 22: Xác suất máy móc hoạt động tốt</h3>
+    <p>Một nhà máy có ba loại máy móc: máy loại 1 (M1), máy loại 2 (M2), và máy loại 3 (M3). Xác suất mỗi loại máy móc lần lượt là 0.4, 0.4 và 0.2. Xác suất máy móc hoạt động tốt khi là máy loại 1 là 0.8, khi là máy loại 2 là 0.9 và khi là máy loại 3 là 0.7. Tính xác suất một máy móc ngẫu nhiên hoạt động tốt.</p>
+    <button onclick="toggleSolution('solution82')">Hiển Thị Giải</button>
+    <div class="solution" id="solution82">
+        <p>Giả sử:</p>
+        <p>\[ P(M1) = 0.4, P(M2) = 0.4, P(M3) = 0.2 \]</p>
+        <p>\[ P(T | M1) = 0.8, P(T | M2) = 0.9, P(T | M3) = 0.7 \]</p>
+        <p>Tổng xác suất một máy móc ngẫu nhiên hoạt động tốt \( P(T) \) được tính như sau:</p>
+        <p>\[ P(T) = P(T | M1)P(M1) + P(T | M2)P(M2) + P(T | M3)P(M3) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T) = 0.8 \times 0.4 + 0.9 \times 0.4 + 0.7 \times 0.2 \]</p>
+        <p>\[ P(T) = 0.32 + 0.36 + 0.14 = 0.82 \]</p>
+        <p>Vậy, xác suất một máy móc ngẫu nhiên hoạt động tốt là 0.82.</p>
+    </div>
+</div>
+<!-- Ví dụ 23 -->
+<div class="example">
+    <h3>Ví dụ 23: Xác suất nhân viên hoàn thành công việc</h3>
+    <p>Một công ty có ba loại nhân viên: nhân viên có kinh nghiệm (E), nhân viên có trình độ (Q), và nhân viên mới (N). Xác suất mỗi loại nhân viên lần lượt là 0.4, 0.3 và 0.3. Xác suất hoàn thành công việc đúng hạn khi là nhân viên có kinh nghiệm là 0.9, khi là nhân viên có trình độ là 0.8 và khi là nhân viên mới là 0.5. Tính xác suất một nhân viên ngẫu nhiên hoàn thành công việc đúng hạn.</p>
+    <button onclick="toggleSolution('solution83')">Hiển Thị Giải</button>
+    <div class="solution" id="solution83">
+        <p>Giả sử:</p>
+        <p>\[ P(E) = 0.4, P(Q) = 0.3, P(N) = 0.3 \]</p>
+        <p>\[ P(H | E) = 0.9, P(H | Q) = 0.8, P(H | N) = 0.5 \]</p>
+        <p>Tổng xác suất một nhân viên ngẫu nhiên hoàn thành công việc đúng hạn \( P(H) \) được tính như sau:</p>
+        <p>\[ P(H) = P(H | E)P(E) + P(H | Q)P(Q) + P(H | N)P(N) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(H) = 0.9 \times 0.4 + 0.8 \times 0.3 + 0.5 \times 0.3 \]</p>
+        <p>\[ P(H) = 0.36 + 0.24 + 0.15 = 0.75 \]</p>
+        <p>Vậy, xác suất một nhân viên ngẫu nhiên hoàn thành công việc đúng hạn là 0.75.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 24 -->
+<div class="example">
+    <h3>Ví dụ 24: Xác suất sinh viên được học bổng</h3>
+    <p>Một trường đại học có bốn loại sinh viên: sinh viên năm nhất (F), sinh viên năm hai (S), sinh viên năm ba (T), và sinh viên năm cuối (L). Xác suất mỗi loại sinh viên lần lượt là 0.3, 0.3, 0.2 và 0.2. Xác suất được học bổng khi là sinh viên năm nhất là 0.4, khi là sinh viên năm hai là 0.5, khi là sinh viên năm ba là 0.7 và khi là sinh viên năm cuối là 0.8. Tính xác suất một sinh viên ngẫu nhiên được học bổng.</p>
+    <button onclick="toggleSolution('solution84')">Hiển Thị Giải</button>
+    <div class="solution" id="solution84">
+        <p>Giả sử:</p>
+        <p>\[ P(F) = 0.3, P(S) = 0.3, P(T) = 0.2, P(L) = 0.2 \]</p>
+        <p>\[ P(B | F) = 0.4, P(B | S) = 0.5, P(B | T) = 0.7, P(B | L) = 0.8 \]</p>
+        <p>Tổng xác suất một sinh viên ngẫu nhiên được học bổng \( P(B) \) được tính như sau:</p>
+        <p>\[ P(B) = P(B | F)P(F) + P(B | S)P(S) + P(B | T)P(T) + P(B | L)P(L) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B) = 0.4 \times 0.3 + 0.5 \times 0.3 + 0.7 \times 0.2 + 0.8 \times 0.2 \]</p>
+        <p>\[ P(B) = 0.12 + 0.15 + 0.14 + 0.16 = 0.57 \]</p>
+        <p>Vậy, xác suất một sinh viên ngẫu nhiên được học bổng là 0.57.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 25 -->
+<div class="example">
+    <h3>Ví dụ 25: Xác suất trúng số</h3>
+    <p>Một công ty xổ số có bốn loại vé: vé loại A (A), vé loại B (B), vé loại C (C), và vé loại D (D). Xác suất mỗi loại vé lần lượt là 0.1, 0.2, 0.3 và 0.4. Xác suất trúng số khi là vé loại A là 0.01, khi là vé loại B là 0.05, khi là vé loại C là 0.1 và khi là vé loại D là 0.2. Tính xác suất một vé ngẫu nhiên trúng số.</p>
+    <button onclick="toggleSolution('solution85')">Hiển Thị Giải</button>
+    <div class="solution" id="solution85">
+        <p>Giả sử:</p>
+        <p>\[ P(A) = 0.1, P(B) = 0.2, P(C) = 0.3, P(D) = 0.4 \]</p>
+        <p>\[ P(T | A) = 0.01, P(T | B) = 0.05, P(T | C) = 0.1, P(T | D) = 0.2 \]</p>
+        <p>Tổng xác suất một vé ngẫu nhiên trúng số \( P(T) \) được tính như sau:</p>
+        <p>\[ P(T) = P(T | A)P(A) + P(T | B)P(B) + P(T | C)P(C) + P(T | D)P(D) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(T) = 0.01 \times 0.1 + 0.05 \times 0.2 + 0.1 \times 0.3 + 0.2 \times 0.4 \]</p>
+        <p>\[ P(T) = 0.001 + 0.01 + 0.03 + 0.08 = 0.121 \]</p>
+        <p>Vậy, xác suất một vé ngẫu nhiên trúng số là 0.121.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 26 -->
+<div class="example">
+    <h3>Ví dụ 26: Xác suất tìm thấy tài liệu</h3>
+    <p>Một thư viện có bốn loại tài liệu: sách (B), báo (N), tạp chí (M), và tài liệu điện tử (E). Xác suất mỗi loại tài liệu lần lượt là 0.3, 0.2, 0.4 và 0.1. Xác suất tìm thấy tài liệu khi là sách là 0.9, khi là báo là 0.8, khi là tạp chí là 0.7 và khi là tài liệu điện tử là 0.6. Tính xác suất tìm thấy một tài liệu ngẫu nhiên.</p>
+    <button onclick="toggleSolution('solution86')">Hiển Thị Giải</button>
+    <div class="solution" id="solution86">
+        <p>Giả sử:</p>
+        <p>\[ P(B) = 0.3, P(N) = 0.2, P(M) = 0.4, P(E) = 0.1 \]</p>
+        <p>\[ P(F | B) = 0.9, P(F | N) = 0.8, P(F | M) = 0.7, P(F | E) = 0.6 \]</p>
+        <p>Tổng xác suất tìm thấy một tài liệu ngẫu nhiên \( P(F) \) được tính như sau:</p>
+        <p>\[ P(F) = P(F | B)P(B) + P(F | N)P(N) + P(F | M)P(M) + P(F | E)P(E) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(F) = 0.9 \times 0.3 + 0.8 \times 0.2 + 0.7 \times 0.4 + 0.6 \times 0.1 \]</p>
+        <p>\[ P(F) = 0.27 + 0.16 + 0.28 + 0.06 = 0.77 \]</p>
+        <p>Vậy, xác suất tìm thấy một tài liệu ngẫu nhiên là 0.77.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 27 -->
+<div class="example">
+    <h3>Ví dụ 27: Xác suất học sinh tham gia thể thao</h3>
+    <p>Một trường học có bốn loại học sinh: học sinh lớp 6 (G6), học sinh lớp 7 (G7), học sinh lớp 8 (G8), và học sinh lớp 9 (G9). Xác suất mỗi loại học sinh lần lượt là 0.25, 0.25, 0.25 và 0.25. Xác suất tham gia thể thao khi là học sinh lớp 6 là 0.6, khi là học sinh lớp 7 là 0.7, khi là học sinh lớp 8 là 0.8 và khi là học sinh lớp 9 là 0.9. Tính xác suất một học sinh ngẫu nhiên tham gia thể thao.</p>
+    <button onclick="toggleSolution('solution87')">Hiển Thị Giải</button>
+    <div class="solution" id="solution87">
+        <p>Giả sử:</p>
+        <p>\[ P(G6) = 0.25, P(G7) = 0.25, P(G8) = 0.25, P(G9) = 0.25 \]</p>
+        <p>\[ P(S | G6) = 0.6, P(S | G7) = 0.7, P(S | G8) = 0.8, P(S | G9) = 0.9 \]</p>
+        <p>Tổng xác suất một học sinh ngẫu nhiên tham gia thể thao \( P(S) \) được tính như sau:</p>
+        <p>\[ P(S) = P(S | G6)P(G6) + P(S | G7)P(G7) + P(S | G8)P(G8) + P(S | G9)P(G9) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(S) = 0.6 \times 0.25 + 0.7 \times 0.25 + 0.8 \times 0.25 + 0.9 \times 0.25 \]</p>
+        <p>\[ P(S) = 0.15 + 0.175 + 0.2 + 0.225 = 0.75 \]</p>
+        <p>Vậy, xác suất một học sinh ngẫu nhiên tham gia thể thao là 0.75.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 28 -->
+<div class="example">
+    <h3>Ví dụ 28: Xác suất khách hàng quay lại</h3>
+    <p>Một cửa hàng có bốn loại khách hàng: khách hàng mới (N), khách hàng quay lại (R), khách hàng thường xuyên (F), và khách hàng VIP (V). Xác suất mỗi loại khách hàng lần lượt là 0.4, 0.3, 0.2 và 0.1. Xác suất quay lại khi là khách hàng mới là 0.2, khi là khách hàng quay lại là 0.5, khi là khách hàng thường xuyên là 0.7 và khi là khách hàng VIP là 0.9. Tính xác suất một khách hàng ngẫu nhiên quay lại.</p>
+    <button onclick="toggleSolution('solution88')">Hiển Thị Giải</button>
+    <div class="solution" id="solution88">
+        <p>Giả sử:</p>
+        <p>\[ P(N) = 0.4, P(R) = 0.3, P(F) = 0.2, P(V) = 0.1 \]</p>
+        <p>\[ P(B | N) = 0.2, P(B | R) = 0.5, P(B | F) = 0.7, P(B | V) = 0.9 \]</p>
+        <p>Tổng xác suất một khách hàng ngẫu nhiên quay lại \( P(B) \) được tính như sau:</p>
+        <p>\[ P(B) = P(B | N)P(N) + P(B | R)P(R) + P(B | F)P(F) + P(B | V)P(V) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(B) = 0.2 \times 0.4 + 0.5 \times 0.3 + 0.7 \times 0.2 + 0.9 \times 0.1 \]</p>
+        <p>\[ P(B) = 0.08 + 0.15 + 0.14 + 0.09 = 0.46 \]</p>
+        <p>Vậy, xác suất một khách hàng ngẫu nhiên quay lại là 0.46.</p>
+    </div>
+</div>
+
+<!-- Ví dụ 29 -->
+<div class="example">
+    <h3>Ví dụ 29: Xác suất xe máy cần bảo trì</h3>
+    <p>Một cửa hàng xe máy có ba loại xe: xe tay ga (S), xe số (M), và xe phân khối lớn (B). Xác suất mỗi loại xe lần lượt là 0.5, 0.3 và 0.2. Xác suất xe cần bảo trì khi là xe tay ga là 0.1, khi là xe số là 0.2 và khi là xe phân khối lớn là 0.3. Tính xác suất một xe máy ngẫu nhiên cần bảo trì.</p>
+    <button onclick="toggleSolution('solution89')">Hiển Thị Giải</button>
+    <div class="solution" id="solution89">
+        <p>Giả sử:</p>
+        <p>\[ P(S) = 0.5, P(M) = 0.3, P(B) = 0.2 \]</p>
+        <p>\[ P(P | S) = 0.1, P(P | M) = 0.2, P(P | B) = 0.3 \]</p>
+        <p>Tổng xác suất một xe máy ngẫu nhiên cần bảo trì \( P(P) \) được tính như sau:</p>
+        <p>\[ P(P) = P(P | S)P(S) + P(P | M)P(M) + P(P | B)P(B) \]</p>
+        <p>Thay các giá trị vào:</p>
+        <p>\[ P(P) = 0.1 \times 0.5 + 0.2 \times 0.3 + 0.3 \times 0.2 \]</p>
+        <p>\[ P(P) = 0.05 + 0.06 + 0.06 = 0.17 \]</p>
+        <p>Vậy, xác suất một xe máy ngẫu nhiên cần bảo trì là 0.17.</p>
+    </div>
+</div>
+
+
+    </div>
+
+    <script>
+        function calculateConditionalProbability() {
+            const pa = parseFloat(document.getElementById('pa').value);
+            const pb = parseFloat(document.getElementById('pb').value);
+            const pba = parseFloat(document.getElementById('pba').value);
+
+            if (isNaN(pa) || isNaN(pb) || isNaN(pba) || pa < 0 || pa > 1 || pb < 0 || pb > 1 || pba < 0 || pba > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pab = (pba * pa) / pb;
+            const resultText = `\\[ P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)} = \\frac{${pba} \\cdot ${pa}}{${pb}} = ${pab.toFixed(4)} \\]`;
+            document.getElementById('result').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result'));
+        }
+
+        function calculateTotalProbability() {
+            const pa_general = parseFloat(document.getElementById('pa_general').value);
+            const pb1 = parseFloat(document.getElementById('pb1').value);
+            const pab2 = parseFloat(document.getElementById('pab2').value);
+            const pb2 = parseFloat(document.getElementById('pb2').value);
+
+            if (isNaN(pa_general) || isNaN(pb1) || isNaN(pab2) || isNaN(pb2) || pa_general < 0 || pa_general > 1 || pb1 < 0 || pb1 > 1 || pab2 < 0 || pab2 > 1 || pb2 < 0 || pb2 > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pA = pa_general * pb1 + pab2 * pb2;
+            const resultText = `\\[ P(A) = P(A|B_1)P(B_1) + P(A|B_2)P(B_2) = ${pa_general} \\cdot ${pb1} + ${pab2} \\cdot ${pb2} = ${pA.toFixed(4)} \\]`;
+            document.getElementById('result_general').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result_general'));
+        }
+
+        function calculateTotalProbabilityB3() {
+            const pa_general = parseFloat(document.getElementById('pa_general').value);
+            const pb1 = parseFloat(document.getElementById('pb1').value);
+            const pab2 = parseFloat(document.getElementById('pab2').value);
+            const pb2 = parseFloat(document.getElementById('pb2').value);
+            const pab3 = parseFloat(document.getElementById('pab3').value);
+            const pb3 = parseFloat(document.getElementById('pb3').value);
+
+            if (isNaN(pa_general) || isNaN(pb1) || isNaN(pab2) || isNaN(pb2) || isNaN(pab3) || isNaN(pb3) || pa_general < 0 || pa_general > 1 || pb1 < 0 || pb1 > 1 || pab2 < 0 || pab2 > 1 || pb2 < 0 || pb2 > 1 || pab3 < 0 || pab3 > 1 || pb3 < 0 || pb3 > 1) {
+                alert("Hãy nhập các xác suất hợp lệ từ 0 đến 1.");
+                return;
+            }
+
+            const pA = pa_general * pb1 + pab2 * pb2 + pab3 * pb3;
+            const resultText = `\\[ P(A) = P(A|B_1)P(B_1) + P(A|B_2)P(B_2) + P(A|B_3)P(B_3) = ${pa_general} \\cdot ${pb1} + ${pab2} \\cdot ${pb2} + ${pab3} \\cdot ${pb3} = ${pA.toFixed(4)} \\]`;
+            document.getElementById('result_general_b3').innerHTML = resultText;
+            renderMathInElement(document.getElementById('result_general_b3'));
+        }
+
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+        });
+    </script>
+</body>
+</html>

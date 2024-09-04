@@ -1,0 +1,108 @@
+\begin{dang}{Biện luận đơn điệu của hàm đa thức trên khoảng, đoạn cho trước}
+	\begin{enumerate}
+		\item \textbf{Loại 1:} Tìm điều kiện của tham số để hàm số $y=ax^3+bx^2+cx+d$ đơn điệu trên toàn miền xác định $\mathbb{R}$.
+		\begin{itemize}
+			\item  Hàm số đồng biến trên  $\mathbb{R}$ thì $\boxed{y' \ge 0,\,\forall x \in \mathbb{R}} \Leftrightarrow \begin{cases} \\a > 0\\ \Delta_{y'}\le 0 \end{cases}$ hoặc $\begin{cases} \\a=0\\b=0\\c > 0. \end{cases}$
+			\item  Hàm số nghịch biến trên  $\mathbb{R}$ thì $\boxed{y' \le 0, \,\forall x \in \mathbb{R}} \Leftrightarrow \begin{cases} \\a <  0\\ \Delta_{y'}\le 0 \end{cases}$ hoặc  $\begin{cases} \\a=0\\b=0\\\\c <  0. \end{cases}$
+		\end{itemize}
+	\end{enumerate}
+\end{dang}
+\subsubsection{Ví dụ}
+\begin{vd}
+	Có bao nhiêu giá trị nguyên dương của tham số $m$ để hàm số $y=x^3-3(m+1)x^2+(6m+5)x-1$ đồng biến trên $(2;+\infty)$?
+	\choice
+	{$1$}
+	{\True $0$}
+	{$3$}
+	{$2$}
+	\loigiai{
+		Ta có $y'=3x^2-6(m+1)x+6m+5$.\\
+		Hàm số đồng biến trên $(2;+\infty)$ khi $y'=3x^2-6(m+1)x+6m+5\geq 0~\forall x\in(2;+\infty)$
+		\[\Leftrightarrow 3x^2-6x+5\geq 6m(x-1)\, \forall x  > 2\Leftrightarrow m\leq\dfrac{3x^2-6x+5}{6x-6}=g(x)\, \forall x > 2.\]
+		Ta có $g'(x)=\dfrac{18x^2-36x+6}{(6x-6)^2} > 0~\forall x\in(2;+\infty)$.\\
+		Ta có bảng biến thiên
+        <img src="khohinh/hchuong1/hinh88.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+		Vậy $m\leq\dfrac{5}{6}$ nên không có giá trị nguyên dương nào của $m$ thỏa yêu cầu bài toán.}
+\end{vd}
+\begin{vd} 
+	Tìm tập hợp tất cả các giác trị thực của tham số $m$ để hàm số $y=x^3+mx^2-x+m$ nghịch biến trên khoảng $(1;2)$.
+	\choice
+	{$\left(-\infty;-\dfrac{11}{4}\right)$}
+	{$(-\infty;-1)$}
+	{$[-1;+\infty)$}
+	{\True $\left(-\infty;-\dfrac{11}{4}\right]$}
+	\loigiai{
+		Ta có $y'=3x^2+2mx-1$. \\
+		Yêu cầu đề bài $\Leftrightarrow y'\leq 0,\forall x\in(1;2)\Leftrightarrow m\leq -\dfrac{3}{2}x+\dfrac{1}{2x}=f(x),\forall x\in(1;2)$.\\
+		$f'(x)=-\dfrac{3}{2}-\dfrac{1}{2x^2}< 0,\forall x\in(1;2)$.\\
+		Ta suy ra $m \leq -\dfrac{3}{4}$.}
+\end{vd}
+
+
+
+
+
+\begin{dang}{Biện luận đơn điệu của hàm đa thức trên khoảng, đoạn cho trước}
+\textbf{Nghiệm Đẹp}: Phương trình $y'= 0$ giải được nghiệm "đẹp": Ta thiết lập bảng xét dấu $y'$ theo các nghiệm vừa tìm \textbf{(xét hết các khả năng nghiệm trùng, nghiệm phân biệt)}.
+\end{dang}
+\begin{vd}
+	Tìm tất cả các giá trị của tham số $m$ để hàm số $y=\dfrac{1}{3}x^3+(m-1)x^2+(2m-3)x-\dfrac{2}{3}$ đồng biến trên khoảng $(1;+\infty)$.
+	\choice
+	{$m>2$}
+	{$m< 1$}
+	{\True $m\geq 1$}
+	{$m\leq 2$}
+	\loigiai{
+		Ta có $\colon y'=x^2+2(m-1)x+2m-3=(x+1)(x+2m-3)\geq 0$ .\\
+		Do $x>1$ nên $(x+1)>0$, khi đó		
+		 $y'\ge 0\,\, \forall x>1\Leftrightarrow (x+2m-3)\geq 0$ với mọi $x>1$.
+		\[x+2m-3\geq 0\Leftrightarrow 2m-2\geq 0\Leftrightarrow m\geq 1.\]
+	}
+\end{vd}
+\begin{vd}
+		Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=\dfrac{x^3}{3}-(2m-1)\dfrac{x^2}{2}+\left(m^2-m-2\right)x+1$ nghịch biến trên khoảng $(1;2)$.
+	\choice
+	{\True $3$}
+	{$0$}
+	{$1$}
+	{Vô số}
+	\loigiai{
+		Hàm số $y=\dfrac{x^3}{3}-(2m-1)\dfrac{x^2}{2}+\left(m^2-m-2\right)x+1$ nghịch biến trên khoảng $(1;2)$
+		\[\Leftrightarrow y'=x^2-(2m-1)x+m^2-m-2\leq 0 ~\forall x\in(1;2).\]
+		Giải bất phương trình $x^2-(2m-1)x+m^2-m-2\leq 0$ được tập nghiệm $S=[m-2;m-1]$.\\
+		Khi đó yêu cầu bài toán tương đương với $(1;2)\subset[m-2;m-1]\Leftrightarrow\heva{&m-2\leq 1\\&m-1\geq 2}\Leftrightarrow 1\leq m\leq 3$.\\
+		Vậy có $3$ giá trị nguyên của $m$ cần tìm.}
+\end{vd}
+
+\begin{vd}
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=x^3-3(m+2)x^2+3(m^2+4m)x+1$ nghịch biến trên khoảng $(0;1)$.
+	\choice
+	{$1$}
+	{\True $4$}
+	{$3$}
+	{$2$}
+	\loigiai{
+		Ta có: $y=x^3-3(m+2)x^2+3(m^2+4m)x+1 \Rightarrow y'=3x^2-6(m+2)x+3(m^2+4m)$.\\
+		$y'=0 \Leftrightarrow \hoac{&x=m \\ &x=m+4.}$\\
+		Để hàm số nghịch biến trên khoảng $(0;1)$ thì $m \leq 0< 1 \leq m+4 \Leftrightarrow \heva{&m \leq 0 \\ &m \geq-3.}$\\
+		Do $m \in \mathbb{Z} \Rightarrow m \in\{0 ;-1 ;-2 ;-3\}$.
+	}
+\end{vd}
+\begin{vd}
+	Có bao nhiêu giá trị nguyên âm của tham số $m$ để hàm số $y=\dfrac{1}{3}x^3+(m-1)x^2+(2m-3)x-1$ đồng biến trên khoảng $(1;+\infty)$.
+	\choice
+	{$1$}
+	{\True $0$}
+	{Vô số}
+	{$3$}
+	\loigiai{
+		Ta có $y'=x^2+2(m-1)x+2m-3$; $y'=0\Leftrightarrow \hoac{&x=-1 \\ &x=3-2m.}$ \\
+		TH1: Với $-1< 3-2m\Leftrightarrow m< 2$.\\
+		Hàm số đồng biến trên khoảng $(1;+\infty) \Leftrightarrow 1\geq 3-2m\Leftrightarrow m\geq 1$.\\
+		Hay $1\leq m< 2$ thì thỏa đề bài.\\
+		TH2: Với $-1>3-2m \Leftrightarrow m>2$.\\
+		Hàm số đồng biến trên khoảng $(-1;+\infty)$ nên đồng biến trên khoảng $(1;+\infty)$ với mọi $m$.\\
+		TH3: Với $-1=3-2m \Leftrightarrow m=2$.\\
+		Ta có $y'\geq 0$.\\
+		Vậy không có giá trị nguyên âm thỏa đề.}
+\end{vd}

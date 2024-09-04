@@ -1,0 +1,526 @@
+
+\de{ĐỀ THI HỌC KỲ II NĂM HỌC 2022-2023}{THPT Số 1 - SaPa}
+\begin{center}
+	\textbf{PHẦN 1 - TRẮC NGHIỆM}
+\end{center}
+\Opensolutionfile{ans}[ans/ans]
+%Câu 1...........................
+\begin{ex}%[0D3Y1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+Tập xác định của hàm số $y=\sqrt{x-3}$ là
+	\choice
+	{$(3;+\infty)$}
+	{$(-\infty;3)$}
+	{\True $[3;+\infty)$}
+	{$(-\infty;3]$}
+	\loigiai{
+Điều kiện xác định $x-3 \ge 0 \Leftrightarrow x \ge 3$. Vậy tập xác định là $\mathscr{D}=[3;+\infty)$.		
+	}
+\end{ex}
+
+\begin{ex}%[0D3Y2-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trục đối xứng của đồ thị hàm số $y=x^2+2x-1$ là
+	\choice
+	{\True $x=-1$}
+	{$x=1$}
+	{$y=1$}
+	{$y=-1$}
+	\loigiai{
+Trục đối xứng của đồ thị hàm số là $x=\dfrac{-2}{2 \cdot 1} \Leftrightarrow x=-1$.		
+	}
+\end{ex}
+
+\begin{ex}%[0D3K2-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Đồ thị dưới đây là của hàm số nào?
+	\begin{center}
+		\begin{tikzpicture}[scale=0.85,>=stealth, font=\footnotesize, line join=round, line cap=round]
+				\def\xmin{-2} \def\xmax{5}
+				\def\ymin{-2} \def\ymax{6} 
+				\draw[->] (\xmin,0)--(\xmax,0) node [below]{$x$};
+				\draw[->] (0,\ymin)--(0,\ymax) node [left]{$y$};
+				\node at (0,0) [below left]{$O$};
+				\clip (\xmin+0.1,\ymin+0.1) rectangle (\xmax-0.5,\ymax-0.1);
+				\draw[smooth,samples=300,domain=-1.5:4.5] plot(\x,{(\x)^2-4*(\x)+3});
+				\draw[dashed] (2,-2)--(2,5) (0,-1)--(2,-1);
+				\draw (-1,0) node[below] {$-1$} (1,0) node[below left] {$1$} (2,0) node [below right] {$2$} (3,0) node[below right] {$3$} (4,0) node[below] {$4$};
+				\draw (0,-1) node[left] {$-1$} (0,1) node[left] {$1$} (0,2) node [left] {$2$} (0,3) node[left] {$3$} (0,4) node[right] {$4$};
+		\end{tikzpicture}
+	\end{center}
+	\choice
+	{$y=x^2-4x-1$}
+	{\True $y=x^2-4x+3$}
+	{$y=-x^2+4x-1$}
+	{$y=-x^2+4x+3$}
+	\loigiai{
+Parabol có bề lõm hướng lên trên nên $a>0$, hơn nữa parabol cắt $Oy$ tại điểm $(0;3)$ nên $c=3$. Do đó đồ thị trong hình vẽ là đồ thị của hàm số $y=x^2-4x+3$.	
+	}
+\end{ex}
+
+\begin{ex}%[0D4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Cho hàm số $f(x)=-x^2+4x+5$. Kết luận nào sau đây đúng?
+	\choice
+	{\True $f(x)>0$ với mọi $x \in (-1;5)$}
+	{$f(x)>0$ với mọi $x \in (-1;+\infty)$}
+	{$f(x)>0$ với mọi $x \in (-\infty;-1) \cup (5;+\infty)$}
+	{$f(x)<0$ với mọi $x \in (-\infty;5)$}
+	\loigiai{
+Ta có $f(x)=0 \Leftrightarrow \hoac{&x=-1 \\ &x=5.}$\\
+Bảng xét dấu của $f(x)$ như hình vẽ
+\begin{center}
+		\begin{tikzpicture}[scale=1, font=\footnotesize,line join=round, line cap=round,>=stealth]
+		\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6]{$x$/0.8,$f(x)$/0.8}
+		{$-\infty$,$-1$,$5$,$+\infty$}
+		\tkzTabLine{,-,z,+,z,-,}
+	\end{tikzpicture}	
+\end{center}	
+Từ bảng xét dấu ta có $f(x)>0$ với mọi $x \in (-1;5)$.	
+	}
+\end{ex}
+
+\begin{ex}%[0D4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Tập nghiệm $S$ của bất phương trình $x^2+x-6 \le 0$ là
+	\choice
+	{$(-3;2)$}
+	{$(1;4)$}
+	{\True $[-3;2]$}
+	{$1;4$}
+	\loigiai{
+Ta có $x^2+x-6=0 \Leftrightarrow \hoac{&x=2 \\ &x=-3.}$\\
+Ta có bảng xét dấu của $f(x)=x^2+x-6$ như sau
+		\begin{center}
+			\begin{tikzpicture}[scale=1, font=\footnotesize,line join=round, line cap=round,>=stealth]
+				\tkzTabInit[nocadre=false,lgt=1.2,espcl=2.5,deltacl=0.6]{$x$/0.8,$f(x)$/0.8}
+				{$-\infty$,$-3$,$2$,$+\infty$}
+				\tkzTabLine{,+,z,-,z,+,}
+			\end{tikzpicture}	
+		\end{center}	
+	Từ bảng xét dấu ta có $x^2+x-6 \le 0 \Leftrightarrow -3 \le x \le 2$.
+	}
+\end{ex}
+
+\begin{ex}%. [0D4B3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Phương trình $\sqrt{2x^2+8}=x+2$ có một nghiệm là
+	\choice
+	{$x=0$}
+	{$x=1$}
+	{\True $x=2$}
+	{$x=3$}
+	\loigiai{
+	Ta có phương trình hệ quả của phương trình đã cho là $2x^2+8=(x+2)^2 \Leftrightarrow x^2-4x+4=0 \Leftrightarrow x=2$, thử lại thấy thỏa mãn. Vậy phương trình đã cho có nghiệm $x=2$.	
+	}
+\end{ex}
+
+
+\begin{ex}%[0H4B1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Véc-tơ pháp tuyến của đường thẳng $x+2y-3=0$ là
+	\choice
+	{$\overrightarrow{n}=(1;-3)$}
+	{$\overrightarrow{n}=(2;-3)$}
+	{$\overrightarrow{n}=(2;-1)$}
+	{\True $\overrightarrow{n}=(1;2)$}
+	\loigiai{
+Đường thẳng $x+2y-3=0$ có một véc-tơ pháp tuyến là $\overrightarrow{n}=(1;2)$.
+	}
+\end{ex}
+
+\begin{ex}%[0H4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Phương trình tham số của đường thẳng đi qua hai điểm $A(2;-1)$ và $B(2;5)$ là
+	\choice
+	{$\heva{&x=2t \\ &y=-6t}$}
+	{$\heva{&x=2+t \\ &y= 5+6t}$}
+	{$\heva{&x=1 \\ &y=2+6t}$}
+	{\True $\heva{&x=2 \\&y=-1+6t}$}
+	\loigiai{
+Đường thẳng $AB$ có một véc tơ chỉ phương là $\overrightarrow{AB}=(0;6)$ và đi qua điểm $A(2;-1)$ nên có phương trình là $ \heva{&x=2 \\&y=-1+6t.}$		
+	}
+\end{ex}
+
+\begin{ex}%[0H4B1-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Phương trình nào sau đây là phương trình đường thẳng không song song với đường thẳng $d \colon 3x-y-2=0$?
+	\choice
+	{$-3x+y=0$}
+	{$3x-y=0$}
+	{$3x-y+6=0$}
+	{$3x+y=0$}
+	\loigiai{
+Ta có $d$ không song song với $d' \colon 3x+y=0$ vì $\dfrac{3}{3} \ne \dfrac{-1}{1}$.		
+	}
+\end{ex}
+
+\begin{ex}%[0H4K1-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Cho đường thẳng $d_1 \colon 2x+3y+15=0$ và $d_2 \colon x-2y-3=0$. Khẳng định nào sau đây là đúng?
+	\choice
+	{\True $d_1$ và $d_2$ cắt nhau và không vuông góc với nhau}
+	{$d_1$ và $d_2$ song song với nhau}
+	{$d_1$ và $d_2$ trùng nhau}
+	{$d_1$ và $d_2$ vuông góc với nhau}
+	\loigiai{
+Ta có $\dfrac{2}{1} \ne \dfrac{3}{-2}$ và $2 \cdot 1 +3 \cdot (-2) \ne 0$ nên $d_1$ và $d_2$ cắt nhau và không vuông góc với nhau,
+	}
+\end{ex}
+
+\begin{ex}%[0H4Y2-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong mặt phẳng tọa độ $Oxy$, đường tròn $(C) \colon x^2+y^2+4x+6y-12=0$ có tâm là
+	\choice
+	{\True $I(-2;-3)$}
+	{$I(2;3)$}
+	{$I(4;6)$}
+	{$I(-4;-6)$}
+	\loigiai{
+Tâm của đường tròn $(C)$ là $I(-2;-3)$. 		
+	}
+\end{ex}
+
+\begin{ex}%[0H4B2-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Phương trình nào sau đây là phương trình của đường tròn tâm $I(-1;2)$, bán kính bằng $3$?
+	\choice
+	{$(x-1)^2+(y+2)^2=9$}
+	{$(x+1)^2+(y+2)^2=9$}
+	{$(x-1)^2+(y-2)^2=9$}
+	{$(x+1)^2+(y-2)^2=9$}
+	\loigiai{
+Phương trình của đường tròn tâm $I(-1;2)$, bán kính bằng $3$ là $(x+1)^2+(y-2)^2=9$.		
+	}
+\end{ex}
+
+\begin{ex}%[0H4B3-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong mặt phẳng tọa độ $Oxy$, cho elip $(E) \colon \dfrac{x^2}{25}+\dfrac{y^2}{9}=1$. Tiêu cự của $(E)$ bằng
+	\choice
+	{$10$}
+	{$16$}
+	{$4$}
+	{$8$}
+	\loigiai{
+Ta có $a^2=25$, $b^2=9$ suy ra $c=\sqrt{25-9}=4$. Vậy tiêu cự của elip là $2c=8$.		
+	}
+\end{ex}
+
+\begin{ex}%[0H4B3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Phương trình chính tắc của Elip có độ dài trục lớn bằng $8$ và độ dài trục nhỏ bằng $6$ là
+	\choice
+	{$\dfrac{x^2}{9}+\dfrac{y^2}{16}=1$}
+	{$\dfrac{x^2}{64}+\dfrac{y^2}{36}=1$}
+	{$\dfrac{x^2}{8}+\dfrac{y^2}{6}=1$}
+	{$\dfrac{x^2}{16}+\dfrac{y^2}{9}=1$}
+	\loigiai{
+Trục lớn bằng $8$ suy ra $2a=8 \Leftrightarrow a=4$.\\
+Trục nhỏ bằng $6$ suy ra $2b=6 \Leftrightarrow b=3$.\\
+Vậy $(E) \colon \dfrac{x^2}{16}+\dfrac{y^2}{9}=1$.
+	}
+\end{ex}
+
+
+\begin{ex}%[0X2Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Một tổ có $8$ học sinh nữ và $12$ học sinh nam. Hỏi có bao nhiêu cách chọn ngẫu nhiên một học sinh của tổ đó đi trực nhật?
+	\choice
+	{\True $20$}
+	{$11$}
+	{$30$}
+	{$10$}
+	\loigiai{
+Áp dụng quy tắc cộng, có $8+12=20$ cách chọn.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Một bó hoa có $5$ hoa hồng trắng, $6$ hoa hồng đỏ và $7$ hoa hông vàng. Hỏi có mấy cách chọn lấy ba bông hoa có đủ ba màu?
+	\choice
+	{$240$}
+	{\True $210$}
+	{$18$}
+	{$120$}
+	\loigiai{
+Áp dụng quy tắc nhân, số cách chọn $3$ bông hoa có đủ ba màu là $5 \cdot 6 \cdot 7=210$ cách.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong một hộp có chứa $6$ quả cầu trắng được đánh số từ $1$ đến $6$ và ba quả cầu đen được đánh số $7$, $8$, $9$. Có bao nhiêu cách chọn một trong các quả cầu ấy?
+	\choice
+	{$27$}
+	{\True $9$}
+	{$6$}
+	{$3$}
+	\loigiai{
+Áp dụng quy tắc cộng có $6+3=9$ cách chọn $1$ trong $9$ quả cầu.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	An muốn qua nhà Bình để cùng Bình đến nhà Cường chơi. Từ nhà An đến nhà Bình có $4$ con đường đi, từ nhà Bình tới nhà Cường có $6$ con đường đi. Hỏi An có bao nhiêu cách chọn đường đi đến nhà Cường?
+	\choice
+	{$6$}
+	{$4$}
+	{$10$}
+	{$24$}
+	\loigiai{
+Áp dụng quy tắc nhân ta có $4 \cdot 6=24$ cách chọn đường đi.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Một đội học sinh giỏi của trường THPT, gồm $5$ học sinh khối $12$, $4$ học sinh khối $11$ và $3$ học sinh khối $10$. Số cách chọn ra ba học sinh trong đó mỗi khối có một em là
+	\choice
+	{$12$}
+	{$220$}
+	{\True $60$}
+	{$3$}
+	\loigiai{
+Áp dụng quy tắc nhân, số cách chọn ra ba học sinh trong đó mỗi khối có một em là $5 \cdot 4 \cdot 3 =60$ cách.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2B2-4]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+Cho $8$ điểm trong đó không có ba điểm nào thẳng hàng. Hỏi có bao nhiêu tam giác mà ba đỉnh của nó được chọn từ $8$ điểm trên?	
+	\choice
+	{$336$}
+	{\True $56$}
+	{$512$}
+	{$24$}
+	\loigiai{
+Số tam giác có ba đỉnh là ba trong $8$ điểm đã cho là $\mathrm{C}_8^3 = 56$ cách.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y2-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Có bao nhiêu cách sắp xếp $6$ học sinh theo một hàng dọc?
+	\choice
+	{$46656$}
+	{$4320$}
+	{$720$}
+	{$360$}
+	\loigiai{
+Có $6!=720$ cách.		
+	}
+\end{ex}
+\begin{ex}%[0X2K1-4]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Một tổ có $5$ học sinh nữ và $6$ học sinh nam. Số cách chọn nhẫu nhiên $5$ học sinh của tổ trong đó có cả học sinh nam và học sinh nữ là
+	\choice
+	{$275$}
+	{$462$}
+	{\True $455$}
+	{$425$}
+	\loigiai{
+Số cách chọn ngẫu nhiên $5$ trong $11$ học sinh của tổ là $\mathrm{C}_{11}^5$ cách. \\
+Số cách chọn được $5$ học sinh cùng giới trong tổ là $\mathrm{C}_5^5+\mathrm{C}_6^5=7$ cách. \\
+Vậy số cách chọn ra $5$ học sinh của tổ mà có cả nam và nữ là $\mathrm{C}_{11}^5-7=455$ cách.
+	}
+\end{ex}
+
+\begin{ex}%[ID]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+Cho các chữ số $1$, $5$, $6$, $7$. Có thể lập được bao nhiêu số tự nhiên có $4$ chữ số với các chữ số khác nhau?	
+	\choice
+	{$12$}
+	{$24$}
+	{$64$}
+	{$256$}
+	\loigiai{
+Mỗi hoán vị của bốn chữ số $1$, $5$, $6$, $7$ cho ta một số tự nhiên có $4$ chữ số khác nhau. Do đó số các số tự nhiên thỏa mãn yêu cầu là $4!=24$ số.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2Y3-1] %[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong khai triển nhị thức Newton của $(a+b)^4$ có bao nhiêu số hạng?
+	\choice
+	{$6$}
+	{$3$}
+	{\True $5$}
+	{$4$}
+	\loigiai{
+Trong khai triển nhị thức Newton của $(a+b)^4$ có $5$ số hạng.		
+	}
+\end{ex}
+
+\begin{ex}%[0X2B3-2] %[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong khai triển nhị thức Newton của $(1+3x)^4$, số hạng thứ $2$ theo số mũ tăng dần của $x$ là
+	\choice
+	{$108x$}
+	{$54x^2$}
+	{$1$}
+	{\True $12x$}
+	\loigiai{
+Ta có $(1+3x)^4=1+12x+54x^2+108x^3+81x^4$. Do đó số hạng thứ $2$ theo chiều số mũ của $x$ tăng dần là $12x$. 		
+	}
+\end{ex}
+
+\begin{ex}%[0X2B3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Tìm hệ số của $x^2$ trong khai triển nhị thức Newton của $(x+2)^4$
+	\choice
+	{$32$}
+	{$8$}
+	{\True $24$}
+	{$16$}
+	\loigiai{
+Ta có $(x+2)^4=x^4+8x^3+2.4x^2+32x+16$, do đó hệ số của $x^2$ trong khai triển là $24$		
+	}
+\end{ex}
+
+\begin{ex}%[0X2B3-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Khai triển của nhị thức $(x+4)^4$ là
+	\choice
+	{\True $x^4+16x^3+96x^2+256x+256$}
+	{$x-16x^3+96x^2+256x-256$}
+	{$4x^4+16x^3+96x^2+256x+256$}
+	{$x^4-16x^3+96x^2-256x+96$}
+	\loigiai{
+Ta có $(x+4)^4=x^4+16x^3+96x^2+256x+256$. 		
+	}
+\end{ex}
+\begin{ex}%[0X3Y1-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong các thí nghiệm sau thí nghiệm nào không phải là phép thử ngẫu nhiên?
+	\choice
+	{Gieo đồng tiền xem mặt nó ngửa hay sấp}
+	{Gieo $3$ đồng tiền xem có mấy đồng tiền lật ngửa}
+	{Chọn bất kì một học sinh trong lớp và xem là nam hay là nữ}
+	{\True Bỏ hai viên bi xanh và ba viên bi đỏ trong một chiếc hộp, sau đó lấy từng viên một để đếm xem có tất cả bao nhiêu viên bi}
+	\loigiai{
+		Theo lý thuyết về phép thử ngẫu nhiên.
+	}
+\end{ex}
+
+\begin{ex}%[0X3Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Gieo $3$ đồng tiền là một phép thử ngẫu nhiên có không gian mẫu là
+	\choice
+	{$\{NN,NS,SN,SS\}$}
+	{$\{NNN,SSS,NNS,SSN,NSN,SNS\}$}
+	{\True $\{NNN,SSS,NNS,SSN,NSN,SNS,NSS,SNN\}$}
+	{$\{NNN,SSS,NNS,SSN,NSS,SNN\}$}
+	\loigiai{
+Không gian mẫu là $\Omega =		\{NNN,SSS,NNS,SSN,NSN,SNS,NSS,SNN\}$.
+	}
+\end{ex}
+\begin{ex}%[0X3B1-2] %[Dự án đề kiểm tra HKII NH22-23- Nguyễn Ngọc Nguyên]%[THPT SỐ 1 THỊ XÃ SA PA]
+	Trong một chiếc hộp đựng $6$ viên bi đỏ, $8$ viên bi xanh và $10$ viên bi trắng. Lấy ngẫu nhiên $4$ viên bi. Tính số phần tử của không gian mẫu.
+	\choice
+	{$10626$}
+	{$14241$}
+	{$14284$}
+	{$13311$}
+	\loigiai{
+Ta có $n(\Omega)=\mathrm{C}_{24}^4=		10626$.
+	}
+\end{ex}
+
+\begin{ex}%[0X3B1-2]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Trong một chiếc hộp đựng $6$ viên bi đỏ, $8$ viên bi xanh, $10$ viên bi trắng. Lấy ngẫu nhiên $4$ viên bi. Tính số phần tử của biến cố $A$: \lq\lq$4$ viên bi lấy ra có đúng hai viên bi màu xanh\rq\rq.
+	\choice
+	{$n(A)=4245$}
+	{\True $n(A)=3360$}
+	{$n(A)=4095$}
+	{$n(A)=3095$}
+\loigiai{
+	Số phần tử của biến cố $A$ là $n(A)=C_8^2\cdot C_{16}^2=3360$.
+}
+\end{ex}
+\begin{ex}%[0X3B2-1]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Gieo một con xúc xắc. Xác suất để mặt chấm lẻ xuất hiện là
+	\choice
+	{$0{,}2$}
+	{\True $0{,}5$}
+	{$0{,}4$}
+	{$0{,}3$}
+\loigiai{
+Gieo một con xúc xắc, số phần tử của không gian mẫu $\Omega$ là $n(\Omega)=6$.\\
+Gọi $A$ là biến cố ``mặt chấm lẻ xuất hiện''. \\
+Suy ra $n(A)=3$.\\
+Vậy xác suất của biến cố $A$ bằng $P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{3}{6}=\dfrac{1}{2}=0{,}5$.
+}
+\end{ex}
+\begin{ex}%[0X3B2-4]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Một hộp đựng $3$ bi xanh và $7$ bi đỏ. Lần lượt rút $2$ viên bi. Xác suất để rút được một bi xanh và một bi đỏ là
+	\choice
+	{\True $\dfrac{7}{15}$}
+	{$\dfrac{6}{25}$}
+	{$\dfrac{8}{25}$}
+	{$\dfrac{8}{15}$}
+\loigiai{
+Rút $2$ viên bi, số phần tử của không gian mẫu $\Omega$ là $n(\Omega)=C_{10}^2$.\\
+Gọi $A$ là biến cố ``rút được một bi xanh và một bi đỏ''.\\
+Suy ra $n(A)=C_3^1\cdot C_7^1=21$.\\
+Vậy xác suất của biến cố $A$ bằng $P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{21}{45}=\dfrac{7}{15}$.
+}
+\end{ex}
+\begin{ex}%[0X3B2-3]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Một tổ học sinh có $4$ nam và $6$ nữ. Chọn ngẫu nhiên $3$ người. Xác suất sao cho $3$ người được chọn có đúng một người là nữ là
+	\choice
+	{$\dfrac{1}{10}$}
+	{$\dfrac{7}{10}$}
+	{\True $\dfrac{3}{10}$}
+	{$\dfrac{3}{15}$}
+\loigiai{
+Chọn ngẫu nhiên $3$ người, số phần tử của không gian mẫu $\Omega$ là $n(\Omega)=C_{10}^3$.\\
+Gọi $A$ là biến cố ``chọn đúng một người là nữ''.\\
+Suy ra $n(A)=C_6^1\cdot C_4^2=36$.\\
+Vậy xác suất của biến cố $A$ bằng $P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{36}{120}=\dfrac{3}{10}$.
+}
+\end{ex}
+\begin{ex}%[0X3B2-3]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Một đội gồm $5$ nam và $8$ nữ. Lập một nhóm gồm $4$ người hát tốp ca, tính xác suất để trong $4$ người được chọn có ít nhất $3$ nam.
+	\choice
+	{$\dfrac{70}{143}$}
+	{$\dfrac{73}{143}$}
+	{$\dfrac{56}{143}$}
+	{\True $\dfrac{17}{143}$}
+\loigiai{
+Lập nhóm gồm $4$ người, số phần tử của không gian mẫu $\Omega$ là $n(\Omega)=C_{13}^4$.\\
+Gọi $A$ là biến cố ``chọn được ít nhất $3$ nam''.\\
+Suy ra $n(A)=C_5^3\cdot C_8^1+C_5^4=85$.\\
+Vậy xác suất của biến cố $A$ bằng
+$P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{85}{715}=\dfrac{17}{143}$.
+}
+\end{ex}
+
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+\begin{center}
+	\textbf{PHẦN 2 - TỰ LUẬN}
+\end{center}
+\begin{bt}%[0H4B2-2]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Viết phương trình đường tròn đường kính $AB$ với $A(2;3)$, $B(-6;5)$.
+\loigiai{
+Bán kính $R=\dfrac{AB}{2}=\dfrac{\sqrt{(-6-2)^2+(5-3)^2}}{2}=\sqrt{17}$.\\
+Tâm $I$ là trung điểm đoạn $AB$ suy ra $I(-2;4)$.\\
+Phương trình đường tròn đường kính $AB$ là $$(x+2)^2+(y-4)^2=17.$$
+}
+\end{bt}
+\begin{bt}%[0X3B2-7]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Với các chữ số $0$, $1$, $2$, $3$, $4$, $5$, $6$. Lập được bao nhiêu số có mười chữ số mà trong mỗi số chữ số $3$ có mặt đúng $4$ lần, các chữ số khác mỗi chữ số có mặt đúng $1$ lần.
+\loigiai{
+Chọn $6$ trong $10$ vị trí xếp các chữ số $0$, $1$, $2$, $4$, $5$, $6$. Khi đó, ta có $A_{10}^6$ cách.\\
+Xếp chữ số $3$ vào $4$ vị trí trống còn lại có $1$ cách.\\
+Suy ra có $A_{10}^6\cdot 1=151\,200$ cách.\\
+Xét trường hợp số $0$ đứng vị trí đầu tiên.\\
+Chọn $5$ trong $9$ vị trí xếp các chữ số $1$, $2$, $4$, $5$, $6$. Khi đó, ta có $A_{9}^5$ cách.\\
+Xếp chữ số $3$ vào $4$ vị trí trống còn lại có $1$ cách.\\
+Suy ra có $A_9^5\cdot 1=15120$ cách.\\
+Vậy có $151200-15120=136080$ số thỏa mãn bài toán.
+}
+\end{bt}
+\begin{bt}%[0X2B3-1]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Khai triển $(3-2x)^4$.
+\loigiai{
+Xét khai triển
+\begin{eqnarray*}
+	(3-2x)^4&=&C_4^4 3^4 (-2x)^0+C_4^3 3^3 (-2x)^1 +C_4^2 3^2 (-2x)^2 +C_4^1 3^1 (-2x)^3+C_4^0 3^0 (-2x)^4\\
+	&=&C_4^4 3^4+C_4^3 3^3 (-2)x +C_4^2 3^2 (-2)^2 x^2 +C_4^1 3^1 (-2)^3 x^3+C_4^0 3^0 (-2)^4 x^4\\
+	&=&81 - 216 x + 216 x^2 - 96 x^3 + 16 x^4.
+\end{eqnarray*}
+}
+\end{bt}
+\begin{bt}%[0X3B2-3]%[Dự án đề HKI-HKII K10 NH22-23 (Cả nước), Nhật Thiện]%[Số 1 - Sa Pa]
+	Một nhóm gồm $8$ học sinh nam và $6$ học sinh nữ. Chọn ngẫu nhiên đồng thời $3$ học sinh trong nhóm đó. Tính xác suất để trong $3$ học sinh được chọn có ít nhất một học sinh nam.
+\loigiai{
+Chọn ngẫu nhiên $3$ học sinh, số phần tử của không gian mẫu $\Omega$ là $n(\Omega)=C_{14}^3=364$.\\
+Gọi $A$ là biến cố ``chọn được ít nhất một học sinh nam''.\\
+Ta thấy xảy ra các trường hợp sau
+\begin{itemize}
+	\item Chọn $1$ học sinh nam, $2$ học sinh nữ.
+	\item Chọn $2$ học sinh nam, $1$ học sinh nữ.
+	\item Chọn $3$ học sinh nam.
+\end{itemize}
+Suy ra $n(A)=C_8^1\cdot C_6^2+C_8^2\cdot C_6^1+C_8^3=344$.\\
+Vậy xác suất của biến cố $A$ bằng $P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{344}{364}=\dfrac{86}{91}$.
+}
+\end{bt}

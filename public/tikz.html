@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render TikZ with QuickLaTeX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .buttons button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        .output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Render TikZ with QuickLaTeX</h1>
+    <textarea id="latex-code" placeholder="Enter LaTeX code with TikZ here...">
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \draw[thick] (0,0) -- (4,0);
+  \draw[thick] (0,0) -- (0,4);
+  \node at (-0.5,0) {$- \infty$};
+  \node at (4.5,0) {$+ \infty$};
+  \node at (0,-0.5) {$- \infty$};
+  \node at (0,4.5) {$+ \infty$};
+  \draw[thick] (2,0) -- (2,4);
+  \node at (2,-0.5) {$0$};
+  \draw[thick] (0,2) -- (4,2);
+  \node at (-0.5,2) {$0$};
+\end{tikzpicture}
+\end{document}
+    </textarea>
+    <div class="buttons">
+        <button id="render-button">Render</button>
+        <button id="clear-button">Clear</button>
+    </div>
+    <div class="output" id="rendered-latex"></div>
+
+    <script>
+        document.getElementById('render-button').addEventListener('click', () => {
+            const latexCode = document.getElementById('latex-code').value;
+            const renderedLatex = document.getElementById('rendered-latex');
+            const encodedCode = encodeURIComponent(latexCode);
+            const url = `https://quicklatex.com/latex3.f/latex.php?bg=transparent&src=${encodedCode}`;
+            renderedLatex.innerHTML = `<img src="${url}" alt="Rendered LaTeX">`;
+        });
+
+        document.getElementById('clear-button').addEventListener('click', () => {
+            const latexCode = document.getElementById('latex-code');
+            const renderedLatex = document.getElementById('rendered-latex');
+            latexCode.value = '';
+            renderedLatex.innerHTML = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+\section{Cực trị của hàm số}
+\subsection{Tóm tắt lý thuyết}
+
+\begin{dn}
+Hàm số $f\left( x \right)$ xác định trên $\mathscr{D}\subseteq \mathbb{R}$.
+	\begin{itemize}
+	\item $\checkmark$ Điểm ${x_0}\in \mathscr{D}$ được gọi là điểm cực đại của hàm số $f\left( x \right)$ nếu tồn tại một khoảng $\left( a;b \right)\subset \mathscr{D}$ sao cho ${x_0}\in \left( a;b \right)$ và $f\left( {x_0} \right)>f\left( x \right)$, $\forall x\in \left( a,b \right)\setminus \left\{ {x_0} \right\}$.
+	\item $\checkmark$ Điểm $x_1\in \mathscr{D}$ được gọi là điểm cực tiểu của hàm số $f\left( x \right)$ nếu tồn tại một khoảng $\left( a;b \right)\subset \mathscr{D}$ sao cho $x_1\in \left( a;b \right)$ và $f\left( x_1 \right) < f\left( x \right)$, $\forall x\in \left( a,b \right)\setminus \left\{ {x_0} \right\}$.
+	\end{itemize}
+\end{dn}
+\begin{luuy}
+	Nếu hàm số $f(x)$ đạt cực đại (cực tiểu) tại $x_0$ thì
+	\begin{itemize}
+	\item $\checkmark$ $x_0$ được gọi là điểm cực đại (điểm cực tiểu) của hàm số.
+	\item $\checkmark$ $f\left( x_0\right) $ được gọi là giá trị cực đại (giá trị cực tiểu) của hàm số, ký hiệu $f_{\text{CĐ}}$ $\left(f_{\text{CT}}\right) $. 
+	\item $\checkmark$ Điểm $M\left( x_0; f\left( x_0\right) \right) $ được gọi là điểm cực đại (điểm cực tiểu) của đồ thị hàm số.
+	\end{itemize}
+<img src="khohinh/hchuong1/hinh27.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+\end{luuy}
+\subsubsection{Điều kiện cần và đủ để hàm số có cực trị}
+\begin{dl}
+\textbf{Điều kiện cần}
+	Nếu hàm số $f\left( x \right)$ đạt cực trị tại điểm ${x_0}$ và hàm số có đạo hàm tại ${x_0}$, thì $f'\left( {x_0} \right)=0$.	
+\end{dl}
+\begin{luuy}
+	Điều ngược lại không đúng, nghĩa là $f'\left(x_0\right)=0$ thì $x=x_0$ chưa chắc đã là điểm cực trị của hàm số $y=f(x)$.
+\end{luuy}
+\begin{dl}
+\text{Điều kiện đủ}
+\begin{itemize}
+	\item $\checkmark$  Nếu $f'\left( x \right) < 0,\forall x\in \left( a,{x_0} \right)$ và $f'\left( x \right)>0,\ \forall x\in \left( {x_0};b \right)$ thì $f\left( x \right)$ đạt cực tiểu tại ${x_0}$.
+	\item $\checkmark$  Nếu $f'\left( x \right)>0,\forall x\in \left( a,{x_0} \right)$ và $f'\left( x \right) < 0,\ \forall x\in \left( {x_0};b \right)$ thì $f\left( x \right)$ đạt cực đại tại ${x_0}$.
+	\end{itemize}
+\end{dl}
+Tức là, nếu đạo hàm của hàm số $y=f(x)$ đổi dấu từ âm sang dương khi qua ${x_0}$
+<img src="khohinh/hchuong1/hinh28.png" alt="Mô tả hình ảnh" class="center-img small-size"> 
+Ta nói, đồ thị hàm số có điểm cực tiểu là $M\left( {x_0},{{y}_{\text{CT}}} \right)$.
+Nếu đạo hàm của hàm số $y=f\left(x\right)$ đổi dấu từ dương sang âm khi qua $x_0$.
+<img src="khohinh/hchuong1/hinh29.png" alt="Mô tả hình ảnh" class="center-img small-size">  
+Ta nói đồ thị hàm số có điểm cực đại là $M\left( {x_0};{y_{\text{CĐ}}} \right)$.
+\begin{note}
+Không cần xét hàm số $y=f\left( x \right)$ có hay không đạo hàm tại ${x_0}$.	
+\end{note} 
+\begin{dl}
+Hàm số $y=f(x)$ có đạo hàm cấp một trên $(a;b)$ chứa $x_0$ mà $f'(x_0)=0$ và $y=f(x)$ có đạo hàm cấp hai khác không tại $x_0$. Khi đó,	
+	\begin{itemize}
+	\item $\checkmark$  Nếu $f''\left( x_0 \right) > 0$ thì hàm số $y=f\left( x \right)$ đạt cực tiểu tại $x_0$.
+	\item $\checkmark$  Nếu $f''\left( x_0 \right) < 0$ thì hàm số $y=f\left( x \right)$ đạt cực đại tại $x_0$.
+	\end{itemize}
+\end{dl}
+\subsection{Các dạng toán và phương pháp giải}
+\begin{dang}{Tìm cực trị của hàm số $y=f(x)$ theo quy tắc }
+\textbf{Quy tắc I:}
+		\begin{itemize}
+			\item $\checkmark$  Tìm $f'(x).$ 
+			\item $\checkmark$  Tìm các điểm $x_i \,(i=1,2,\ldots,n )$ mà tại đó $f'(x_i)=0$ hoặc tại đó hàm số $f$ liên tục nhưng không có đạo hàm.
+			\item $\checkmark$ Lập bảng biến thiên và kết luận về cực trị.
+		\end{itemize}
+	\textbf{Quy tắc II:}
+	\begin{itemize}
+		\item $\checkmark$  Tính $f'(x)$. 
+		\item $\checkmark$  Giải phương trình $f'(x)=0$ và tìm các nghiệm $x_i (i=1,2, \ldots, n).$
+		\item $\checkmark$ Tính $f''(x)$ và $f''(x_i)\, (i=1,2,\ldots, n)$
+		\begin{itemize}
+			\item $\star$ $f''(x_i) < 0 \Rightarrow $ hàm số đạt cực đại tại $x_i.$
+			\item $\star$ $f''(x_i) > 0\Rightarrow $ hàm số đạt cực tiểu tại $x_i.$
+		\end{itemize} 
+	\end{itemize}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[2D1B2]
+	Tìm cực trị của hàm số $ y=x^3-3x^2-9x+5. $
+	\loigiai{
+$\bullet$ Khi $x$ qua $-1$ thì $y'$ đổi dấu từ dương dang âm nên $-1$ là điểm cực đại của hàm số.\\
+	$\bullet$ Khi $x$ qua $3$ thì $y'$ đổi dấu từ âm dang dương nên $3$ là điểm cực tiểu của hàm số.\\
+	Tập xác định: $ \mathscr{D}=\mathbb{R}. $\\Ta có: $ y'=3x^2-6x-9$; $y'=0\Leftrightarrow 3x^2-6x-9=0\Leftrightarrow \hoac{&x=-1\\&x=3.} $\\
+	Bảng biến thiên 
+	<img src="khohinh/hchuong1/hinh30.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+    \textbf{Kết luận:} Hàm số đạt cực đại tại $ x=-1, y_{\text{CĐ}}=10. $; Hàm số đạt cực tiểu tại $ x=3, y_{\text{CT}}=-22. $
+	}
+\end{vd}
+
+\begin{vd}
+	%[2D1B2]
+	Gọi $ A, B $ lần lượt là điểm cực đại và điểm cực tiểu của đồ thị hàm số $ y=x^3-3x. $ Tính độ dài đoạn thẳng $ AB. $
+	\loigiai{
+	Cho $A\left(x_A; y_A\right), B\left(x_B; y_B\right)$.\\Khi đó:\\ $\vec{AB}=\left(x_B-x_A; y_B-y_A\right)$ và
+	$AB=\sqrt{\left(x_B-x_A\right)^2+\left(y_B-y_A\right)^2}$.\\
+	Tập xác định: $ \mathscr{D}=\mathbb{R}. $\\
+	Ta có: $ y'=3x^2-3; y'=0\Leftrightarrow 3x^2-3=0\Leftrightarrow x=\pm 1.$\\
+	Bảng biến thiên:
+    <img src="khohinh/hchuong1/hinh31.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+    \textbf{Kết luận:} Từ bảng biến thiên suy ra $ A(-1;2), B(1;-2)$.\\ Do đó $\overrightarrow{AB}=(2;-4)\Rightarrow AB=2\sqrt{5}.$
+	}
+\end{vd}
+\begin{vd}
+	%[2D1B2]
+	Tìm cực trị của hàm số $ y=\dfrac{x^2+4}{x}. $
+	\loigiai{
+	Tập xác định: $ \mathscr{D}=\mathbb{R}\setminus \{0\}. $\\
+	Ta có: $y'=\dfrac{x^2-4}{x^2}; y'=0\Leftrightarrow x^2-4=0\Leftrightarrow\hoac{&x=-2\\&x=2.} $\\Bảng biến thiên: 
+        <img src="khohinh/hchuong1/hinh32.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+    \textbf{Kết luận:} Hàm số đạt cực đại tại $ x=-2, y_{\text{CĐ}}=-4. $; Hàm số đạt cực tiểu tại $ x=2, y_{\text{CT}}=4. $
+	
+	}
+\end{vd}
+\begin{vd}%[Thi giữa HK1, THPT Nam Trực Nam Định, 2019]%[Trịnh Văn Luân, 12EX10]%[2D1Y2-1]
+	Tìm điểm cực tiểu của hàm số $y= \dfrac{1}{2}x^4- 2x^2- 3$.
+	\loigiai{
+        Đạo hàm cấp hai:
+	$$y''=\left(y'\right)'$$
+	Ta có $y'= 2x^3- 4x; y'= 0 \Leftrightarrow 2x^3- 4x= 0 \Leftrightarrow \left[\begin{array}{l} x= 0\\x= \pm \sqrt{2}\end{array}\right.$\\
+	Tính đạo hàm cấp hai: $y''= 6x^2- 4$.\\
+	Mà $y''(0)= -4 <  0, y''(\sqrt{2})= y''(-\sqrt{2})= 8 >  0$.\\
+	Suy ra điểm cực tiểu của hàm số đã cho là $x= \pm \sqrt{2}$.
+	}
+\end{vd}
+\begin{vd}
+	%[2D1B2]
+	Tìm cực trị của hàm số $ y=2\sin x+1$ trong đoạn $ \left[-\pi;\pi\right]. $
+	\loigiai{
+	Phương trình lượng giác cơ bản:\\
+	$\bullet$ $\cos u=\cos v\Leftrightarrow u=\pm v+k2\pi$.\\
+	$\bullet$ $\sin u=\sin v\Leftrightarrow \left[\begin{array}{l} u=v+k2\pi\\u=\pi-v+k2\pi \end{array}\right.$\\
+	$\bullet$ $\tan u=\tan v\Leftrightarrow u=v+k\pi$.\\
+	$\bullet$ $\cot u=\cot v\Leftrightarrow u=v+k\pi$.\\
+	Tập xác định: $ \mathscr{D}=\mathbb{R}. $\\
+	Ta có: $ y'=2\cos x; y'=0 $ $\Leftrightarrow \cos x=0\Leftrightarrow x=\dfrac{\pi}{2}+k\pi , k\in \mathbb{Z}.$\\
+	Suy ra $ y'=0 $ có nghiệm $ x=-\dfrac{\pi}{2} $ và $ x=\dfrac{\pi}{2} $ thuộc đoạn $ [-\pi;\pi]. $\\
+	Ta có: $ y''=-2\sin x. $\\
+	Vì $ y''\left(-\dfrac{\pi}{2}\right)=2 > 0\Rightarrow x=-\dfrac{\pi}{2} $ là điểm cực tiểu của hàm số và $ y_{\text{CT}}=-1. $\\
+	Vì $ y''\left(\dfrac{\pi}{2}\right)=-2 < 0\Rightarrow x=\dfrac{\pi}{2} $ là điểm cực đại của hàm số và $ y_{\text{CĐ}}=3. $
+	}
+\end{vd} 
+\begin{vd}
+	%[2D1B2]
+	Tìm cực trị của hàm số $ y=-x^3+3x-4.$
+	\loigiai{
+	Tập xác định: $ \mathscr{D}=\mathbb{R}. $\\
+	Ta có: $ y'=-3x^2+3; y'=0\Leftrightarrow -3x^2+3=0\Leftrightarrow x=\pm 1. $\\
+	Bảng biến thiên: 
+	<img src="khohinh/hchuong1/hinh33.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+Hàm số đạt cực đại tại $ x=1, y_{\text{CĐ}}=-2. $;\\
+Hàm số đạt cực tiểu tại $ x=-1, y_{\text{CT}}=-6. $
+}
+\end{vd}
+\begin{vd}
+	%[2D1B2]
+	Tìm cực trị của hàm số $ y=x^4-2x^2+3. $
+	\loigiai{
+	Tập xác định: $ \mathscr{D}=\mathbb{R}. $\\
+	Ta có: $ y'=4x^3-4x; y'=0\Leftrightarrow 4x^3-4x=0\Leftrightarrow \hoac{&x=-1\\&x=0\\&x=1.} $\\
+	Bảng biến thiên: 
+<img src="khohinh/hchuong34/hinh1.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Hàm số đạt cực đại tại $ x=0, y_{\text{CĐ}}=3$;\\
+    Hàm số đạt cực tiểu tại $ x=\pm 1, y_{\text{CT}}=2. $
+	}
+\end{vd}
+\begin{vd}%[Đề kiểm tra định kỳ, THPT Nguyễn Huệ - Huế, 2019]%[Bùi Quốc Hoàn, dự án EX9]%[2D1Y2-1]
+	Điểm cực tiểu của đồ thị hàm số $y = 3x^4 - 4x^3 - 6x^2 + 12x + 1$ là điểm $M\left(x_{0}; y_{0}\right)$. Tính tổng $T = x_{0} + y_{0}$.
+	\loigiai{Tập xác định $\mathscr{D} = \mathbb{R}$.\\
+	Ta có $y' = 12x^3 - 12x^2 - 12x + 12; y' = 0\Leftrightarrow x=\pm 1$.\\ 
+	Bảng xét dấu $y'$:
+	<img src="khohinh/hchuong1/hinh35.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Dựa vào bảng xét dấu suy ra hàm số đạt cực tiểu tại $x = -1$.\\
+	Khi $x = - 1$ suy ra $y = -10$ nên tọa độ điểm cực tiểu $M\left(-1; -10\right)$. Do đó $T = - 1 - 10 = -11$.
+	}
+\end{vd}
+\begin{vd}
+	%[2D1K2]
+	Tìm cực trị của hàm số $ y=\dfrac{-x^2+2x-1}{x+1}. $
+	\loigiai{
+	Tập xác định: $ \mathscr{D}=\mathbb{R}\setminus\{-1\}. $\\
+	Ta có: $ y'=\dfrac{-x^2-2x+3}{(x+1)^2}; y'=0\Leftrightarrow -x^2-2x+3=0\Leftrightarrow \hoac{&x=1\\&x=-3.} $\\
+	Bảng biến thiên:
+    <img src="khohinh/hchuong1/hinh36.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Hàm số đạt cực đại tại $ x=1, y_{\text{CĐ}}=0$;\\
+    Hàm số đạt cực tiểu tại $ x=-3, y_{\text{CT}}=8.$
+	}
+\end{vd}
+\begin{vd}
+	%[2D1K2]
+	Tìm cực trị của hàm số $ y=\dfrac{4x^2+2x-1}{2x^2+x-3}.$
+	\loigiai{
+	Tập xác định: $ \mathscr{D}=\mathbb{R}\setminus\left\{-\dfrac{3}{2};1\right\}. $\\
+	Ta có: $ y'=\dfrac{-20x-5}{(2x^2+x-3)^2}; y'=0\Leftrightarrow x=-\dfrac{1}{4}. $\\
+	Bảng biến thiên:
+	<img src="khohinh/hchuong1/hinh37.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+Hàm số đạt cực đại tại $ x=-\dfrac{1}{4}, y_{\text{CĐ}}=\dfrac{2}{5}. $
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}
+Cho hàm số $y=x^3-3x$ có giá trị cực đại và cực tiểu lần lượt là $y_1$, $y_2$. Mệnh đề nào sau đây đúng?
+\choice
+{\True $2y_1-y_2=6$}
+{$y_1-y_2=-4$}
+{$2y_1-y_2=-6$}
+{$y_1+y_2=4$}
+\loigiai{
+Ta có $y'=3x^2-3$, $y'=0 \Leftrightarrow \hoac{&x=-1\\&x=1.}$\\
+$y''=6x$.\\
+Vì $y''(-1)=-6< 0$ nên $x=-1$ là điểm cực đại của hàm số, giá trị cực đại $y_1=2$.\\
+Vì $y''(1)=6>0$ nên $x=1$ là điểm cực tiểu của hàm số, giá trị cực tiểu $y_2=-2$.\\
+Suy ra $2y_1-y_2=6$.
+}
+\end{ex}
+\begin{ex}
+	Hàm số $ y=x^3-3x^2+3x-2024$ có bao nhiêu cực trị?
+	\choice
+	{$1$}
+	{$2$}
+	{\True$0$}
+	{$3$}
+	\loigiai
+	{
+		Ta có $y'=3x^2-6x+3=3(x-1)^2\geq 0$, $\forall x\in \mathbb{R}$. Hàm số đã cho có đạo hàm không đổi dấu trên $\mathbb{R}$ nên nó không có cực trị.
+	}
+\end{ex}
+\begin{ex}
+Giá trị cực tiểu của hàm số $y=\dfrac{1}{3}x^3+x-1$ là
+\choice
+{$-\dfrac{1}{3}$}
+{$-1$}
+{\True Không có cực trị}
+{$1$}
+\loigiai{
+Ta có $y'=x^2+1>0,\forall x\in\mathbb{R} \Rightarrow $ hàm số không có cực trị.
+}
+\end{ex}
+\begin{ex}
+Cho hàm số $y=x^3-3x^2+2$. Đồ thị hàm số có điểm cực đại là
+\choice
+{$(2;-2)$}
+{$(0;-2)$}
+{\True $(0;2)$}
+{$(2;2)$}
+\loigiai{
+Tập xác định $\mathscr D=R$. Ta có $y'=3x^2-6x$; $y'=0 \Leftrightarrow \hoac{& x=0\\& x=2.}$\\
+<img src="khohinh/hchuong1/hinh89.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+Vậy đồ thị hàm số có điểm cực đại là $(0;2)$.
+}
+\end{ex}
+\begin{ex}
+Cho hàm số $ y = x^4 - 2x^2 + 3  $. Giá trị cực tiểu của hàm số đã cho bằng
+\choice
+{\True $ 2 $}
+{$ 3 $}
+{$ -1 $}
+{$ 1 $}
+\loigiai{
+Ta có $ y' = 4x(x^2 - 1) $, $ y' = 0 \Leftrightarrow \hoac{& x = -1 \\ & x = 0 \\ & x = 1} $. Ta có bảng biến thiên
+<img src="khohinh/hchuong1/hinh90.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+Từ bảng biến thiên, ta thấy $ y_{\text{CT}} = 2 $.
+}
+\end{ex}
+
+\begin{ex}%[2-DTH-14-NINHBINH-19]%[Nguyễn Thế Anh, dự án EX5]%[2D1Y2-1]
+	Đồ thị của hàm số $y=\dfrac{2x+1}{x+2}$ có bao nhiêu điểm cực trị?
+	\choice
+	{$1$}
+	{$3$}
+	{\True $0$}
+	{$2$}
+	\loigiai{
+	TXĐ: $\mathscr{D}=\mathbb{R}\backslash \{-2\}$.\\
+	Ta có $y'=\dfrac{3}{(x+2)^2} > 0, \, \forall x\in \mathscr{D}$ nên đồ thị hàm số không có cực trị.
+	}
+\end{ex}
+\begin{ex}%[GHK1, Nguyễn Thị Minh Khai HCM,2018]%[Phan Quốc Trí, dự án(12EX-2)]%[2D1Y2-1]
+	Điểm cực tiểu của hàm số $ y=x^4+8x^2+5 $ là
+	\choice
+	{\True $x=0$}
+	{$x=-2$}
+	{$x=2$}
+	{$x=-4$}
+	\loigiai{
+	Ta có $ y'=4x^3+16x $ và $ y''= 12x^2+16 $ . Do đó $ y'=0 \Leftrightarrow 4x^3+16x = 0 \Leftrightarrow x=0 $. \\
+	Vì $ y''(0)=16 > 0 $ nên $ x=0 $ là điểm cực tiểu của hàm số $ y=x^4+8x^2+5 $.
+	}
+\end{ex}
+\begin{ex}%[Đề KTGHK1, chuyên Lương Thế Vinh, Đồng Nai 2017]%[2D1K2]
+	Gọi $A$, $B$, $C$ là ba điểm cực trị của đồ thị hàm số $y=x^4-2x^2+2$. Tính diện tích của tam giác $ABC$.
+	\choice
+	{$\dfrac{1}{2}$}
+	{$2$}
+	{$\sqrt{3}$}
+	{\True $1$}
+	\loigiai{
+	Ta có $y'=4x^3-4x=0\Leftrightarrow \left[\begin{array}{l} x =-1\\ x =0\\ x =1 \end{array}\right.$\\
+	Vậy ta có $A(-1;1)$, $B(0;2)$; $C(1;1)$.\\
+    $\overrightarrow{AB}=(1;1)$ và $\overrightarrow{AC}=(2;0)$
+    và diện tích tam giác $ABC$ là $S=\dfrac{1}{2}.|1.0-2.1|=1$.
+	}
+\end{ex}
+\begin{ex}%[KSCL Lần 1 THPT Đồng Đậu, Vĩnh Phúc, 2019]%[Lê Minh An, 12EX3-19]%[2D1Y2-1]
+	Hàm số $y=x^3-9x^2+1$ có hai điểm cực trị là $x_1$, $x_2$. Tính $x_1+x_2$.
+	\choice
+	{\True $6$}
+	{$-106$}
+	{$0$}
+	{$-107$}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}$, $y'=3x^2-18x$.\\
+	Hai điểm cực trị $x_1$, $x_2$ là nghiệm của phương trình $y'=0$ nên $x_1+x_2=6$.
+	}
+\end{ex}
+\begin{ex}%[Đề KTGHK1, chuyên Lương Thế Vinh, Đồng Nai 2017]%[2D1B2]
+	Hàm số $y=\dfrac{x^2-x+4}{x-1}$ có giá trị cực đại bằng
+	\choice
+	{\True $y_{\small\mbox{cđ}}=-3$}
+	{$y_{\small\mbox{cđ}}=3$}
+	{$y_{\small\mbox{cđ}}=-1$}
+	{$y_{\small\mbox{cđ}}=5$}
+	\loigiai{
+	Ta có $y'=\dfrac{x^2-2x-3}{(x-1)^2}=0\Rightarrow x=-1$ hoặc $x=3$.\\
+	Lập bảng xét dấu ta có $y_{\small\mbox{cđ}}=-3$.
+	}
+\end{ex}
+\begin{ex}%[Đề Giữa HK1, C Nghĩa Hưng, Nam Định, 2017]%[2D1K2]
+	Hàm số $y=x-\sin2x+3$ thỏa mãn tính chất nào sau đây
+	\choice
+	{Nhận điểm $x=-\dfrac{\pi}{6}$ làm điểm cực tiểu}
+	{Nhận điểm $x=\dfrac{\pi}{2}$ làm điểm cực đại}
+	{\True Nhận điểm $x=-\dfrac{\pi}{6}$ làm điểm cực đại}
+	{Nhận điểm $x=-\dfrac{\pi}{2} $ làm điểm cực tiểu}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}$. Ta có $y'=1-2\cos 2x,\ y''=4\sin 2x$.\\
+	Vì $y'\left(\dfrac{\pi}{2}\right) \ne 0$ và $y'\left(-\dfrac{\pi}{2}\right) \ne 0$ nên loại đáp án B, D.\\
+	Ta có $$\begin{cases} y'\left(-\dfrac{\pi}{6}\right)=0\\  y''\left(-\dfrac{\pi}{6}\right)=-2\sqrt{3} < 0 \end{cases}$$ nên hàm số đạt cực đại tại $x=-\dfrac{\pi}{6}$.
+	}
+\end{ex}
+\begin{ex}%[2-GHK1-2-Đoàn Thượng Hải Dương - 2019]%[Phan Anh - EX-1-2019]%[2D1B2-1]
+	Gọi $M$, $N$ là các điểm cực tiểu của đồ thị hàm số $y=\dfrac{1}{4}x^4-8x^2+3$. Tính độ dài đoạn thẳng $MN$.
+	\choice
+	{$MN=10$}
+	{$MN=6$}
+	{\True $MN=8$}
+	{$MN=4$}
+	\loigiai{Ta có $y'=x^3-16x$, $y'=0\Leftrightarrow x=0\vee x=4\vee x=-4$. Hàm số có bảng biến thiên là
+<img src="khohinh/hchuong1/hinh38.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Từ bảng biến thiên, suy ra đồ thị hàm số có hai điểm cực tiểu là $M(-4;-61)$ và $N(4;-61)$.\\
+	Từ đó ta có $MN=8$.}
+\end{ex}
+\begin{ex}%[Khảo sát lần 1, Đoàn Thượng, Hải Dương, 1819]%[Phạm Doãn Lê Bình, dự án 12EX1-2019]%[2D1B2-1]
+	Cho hàm số $f(x)$ có đạo hàm $f'(x) = (x+1)^2 (x+2)^3 (2x-3)$. Tìm số điểm cực trị của $f(x)$.
+	\choice
+	{$3$}
+	{\True $2$}
+	{$0$}
+	{$1$}
+	\loigiai{
+	Ta có $f'(x) = (x+1)^2 (x+2)^3 (2x-3) = 0 \Leftrightarrow \left[\begin{array}{l} x = -1 \\   x = -2 \\   x = \dfrac{3}{2} \end{array}\right.$\\
+	Ta có bảng biến thiên:
+<img src="khohinh/hchuong1/hinh39.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+	Dựa vào bảng biến thiên ta thấy hàm số $f(x)$ có hai điểm cực trị.
+	}
+\end{ex}

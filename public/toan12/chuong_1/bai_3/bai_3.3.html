@@ -1,0 +1,68 @@
+\begin{dang}{Tìm $m$ để $min$, $max$ bằng $k$}
+\end{dang}
+\subsection{Ví Dụ Minh Hoạ}
+\begin{vd}
+	Cho hàm số $y=x^3+3x+2m-1$ với $m$ là tham số thực. Biết rằng giá trị nhỏ nhất của hàm số trên đoạn $[-1;3]$ bằng $\dfrac{11}{2}$. Khi đó giá trị của tham số $m$ bằng
+	\choice{$m=\dfrac{1}{4}$}{$m=\dfrac{13}{2}$}{\True $m=\dfrac{21}{4}$}{$m=\dfrac{17}{4}$}
+	\loigiai{Ta có $y'=3x^2+3>0,\forall x\in[-1;3]$ nên hàm số đồng biến trên $[-1;3]$.\\
+		Do đó $\min\limits_{[-1;3]} y =y(-1)=2m-5\Leftrightarrow 2m-5=\dfrac{11}{2}\Leftrightarrow m=\dfrac{21}{4}$.}	
+\end{vd}
+\begin{vd}
+	Tìm tham số $m$ để giá trị lớn nhất của hàm số $y=-x^4+8x^2+m$ trên đoạn $[-1; 3]$ bằng $2024$?
+	\choice
+	{$0$}
+	{\True $2008$}
+	{$2005$}
+	{$2016$}
+	\loigiai{
+		Xét hàm số $f(x)=-x^4+8x^2+m$ có $f'(x)=-4x^3+16x=0 \Leftrightarrow \hoac{&x=0 \\ &x= 2\\&x=-2 \notin [-1;3] .}$\\
+		Hàm số  $y=f(x)$có bảng biến thiên như sau
+		<img src="khohinh/hchuong1/hinh98.png" alt="Mô tả hình ảnh" class="center-img tiny-size">  
+		Từ bảng biến thiên, ta có $\max \limits_{[-1;3]} f(x) = 16+m$ và $\min \limits_{[-1;3]} f(x) = m-9$.\\
+		Yêu cầu bài toán tương đương
+		$$16+m=2024\Leftrightarrow m=2008.$$
+		Vậy $m=2008$.
+	}
+\end{vd}
+\begin{vd}
+	Cho hàm số $y=\dfrac{x+m}{x-1}$ ($m$ là tham số thực) thỏa mãn $\min\limits_{[2;4]}y=3$. Mệnh đề nào dưới đây đúng?
+	\choice
+	{$m  < -1$}
+	{$3 <  m \le 4$}
+	{\True $m > 4$}
+	{$1\le m  <  3$}
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{1\}$.\\
+		Đạo hàm  $y'=\dfrac{-1-m}{(x-1)^{2}}$. \\
+		Với $-1-m > 0\Rightarrow m < -1\Rightarrow\min\limits_{[2;4]}y=y(2)\Rightarrow \dfrac{2+m}{1}=3\Rightarrow m=1\Rightarrow$ loại. \\
+		Với $-1-m < 0\Rightarrow m > -1\Rightarrow\min\limits_{[2;4]}y=y(4)\Rightarrow \dfrac{4+m}{3}=3\Rightarrow m=5\Rightarrow m > 4$.}
+\end{vd}
+\begin{vd} 
+	Cho hàm số $y=\dfrac{m^2x+4}{x+1}$ ($m$ là tham số thực). Gọi $S$ là tập hợp số nguyên $m$ thỏa mãn $3\displaystyle\max_{[1;3]}y-2\displaystyle\min_{[1;3]}y=4$. Số phần tử của $S$ là
+	\choice
+	{$0$}
+	{$3$}
+	{$4$}
+	{\True $5$}
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R} \setminus \{1\}$.\\
+		Ta có $y'=\dfrac{m^2-4}{\left(x+1 \right)^2}$.
+		\begin{itemize}
+			\item \textbf{Trường hợp 1.}\\
+			Nếu $m^2-4=0 \Leftrightarrow m= \pm 2$ thì $y'=0$ hay hàm số đã cho trở thành hàm hằng nên
+            $$\displaystyle\max_{[1;3]}y=\displaystyle\min_{[1;3]}y=\dfrac{4x+4}{x+1}=4$$
+			Vậy $m=\pm 2$ thỏa mãn.
+			\item \textbf{Trường hợp 2.}\\
+			Nếu $m^2-4 < 0 \Leftrightarrow -2 < m < 2$ thì $y' < 0$ hay hàm số nghịch biến trên đoạn $\left[1;3 \right]$.\\
+			Do đó $\displaystyle\max_{[1;3]}y=y(1)=\dfrac{m^2+4}{2}$ và $\displaystyle\min_{[1;3]}y=y(3)=\dfrac{3m^2+4}{4}$.\\
+			Khi đó $3\displaystyle\max_{[1;3]}y-2\displaystyle\min_{[1;3]}y=4 \Leftrightarrow 3 \cdot \dfrac{m^2+4}{2}-2 \cdot \dfrac{3m^2+4}{4}=4 \Leftrightarrow 0m^2+4=4$ (đúng với mọi $m$).\\
+			Vậy $-2 < m < 2$ thỏa mãn nên số nguyên $m$ nhận các giá trị $-1$, $0$, $1$.
+			\item \textbf{Trường hợp 3.}\\
+			Nếu $m^2-4 > 0 \Leftrightarrow \left[\begin{array}{l} m > 2\\ m < -2 \end{array}\right.$ thì $y' > 0$ hay hàm số đồng biến trên đoạn $\left[1;3 \right]$.\\
+			Do đó $\displaystyle\max_{[1;3]}y=y(3)=\dfrac{3m^2+4}{4}$ và $\displaystyle\min_{[1;3]}y=y(1)=\dfrac{m^2+4}{2}$.\\
+			Khi đó $3\displaystyle\max_{[1;3]}y-2\displaystyle\min_{[1;3]}y=4 \Leftrightarrow 3 \cdot \dfrac{3m^2+4}{4}-2 \cdot \dfrac{m^2+4}{2}=4 \Leftrightarrow m^2=4 \Leftrightarrow m=\pm 2$.\\
+			Kết hợp điều kiện, ta loại $m=\pm 2$.
+		\end{itemize}
+		Vậy $S=\{-2;-1;0;1;2\}$. Số phần tử của $S$ là $5$.
+	}
+\end{vd}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ Hình Với Mã SVG</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .vector-diagram,
+        textarea {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 48%;
+            height: 400px;
+        }
+
+        .grid {
+            stroke: lightgrey;
+            stroke-opacity: 0.7;
+            stroke-width: 0.5;
+        }
+
+        .toggle-grid {
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="vector-diagram">
+            <svg id="drawing-svg" width="500" height="400" xmlns="http://www.w3.org/2000/svg">
+                <g id="grid"></g>
+                <circle cx="50" cy="150" r="2" fill="red" />
+                <circle cx="150" cy="50" r="2" fill="red" />
+                <circle cx="250" cy="150" r="2" fill="red" />
+                <line x1="50" y1="150" x2="150" y2="50" stroke="blue" marker-end="url(#arrowhead)" />
+                <line x1="150" y1="50" x2="250" y2="150" stroke="blue" marker-end="url(#arrowhead)" />
+                <line x1="50" y1="150" x2="250" y2="150" stroke="green" marker-end="url(#arrowhead)" />
+                <text x="40" y="160">A</text>
+                <text x="140" y="40">B</text>
+                <text x="260" y="160">C</text>
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"
+                        markerUnits="strokeWidth">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <textarea id="svg-code"></textarea>
+    </div>
+    <button class="toggle-grid" onclick="toggleGrid()">Ẩn/Hiện Lưới</button>
+
+    <script>
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svgElement = document.getElementById('drawing-svg');
+        const textarea = document.getElementById('svg-code');
+        const gridGroup = document.getElementById('grid');
+
+        // Vẽ các đường lưới dọc và ngang
+        for (let x = 0; x <= 600; x += 50) {
+            const line = document.createElementNS(svgNS, 'line');
+            line.setAttribute('x1', x);
+            line.setAttribute('y1', 0);
+            line.setAttribute('x2', x);
+            line.setAttribute('y2', 1000);
+            line.setAttribute('class', 'grid');
+            gridGroup.appendChild(line);
+        }
+
+        for (let y = 0; y <= 400; y += 50) {
+            const line = document.createElementNS(svgNS, 'line');
+            line.setAttribute('x1', 0);
+            line.setAttribute('y1', y);
+            line.setAttribute('x2', 500);
+            line.setAttribute('y2', y);
+            line.setAttribute('class', 'grid');
+            gridGroup.appendChild(line);
+        }
+
+        // Hiển thị mã SVG ban đầu trong textarea
+        textarea.value = svgElement.outerHTML;
+
+        // Lắng nghe sự kiện thay đổi trên textarea
+        textarea.addEventListener('input', () => {
+            const updatedSVG = textarea.value;
+            const container = document.querySelector('.vector-diagram');
+            container.innerHTML = updatedSVG;
+
+            // Cập nhật sự kiện lại cho phần tử mới
+            container.querySelector('svg').addEventListener('input', updateSVG);
+        });
+
+        function updateSVG() {
+            textarea.value = document.getElementById('drawing-svg').outerHTML;
+        }
+
+        function toggleGrid() {
+            const grid = document.getElementById('grid');
+            grid.style.display = (grid.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>

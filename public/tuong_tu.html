@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Tương Tự</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            display: flex;
+            margin-top: 50px;
+            height: calc(100vh - 50px);
+        }
+        #tree {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        #content {
+            width: 70%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        li > ul {
+            display: none;
+        }
+        li.expanded > ul {
+            display: block;
+        }
+        li:before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 5px;
+        }
+        li.expanded:before {
+            content: '▼';
+        }
+        li:hover {
+            color: #007bff;
+        }
+        #controls {
+            margin-bottom: 10px;
+        }
+        #result {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+    </div>
+    <div class="container">
+        <div id="tree"></div>
+        <div id="content">
+            <div id="controls">
+                <input type="number" id="numOfQuestions" placeholder="Nhập số đề" min="1">
+                <button onclick="generateQuestions()">Tạo Đề</button>
+                <button onclick="downloadResult()">Tải Kết Quả</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.0/math.min.js"></script>
+    <script>
+        let selectedFunctions = [];
+        let allFunctions = {};
+
+        async function fetchJson() {
+            const response = await fetch('tuong_tu.json');
+            const data = await response.json();
+            allFunctions = data.functions;
+            buildTree(data);
+        }
+
+        function buildTree(data, parentElement = document.getElementById('tree')) {
+            const ul = document.createElement('ul');
+            parentElement.appendChild(ul);
+
+            for (const key in data) {
+                if (data.hasOwnProperty(key) && key !== 'functions') {
+                    const li = document.createElement('li');
+                    li.textContent = key;
+
+                    if (typeof data[key] === 'object' && !data[key].code) {
+                        li.classList.add('parent');
+                        li.onclick = function(event) {
+                            event.stopPropagation();
+                            this.classList.toggle('expanded');
+                        };
+                        buildTree(data[key], li);
+                    } else {
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.onclick = function(event) {
+                            event.stopPropagation();
+                            if (this.checked) {
+                                selectedFunctions.push({
+                                    name: data[key].Name,
+                                    description: data[key].Description,
+                                    code: data[key].code,
+                                    template: data[key].template
+                                });
+                            } else {
+                                selectedFunctions = selectedFunctions.filter(func => func.name !== data[key].Name);
+                            }
+                        };
+                        li.insertBefore(checkbox, li.firstChild);
+                    }
+                    ul.appendChild(li);
+                }
+            }
+        }
+
+        function generateQuestions() {
+            const numOfQuestions = parseInt(document.getElementById('numOfQuestions').value);
+            if (isNaN(numOfQuestions) || numOfQuestions <= 0) {
+                alert("Vui lòng nhập số lượng đề hợp lệ.");
+                return;
+            }
+
+            if (selectedFunctions.length === 0) {
+                alert("Không có hàm nào để tạo đề.");
+                return;
+            }
+
+            let questions = "";
+            const functionString = Object.values(allFunctions).join('\n');
+
+            selectedFunctions.forEach(func => {
+                const compiledFunction = new Function('math', 'getRandomInt', 'getRandomFromArray', 'return (function() { ' + functionString + func.code + ' })()');
+
+                for (let i = 0; i < numOfQuestions; i++) {
+                    const result = compiledFunction(math, getRandomInt, getRandomFromArray);
+                    const description = new Function('a', 'b', 'c', 'A', 'B', 'C', 'D', 'projection', 'derivativeAtA', `return \`${func.template}\`;`);
+                    questions += `${description(result.a, result.b, result.c, result.A, result.B, result.C, result.D, result.projection, result.derivativeAtA)}\n\n`;
+                }
+            });
+
+            document.getElementById('result').textContent = questions;
+        }
+
+        function downloadResult() {
+            const resultText = document.getElementById('result').textContent;
+            const blob = new Blob([resultText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'result.tex';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Defining functions so they are available in the global context
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomFromArray(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        fetchJson();
+    </script>
+</body>
+</html>

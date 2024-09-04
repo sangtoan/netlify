@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghi Chú</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        #note-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1000px;
+        }
+        #note-container textarea {
+            width: 100%;
+            height: 70vh; /* Khung ghi chú cao gần cả màn hình */
+            padding: 10px;
+            font-size: 16px;
+        }
+        #note-container .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        #note-container button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            flex: 1;
+            margin-right: 10px;
+        }
+        #note-container button:last-child {
+            margin-right: 0;
+        }
+        #note-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+        <a href="menu_tree.html">Menu ID</a>
+        <a href="ghichu.html">Ghi Chú</a>
+    </div>
+
+    <div id="note-container">
+        <textarea id="note" placeholder="Ghi chú của bạn..."></textarea>
+        <div class="button-container">
+            <button onclick="saveNote()">Lưu Ghi Chú</button>
+            <button onclick="clearNote()">Xóa Ghi Chú</button>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD159nOuuaZvZQ5m4VnJXd2mXmDSrgLFvE",
+            authDomain: "sangtoan-c4c9d.firebaseapp.com",
+            projectId: "sangtoan-c4c9d",
+            storageBucket: "sangtoan-c4c9d.appspot.com",
+            messagingSenderId: "401028957214",
+            appId: "1:401028957214:web:dcfe67534f5e151cf21a0f",
+            measurementId: "G-PT47FCXPJR"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth();
+
+        // Google Sign-In
+        const provider = new GoogleAuthProvider();
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in
+                    document.getElementById('note-container').style.display = 'flex';
+                    loadNote();
+                } else {
+                    // User is signed out
+                    signInWithPopup(auth, provider)
+                        .then((result) => {
+                            console.log("Signed in as: ", result.user.displayName);
+                        })
+                        .catch((error) => {
+                            console.error("Error signing in: ", error);
+                        });
+                }
+            });
+        });
+
+        // Functions to handle note actions
+        async function saveNote() {
+            const noteContent = document.getElementById('note').value;
+            try {
+                await setDoc(doc(db, "notes", "note1"), {
+                    content: noteContent
+                });
+                alert('Ghi chú đã được lưu!');
+            } catch (error) {
+                console.error("Error saving note: ", error);
+                alert('Có lỗi xảy ra khi lưu ghi chú!');
+            }
+        }
+
+        async function loadNote() {
+            const docRef = doc(db, "notes", "note1");
+            try {
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    document.getElementById('note').value = docSnap.data().content;
+                } else {
+                    console.log("No such document!");
+                }
+            } catch (error) {
+                console.error("Error loading note: ", error);
+                alert('Có lỗi xảy ra khi tải ghi chú!');
+            }
+        }
+
+        async function clearNote() {
+            document.getElementById('note').value = '';
+            try {
+                await deleteDoc(doc(db, "notes", "note1"));
+                alert('Ghi chú đã được xóa!');
+            } catch (error) {
+                console.error("Error deleting note: ", error);
+                alert('Có lỗi xảy ra khi xóa ghi chú!');
+            }
+        }
+
+        // Gán các hàm vào đối tượng window để có thể truy cập từ onclick
+        window.saveNote = saveNote;
+        window.clearNote = clearNote;
+        window.loadNote = loadNote;
+    </script>
+</body>
+</html>

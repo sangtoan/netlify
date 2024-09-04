@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool quản lý key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, input, select, button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.23/jsrsasign-all-min.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAABv2f1MuNjLLBV0H7l-H-zcfYJCd90s8",
+            authDomain: "stex-aeeae.firebaseapp.com",
+            databaseURL: "https://stex-aeeae-default-rtdb.firebaseio.com",
+            projectId: "stex-aeeae",
+            storageBucket: "stex-aeeae.appspot.com",
+            messagingSenderId: "282329995980",
+            appId: "1:282329995980:web:94c866e7fdb46ac2848069",
+            measurementId: "G-9HH637SBK6"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // JavaScript functions to handle the Key management
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generate').addEventListener('click', generateCode);
+            document.getElementById('copy').addEventListener('click', copyCode);
+            document.getElementById('searchButton').addEventListener('click', searchCode);
+            loadCodesFromDatabase();
+        });
+
+        function generateCode() {
+            const series = document.getElementById('series').value;
+            const username = document.getElementById('username').value;
+            const months = parseInt(document.getElementById('months').value);
+            const durationInSeconds = months * 30 * 86400;
+            const secret = 'my_random_secret_key_270187';
+
+            const header = { alg: 'HS256', typ: 'JWT' };
+            const payload = {
+                name: username,
+                series: series,
+                exp: Math.floor(Date.now() / 1000) + durationInSeconds
+            };
+
+            const sHeader = JSON.stringify(header);
+            const sPayload = JSON.stringify(payload);
+            const jwt = KJUR.jws.JWS.sign('HS256', sHeader, sPayload, { utf8: secret });
+
+            const startDate = new Date().toLocaleString();
+            const endDate = new Date(Date.now() + durationInSeconds * 1000).toLocaleString();
+
+            const table = document.getElementById('codesTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.insertCell(0).textContent = table.rows.length + 1;
+            newRow.insertCell(1).textContent = username;
+            newRow.insertCell(2).textContent = series;
+            newRow.insertCell(3).textContent = `${months} tháng`;
+            newRow.insertCell(4).textContent = jwt;
+            newRow.insertCell(5).textContent = startDate;
+            newRow.insertCell(6).textContent = endDate;
+
+            saveCodesToDatabase(username, series, months, jwt, startDate, endDate);
+        }
+
+        function copyCode() {
+            const table = document.getElementById('codesTable');
+            const lastRow = table.rows[table.rows.length - 1];
+            const code = lastRow.cells[4].textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Đã sao chép mã vào clipboard');
+            });
+        }
+
+        function searchCode() {
+            const searchText = document.getElementById('search').value.toLowerCase();
+            const table = document.getElementById('codesTable').getElementsByTagName('tbody')[0];
+            const rows = table.getElementsByTagName('tr');
+
+            for (let row of rows) {
+                const username = row.cells[1].textContent.toLowerCase();
+                const series = row.cells[2].textContent.toLowerCase();
+                row.style.display = (username.includes(searchText) || series.includes(searchText)) ? '' : 'none';
+            }
+        }
+
+        function saveCodesToDatabase(username, series, months, code, startDate, endDate) {
+            database.ref('codes').push({
+                username: username,
+                series: series,
+                months: months,
+                code: code,
+                startDate: startDate,
+                endDate: endDate
+            });
+        }
+
+        function loadCodesFromDatabase() {
+            const table = document.getElementById('codesTable').getElementsByTagName('tbody')[0];
+            database.ref('codes').once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    const codeData = childSnapshot.val();
+                    const newRow = table.insertRow();
+                    newRow.insertCell(0).textContent = table.rows.length + 1;
+                    newRow.insertCell(1).textContent = codeData.username;
+                    newRow.insertCell(2).textContent = codeData.series;
+                    newRow.insertCell(3).textContent = `${codeData.months} tháng`;
+                    newRow.insertCell(4).textContent = codeData.code;
+                    newRow.insertCell(5).textContent = codeData.startDate;
+                    newRow.insertCell(6).textContent = codeData.endDate;
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Tool quản lý key - Nguyễn Văn Sang - THPT Nguyễn Hữu Cảnh</h1>
+    <label for="series">Số seri:</label>
+    <input type="text" id="series">
+    
+    <label for="username">Tên người dùng:</label>
+    <input type="text" id="username">
+
+    <label for="months">Số tháng:</label>
+    <select id="months">
+        <option value="1">1 tháng</option>
+        <option value="3">3 tháng</option>
+        <option value="6">6 tháng</option>
+        <option value="9">9 tháng</option>
+        <option value="12">12 tháng</option>
+        <option value="24">24 tháng</option>
+        <option value="120">120 tháng</option>
+    </select>
+
+    <button id="generate">Tạo mã</button>
+    <button id="copy">Copy Code</button>
+
+    <label for="search">Tìm kiếm:</label>
+    <input type="text" id="search">
+    <button id="searchButton">Tìm kiếm</button>
+
+    <table id="codesTable">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên người dùng</th>
+                <th>Số seri</th>
+                <th>Số tháng</th>
+                <th>Mã</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày hết hạn</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>

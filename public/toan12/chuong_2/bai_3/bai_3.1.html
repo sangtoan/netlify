@@ -1,0 +1,830 @@
+\subsubsection{Bài Tập Nâng Cao - Lần 1}
+\begin{ex}%[2H3B1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho vectơ $\vec{u}=(1;1;-2), \vec{v}=(1;0;m)$. Tìm $m$ để góc giữa hai vectơ
+$\vec{u}, \vec{v}$ bằng $45^{\circ}$.
+\choice
+{$m=2$}
+{\True$m=2-\sqrt{6}$}
+{$m=2+\sqrt{6}$}
+{$m=3$}
+\loigiai{
+Ta có
+\allowdisplaybreaks
+\begin{eqnarray*}
+&&\cos (\vec{u}, \vec{v})=\dfrac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot|\vec{v}|}=\dfrac{1-2
+m}{\sqrt{1^{2}+1^{2}+(-2)^{2}} \cdot \sqrt{1^{2}+m^{2}}}=\dfrac{1-2 m}{\sqrt{6} \cdot
+\sqrt{1+m^{2}}}=\dfrac{\sqrt{2}}{2}\\
+&\Leftrightarrow& 1-2 m=\sqrt{3} \sqrt{1+m^{2}}\Leftrightarrow 4 m^{2}-4 m+1=3+3 m^{2} \quad \left (\text {điều kiện } m
+<\dfrac{1}{2}\right )\\ &\Leftrightarrow& m^{2}-4 m-2=0 \Leftrightarrow \hoac{&m=2-\sqrt{6}\\&m=2+\sqrt{6}.}
+    \end{eqnarray*} Đối chiếu điều kiện ta có $m=2-\sqrt{6}$. } \end{ex}
+\begin{ex}%[2H3B1-1]
+Trong không gian $O x y z$, cho hai véc tơ $\vec{a}=(2 ; 1 ;-2)$, $ \vec{b}=(0 ;-\sqrt{2} ; \sqrt{2}) .$ Tất cả giá trị của $m$ để hai vectơ $\vec{u}=2 \vec{a}+3 m \vec{b}$ và $\vec{v}=m \vec{a}-\vec{b}$ vuông góc với nhau là
+\choice
+{$\dfrac{\pm 26+\sqrt{2}}{6}$}
+{$\dfrac{26 \pm \sqrt{2}}{6}$}
+{$\dfrac{11 \sqrt{2} \pm \sqrt{26}}{18}$}
+{\True$\dfrac{\pm \sqrt{26}+\sqrt{2}}{6}$}
+\loigiai{
+Ta có $\heva{&\vec{u}=2 \vec{a}+3m \vec{b}=\left(4; 2-3\sqrt{2}m;-4+3\sqrt{2}m \right)\\&\vec{v}=m\vec{a}-\vec{b}=\left(2m; m+\sqrt{2};-2 m-\sqrt{2}\right).}$\\
+Khi đó 
+\allowdisplaybreaks
+$\begin{aligned}[t]
+\vec{u} \cdot \vec{v}=0 &\Leftrightarrow 8m+ \left (2-3\sqrt{2}m\right )\left (m+\sqrt{2}\right )+\left (-4+3\sqrt{2}m\right )\left (-2m-\sqrt{2}\right )=0\\
+	&\Leftrightarrow 9 m^{2} \sqrt{2}-6 m-6 \sqrt{2}=0 \Leftrightarrow m=\dfrac{\pm \sqrt{26}+\sqrt{2}}{6}.
+\end{aligned}$
+}
+\end{ex}
+%%==========Ví dụ 4
+\begin{ex}%[2H3B1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm $A(-2;3;1)$ và $B(5;6;2)$. Đường thẳng $AB$ cắt mặt phẳng $(Oxz)$ tại điểm $M$. Tính tỉ số $\dfrac{AM}{BM}$.
+\choice
+{$\dfrac{AM}{BM}=2$}
+{\True$\dfrac{AM}{BM}=\dfrac{1}{2}$}
+{$\dfrac{AM}{BM}=\dfrac{1}{3}$}
+{$\dfrac{AM}{BM}=3$}
+\loigiai{
+Ta có $M \in(Oxz) \Rightarrow M(x;0;z)$; $\heva{&\overrightarrow{AB}=(7;3;1) \Rightarrow AB=\sqrt{59}\\&\overrightarrow{AM}=(x+2;-3;z-1).}$\\
+$A, B, M$ thẳng hàng $\begin{aligned}[t]
+&\Rightarrow \overrightarrow{AM}=k\overrightarrow{AB} \quad(k\in \mathbb{R})\\
+&\Leftrightarrow \heva{&x+2=7 k\\&-3=3 k\\&z-1=k} \Leftrightarrow \heva{&x=-9\\&-1=k\\&z=0.}\\
+&\Rightarrow M(-9 ; 0 ; 0).\end{aligned}$\\
+Vậy $\overrightarrow{AM}=(-7;-3;-1)\Rightarrow AM=\sqrt{59}$ và 
+$\overrightarrow{BM}=(-14;-6;-2) \Rightarrow BM=\sqrt{236}=2AM$.
+}
+\end{ex}
+
+%%==========Ví dụ 5
+\begin{ex}%[2H3K1-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho bốn điểm $A(2;-3;7), B(0;4;1), C(3;0;5)$ và $D(3;3;3)$. Gọi $M$ là điểm nằm trên mặt phẳng $(Oyz)$ sao cho biểu thức $\left |\overrightarrow{MA}+\overrightarrow{MB}+\overrightarrow{MC}+\overrightarrow{MD}\right |$ đạt giá trị nhỏ nhất. Khi đó tọa độ của $M$ là
+\choice
+{$M(0;1;-2)$}
+{\True $M(0;1;4)$}
+{$M(0;1;-4)$}
+{$M(2;1;0)$}
+\loigiai{
+Ta có: $\overrightarrow{AB}=(-2;7;-6), \overrightarrow{AC}=(1;3;-2), \overrightarrow{AD}=(1;6;-4)$ nên $\left [\overrightarrow{AB}, \overrightarrow{AC}\right ] \cdot \overrightarrow{AD}=-4 \neq 0$.\\
+Suy ra $\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}$ không đồng phẳng.\\
+Gọi $G$ là trọng tâm tứ diện $ABCD$. Khi đó $G(2;1;4)$.\\
+Ta có: $\left |\overrightarrow{MA}+\overrightarrow{MB}+\overrightarrow{MC}+\overrightarrow{MD}\right |=\left |4 \overrightarrow{MG}\right |=4MG$.\\
+Do đó $\left |\overrightarrow{MA}+\overrightarrow{MB}+\overrightarrow{MC}+\overrightarrow{MD}\right |$ nhỏ nhất khi và chi khi $MG$ ngắn nhất.\\
+Vậy $M$ là hình chiếu vuông góc của $G$ lên mặt phẳng $(Oyz)$ nên $M(0;1;4)$.
+}
+\end{ex}
+
+%%==========Ví dụ 6
+\begin{ex}%[2H3K1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho bốn điểm $A(7;2;3), B(1;4;3), C(1;2;6), D(1;2;3)$ và điểm $M$ tùy ý. Tính độ dài đoạn $OM$ khi biểu thức $P=MA+MB+MC+\sqrt{3}MD$ đạt giá trị nhỏ nhất.
+\choice
+{$OM=\dfrac{3 \sqrt{21}}{4}$}
+{$OM=\sqrt{26}$}
+{\True$OM=\sqrt{14}$}
+{$OM=\dfrac{5 \sqrt{17}}{4}$}
+\loigiai{
+Ta có $\overrightarrow{DA}=(6;0;0), \overrightarrow{DB}=(0;2;0), \overrightarrow{DC}=(0;0;3)$ nên tứ diện $ABCD$ là tứ diện vuông đỉnh $D$.\\
+ Giả sử $M(x+1;y+2;z+3)$.
+Ta có $\heva{&MA=\sqrt{(x-6)^{2}+y^{2}+z^{2}} \geq|x-6| \geq 6-x\\&MB=\sqrt{x^{2}+(y-2)^{2}+z^{2}} \geq|y-2| \geq 2-y\\&MC=\sqrt{x^{2}+y^{2}+(z-3)^{2}} \geq|z-3| \geq 3-z\\&\sqrt{3}MD=\sqrt{3\left(x^{2}+y^{2}+z^{2}\right)} \geq \sqrt{(x+y+z)^{2}} \geq x+y+z.}$ \\
+Do đó $P \geq(6-x)+(2-y)+(3-z)+(x+y+z)=11$.\\
+Vậy $P$ đạt giá trị nhỏ nhất bằng $11$, khi và chi khi $\heva{&x=y=z=0\\&6-x \geq 0\\&2-y \geq 0\\&3-z \geq 0\\&x+y+z \geq 0}\Leftrightarrow x=y=z=0$.\\
+Khi đó $M(1;2;3)$ suy ra $OM=\sqrt{1^{2}+2^{2}+3^{2}}=\sqrt{14}$.
+}
+\end{ex}
+
+%%==========Ví dụ 7
+\begin{ex}%[2H3B1-1]
+Trong không gian $Oxyz$, cho bốn điểm $A(1;1;4), B(5;-1;3), C(2;2;m), D(3;1;5)$. Tìm tất cả giá trị thực của tham số $m$ để $A, B, C, D$ là bốn đỉnh của một hình tứ diện.
+\choice
+{$m>6$}
+{$m < 6$}
+{\True $m \neq 6$}
+{$m=6$}
+\loigiai{
+Ta có $\overrightarrow{AB}=(4;-2;-1), \overrightarrow{AD}=(2;0;1),\left [\overrightarrow{AB}, \overrightarrow{AD}\right ]=(-2;-6;4), \overrightarrow{AC}=(1;1;m-4)$.\\
+ Để $A, B, C, D$ là bốn đỉnh của một hình tứ diện khi $\left [\overrightarrow{AB}, \overrightarrow{AD}\right ] \cdot \overrightarrow{AC} \neq 0$ $\Leftrightarrow-2-6+4 m-16 \neq 0 \Leftrightarrow m \neq 6$.
+}
+\end{ex}
+
+
+%%%%%%%%%%%%%%%%%%%%%5
+\begin{dang}{điểm và véc-tơ trong hệ trục toạ độ}
+	
+\end{dang}
+\Opensolutionfile{ans}[ans/ans-CD3-DeVDC1] %MuLoga-CD1-DeVDC1: Tức Chương Mũ-Logarit,Chuyên đề 1, ĐỀ VDC SỐ 1
+%%==========Câu 1
+\begin{ex}%[2H3B1-1]
+Trong không gian với hệ trục $Oxyz$ cho ba điểm $A(-1;2;-3), B(1;0;2), C(x;y;-2)$ thẳng hàng. Khi đó $x+y$ bằng
+\choice
+{\True$x+y=1$}
+{$x+y=17$}
+{$x+y=-\dfrac{11}{5}$}
+{$x+y=\dfrac{11}{5}$}
+\loigiai{
+Có $\overrightarrow{AB}=(2;-2;5), \overrightarrow{AC}=(x+1 ; y-2 ; 1)$.\\
+$A, B, C$ thẳng hàng $\Leftrightarrow \overrightarrow{AB}, \overrightarrow{AC}$ cùng phương $\Leftrightarrow \dfrac{x+1}{2}=\dfrac{y-2}{-2}=\dfrac{1}{5} \Leftrightarrow \heva{&x=-\dfrac{3}{5}\\&y=\dfrac{8}{5}}\Rightarrow x+y=1$.
+}
+\end{ex}
+
+%%==========Câu 2
+\begin{ex}%[2H3Y1-1]
+Tìm tọa độ véctơ $\vec{u}$ biết rằng $\vec{u}+\vec{a}=\overrightarrow{0}$ và $\vec{a}=(1;-2;1)$.
+\choice
+{$\vec{u}=(-3;-8;2)$}
+{$\vec{u}=(1;-2;8)$}
+{\True$\vec{u}=(-1;2;-1)$}
+{$\vec{u}=(6;-4;-6)$}
+\loigiai{
+Ta có $\vec{u}+\vec{a}=\overrightarrow{0} \Leftrightarrow \vec{u}=-\vec{a}=(-1 ; 2 ;-1)$.
+}
+\end{ex}
+
+%%==========Câu 3
+\begin{ex}%[2H3B1-1]
+Trong không gian $Oxyz$, cho ba điểm $A(-1;0;2), B(2;1;-3)$ và $C(1;-1;0)$. Tìm tọa độ điểm $D$ sao cho $ABCD$ là hình bình hành.
+\choice
+{$D(0;2;-1)$}
+{\True$D(-2;-2;5)$}
+{$D(-2;2;5)$}
+{$D(2;2;-5)$}
+\loigiai{
+Gọi $D(a;b;c) ; \overrightarrow{AB}=(3;1;-5) ; \overrightarrow{AC}=(2;-1;-2)$.\\
+Vì $\dfrac{3}{2} \neq \dfrac{1}{-1}$ nên $\overrightarrow{AB}$ không cùng phương $\overrightarrow{AC} \Rightarrow$ tồn tại hình bình hành $ABCD$.\\
+Suy ra $ABCD$ là hình bình hành khi $\overrightarrow{AB}=\overrightarrow{DC} \Leftrightarrow \heva{&3=1-a\\&1=-1-b\\&-5=-c} \Leftrightarrow \heva{&a=-2\\&b=-2\\&c=5.}$\\
+Vậy $D(-2;-2;5)$.
+}
+\end{ex}
+
+%%==========Câu 4
+\begin{ex}%[2H3Y1-1]
+Trong không gian $Oxyz$, cho điểm $A(1;1;1)$. Tìm tọa độ hình chiếu vuông góc của $A$ trên mặt phẳng $(Oxz)$.
+\choice
+{$(1;1;0)$}
+{$(0;1;1)$}
+{\True$(1;0;1)$}
+{$(0;1;0)$}
+\loigiai{
+Vì $A(1;1;1)$ nên tọa độ hình chiếu vuông góc của $A$ trên mặt phẳng $(Oxz)$ là $(1;0;1)$.
+}
+\end{ex}
+
+%%==========Câu 5
+\begin{ex}%[2H3Y1-1]
+Trong không gian $Oxyz$, cho $A(-3;1;2)$, tọa độ điểm $A^{\prime}$ đối xứng với điểm $A$ qua trục $Oy$ là
+\choice
+{$(3;-1;-2)$}
+{$(3;-1;2)$}
+{\True$(3;1;-2)$}
+{$(-3;-1;2)$}
+\loigiai{
+Gọi $A(x;y;z)$. $A^{\prime}\left(x^{\prime}; y^{\prime}; z^{\prime}\right)$ là điểm đối xứng với điểm $A$ qua trục $Oy$ nên $\heva{&x'=-x\\&y'=y\\&z'=-z.}$\\
+Do đó $A'=(3;1;-2)$.
+}
+\end{ex}
+%%==========Câu 8
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho hai điểm $A\left( -2;4;1 \right)$ và $B\left( 4;5;2 \right)$. Điểm $C$ thỏa mãn $\overrightarrow{OC}=\overrightarrow{BA}$ có tọa độ là
+\choice
+{\True $\left( -6;-1;-1 \right)$}
+{$\left( -2;-9;-3 \right)$}
+{$\left( 6;1;1 \right)$}
+{$\left( 2;9;3 \right)$}
+\loigiai{
+Gọi $C\left( x;y;z \right)$. Ta có $\overrightarrow{OC}=\left( x;y;z \right)$, $\overrightarrow{BA}=\left( -6;-1;-1 \right)$.\\
+Khi đó $\overrightarrow{OC}=\overrightarrow{BA}\Leftrightarrow \heva{&x=-6 \\&y=-1 \\&x=-1.}$\\
+Vậy $C\left( -6;-1;-1 \right)$.
+}
+\end{ex}
+
+%%==========Câu 9
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian với hệ toạn độ $Oxyz$, cho $A\left( 1;1;2 \right), B\left( 2;-1;1 \right), C\left( 3;2;-3 \right)$. Tìm tọa độ điểm $D$ để tứ giác $ABCD$ là hình bình hành.
+\choice
+{$\left( 4;2;-4 \right)$}
+{$\left( 0;-2;6 \right)$}
+{\True $\left( 2;4;-2 \right)$}
+{$\left( 4;0;-4 \right)$}
+\loigiai{
+	Gọi tọa độ điểm $D\left( x;y;z \right)$.\\
+	 Ta có: $\overrightarrow{AD}=\left( x-1;y-1;z-2 \right)$, $\overrightarrow{BC}=\left( 1;3;-4 \right)$.\\
+	Tứ giác $ABCD$ là hình bình hành $\Leftrightarrow \overrightarrow{AD}=\overrightarrow{BC}\Leftrightarrow \heva{&x-1=1 \\&y-1=3 \\&z-2=-4}\Leftrightarrow \heva{&x=2 \\&y=4 \\&z=-2.}$\\
+	 Vậy $D\left( 2;4;-2 \right)$.
+ }
+\end{ex}
+
+%%==========Câu 10
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho hai điểm $A\left( 3;1;-2 \right)$, $B\left( 2;-3;5 \right)$. Điểm $M$ thuộc đoạn $AB$ sao cho $MA=2MB$, tọa độ điểm $M$ là
+\choice
+{\True $M\left( \dfrac{7}{3};\dfrac{-5}{3};\dfrac{8}{3} \right)$}
+{$M\left( 4;5;-9 \right)$}
+{$M\left( \dfrac{3}{2};-5;\dfrac{17}{2} \right)$}
+{$M\left( 1;-7;12 \right)$}
+\loigiai{
+	Gọi $M\left( x;y;z \right)$. Vì điểm $M$ thuộc đoạn $AB$ thoả mãn $MA=2MB$. \\
+	\centerline{$\Rightarrow \overrightarrow{AM}=2\overrightarrow{MB}
+	\Leftrightarrow \heva{&x-3=2\left( 2-x \right) \\&y-1=2\left( -3-y \right) \\&z+2=2\left( 5-z \right)}\Leftrightarrow \heva{&x=\dfrac{7}{3} \\&y=-\dfrac{5}{3} \\&z=\dfrac{8}{3}}\Rightarrow M\left( \dfrac{7}{3};-\dfrac{5}{3};\dfrac{8}{3} \right)$.}
+}
+\end{ex}
+
+%%==========Câu 11
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian với hệ tọa độ $Oxyz$, gọi $a$, $b$, $c$ lần lượt là khoảng cách từ điểm $M\left( 1;3;2 \right)$ đến ba mặt phẳng tọa độ $\left( Oxy \right)$, $\left( Oyz \right)$, $\left( Oxz \right)$. Tính $P=a+b^2+c^3$?
+\choice
+{$P=32$}
+{$P=18$}
+{\True $P=30$}
+{$P=12$}
+\loigiai{
+	Với $A\left(x_o;y_o;z_o \right)\in (Oxyz)$. Khi đó $d\left( A,\left( Oxy \right) \right)=|z_o|$,\quad $d\left( A,\left( Oxz \right) \right)=|y_o|$,\quad $d\left( A,\left( Oyz \right) \right)=|x_o|$.\\
+	Theo bài ra ta có: $a=d\left( M;\left( Oxy \right) \right)=2$; \quad $b=d\left( M;\left( Oyz \right) \right)=1$,\quad $c=d\left( M;\left( Oxz \right) \right)=3$.\\
+	$P=a+b^2+c^3=2+1^2+3^3=30$.
+}
+\end{ex}
+%%==========Câu 13
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz
+	$ cho $\overrightarrow{OA}=\overrightarrow{i}-2\overrightarrow{j}+3\overrightarrow{k},$ điểm $B(3;-4;1)$ và điểm $C(2;0;-1)$. Tọa độ trọng tâm của tam giác $ABC$ là
+\choice
+{$(1;-2;3)$}
+{$(-2;2;-1)$}
+{\True $(2;-2;1)$}
+{$(-1;2;-3)$}
+\loigiai{
+	Ta có $\overrightarrow{OA}=\overrightarrow{i}-2\overrightarrow{j}+3\overrightarrow{k}\Rightarrow A(1;-2;3)$.\\
+	Gọi $G$ là trọng tâm của tam giác $ABC$ ta có
+	$\heva{&x_G=\dfrac{x_A+x_B+x_C}{3}=\dfrac{1+3+2}{3}=2 \\&y_G=\dfrac{y_A+y_B+y_C}{3}=\dfrac{-2-4+0}{3}=-2 \\&z_G=\dfrac{z_A+z_B+z_C}{3}=\dfrac{3+1-1}{3}=1.}$\\
+	Vậy $G(2;-2;1)$.
+}
+\end{ex}
+
+%%==========Câu 14
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian vói hệ trục tọa độ $Oxyz$, cho hình thang cân $ABCD$ có hai đáy $AB$, $CD$ thỏa mãn $CD=2AB$ và diện tích bằng $27$, đỉnh $A\left( -1;-1;0 \right)$, phương trình đường thẳng chứa cạnh $CD$ là $\dfrac{x-2}{2}=\dfrac{y+1}{2}=\dfrac{z-3}{1}$. Tìm tọa độ điểm $D$ biết $x_B>x_A$.
+\choice
+{\True $D\left( -2;-5;1 \right)$}
+{$D\left( -3;-5;1 \right)$}
+{$D\left( 2;-5;1 \right)$}
+{$D\left( 3;-5;1 \right)$}
+\loigiai{
+	Gọi điểm $H$ là hình chiếu vuông góc của $\mathrm{A}$ lên đường thẳng $CD$.\\
+	Khi đó $H\left( 2+2t;-1+2t;3+t \right)\Rightarrow \overrightarrow{AH}=\left( 3+2t;2t;3+t \right)$.\\
+	Đường thẳng $CD$ có vectơ chỉ phương là: $\overrightarrow{u}\left( 2;2;1 \right)$.\\
+	 Ta có:
+	$\overrightarrow{AH}\perp \overrightarrow{u}\Rightarrow \overrightarrow{AH}.\overrightarrow{u}=0\Rightarrow 2\left( 3+2t \right)+2.2t+3+t=0\Leftrightarrow t=-1\Rightarrow H\left( 0;-3;2 \right)\Rightarrow AH=3$.\\
+	Đường thẳng $AB$ đi qua $A$ và song song với $CD\Rightarrow $ phương trình $AB$ là: $\dfrac{x+1}{2}=\dfrac{y+1}{2}=\dfrac{z}{1}$.\\
+	$B\in AB\Rightarrow B\left( -1+2a;-1+2a;a \right)\Rightarrow AB=3\left| a \right|\Rightarrow CD=6\left| a \right|$.\\
+\immini{
+	Theo bài ra ta có: \\
+	\allowdisplaybreaks
+	$\begin{aligned}[t]
+	S_{ABCD}=\dfrac{AB+CD}{2}\cdot AH&\Leftrightarrow \dfrac{3\left| a \right|+6\left| a \right|}{2}\cdot 3=27\\&\Leftrightarrow \left| a \right|=2\Leftrightarrow \hoac{&a=2 \\&a=-2.}\end{aligned}$
+	\begin{itemize}
+	\item Với $a=-2\Rightarrow B\left( -5;-5;-2 \right)$. (loại vì giả thiết $x_B>x_A$)
+	\item Với $a=2\Rightarrow B\left( 3;3;-2 \right)$.
+	\end{itemize}
+	Ta có: $\overrightarrow{DH}=\dfrac{1}{2}\overrightarrow{AB}\Rightarrow D\left( -2;-5;1 \right)$.}
+{
+	\begin{tikzpicture}
+	\draw[fill] (-1,0)[above left]node{$A$} circle (1pt) (1,0)[above right]node{$B$} circle (1pt) (-2.5,-2)[below left]node{$D$} circle (1pt) (2.5,-2)[below right]node{$C$} circle (1pt);
+	\draw (-1,0)--(1,0)--(2.5,-2)--(-2.5,-2)--(-1,0);
+	\draw[fill] (-1,-2)[below]node{$H$} circle (1pt);
+	\draw (-1,0)--(-1,-2);
+	\draw (-1,-1.8)--(-0.8,-1.8)--(-.8,-2);
+	\end{tikzpicture}
+}
+}
+\end{ex}
+
+%%==========Câu 15
+
+%%==========Câu 16
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho $\overrightarrow{OA}=\overrightarrow{i}-2\overrightarrow{j}+3\overrightarrow{k}$, điểm $B\left( 3;-4;1 \right)$, $C\left( 2;0;-1 \right)$ và
+điểm $D\left( a;b;c \right)$ sao cho $B$ là trọng tâm tam giác $ACD$. Khi đó $P=a+b+c$ bằng
+\choice
+{$1$}
+{\True $-3$}
+{$-1$}
+{$3$}
+\loigiai{
+	Từ $\overrightarrow{OA}=\overrightarrow{i}-2\overrightarrow{j}+3\overrightarrow{k}\Rightarrow A\left( 1;-2;3 \right)$.\\
+Theo giả thiết $B$ là trọng tâm của tam giác $ACD$ nên ta có $\heva{&x_B=\dfrac{x_A+x_C+x_D}{3} \\&y_B=\dfrac{y_A+y_C+y_D}{3} \\&z_B=\dfrac{z_A+z_C+z_D}{3}} \Rightarrow \heva{&a=3.3-1-2=6\\&b=3.(-4)-(-2)=-10\\&c=3.1-3-(-1)=1. }$\\
+Vậy, $P=a+b+c=-3$}
+\end{ex}
+
+%%==========Câu 17
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho hình hộp $ABCD.A'B'C'D'$ biết $A\left( 1;0;1 \right)$, $B\left( 2;1;2 \right)$, $D\left( 1;-1;1 \right)$, $C'\left( 4;5;-5 \right)$. Tọa độ của điểm $A'$ là
+\choice
+{$A'\left( 4;6;-5 \right)$}
+{$A'\left( -3;4;-1 \right)$}
+{\True $A'\left( 3;5;-6 \right)$}
+{$A'\left( 3;5;6 \right)$}
+\loigiai{
+	Gọi $A'\left( a;b;c \right)$.\\
+	$ABCD.A'B'C'D'$ là hình hộp $\Rightarrow \overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{AD}+\overrightarrow{AA'}\Leftrightarrow \overrightarrow{AA'}=\overrightarrow{AC'}-\overrightarrow{AB}-\overrightarrow{AD}.\qquad (1)$\\
+	Ta có: $\overrightarrow{AB}=\left( 1;1;1 \right)$, $\overrightarrow{AD}=\left( 0;-1;0 \right)$, $\overrightarrow{AC'}=\left( 3;5;-6 \right)$.
+	\begin{itemize}
+	\item Ta tính được $ \overrightarrow{AC'}-\overrightarrow{AB}-\overrightarrow{AD}=\left( 2;5;-7 \right)$.
+	\item $\overrightarrow{AA'}=\left( a-1;b;c-1 \right)$.
+	\end{itemize}
+	Từ $\left( 1 \right)\Leftrightarrow \heva{&a-1=2 \\&b=5 \\&c-1=-7}\Leftrightarrow \heva{&a=3 \\&b=5 \\&c=-6}\Rightarrow A'\left( 3;5;-6 \right)$.
+	 }
+\end{ex}
+
+%%==========Câu 18
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian $Oxyz$, cho hai điểm $A\left( 2;-2;1 \right)$, $B\left( 0;1;2 \right)$. Tọa độ điểm $M$ thuộc mặt phẳng $\left( Oxy \right)$ sao cho ba điểm $A$, $B$, $M$ thẳng hàng là
+\choice
+{\True $M\left( 4;-5;0 \right)$}
+{$M\left( 2;-3;0 \right)$}
+{$M\left( 0;0;1 \right)$}
+{$M\left( 4;5;0 \right)$}
+\loigiai{
+	Ta có $M\in \left( Oxy \right)\Rightarrow M\left( x;y;0 \right)$; $\overrightarrow{AB}=\left( -2;3;1 \right);\overrightarrow{AM}=\left( x-2;y+2;-1 \right)$.\\
+	Để $A$, $B$, $M$ thẳng hàng thì $\overrightarrow{AB}$ và $\overrightarrow{AM}$ cùng phương, khi đó: $\dfrac{x-2}{-2}=\dfrac{y+2}{3}=\dfrac{-1}{1}\Rightarrow \heva{&x=4 \\&y=-5.}$\\
+	 Vậy $M\left( 4;-5;0 \right)$.
+ }
+\end{ex}
+
+%%==========Câu 19
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian $Oxyz$, véctơ $\vec{u}$ vuông góc với hai véctơ $\vec{a}=\left( 1;1;1 \right)$ và $\vec{b}=\left( 1;-1;3 \right)$; đồng thời $\vec{u}$ tạo với tia $Oz$ một góc tù và độ dài véctơ $\vec{u}$ bằng 3. Tìm toạ độ véctơ $\vec{u}$.
+\choice
+{\True $\left( \sqrt{6};-\dfrac{\sqrt{6}}{2};-\dfrac{\sqrt{6}}{2} \right)$}
+{$\left( \sqrt{6};\dfrac{\sqrt{6}}{2};-\dfrac{\sqrt{6}}{2} \right)$}
+{$\left( -\sqrt{6};\dfrac{\sqrt{6}}{2};\dfrac{\sqrt{6}}{2} \right)$}
+{$\left( -\sqrt{6};-\dfrac{\sqrt{6}}{2};\dfrac{\sqrt{6}}{2} \right)$}
+\loigiai{
+	Ta có $\overrightarrow{a}$ và $\overrightarrow{b}$ không cùng phương đồng thời
+	$\heva{&\overrightarrow{u}\perp \overrightarrow{a} \\&\overrightarrow{u}\perp \overrightarrow{b}}\Rightarrow \overrightarrow{u}$ cùng phương với $ \left[\overrightarrow{a},\overrightarrow{b} \right]=\left( 4;-2;-2 \right)$.\\
+	Suy ra, $\overrightarrow{u}=\left( 2k;-k;-k \right)$.\\
+	Do $\left| \overrightarrow{u} \right|=3\Leftrightarrow \sqrt{4k^2+k^2+k^2}=3\Leftrightarrow k=\pm \dfrac{\sqrt{6}}{2}$.\\
+	 Mặt khác $\overrightarrow{u}$ tạo với tia $Oz$ một góc tù nên
+	$\begin{aligned}[t]
+	\cos \left( \overrightarrow{u},\overrightarrow{k} \right) < 0 &\Leftrightarrow \overrightarrow{u}\cdot\overrightarrow{k}<0\\&\Leftrightarrow 2k\cdot 0+\left( -k \right)\cdot 1<0\\&\Leftrightarrow \left( -k \right)\cdot 1<0\\&\Leftrightarrow k>0.\end{aligned}$ \\
+	Suy ra $k=\dfrac{\sqrt{6}}{2}$.\\
+	Vậy $\overrightarrow{u}=\left( \sqrt{6};-\dfrac{\sqrt{6}}{2};-\dfrac{\sqrt{6}}{2} \right)$.
+}
+\end{ex}
+
+%%==========Câu 20
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong hệ trục tọa độ $Oxyz$, cho các điểm $M(1;-1;1),N(2;0;-1),P(-1;2;1)$. Xét điểm $Q$ sao cho tứ giác $MNPQ$ là một hình bình hành. Tọa độ $Q$ là
+\choice
+{\True $(-2;1;3)$}
+{$(-2;1;3)$}
+{$(-2;1;-3)$}
+{$(4;1;3)$}
+\loigiai{
+	Gọi $Q(x;y;z)$.\\
+	 Ta có $\overrightarrow{MN}=(1;1;-2),\overrightarrow{QP}=(-1-x;2-y;1-z)$.\\
+	Tứ giác $MNPQ$ là một hình bình hành $\Leftrightarrow \overrightarrow{MN}=\overrightarrow{QP}\Leftrightarrow \heva{&1=-1-x \\&1=2-y \\&-2=1-z}\Leftrightarrow \heva{&x=-2 \\&y=1 \\&z=3} \Rightarrow Q(-2;1;3)$.}
+\end{ex}
+
+%%==========Câu 21
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho ba điểm $A\left( 3;5;-1 \right)$, $B\left( 7;x;1 \right)$ và $C\left( 9;2;y \right)$. Để $A$, $B$, $C$ thẳng hàng thì giá trị $x+y$ bằng
+\choice
+{\True $5$}
+{$6$}
+{$4$}
+{$7$}
+\loigiai{
+	Ta có $\overrightarrow{AB}=\left( 4;x-5;2 \right)$, $\overrightarrow{AC}=\left( 6;-3;y+1 \right)$.\\
+	Ba điểm $A$, $B$, $C$ thẳng hàng $\Leftrightarrow \exists k\in \mathbb{R}:\overrightarrow{AB}=k\cdot \overrightarrow{AC}$ $\Leftrightarrow \heva{&4=6k \\&x-5=-3k \\&2=k\left( y+1 \right)}$ $\Leftrightarrow \heva{&k=\dfrac{2}{3} \\&x=3 \\&y=2.}$\\
+	Vậy $x+y=5$.}
+\end{ex}
+
+%%==========Câu 22
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian với hệ trục tọa độ $Oxyz$ cho hai điểm $A(-2;3;4), B(8;-5;6)$. Hình chiếu vuông góc của trung điểm $I$ của đoạn $AB$ trên mặt phẳng $Oyz$ là điểm nào dưới đây?
+\choice
+{$N(3;-1;5)$}
+{\True $M(0;-1;5)$}
+{$Q(0;0;5)$}
+{$P(3;0;0)$}
+\loigiai{
+	\begin{itemize}
+	\item Vì $I$ là trung điểm của đoạn $AB$ nên $I(3;-1;5)$.
+	\item Khi đó hình chiếu của $I$ lên mặt phẳng $Oyz$ là $M(0;-1;5)$.
+	\end{itemize}
+}
+\end{ex}
+
+%%==========Câu 23
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$, cho điểm $M\left( 2;-5;4 \right)$. Trong các phát biểu sau, phát biểu nào \textbf{sai}?
+\choice
+{Khoảng cách từ $M$ đến mặt phẳng tọa độ $\left( xOz \right)$ bằng $5$}
+{Khoảng cách từ $M$ đến trục $Oz$ bằng $\sqrt{29}$}
+{\True Tọa độ điểm $M'$ đối xứng với $M$ qua mặt phẳng $\left( yOz \right)$ là $M'\left( 2;5;-4 \right)$}
+{Tọa độ điểm $M'$ đối xứng với $M$ qua trục $Oy$ là $M'\left( -2;-5;-4 \right)$}
+\loigiai{
+	\begin{itemize}
+	\item Ta có khoảng cách từ $M$ đến mặt phẳng tọa độ $\left( xOz \right)$ bằng $\left| -5 \right|=5$ nên A đúng.
+	\item Khoảng cách từ $M$ đến trục $Oz$ bằng $\sqrt{2^2+\left( -5 \right)^2}=\sqrt{29}$ nên B đúng.
+	\item Tọa độ hình chiếu vuông góc của điểm $M$ lên mặt phẳng $\left( yOz \right)$ là $I\left( 0;-5;4 \right)$.\\
+	Suy ra tọa độ điểm $M'$ đối xứng với $M$ qua mặt phẳng $\left( yOz \right)$ là $M'\left( -2;-5;4 \right)$ nên C sai.
+	\item Tọa độ hình chiếu vuông góc của điểm $M$ lên trục $Oy$ là $J\left( 0;-5;0 \right)$.\\
+	Suy ra tọa độ điểm $M'$ đối xứng với $M$ qua trục $Oy$ là $M'\left( -2;-5;-4 \right)$ nên D đúng.
+\end{itemize}
+	}
+\end{ex}
+
+%%==========Câu 24
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+	Trong không gian $Oxyz$ cho ba điểm $A\left( -1;1;2 \right)$, $B\left( 0;1;-1 \right)$, $C\left( x+2;y;-2 \right)$ thẳng hàng. Tổng $x+y$ bằng
+\choice
+{$\dfrac{7}{3}$}
+{$-\dfrac{8}{3}$}
+{\True $-\dfrac{2}{3}$}
+{$-\dfrac{1}{3}$}
+\loigiai{
+	Ta có $\overrightarrow{AB}=\left( 1;0;-3 \right)$, $\overrightarrow{BC}=\left( x+2;y-1;-1 \right)$.\\
+	Ba điểm $A,B,C$ thẳng hàng $\Leftrightarrow $ $\overrightarrow{AB}$ và $\overrightarrow{BC}$ cùng phương\\
+	 \centerline{$\Leftrightarrow \exists k:\overrightarrow{BC}=k\overrightarrow{AB}$
+	$\Leftrightarrow \heva{&x+2=k \\&y-1=0 \\&-1=-3k}\Leftrightarrow \heva{&x=\dfrac{-5}{3} \\&y=1 \\&k=\dfrac{1}{3}}\Rightarrow x+y=-\dfrac{2}{3}$.}
+}
+\end{ex}
+
+%%==========Câu 25
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian với hệ tọa độ $Oxyz$, cho điểm $H\left( 2;1;1 \right)$. Gọi các điểm $A,B,C$ lần lượt ở trên các trục tọa độ $Ox, Oy, Oz$ sao cho $H$ là trực tâm của tam giác $ABC$. Khi đó hoành độ điểm $A$ là
+\choice
+{$-3$}
+{$-5$}
+{\True $3$}
+{$5$}
+\loigiai{
+	Giả sử $A\left( a;0;0 \right);B\left( 0;b;0 \right);C\left( 0;0;c \right)$. Khi đó mặt phẳng $\left( ABC \right)\colon\dfrac{x}{a}+\dfrac{y}{b}+\dfrac{z}{c}=1$.\\
+	Ta có: $\heva{&\overrightarrow{AH}=\left( 2-a;1;1 \right);\overrightarrow{BH}=\left( 2;1-b;1 \right) \\&\overrightarrow{BC}=\left( 0;-b;c \right);\overrightarrow{AC}=\left( -a;0;c \right).}$\\
+	Vì $H$ là trực tâm của tam giác $ABC$ nên $\heva{&H\in \left( ABC \right) \\&\overrightarrow{AH}\cdot\overrightarrow{BC}=0 \\&\overrightarrow{BH}\cdot\overrightarrow{AC}=0}\Leftrightarrow \heva{&\dfrac{2}{a}+\dfrac{1}{b}+\dfrac{1}{c}=1 \\&-b+c=0 \\&-2a+c=0}\Leftrightarrow \heva{&a=3 \\&b=6 \\&c=6.}$\\
+	Vậy $A\left( 3;0;0 \right)$.
+}
+\end{ex}
+
+%%==========Câu 26
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian với hệ tọa độ $Oxyz$, biết $\left| \overrightarrow{u} \right|=2$; $\left| \overrightarrow{v} \right|=1$ và góc giữa hai vectơ $\overrightarrow{u}$ và $\overrightarrow{v}$ bằng $\dfrac{2\pi}{3}$. Tìm $k$ để vectơ $\overrightarrow{p}=k\overrightarrow{u}+\overrightarrow{v}$ vuông góc với vectơ $\overrightarrow{q}=\overrightarrow{u}-\overrightarrow{v}$.
+\choice
+{\True $k=\dfrac{2}{5}$}
+{$k=\dfrac{5}{2}$}
+{$k=2$}
+{$k=-\dfrac{2}{5}$}
+\loigiai{
+	Ta có: $\overrightarrow{u}\cdot\overrightarrow{v}=2\cdot 1\cdot \cos\left( \overrightarrow{u},\overrightarrow{v} \right)=2\cdot\cos\dfrac{2\pi}{3}=-1$.\\
+	Vectơ $\overrightarrow{p}=k\overrightarrow{u}+\overrightarrow{v}$ vuông góc với vectơ $\overrightarrow{q}=\overrightarrow{u}-\overrightarrow{v}$ khi và chỉ khi
+	\[\begin{aligned}[t]
+		\overrightarrow{p}\cdot\overrightarrow{q}=\left( k\overrightarrow{u}+\overrightarrow{v} \right)\left( \overrightarrow{u}-\overrightarrow{v} \right)=0&\Leftrightarrow k\overrightarrow u^2+\left( 1-k \right)\overrightarrow{u}\cdot\overrightarrow{v}-\overrightarrow v^2=0\\&\Leftrightarrow 4k-\left( 1-k \right)-1=0\\&\Leftrightarrow k=\dfrac{2}{5}.\end{aligned}\]
+}
+\end{ex}
+
+%%==========Câu 28
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3B1-1]
+Trong không gian $Oxyz$, cho bốn điểm $A\left( -1;2;0 \right)$, $B\left( 3;1;0 \right)$, $C\left( 0;2;1 \right)$ và
+$D\left( 1;2;2 \right)$. Trong đó có ba điểm thẳng hàng là
+\choice
+{\True $A$, $C$, $D$}
+{$A$, $B$, $D$}
+{$B$, $C$, $D$}
+{$A$, $B$, $C$}
+\loigiai{
+Ta có: $\overrightarrow{AC}=\left( 1;0;1 \right)$, $\overrightarrow{AD}=\left( 2;0;2 \right)$.\\
+Mà $\overrightarrow{AC}\wedge \overrightarrow{AD}=\overrightarrow{0}$ nên hai vectơ $\overrightarrow{AC}$,
+$\overrightarrow{AD}$ cùng phương, hay ba điểm $A,C,D$ thẳng hàng.
+}
+\end{ex}
+
+%%==========Câu 29
+\begin{ex}%[Bùi Ngọc Sơn-Dự án TexBook-Quyen3]%[2H3K1-1]
+Trong không gian tọa độ $Oxyz$, cho hai điểm $A\left( 1;0;0 \right)$, $B\left( 5;0;0 \right)$. Gọi $\left( H \right)$ là
+tập hợp các điểm $M$ trong không gian thỏa mãn $\overrightarrow{MA}.\overrightarrow{MB}=0$. Khẳng định nào sau đây là
+đúng?
+\choice
+{$\left( H \right)$ là một đường tròn có bán kính bằng $4$}
+{$\left( H \right)$ là một mặt cầu có bán kính bằng $4$}
+{$\left( H \right)$ là một đường tròn có bán kính bằng $2$}
+{\True $\left( H \right)$ là một mặt cầu có bán kính bằng $2$}
+\loigiai{
+Gọi $I$ là trung điểm $AB\Rightarrow I\left( 3;0;0 \right)$.\\
+Ta có:
+$\begin{aligned}
+\overrightarrow{MA}\cdot\overrightarrow{MB}=0&\Leftrightarrow \left( \overrightarrow{MI}+\overrightarrow{IA}
+\right)\cdot\left( \overrightarrow{MI}+\overrightarrow{IB} \right)=0\\&\Leftrightarrow \left(
+\overrightarrow{MI}+\overrightarrow{IA} \right)\cdot\left( \overrightarrow{MI}-\overrightarrow{IA} \right)=0\\
+&\Leftrightarrow MI^2-IA^2=0\\&\Leftrightarrow MI^2=IA^2\\&\Leftrightarrow MI=\dfrac{1}{2}AB=\dfrac{1}{2}.\left| 5-1
+\right|=2.
+\end{aligned}$\\
+Suy ra tập hợp điểm $M$ trong không gian là mặt cầu tâm $I$, bán kính bằng $2$.\\
+Vậy $\left( H \right)$ là một mặt cầu có bán kính bằng $2$.
+}
+\end{ex}
+%%==========Câu 30
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B1-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho các véc-tơ $\overrightarrow{a}=(2;\,m-1;\,3)$,
+$\overrightarrow{b}=(1;\,3;\,-2n)$. Tìm $m,\,n$ để các véc-tơ $\overrightarrow{a}$, $\overrightarrow{b}$ cùng hướng.
+\choice{\True $m=7;\,n=-\dfrac{3}{4}$}{$m=4;\,n=-3$}{$m=1;\,n=0$}{$m=7;\,n=-\dfrac{4}{3}$}
+\loigiai{
+Các véc-tơ $\overrightarrow{a}$, $\overrightarrow{b}$ cùng hướng $\Leftrightarrow \exists k\neq0$ sao cho
+$\overrightarrow{a}=k\overrightarrow{b}$
+$$\Leftrightarrow \heva{&2=k\\&m-1=3k\\&3=-2nk}\Leftrightarrow \heva{&k=2\\&m-1=6\\&3=-4n}\Leftrightarrow
+\heva{&k=2\\&m=7\\&n=-\dfrac{3}{4}.}$$}
+\end{ex}
+%%==========Câu 31
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B1-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho $A(1;\,1;\,-3),$ $B(3;\,-1;\,1)$. Gọi $G$ là trọng tâm tam giác $OAB$,
+véc-tơ $\overrightarrow{OG}$ có độ dài bằng
+\choice{\True $\dfrac{2\sqrt{5}}{3}$}{$\dfrac{2\sqrt{5}}{5}$}{$\dfrac{3\sqrt{5}}{3}$}{$\dfrac{3\sqrt{5}}{2}$}
+\loigiai{
+Gọi $G(x;\,y;\,z)$ là trọng tâm của tam giác $OAB$. Suy ra\\
+$$\heva{&x=\dfrac{1+3+0}{3}=\dfrac{4}{3}\\&y=\dfrac{1-1+0}{3}=0\\&z=\dfrac{-3+1+0}{3}=-\dfrac{2}{3}.}$$
+Suy ra $G\left(\dfrac{4}{3};\,0;\,-\dfrac{2}{3}\right)\Rightarrow
+\overrightarrow{OG}=\left(\dfrac{4}{3};\,0;\,-\dfrac{2}{3}\right)\Rightarrow\left|\overrightarrow{OG}\right|=\dfrac{2\sqrt{5}}{3}$.}
+\end{ex}
+
+%%==========Câu 33
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B1-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho hai điểm $A(2;\,3;\,2)$, $B(-2;\,-1;\,4)$. Tìm tọa độ điểm $E$ thuộc
+trục $Oz$ sao cho $E$ cách đều hai điểm $A,\,B$.
+\choice{$\left(0;\,0;\,\dfrac{1}{2}\right)$}{$\left(0;\,0;\,\dfrac{1}{3}\right)$}{$\left(0;\,0;\,-1\right)$}{\True
+$\left(0;\,0;\,1\right)$}
+\loigiai{
+Gọi $E(0;\,0;\,z)\in Oz$.\\
+Ta có $AE=BE\Leftrightarrow\sqrt{z^2-4z+17}=\sqrt{z^2-8z+21}\Leftrightarrow z=1$.\\
+Vậy $E(0;\,0;\,1)$.}
+\end{ex}
+
+%%==========Câu 35
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K1-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho hình thang cân $ABCD$ có các đáy lần lượt là $AB,\,CD$. Biết
+$A(3;\,1;\,-2)$, $B(-1;\,3;\,2)$, $C(-6;\,3;\,6)$ và $D(a;\,b;\,c)$ với $a;\,b;\,c\in \mathbb{R}$. Tính $T=a+b+c$.
+\choice{\True $T=-3$}{$T=1$}{$T=3$}{$T=-1$}
+\loigiai{
+Ta có $\overrightarrow{AB}=(-4;\,2;\,4)$; $\overrightarrow{CD}=(a+6;\,b-3;\,c-6)$. \\
+Do $ABCD$ là hình thang cân nên $\overrightarrow{AB}$ và $\overrightarrow{CD}$ ngược hướng.\\
+Khi đó ta có $\overrightarrow{AB}=k\overrightarrow{CD}$ hay $\dfrac{a+6}{-4}=\dfrac{b-3}{2}=\dfrac{c-6}{4}=k < 0$. Do đó
+    $$\heva{ & a + 6=-4k>0\\&-4(b-3)=2(a+6)\\&-4(c-6)=4(a+6)}\Leftrightarrow\heva{&a>-6\\&b=-\dfrac{a}{2}\\&c=-a.}$$
+    Suy ra $\overrightarrow{BD}=(a+1;\,-\dfrac{a}{2}-3;\,-a-2);$ $\overrightarrow{AC}=(-9;\,2;\,8)$.\\
+    Ta có $ABCD$ là hình thang cân nên $AC=BD$
+    \allowdisplaybreaks{
+    \begin{eqnarray*}
+    &\Leftrightarrow& \sqrt{(a+1)^2+\left(-\dfrac{a}{2}-3\right)^2+(-a-2)^2}=\sqrt{(-9)^2+2^2+8^2}\\
+    & \Leftrightarrow&\dfrac{9}{4}a^2+9a+14=149\\
+    & \Leftrightarrow&\hoac{&a=-10&\text{(loại)}\\&a=6&\text{(nhận)}.}
+    \end{eqnarray*}
+    }
+    Suy ra $D(6;\,-3;\,-6)\Leftrightarrow T-3$.
+    }
+    \end{ex}
+%%==========Câu 36
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B2-6]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho tam giác $ABC$ với $A(1;\,2;\,5)$, $B(3;\,4;\,1)$, $C(2;\,3;\,-3)$. Gọi
+$G$ là trong tâm tam giác $ABC$ và $M$ là điểm thay đổi trên mặt phẳng $\left(Oxz\right)$. Độ dài $GM$ ngắn nhất bằng
+\choice{$2$}{\True $3$}{$4$}{$1$}
+\loigiai{
+Gọi $G(x;\,y;\,z)$ là trọng tâm của tam giác $OAB$. Suy ra
+$$\heva{&x=\dfrac{1+3+2}{3}=2\\&y=\dfrac{2+4+3}{3}=3\\&z=\dfrac{5+1-3}{3}=1.}$$
+Suy ra $G\left(2;\,3;\,1\right)$.\\
+Gọi $H$ là hình chiếu vuông góc của $G$ trên mặt phẳng $(Oxz)$.\\
+Khi đó $GH$ là khoảng cách từ $G$ đến mặt phẳng $(Oxz)$, ta có $GH=\mathrm{d}(G,\,(Oxz))=3$.\\
+Với $M$ là điểm thay đổi trên mặt phẳng $(Oxz)$.\\
+Ta có $GM\ge GH=3$.\\
+Do đó độ dài $GM$ ngắn nhất khi và chỉ khi $M\equiv H$.\\
+Vậy độ dài $GM$ ngắn nhất bằng $3$.}
+\end{ex}
+%%==========Câu 37
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B2-1]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho các điểm $A(5;\,1;\,5)$, $B(4;\,3;\,2)$, $C(-3;\,-2;\,1)$. Điểm
+$I(a;\,b;\,c)$ là tâm đường tròn ngoại tiếp tam giác $ABC$. Tính $a+2b+c$.
+\choice{$1$}{\True $3$}{$6$}{$-9$}
+\loigiai{
+Ta có $\overrightarrow{AB}=(-1;\,2;\,-3)$ và $\overrightarrow{AC}=(-8;\,-3;\,-4)$.\\
+Nên $\left[\overrightarrow{AB},\overrightarrow{AC}\right]=(-17;\,20;\,19)$.\\
+Mặt phẳng $(ABC)$ đi qua $A$ và có véc-tơ pháp tuyến là
+$\overrightarrow{n}=\left[\overrightarrow{AB},\overrightarrow{AC}\right]=(-17;\,20;\,19)$.\\
+Do đó ta có phương trình mặt phẳng $(ABC) \colon -17x+20y+19z-30=0$.\\
+Gọi $M$, $N$ lần lượt là trung điểm $AB$, $AC$.\\
+Suy ra $M\left( \dfrac{9}{2};\,2;\,\dfrac{7}{2}\right)$ và $N\left(1;\,-\dfrac{1}{2};\,3\right)$.\\
+Nên $\overrightarrow{IM}=\left( \dfrac{9}{2}-a;\,2-b;\,\dfrac{7}{2}-c\right)$ và
+$\overrightarrow{IN}=\left(1-a;\,-\dfrac{1}{2}-b;\,3-c\right)$.\\
+Ta có $I$ là tâm đường tròn ngoại tiếp tam giác $ABC$.\\
+Nên $
+\heva{&\overrightarrow{IM}\perp\overrightarrow{AB}\\&\overrightarrow{IN}\perp\overrightarrow{AC}\\&I\in(ABC)}\Leftrightarrow\heva{&-\left(\dfrac{9}{2}-a\right)+2(2-b)-3\left(\dfrac{7}{2}-c\right)=0\\&-8\left(1-a\right)-3\left(-\dfrac{1}{2}-b\right)-4\left(3-c\right)=0\\&-17a+20b+19c-30=0}\Leftrightarrow\heva{&a-2b+3c=11\\&8a+3a+4c=\dfrac{37}{2}\\&17a-20b-19c=-30}\Leftrightarrow\heva{&a=1\\&b=-\dfrac{1}{2}\\&c=3.}$\\
+Vậy $a+2b+c=3$.}
+\end{ex}
+%%==========Câu 38
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B3-4]
+Trong không gian với hệ trục tọa độ $Oxyz$, cho véc-tơ $\overrightarrow{a}=(1;\,-2;\,4)$, $\overrightarrow{b}=\left(
+x_0;\,y_0;\,z_0\right)$ cùng phương với véc-tơ $\overrightarrow{a}$. Biết véc-tơ $\overrightarrow{b}$ tạo với tia $Oy$
+một góc nhọn và $\left| \overrightarrow{b}\right|=\sqrt{21} $. Giá trị của tổng $x_0+y_0+z_0$ bằng
+\choice{\True $-3$}{$6$}{$-6$}{$3$}
+\loigiai{
+Vì $\overrightarrow{b}=\left(x_0;\,y_0;\,z_0\right)$ cùng phương với véc-tơ $\overrightarrow{a}$ nên ta có
+$\heva{&x_0=k\\&y_0=-2k\\&z_0=4k}$ với $k\neq0$. Khi đó ta có
+\allowdisplaybreaks
+{\begin{eqnarray*}
+&&\left|\overrightarrow{b}\right|=\sqrt{k^2+(-2k)^2+(4k)^2}=\sqrt{21}.\\
+&\Leftrightarrow&\sqrt{21k^2}=\sqrt{21}\Leftrightarrow\left|k\right|=1\Leftrightarrow k=\pm1.
+\end{eqnarray*} }
+\noindent
+Tia $Oy$ có một véc-tơ chỉ phương là $\overrightarrow{j}=(0;\,1;\,0)$, vì véc-tơ $\overrightarrow{b}$ tạo với tia $Oy$
+một góc nhọn.\\
+Nên
+$\cos\left(\overrightarrow{b},\overrightarrow{j}\right)>0\Rightarrow\overrightarrow{b}\cdot\overrightarrow{j}>0\Leftrightarrow-2k>0\Leftrightarrow
+k< 0$.\\ Suy ra $k=-1$ khi đó ta có $\heva{&x_0=-1\\&y_0=2\\&z_0=-4.}$\\ Vậy $x_0+y_0+z_0=-3$.} \end{ex} 
+%%==========Câu
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[[2H3K3-8]] Trong không gian với hệ trục tọa độ $Oxyz$, cho
+    $A(4;\,-2;\,6)$, $B(2;\,4;\,2)$, $M\in (\alpha) \colon x+2y-3z-7=0$ sao cho
+    $\overrightarrow{MA}\cdot\overrightarrow{MB}$ nhỏ nhất. Tọa độ của $M$ bằng \choice{$
+    \left(\dfrac{29}{13};\,\dfrac{58}{13};\,\dfrac{5}{13}\right) $}{\True $ \left(4;\,3;\,1\right)$}{$
+    \left(1;\,3;\,4\right) $}{$ \left(\dfrac{37}{3};\,\dfrac{-56}{3};\,\dfrac{68}{3}\right) $} \loigiai{Gọi $I$ là trung
+    điểm của $AB$ nên $I(3;\,1;\,4)$.\\ Gọi $H$ là hình chiếu của $I$ xuống mặt phẳng $(\alpha)$.\\ Ta có
+    $\overrightarrow{MA}\cdot\overrightarrow{MB}=\left(\overrightarrow{MI}+\overrightarrow{IA}\right)\cdot\left(\overrightarrow{MI}+\overrightarrow{IB}\right)=MI^2+\overrightarrow{MI}\cdot\left(\overrightarrow{IA}+\overrightarrow{IB}\right)-IA^2=MI^2-IA^2$.\\
+    Do $IA$ không đổi nên $\vec{MA}\cdot\vec{MB}$ nhỏ nhất khi $MI$ có độ dài ngắn nhất.\\ Mà $MI$ có độ dài ngắn nhất
+    $\Leftrightarrow \, IM=IH$ hay $M\equiv H$.\\ Gọi $d$ là đường thẳng đi qua $I$ và vuông góc với mặt phẳng
+    $(\alpha)$.\\ Khi đó $d$ nhận véc-tơ pháp tuyến của mặt phẳng $(\alpha)$ là $\overrightarrow{n}=(1;\,2;\,-3)$ làm
+    véc-tơ chỉ phương.\\ Do đó phương trình tham số của đường thẳng $d$ là $\heva{&x=3+t\\&y=1+2t\\&z=4-3t}$
+    $(t\in\mathbb{R})$.\\ Ta có $M\in d$ nên $H(3+t;\,1+2t;\,4-3t)$.\\ Mà $M\in (\alpha)$ nên ta có\\
+    $(3+t)+2(1+2t)-3(4-3t)-7=0\Leftrightarrow t=1$.\\ Vậy $M(4;\,3;\,1)$.} 
+    \end{ex}
+
+%%==========Câu 44
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho ba điểm $A(1;\,0;\,0)$, $B(2;\,2;\,-2)$, $C\left(\dfrac{11}{3};\,\dfrac{4}{3};\,\dfrac{8}{3}\right)$. Bán kính đường tròn nội tiếp tam giác $ABC$ thuộc nửa khoảng
+	\choice{$\left(0;\,\dfrac{1}{2}\right]$}{\True $\left(\dfrac{1}{2};\,1\right]$}{$\left(1;\,\dfrac{3}{2}\right]$}{$\left(\dfrac{3}{2};\,2\right]$}
+	\loigiai{
+		Gọi $I(a;\,b;\,c)$ là tâm đường tròn nội tiếp tam giác $ABC$.\\
+		Ta có $\overrightarrow{IA}=(1-a;\,-b;\,-c);\, \overrightarrow{IB}=(2-a;\,2-b;\,-2-c);\, \overrightarrow{IC}=\left(\dfrac{11}{3}-a;\,\dfrac{4}{3}-b;\,\dfrac{8}{3}-c\right)$.\\
+		Và $AB=3;$ $AC=4$ và $BC=5$.\\
+		Ta có $AB\cdot\overrightarrow{IC}+AC\cdot\overrightarrow{IB}+BC\cdot\overrightarrow{IA}=\overrightarrow{0}\Leftrightarrow\heva{&3\left(\dfrac{11}{3}-a\right)+4(2-a)+5(1-a)=0\\&3\left(\dfrac{4}{3}-b\right)+4(2-b)+5(-b)=0\\&3\left(\dfrac{8}{3}-c\right)+4(-2-c)+5(-c)=0 }\Leftrightarrow\heva{&a=2\\&b=1\\&c=0.}$\\
+		Suy ra $I(2;\,1;\,0)$.\\
+		Gọi $H$ là hình chiếu của $I$ trên $AB$.\\
+		Đường thẳng chứa cạnh $AB$ đi qua điểm $A$ và có véc-tơ chỉ phương là $\overrightarrow{AB}=(1;\,2;\,-2)$.\\
+		Khi đó phương trình tham số của đường thẳng chứa cạnh $AB$ là $\heva{&x=1+t\\&y=2t\\&z=-2t}$ $(t\in\mathbb{R})$.\\
+		Vì $H\in AB$ nên $H(1+t;\,2t;\,-2t)$ và $\overrightarrow{IH}=(t-1;\,2t-1;\,-2t)$.\\
+		Mà $IH\perp AB$ nên $\overrightarrow{IH}\cdot\overrightarrow{AB}=0$\\
+		$\Leftrightarrow t-1+2(2t-1)-2(-2t)=0\Leftrightarrow t=\dfrac{1}{3}$.\\
+		Do đó ta có $\overrightarrow{IH}=\left(-\dfrac{2}{3};\,-\dfrac{1}{3};\,-\dfrac{2}{3}\right)$.\\
+		Suy ra bán kính của đường tròn nội tiếp tam giác $ABC$ là $r=\left|\overrightarrow{IH}\right|=1$.\\
+		Vậy bán kính đường tròn nội tiếp tam giác $ABC$ thuộc nửa khoảng $\left(\dfrac{1}{2};\,1\right]$.}
+\end{ex}
+%%==========Câu 45
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3B1-1]
+		Trong không gian với hệ trục tọa độ $Oxyz$, cho ba điểm $A(-1; 0; 0)$, $B(0; 2;-2)$, $C\left(\dfrac{5}{3}; \dfrac{4}{3}; \dfrac{8}{3}\right)$. Độ dài đường phân giác trong đỉnh $A$ của tam giác $ABC$ là
+	\choice
+	{\True $\dfrac{12 \sqrt{2}}{7}$}
+	{$\dfrac{12 \sqrt{3}}{7}$}
+	{$\dfrac{13 \sqrt{2}}{7}$}
+	{$\dfrac{13 \sqrt{3}}{7}$}
+	\loigiai{
+		Ta có: 
+		\begin{eqnarray*}
+			AB&=&\sqrt{\left(0+1\right)^2+\left(2-0\right)^2+\left(-2-0\right)^2}=3\\
+			AC&=&\sqrt{\left(\dfrac{5}{3}+1\right)^2+\left(\dfrac{4}{3}-0\right)^2+\left(\dfrac{8}{3}-0\right)^2}=4\\
+			BC&=&\sqrt{\left(\dfrac{5}{3}-0\right)^2+\left(\dfrac{4}{3}-2\right)^2+\left(\dfrac{8}{3}+2\right)^2}=5
+		\end{eqnarray*}
+		Suy ra $\triangle ABC$ vuông tại $A$.\\
+		Gọi $AM$ là phân giác của $\triangle ABC$ khi đó 
+		$$AM= \dfrac{2AB\cdot AC}{AB+AC}\cos \dfrac{A}{2}=\dfrac{12 \sqrt{2}}{7}.$$
+	}
+\end{ex}
+%%==========Câu 46
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K1-1]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho mặt phẳng $(P): x-y+2=0$ và hai điểm $A(1; 2; 3)$, $B(1; 0; 1)$. Điểm $C(a; b;-2) \in(P)$ sao cho tam giác $ABC$ có diện tích nhỏ nhất. Tính $a+b$
+	\choice
+	{\True $0$}
+	{$-3$}
+	{$1$}
+	{$2$}
+	\loigiai{
+		$C\left(a;b;-2\right)\in P\Rightarrow a-b+2=0\Rightarrow b=a+2\Rightarrow C\left(a;a+2;-2\right)$.
+		\begin{eqnarray*}
+			\overrightarrow{AB}&=&\left(0;-2;-2\right)\\
+			\overrightarrow{AC}&=&\left(a-1;a;-5\right)\\
+			\left[\overrightarrow{AB},\overrightarrow{AC}\right]&=&\left(10+2a;-2a+2;2a-2\right).
+		\end{eqnarray*}
+		Khi đó
+		\begin{eqnarray*}
+			S_{\triangle ABC}&=&\dfrac{1}{2}\left| \left[\overrightarrow{AB},\overrightarrow{AC}\right]\right|\\
+			&=&\dfrac{\sqrt{\left(2a+10\right)}^2+2{\left(2a-2\right)}^2}{2}\\
+			&=&\dfrac{\sqrt{12a^2+24a+108}}{2}\\
+			&=&\sqrt{3\left(a^2+2a+9\right)}\\
+			&=&\sqrt{3{\left(a+1\right)}^2+24}\ge 2\sqrt{6} \forall a\in \mathbb{R}.
+		\end{eqnarray*}
+		Do đó $\min S_{\Delta ABC}=2\sqrt{6}$ khi $a=-1$. Khi đó ta có $C\left(-1;1;-2\right)\Rightarrow a+b=0$.
+	}
+\end{ex}
+%%==========Câu 47
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K1-3]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho hai điểm $A(1; 0; 0)$, $B(5; 6; 0)$ và $M$ là điểm thay đổi trên mặt cầu $(S): x^2+y^2+z^2=1$. Tập hợp các điểm $M$ trên mặt cầu $(S)$ thỏa mãn $3MA^2+MB^2=48$ có bao nhiêu phần tử?
+	\choice
+	{0}
+	{\True 1}
+	{2}
+	{3}
+	\loigiai{
+		\textbf{Cách 1:}\\
+		Mặt cầu $(S):x^2+y^2+z^2=1$ có tâm $O\left(0;0;0\right)$, bán kính $R=1$.\\
+		Ta tìm điểm $I\left(x;y;z\right)$ thỏa mãn $3\overrightarrow{IA}+\overrightarrow{IB}=\overrightarrow{0}$.\\
+		Có $\overrightarrow{IA}=\left(1-x;-y;-z\right)$, $\overrightarrow{IB}=\left(5-x;6-y;-z\right)$.\\ $$3\overrightarrow{IA}+\overrightarrow{IB}=\overrightarrow{0}\Leftrightarrow \heva{
+			& 3\left(1-x\right)+5-x=0 \\ 
+			& 3\left(-y\right)+6-y=0 \\ 
+			& 3\left(-z\right)-z=0 \\}
+		\Leftrightarrow \heva{
+			&-4x+8=0 \\ 
+			&-4y+6=0 \\ 
+			&-4z=0 \\}\Leftrightarrow \heva{
+			& x=2 \\ 
+			& y=\dfrac{3}{2} \\ 
+			& z=0 \\}\Leftrightarrow I\left(2;\dfrac{3}{2};0\right).$$
+		Suy ra $IA=\dfrac{\sqrt{13}}{2}$, $IB=\dfrac{3\sqrt{13}}{2}$.\\
+		Do đó
+		\begin{eqnarray*}
+			&& 3MA^2+MB^2=48\\
+			&\Leftrightarrow & 3\overrightarrow{MA}^2+\overrightarrow{MB}^2=48\\
+			&\Leftrightarrow& 3\left(\overrightarrow{MI}+\overrightarrow{IA}\right)^2+{\left(\overrightarrow{MI}+\overrightarrow{IB}\right)}^2=48\\
+			&\Leftrightarrow& 4MI^2+3IA^2+IB^2+2\overrightarrow{MI}\left(3\overrightarrow{IA}+\overrightarrow{IB}\right)=48\\
+			&\Leftrightarrow& 4MI^2+3IA^2+IB^2=48\Leftrightarrow MI=\dfrac{3}{2}.
+		\end{eqnarray*}
+		Ta thấy $OI=\dfrac{5}{2}$ nên điểm $I$ nằm ngoài mặt cầu $S$.\\ 
+		Ta có $OI=R+MI=OM+MI$, suy ra có một điểm $M$ thuộc đoạn $OI$ thỏa mãn đề bài.\\
+		\textbf{Cách 2:}\\
+		Gọi $M\left(x_0;y_0;z_0\right)$ thuộc mặt cầu $(S)$ và thỏa mãn $3MA^2+MB^2=48$.\\
+		Ta có 
+		\begin{eqnarray*}
+			&&3MA^2+MB^2=48\\
+			&\Leftrightarrow& 3\left[\left(x_0-1\right)^2+y_0^2+z_0^2\right]+\left[\left(x_0-5\right)^2+\left(y_0-6\right)^2+z_0^2\right]=48\\
+			&\Leftrightarrow& 4x_0^2+4y_0^2+4z_0^2-16x_0-12y_0+16=0\\
+			&\Leftrightarrow& x_0^2+y_0^2+z_0^2-4x_0-3y_0+4=0.
+		\end{eqnarray*}
+		Suy ra $M$ thuộc mặt cầu $\left(S'\right)$ tâm $I'\left(2;\dfrac{3}{2};0\right)$, bán kính $R'=\dfrac{3}{2}$.\\
+		Mặt khác $M$ thuộc mặt cầu $(S)$ tâm $O\left(0;0;0\right)$, bán kính $R=1$.\\
+		Ta thấy: $OI'=\dfrac{5}{2}=R+R'\Rightarrow $ mặt cầu $(S)$ và $\left(S'\right)$ tiếp xúc ngoài nhau tại $M$.\\
+		Có duy nhất một điểm $M$ thỏa mãn đề bài.
+	}
+\end{ex}
+%%==========Câu 48
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K1-4]
+	Trong không gian với hệ trục tọa độ $Oxyz$, cho $\overrightarrow{OA}=\vec{i}+\vec{j}-3 \vec{k}$, $B(2; 2; 1)$. Tìm tọa độ điểm $M$ thuộc trục tung sao cho $MA^2+MB^2$ nhỏ nhất.
+	\choice
+	{$M(0;-2; 0)$}
+	{\True $M\left(0; \dfrac{3}{2}; 0\right)$}
+	{$M(0;-3; 0)$}
+	{$M(0;-4; 0)$}
+	\loigiai{
+		\textbf{Cách 1:} \\
+		Do $M\in Oy$ nên $M\left(0;y;0\right)$.\\ 
+		$MA^2+MB^2=2y^2-6y+20=f(y)$.\\
+		Do đó $f(y)$ nhỏ nhất $\Leftrightarrow y=\dfrac{3}{2}$.\\ 
+		Vậy $M\left(0;\dfrac{3}{2};0\right)$.\\
+		\textbf{Cách 2:} \\
+		Ta có: $A\left(1;1;-3\right)$. Gọi $I$ là trung điểm của $AB$. Suy ra $I=\left(\dfrac{3}{2};\dfrac{3}{2};-1\right)$.\\
+		Khi đó: 
+		\begin{eqnarray*}
+			MA^2+MB^2&=&\overrightarrow{MA}^2+\overrightarrow{MB}^2\\
+			&=&\left(\overrightarrow{MI}+\overrightarrow{IA}\right)^2+\left(\overrightarrow{MI}+\overrightarrow{IB}\right)^2\\
+			&=&2\overrightarrow{MI}^2+\overrightarrow{IA}^2+\overrightarrow{IB}^2+2\overrightarrow{MI}\cdot\left(\overrightarrow{IA}+\overrightarrow{IB}\right)\\
+			&=&2MI^2+IA^2+IB^2=2MI^2+9.
+		\end{eqnarray*}
+		Do đó $MA^2+MB^2$ đạt giá trị nhỏ nhất khi và chỉ khi $MI$ có độ dài ngắn nhất, điều này xảy ra khi và chỉ khi $M$ là hình chiếu vuông góc của $I$ trên trục tung.\\
+		Phương trình mặt phẳng $(P)$ đi qua $I$ và vuông góc với trục tung là
+		$$0\cdot\left(x-\dfrac{3}{2}\right)+1\cdot\left(y-\dfrac{3}{2}\right)+0\cdot\left(z+1\right)=0\Leftrightarrow y-\dfrac{3}{2}=0.$$
+		Phương trình tham số của trục tung là $\heva{
+			& x=0 \\ 
+			& y=t \\ 
+			& z=0 .}$\\
+		Tọa độ điểm $M$ cần tìm là nghiệm $\left(x;y;z\right)$ của hệ phương trình:
+		$\heva{
+			& x=0 \\ 
+			& y=t \\ 
+			& z=0 \\ 
+			& y-\dfrac{3}{2}=0 \\}$$\Rightarrow \heva{
+			& x=0 \\ 
+			& y=\dfrac{3}{2} \\ 
+			& z=0.}$\\ 
+		Vậy $M\left(0;\dfrac{3}{2};0\right)$.
+	}
+\end{ex}
+%%==========Câu 49
+\begin{ex}%[Doãn Thịnh-Dự án TexBook-Quyen3]%[2H3K3-8]
+		Trong không gian với hệ trục tọa độ $Oxyz$, cho hai điểm $A(1; 5; 0)$, $B(3; 3; 6)$ và đường thẳng $d: \dfrac{x+1}{2}=\dfrac{y-1}{-1}=\dfrac{z}{2}$. Điểm $M(a; b; c)$ thuộc đường thẳng $d$ sao cho chu vi tam giác $MAB$ nhỏ nhất. Khi đó biểu thức $a+2 b+3c$ bằng
+	\choice
+	{$5$}
+	{\True $7$}
+	{$9$}
+	{$3$}
+	\loigiai{
+		Ta có $AB=\sqrt{44}$ không đổi. Do đó chu vi tam giác $MAB$ nhỏ nhất khi $(MA+MB)$ đạt giá trị nhỏ nhất.\\
+		Điểm $M\in d\Rightarrow M\left(- 1+2t; 1- t; 2t\right)$.
+		\begin{eqnarray*}
+			MA&=&\sqrt{9t^2+20}=\sqrt{\left(3t\right)^2+\left(2\sqrt{5}\right)^2}\\ MB&=&\sqrt{9t^2-36t+56}=\sqrt{\left(6-3t\right)^2+\left(2\sqrt{5}\right)^2}.
+		\end{eqnarray*}
+		Chọn $\overrightarrow{u}=\left(3t; 2\sqrt{5}; 0\right)\Rightarrow \left| \overrightarrow{u}\right|=\sqrt{{\left(3t\right)}^2+{\left(2\sqrt{5}\right)}^2}$.\\
+		Chọn $\overrightarrow{v}=\left(6-3t; 2\sqrt{5}; 0\right)\Rightarrow \left| \overrightarrow{v}\right|=\sqrt{{\left(6-3t\right)}^2+{\left(2\sqrt{5}\right)}^2}$.\\
+		Ta có $\overrightarrow{u}+\overrightarrow{v}=\left(6; 4\sqrt{5}; 0\right)\Rightarrow \left| \overrightarrow{u}+\overrightarrow{v}\right|=2\sqrt{29}$.\\
+		Theo tính chất vectơ $\left| \overrightarrow{u}\right|+\left| \overrightarrow{v}\right|\ge \left| \overrightarrow{u}+\overrightarrow{v}\right|=2\sqrt{29}$.\\
+		Dấu \lq\lq$=$\rq\rq\ xảy ra khi và chỉ khi $\overrightarrow{u}$ cùng hướng với $\overrightarrow{v}\Leftrightarrow $$t=1$.\\
+		Suy ra $MA+MB=\left| \overrightarrow{u}\right|+\left| \overrightarrow{v}\right|\ge 2\sqrt{29}$.\\
+		Do đó $MA+MB$ đạt giá trị nhỏ nhất bằng $2\sqrt{29}$ khi $t=1\Rightarrow M\left(1; 0; 2\right)$.\\
+		Vậy $a+2b+3c=1+2.0+3.2=7$.
+	}
+\end{ex}

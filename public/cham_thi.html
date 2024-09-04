@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extract LaTeX Structures to Excel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+</head>
+<body>
+    <input type="file" id="upload" />
+    <button onclick="extractAndExport()">Extract and Export</button>
+
+    <script>
+        function extractAndExport() {
+            const fileInput = document.getElementById('upload');
+            if (fileInput.files.length === 0) {
+                alert('Please upload a LaTeX file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const content = event.target.result;
+                const extractedData = extractLatexData(content);
+
+                const header = ["Đề \\ Câu"].concat(Array.from({ length: 40 }, (_, i) => (i + 1).toString()));
+
+                // Tạo hàng dữ liệu cho phần 1
+                const dataRow = ["101"];
+                for (let i = 0; i < 40; i++) {
+                    dataRow.push(extractedData.type1[i] || "");
+                }
+
+                // Tạo mảng cho sheet
+                const ws_data = [header, dataRow];
+
+                // Thêm dữ liệu phần 2 (tách ra từng ký tự) từ cột AP (cột 41)
+                const type2_start_col = 41;
+                for (let i = 0; i < extractedData.type2.length; i++) {
+                    const characters = extractedData.type2[i].split('');
+                    for (let j = 0; j < characters.length; j++) {
+                        const colIndex = type2_start_col + j + i * 4;
+                        ws_data[1][colIndex] = characters[j];
+                    }
+                }
+
+                // Thêm dữ liệu phần 3 (không tách) từ cột BV (cột 74)
+                const type3_start_col = 73;
+                for (let i = 0; i < extractedData.type3.length; i++) {
+                    const colIndex = type3_start_col + i;
+                    ws_data[1][colIndex] = extractedData.type3[i];
+                }
+
+                const ws = XLSX.utils.aoa_to_sheet(ws_data);
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+                XLSX.writeFile(wb, "cham_thi.xlsx");
+            };
+
+            reader.readAsText(file);
+        }
+
+        function extractLatexData(content) {
+            const regexType1 = /\\begin\{ex\}[^]*?\\choice\s*(?!TF\s*\{)\s*([^]*?)\\loigiai/gs;
+            const regexType2 = /\\begin\{ex\}[^]*?\\choiceTF\s*([^]*?)\\loigiai/gs;
+            const regexType3 = /\\begin\{ex\}[^]*?\\shortans\{([^\}]*)\}/gs;
+
+            let matches, extractedData = { type1: [], type2: [], type3: [] };
+
+            // Process Type 1 Questions (\choice)
+            while ((matches = regexType1.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let correctAnswerIndex = answers.findIndex(answer => answer.includes('\\True'));
+                    if (correctAnswerIndex !== -1) {
+                        extractedData.type1.push(String.fromCharCode(65 + correctAnswerIndex)); // Convert index to A, B, C, D
+                    } else {
+                        extractedData.type1.push("N/A");
+                    }
+                } else {
+                    extractedData.type1.push("N/A");
+                }
+            }
+
+            // Process Type 2 Questions (\choiceTF)
+            while ((matches = regexType2.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let result = answers.map(answer => answer.includes('\\True') ? 'Đ' : 'S').join('');
+                    extractedData.type2.push(result);
+                } else {
+                    extractedData.type2.push("N/A");
+                }
+            }
+
+            // Process Type 3 Questions (\shortans)
+            while ((matches = regexType3.exec(content)) !== null) {
+                let answer = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(answer);
+                if (ngoacLon.length > 0) {
+                    answer = answer.substring(ngoacLon[0][0] + 1, ngoacLon[0][1]).trim();
+                }
+                extractedData.type3.push(answer.replace(/\$|\{|\}/g, '').trim());
+            }
+
+            return extractedData;
+        }
+
+        function layCacNgoacLon(text) {
+            let ngoacLon = [];
+            let demNgoac = 0;
+            let batDau = null;
+
+            for (let i = 0; i < text.length; i++) {
+                let kyTu = text[i];
+                if (kyTu === "{") {
+                    if (demNgoac === 0) {
+                        batDau = i;
+                    }
+                    demNgoac += 1;
+                } else if (kyTu === "}") {
+                    demNgoac -= 1;
+                    if (demNgoac === 0 && batDau !== null) {
+                        let ketThuc = i;
+                        ngoacLon.push([batDau, ketThuc]);
+                        batDau = null;
+                    }
+                }
+            }
+
+            return ngoacLon;
+        }
+    </script>
+</body>
+</html>

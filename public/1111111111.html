@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extract LaTeX Structures to Excel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+</head>
+<body>
+    <input type="file" id="upload" />
+    <button onclick="extractAndExport()">Extract and Export</button>
+
+    <script>
+        function extractAndExport() {
+            const fileInput = document.getElementById('upload');
+            if (fileInput.files.length === 0) {
+                alert('Please upload a LaTeX file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const content = event.target.result;
+                const extractedData = extractLatexData(content);
+
+                const ws = XLSX.utils.aoa_to_sheet([["Câu", "made"]].concat(extractedData.map((data, index) => [index + 1, data])));
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+                XLSX.writeFile(wb, "extracted_data.xlsx");
+            };
+
+            reader.readAsText(file);
+        }
+
+        function extractLatexData(content) {
+            const regexType1 = /\\begin\{ex\}[^]*?\\choice\s*(?!TF\s*\{)\s*([^]*?)\\loigiai/gs;
+            const regexType2 = /\\begin\{ex\}[^]*?\\choiceTF\s*([^]*?)\\loigiai/gs;
+            const regexType3 = /\\begin\{ex\}[^]*?\\shortans\{([^\}]*)\}/gs;
+
+            let matches, extractedData = [];
+
+            // Process Type 1 Questions (\choice)
+            while ((matches = regexType1.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let correctAnswerIndex = answers.findIndex(answer => answer.includes('\\True'));
+                    if (correctAnswerIndex !== -1) {
+                        extractedData.push(String.fromCharCode(65 + correctAnswerIndex)); // Convert index to A, B, C, D
+                    } else {
+                        extractedData.push("N/A");
+                    }
+                } else {
+                    extractedData.push("N/A");
+                }
+            }
+
+            // Process Type 2 Questions (\choiceTF)
+            while ((matches = regexType2.exec(content)) !== null) {
+                let choices = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(choices);
+                if (ngoacLon.length >= 4) {
+                    let answers = ngoacLon.slice(0, 4).map(pair => choices.substring(pair[0] + 1, pair[1]));
+                    let result = answers.map(answer => answer.includes('\\True') ? 'Đ' : 'S').join('');
+                    extractedData.push(result);
+                } else {
+                    extractedData.push("N/A");
+                }
+            }
+
+            // Process Type 3 Questions (\shortans)
+            while ((matches = regexType3.exec(content)) !== null) {
+                let answer = matches[1].trim();
+                let ngoacLon = layCacNgoacLon(answer);
+                if (ngoacLon.length > 0) {
+                    answer = answer.substring(ngoacLon[0][0] + 1, ngoacLon[0][1]).trim();
+                }
+                extractedData.push(answer.replace(/\$|\{|\}/g, '').trim());
+            }
+
+            return extractedData;
+        }
+
+        function layCacNgoacLon(text) {
+            let ngoacLon = [];
+            let demNgoac = 0;
+            let batDau = null;
+
+            for (let i = 0; i < text.length; i++) {
+                let kyTu = text[i];
+                if (kyTu === "{") {
+                    if (demNgoac === 0) {
+                        batDau = i;
+                    }
+                    demNgoac += 1;
+                } else if (kyTu === "}") {
+                    demNgoac -= 1;
+                    if (demNgoac === 0 && batDau !== null) {
+                        let ketThuc = i;
+                        ngoacLon.push([batDau, ketThuc]);
+                        batDau = null;
+                    }
+                }
+            }
+
+            return ngoacLon;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "functions": {
+        "gcd": "function gcd(a, b) { while (b) { let temp = b; b = a % b; a = temp; } return a; }",
+        "simplifyFraction": "function simplifyFraction(numerator, denominator) { const divisor = gcd(numerator, denominator); const simplifiedNumerator = numerator / divisor; const simplifiedDenominator = denominator / divisor; return `\\\\frac{${simplifiedNumerator}}{${simplifiedDenominator}}`; }",
+        "projectPointToPlane": "function projectPointToPlane(a, b, c, A, B, C, D) { let distance1 = (A * a + B * b + C * c + D); let distance2 = (A * A + B * B + C * C); let x_tu = a * distance2 - A * distance1; let y_tu = b * distance2 - B * distance1; let z_tu = c * distance2 - C * distance1; let x = simplifyFraction(x_tu, distance2); let y = simplifyFraction(y_tu, distance2); let z = simplifyFraction(z_tu, distance2); return { x: x, y: y, z: z }; }",
+        "getRandomInt": "function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }",
+        "getRandomFromArray": "function getRandomFromArray(arr) { return arr[Math.floor(Math.random() * arr.length)]; }"
+    },
+    "nhóm 1": {
+        "bài 1": {
+            "Name": "Bài toán số 1",
+            "Description": "Hình chiếu của điểm (a, b, c) trên mặt phẳng Ax + By + Cz + D = 0. Đáp số là:",
+            "code": "let a = getRandomInt(-5, 5); let b = getRandomInt(-5, 5); let c = getRandomInt(-5, 5); let A = getRandomFromArray([-2, 1, 2]); let B = getRandomFromArray([-2, 1, 2]); let C = getRandomFromArray([-2, 1, 2]); let D = getRandomFromArray([-2, 1, 2]); let projection = projectPointToPlane(a, b, c, A, B, C, D); return { a, b, c, A, B, C, D, projection };",
+            "template": "Hình chiếu của điểm \\$(${a}, ${b}, ${c})\\$ trên mặt phẳng \\$${A}x + ${B}y + ${C}z + ${D} = 0\\$. Đáp số là: \\begin{ex}\\shortans{(${projection.x}, ${projection.y}, ${projection.z})}\\end{ex}"
+        },
+        "bài 2": {
+            "Name": "Bài toán số 2",
+            "Description": "Tính đạo hàm của hàm số f(x) tại x = a.",
+            "code": "let a = getRandomInt(-5, 5); let f = math.parse('x^2'); let derivativeAtA = math.derivative(f, 'x').evaluate({x: a}); return { a, derivativeAtA };",
+            "template": "Đạo hàm của hàm số \\$f(x) = x^2\\$ tại \\$x = ${a}\\$ là: \\begin{ex}\\dapso{${derivativeAtA}}\\end{ex}"
+        }
+    }
+}

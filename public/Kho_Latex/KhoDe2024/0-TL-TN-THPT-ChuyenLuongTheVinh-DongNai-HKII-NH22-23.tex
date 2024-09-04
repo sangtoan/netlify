@@ -1,0 +1,414 @@
+\de{ĐỀ THI HỌC KỲ II NĂM HỌC 2022-2023}{TRƯỜNG THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI}
+
+\begin{center}
+	\textbf{PHẦN 1 - TRẮC NGHIỆM}
+\end{center}
+\Opensolutionfile{ans}[ans/ans]
+\begin{ex}%[0X2Y3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Khi khai triển biểu thức $\left(\sqrt{2} x-1\right)^5$, số hạng chứa $x^4$ là
+	\choice
+	{\True $-20 x^4$}
+	{$20 \sqrt{2} x^4$}
+	{$-20$}
+	{$20 x^4$}
+	\loigiai{
+		Ta có \[\begin{array}{ll}
+			\left(\sqrt{2} x-1\right)^5 &= \mathrm C_5^0 (\sqrt{2}x)^5 +\mathrm C_5^1 (\sqrt{2}x)^4 (-1)+\ldots+\mathrm C_5^4(\sqrt{2}x) (-1)^4+\mathrm C_5^5 (-1)^5\\
+			&=4\sqrt{2} x^5 - 20x^4 +20\sqrt{2} x^3 -20x^2+5\sqrt{2}x-1.
+		\end{array}\]
+		Vậy số hạng chứa $x^4$ là $-20x^4$.
+	}
+\end{ex}
+\begin{ex}%[0X3Y2-1]%Câu 2%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Gieo một đồng xu cân đối đồng chất ba lần, xác suất để trong ba lần gieo có đúng hai lần xảy ra mặt sấp bằng
+	\choice
+	{$\dfrac{1}{8}$}
+	{$\dfrac{3}{16}$}
+	{$\dfrac{3}{4}$}
+	{\True $\dfrac{3}{8}$}
+	\loigiai{
+		Ta có $\Omega=\left\{\text{SSS; SSN; SNS; NSS; SNN; NSN; NNS; NNN}\right\}\Rightarrow n(\Omega)=8$.\\
+		Gọi $A$ là biến cố \lq\lq Có đúng hai lần xảy ra mặt sấp\rq\rq. Khi đó $A=\left\{\text{SSN; SNS; NSS}\right\}\Rightarrow n(A)=3$.\\
+		Vậy $\mathrm P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{3}{8}$.
+	}
+\end{ex}
+\begin{ex}%[0X3B2-4]%Câu 3%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong một chiếc hộp có 3 quả cầu xanh và 2 quả cầu đỏ (các quả cầu này đều khác nhau), rút ngẫu nhiên hai quả cầu từ hộp này, xác suất để hai quả cầu lấy được luôn có quả cầu đỏ là
+	\choice
+	{\True$\dfrac{7}{10}$}
+	{ $\dfrac{7}{20}$}
+	{$\dfrac{6}{10}$}
+	{ $\dfrac{8}{10}$}
+	\loigiai{
+		Ta có $ n(\Omega)=\mathrm C^2_5=10$.\\
+		Gọi $A$ là biến cố \lq\lq Hai quả cầu lấy được luôn có quả cầu đỏ\rq\rq.\\
+		Khi đó biến cố đối $\overline{A}$: \lq\lq Hai quả cầu lấy được không có quả cầu đỏ\rq\rq. Suy ra $ n\left(\overline{A}\right)=\mathrm C^2_3=3$.\\
+		Vậy $\mathrm P(A)=1-\mathrm P\left(\overline{A}\right)=1-\dfrac{n\left(\overline{A}\right)}{n(\Omega)}=1-\dfrac{3}{10}=\dfrac{7}{10}$.
+	}
+\end{ex}
+\begin{ex}%[0X2B2-3]%Câu 4%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Từ một tập có 7 phần tử, có thể lập ra bao nhiêu tập con có 4 phần tử?
+	\choice
+	{\True $\mathrm C_7^4$ tập con}
+	{$4!$ tập con}
+	{$7 \mathrm C_7^4$ tập con}
+	{$\mathrm A_7^4$ tập con}
+	\loigiai{
+		Số tập con có $4$ phần tử của tập hợp có $7$ phần tử là số tổ hợp chập $4$ của $7$ nên có $\mathrm C^4_7$ (tập con).
+	}
+\end{ex}
+\begin{ex}%[0X3B2-4]%Câu 5%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Rút ngẫu nhiên $2$ thẻ từ $10$ thẻ, các thẻ đánh số từ $1$ đến $10$ và không có hai thẻ nào ghi cùng một số, xác suất để tổng hai số trên hai thẻ rút được không quá $5$ là
+	\choice
+	{\True $\dfrac{8}{45}$}
+	{$\dfrac{2}{9}$}
+	{$\dfrac{2}{45}$}
+	{$\dfrac{4}{45}$}
+	\loigiai{
+		Ta có $ n(\Omega)=\mathrm C^2_{10}=45$.\\
+		Gọi $A$ là biến cố \lq\lq Tổng hai số trên hai thẻ rút được không quá $5$\rq\rq.\\
+		Khi đó $ A=\left\{(1;4);(4;1);(2;3);(3;2);(1;3);(3;1);(1;2);(2;1)\right\}\Rightarrow n(A)=8$.\\
+		Vậy $\mathrm P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{8}{45}$.
+	}
+\end{ex}
+\begin{ex}%[0X3B1-2]%Câu 6%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Xét phép thử ngẫu nhiên \lq\lq gieo một đồng xu 4 lần\rq\rq, không gian mẫu của phép thử này có bao nhiêu phần tử?
+	\choice
+	{\True $16$}
+	{$36$}
+	{$32$}
+	{$8$}
+	\loigiai{
+		Ta có số phần tử của không gian mẫu $ n(\Omega)=2^4=16$.
+	}
+\end{ex}
+\begin{ex}%[0X2Y2-3]%Câu 7%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Gieo một đồng xu $8$ lần và đặt $A_i$ là biến cố \lq\lq có đúng $i$ lần ra mặt sấp\rq\rq  với $i=$ $0,1,2, \ldots, 8$. Tính $n\left(A_3\right)$.
+	\choice
+	{$n\left(A_3\right)=8 \cdot 7 \cdot 6$}
+	{\True $n\left(A_3\right)=\mathrm C_8^3$}
+	{$n\left(A_3\right)=27$}
+	{$n\left(A_3\right)=3 \mathrm C_8^3$}
+	\loigiai{
+		Ta có $n\left(A_3\right)=\mathrm C_8^3$.
+	}
+\end{ex}
+\begin{ex}%[0D4Y2-1]%Câu 8%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Bất phương trình $9 x^2+1 \leqslant 6 x$ có tập nghiệm là
+	\choice
+	{$\left\{-\dfrac{1}{3}\right\}$}
+	{\True $\left\{\dfrac{1}{3}\right\}$}
+	{$\varnothing$}
+	{$\mathbb{R}$}
+	\loigiai{
+		Ta có $9 x^2+1 \leqslant 6 x \Leftrightarrow 9x^2-6x+1 \leqslant 0 \Leftrightarrow x=\dfrac{1}{3}$.
+	}
+\end{ex}
+\begin{ex}%[0D4B2-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để bất phương trình $x^2+m^2 x-5 m+3 \leqslant 0$ có một nghiệm là $x=1$? \choice
+	{Năm}
+	{Sáu}
+	{Ba}
+	{\True Bốn}
+	\loigiai{Bất phương trình có một nghiệm $x=1$ $\Leftrightarrow 1^2+m^2\cdot1-5m+3\le 0 \Leftrightarrow m^2-5m+4\le 0 \Leftrightarrow 1 \le m \le 4$.\\ Vậy có $4$ giá trị nguyên của tham số $m$ thỏa mãn đề bài.}
+\end{ex}
+\begin{ex}%[0X2Y2-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Số các hoán vị của một tập có $5$ phần tử là \choice
+	{$\mathrm A_5^1$}
+	{\True $5!$}
+	{$\mathrm C_5^5$}
+	{$60$}
+	\loigiai{Số các hoán vị của một tập có $5$ phần tử là $\mathrm P_5=5!$.}
+\end{ex}
+\begin{ex}%[0X2Y1-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Với 4 quyển sách toán khác nhau và 3 quyển tập khác nhau, có bao nhiêu cách tặng một phần quà gồm một quyển sách toán và một quyển tập cho 1 em học sinh? \choice
+	{$4^3$ cách}
+	{$16$ cách}
+	{$7$ cách}
+	{\True $12$ cách}
+	\loigiai{Chọn một quyển sách toán có 4 cách. Chọn một quyển tập có 3 cách.\\
+		Vậy có $4\cdot3=12$ cách tặng một phần quà cho một em học sinh.}
+\end{ex}
+\begin{ex}%[0X3Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Từ một tập $S$ gồm các số nguyên chẵn lớn hơn 0 và không quá 15, ta xét phép thử ngẫu nhiên: lấy ra một số từ tập $S$ và biến cố $A$ \lq\lq Số lấy được chia hết cho 4\rq\rq. Số kết quả thuận lợi cho $A$ là \choice
+	{\True $n(A)=3$}
+	{$n(A)=4$}
+	{$n(A)=5$}
+	{$n(A)=2$}
+	\loigiai{Ta có $A=\{4;8;12\}$. Do đó $n(A)=3$.}
+\end{ex}
+\begin{ex}%[0X2K2-5]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Từ các chữ số $1,2,3,4,5,6$ có thể lập ra bao nhiêu số có bốn chữ số, các chữ số khác nhau đôi một và luôn có chữ số $1$? \choice
+	{$4 \mathrm C_5^3$}
+	{$4 \cdot 3 !$}
+	{\True $4 \cdot \mathrm A_5^3$}
+	{$A_5^3$}
+	\loigiai{Gọi số cần tìm có dạng $\overline{abcd}$, $a \ne 0$.\\
+		Chọn một vị trí để xếp số $1$ có 4 cách.\\
+		Chọn ba số trong năm số để xếp vào $3$ vị trí còn lại có  $\mathrm A_5^3$ cách.\\
+		Vậy có  $4 \cdot \mathrm A_5^3$ số thỏa đề bài.}
+\end{ex}
+\begin{ex}%[0X2B3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Xét khai triển $(2 x-3)^4=a_4 x^4+a_3 x^3+a_2 x^2+a_1 x+a_0$, giá trị của $a_2+a_1$ là \choice
+	{\True $0$}
+	{$-216$} 
+	{$216$} 
+	{$-432$} 
+	\loigiai{Ta có $a_1=\mathrm C_4^1\cdot 2^1\cdot (-3)^3=-216$; $a_2=\mathrm C_4^2\cdot 2^2\cdot (-3)^2=216$.\\ Vậy $a_2+a_1=0$.}
+\end{ex}
+\begin{ex}%[0D4B3-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Phương trình $x \sqrt{x^2+x+2}=2 x$ có bao nhiêu nghiệm thực? \choice
+	{$2$ nghiệm thực}
+	{\True $3$ nghiệm thực}
+	{$0$ nghiệm thực}
+	{$1$ nghiệm thực}
+	\loigiai{\begin{eqnarray*}
+			&& x \sqrt{x^2+x+2}=2 x\\
+			&\Leftrightarrow&x \left(\sqrt{x^2+x+2}-2\right)=0 \\
+			&\Leftrightarrow& \hoac{&x=0\\&\sqrt{x^2+x+2}=2}\\
+			&\Leftrightarrow& \hoac{&x=0\\&{x^2+x+2}=4}\\
+			&\Leftrightarrow& \hoac{&x=0\\&{x^2+x-2}=0}\\
+			&\Leftrightarrow& \hoac{&x=0\\&x=1\\&x=-2.}
+		\end{eqnarray*}
+		Vậy phương trình đã cho có $3$ nghiệm thực.}
+\end{ex}
+
+\begin{ex}%[0H4Y3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, phương trình chính tắc của elip có độ dài trục lớn là $ 34 $ và tiêu điểm $F_2(8,0)$ là
+	\choice
+	{$\dfrac{x^2}{17^2}+\dfrac{y^2}{8^2}=1$}
+	{$\dfrac{x^2}{34^2}+\dfrac{y^2}{30^2}=1$}
+	{$\dfrac{x^2}{15^2}+\dfrac{y^2}{8^2}=1$}
+	{\True$\dfrac{x^2}{17^2}+\dfrac{y^2}{15^2}=1$}
+	\loigiai{Độ dài trục lớn là $ 34 \Rightarrow 2a=34 \Rightarrow a=17$.\\Tiêu điểm $F_2(8,0) \Rightarrow c=8$. Do đó, $ b=\sqrt{a^2-c^2}=15$.\\
+		Vậy phương trình chính tắc của elip là $\dfrac{x^2}{17^2}+\dfrac{y^2}{15^2}=1$.
+	}
+\end{ex}
+
+
+\begin{ex}%[0H4Y3-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, phương trình nào sau đây là phương trình chính tắc của elip?
+	\choice
+	{\True$\dfrac{x^2}{25}+\dfrac{y^2}{16}=1$}
+	{$\dfrac{x^2}{16}+\dfrac{y^2}{16}=1$}
+	{$\dfrac{x^2}{16}+\dfrac{y^2}{25}=1$}
+	{$\dfrac{x^2}{25}-\dfrac{y^2}{16}=1$}
+	\loigiai{Phương trình chính tắc của elip có dạng $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ trong đó $ a>b>0 $.}
+	
+\end{ex}
+
+
+\begin{ex}%[0H4Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, véc-tơ pháp tuyến của đường thẳng $\Delta\colon x+2 y+3=0$ có toạ độ là
+	\choice
+	{$(2 ; 3)$}
+	{$(2 ; 1)$}
+	{\True$(1 ; 2)$}
+	{$(2 ;-1)$}
+	\loigiai{Véc-tơ pháp tuyến của đường thẳng $\Delta\colon x+2 y+3=0$ có toạ độ là $(1 ; 2)$.}
+\end{ex}
+
+
+
+
+\begin{ex}%[0H4Y2-2]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, phương trình đường tròn tâm $I(3 ;-1)$, bán kính $R=25$ là
+	\choice
+	{$(x-3)^2+(y+1)^2=25$}
+	{$(x+3)^2+(y-1)^2=625$}
+	{$(x-3)^2+(y+1)^2=5$}
+	{\True$(x-3)^2+(y+1)^2=625$}
+	\loigiai{Phương trình đường tròn tâm $I(3 ;-1)$, bán kính $R=25$ là $(x-3)^2+(y+1)^2=25^2$}
+	
+\end{ex}
+
+
+\begin{ex}%[0H4Y1-4]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, các đường thẳng có phương trình $a x-3 y=c$ và $3 x+b y=-c$ vuông góc nhau tại điểm $P(1 ;-4)$. Giá trị của $c$ là
+	\choice
+	{$ 5 $}
+	{\True$ 17 $}
+	{$ -17 $}
+	{$ -5 $}
+	\loigiai{
+		Đường thẳng $d_1\colon a x-3 y=c$ và $d_2\colon 3 x+b y=-c$ có véc-tơ pháp tuyến lần lượt là $ \overrightarrow{n_1}=(a;-3) $ và $ \overrightarrow{n_2}=(3;b) $. \\Ta có $ \heva{&\overrightarrow{n_1}\cdot\overrightarrow{n_2}=0\\& P(1 ;-4) \in d_1\\& P(1 ;-4) \in d_2}\Leftrightarrow \heva{&3a-3b=0\\&a+12=c\\&3-4b=-c}\Leftrightarrow \heva{&a=5\\&b=5\\&c=17.}$
+		\\Vậy $c=17$. }
+\end{ex}
+
+
+
+\begin{ex}%[0H4Y2-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, toạ độ tâm của đường tròn $(\mathscr{C})\colon(x-2)^2+(y+3)^2=4$ là
+	\choice
+	{$(-2 ; 3)$}
+	{$(-3 ; 2)$}
+	{$(3 ;-2)$}
+	{\True$(2 ;-3)$}
+	\loigiai{Toạ độ tâm của đường tròn $(\mathscr{C})\colon(x-2)^2+(y+3)^2=4$ là $(2 ;-3)$.}
+\end{ex}
+
+
+
+
+
+\begin{ex}%[0H4K2-1]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, cho tam giác $O A B$ có $O(0 ; 0), A(6 ; 0), B(0 ; 8)$. Gọi $M, N, P$ lần lượt là trung điểm của các cạnh $O A, O B, A B$. Đường tròn đi qua ba điểm $M, N, P$ có bán kính là
+	\choice
+	{\True $\dfrac{5}{2}$}
+	{$ 5 $}
+	{$5 \sqrt{2}$}
+	{$ 10 $}
+	\loigiai{Ta có $M, N, P$ lần lượt là trung điểm của các cạnh $O A, O B, A B$ nên $ M(3;0), N(0;4), P(3;4) $. \\
+		Khi đó, $ \overrightarrow{NP}\cdot\overrightarrow{MP}=0 $. Suy ra $ \triangle MNP $ vuông tại $ P $.\\ Vậy bán kính đường tròn ngoại tiếp $ \triangle MNP $ là $ \dfrac{MN}{2}=\dfrac{5}{2} $.}
+\end{ex}
+
+
+\begin{ex}%[0H4B2-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, cho đường tròn $(\mathscr{C}):(x-7)^2+(y+3)^2=100$. Phương trình tiếp tuyến của $(\mathscr{C})$ tại điểm $A(1 ; 5)$ có dạng $a x+b y+17=0$. Giá trị của $a^3-b^2$ là
+	\choice
+	{$ -55 $}
+	{$ 25 $}
+	{$ 43 $}
+	{\True$ 11 $}
+	\loigiai{$(\mathscr{C}):(x-7)^2+(y+3)^2=100$ có tâm $ I (7;-3) $.\\
+		Tiếp tuyến tại điểm $A(1 ; 5)$ nhận $ \overrightarrow{IA}=(-6;8) $ là véc-tơ pháp tuyến.\\
+		Do đó phương trình tiếp tuyến là $ -6(x-1)+8(y-5)=0 $, tức là $ 3x-4y+17=0 $.}
+\end{ex}
+
+
+
+
+\begin{ex}%[0H3Y1-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Trong mặt phẳng $O x y$, cho hai điểm $A(1 ;-2)$ và $B(-3 ; 4)$. Toạ độ của $\overrightarrow{A B}$ là
+	\choice
+	{\True $(-4 ; 6)$}
+	{$(4 ;-6)$}
+	{$(-2 ; 2)$}
+	{$(-2 ; 3)$}
+	\loigiai{Toạ độ của $\overrightarrow{A B}$ là $(-4 ; 6)$.}
+\end{ex}
+
+\begin{ex}%[0H3Y1-3]%[Dự án đề kiểm tra HKII NH22-23- Nguyen Huynh]%[THPT Lương Thế Vinh - Đồng Nai]
+	Cho tam giác $A B C$ cân tại $A$ có $B(2 ;-3)$. Đường cao kẻ từ $A$ cắt cạnh $B C$ tại điểm $D(-1 ; 3)$. Toạ độ của điểm $C$ là
+	\choice
+	{\True $(-4 ; 9)$}
+	{$(-8 ;9)$}
+	{$(2 ; 3)$}
+	{$(-4 ; 8)$}
+	\loigiai{Ta có  $D$ là trung điểm của $BC$ (do tam giác $ABC$ cân tại $A$).
+		\\Suy ra $\heva{&x_C=2x_D-x_B=-4\\&y_C=2y_D-y_B=9}$
+		. Vậy $C(-4;9)$.}
+\end{ex}
+
+
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+\begin{center}
+	\textbf{PHẦN 2 - TỰ LUẬN}
+\end{center}
+
+% Bài 1
+\begin{ex}%[0H4B2-2]%[0H4B2-4]%[0X1Y3-2]%[0X1B4-3]%[Dự án đề kiểm tra HKII NH22-23 - Quan Ón]%[THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI]
+	Trong mặt phẳng $Oxy$, viết phương trình đường tròn có tâm $I(3;5)$ và tiếp xúc với đường thẳng $\Delta$ có phương trình $4x + 3y + 23 = 0$.
+	\loigiai{
+		Gọi $(C)$ là đường tròn cần tìm.\\
+		Vì $(C)$ có tâm $I(3;5)$ và tiếp xúc với đường thẳng $\Delta$ có phương trình $4x + 3y + 23 = 0$ nên bán kính đường tròn $(C)$ chính là khoảng cách từ $I$ đến $\Delta$. Do đó
+		$$ R = \mathrm{d}(I,\Delta) = \dfrac{|4\cdot 3 + 3\cdot 5 + 23|}{\sqrt{4^2 + 3^2}} = \dfrac{50}{5} = 10. $$
+		Phương trình đường tròn có tâm $I(3;5)$ và bán kính $R = 10$ là
+		$$ (C)\colon (x-3)^2 + (y-5)^2 = 100. $$
+	}
+\end{ex} 
+
+% Bài 2
+\begin{ex}%[0H4B2-6]%[0X1Y3-2]%[0X1B4-3]%[Dự án đề kiểm tra HKII NH22-23 - Quan Ón]%[THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI]
+	Trong mặt phẳng $Oxy$, cho hai điểm $A(4;3)$ và $B(2;1)$ cùng thuộc đường tròn $(C)$. Các tiếp tuyến của $(C)$ tại $A$ và $B$ cắt nhau tại điểm $I$ thuộc trục hoành. Tìm toạ độ điểm $I$.
+	\loigiai{
+		Gọi $I(x;y)$ là điểm cần tìm.\\
+		Vì $I$ thuộc trục hoành nên $I(x;0)$.\\
+		Hơn nữa, vì các tiếp tuyến của $(C)$ tại $A$ và $B$ cắt nhau tại điểm $I$ nên $IA = BI$ (tính chất hai tiếp tuyến cắt nhau).\\
+		Ta có 
+		\begin{itemize}
+			\item $\overrightarrow{AI} = (x-4;-3) \Rightarrow AI = \sqrt{(x-4)^2 + 3^2}$.
+			\item $\overrightarrow{BI} = (x-2;-1) \Rightarrow BI = \sqrt{(x-2)^2 + 1^2}$.
+		\end{itemize}		
+		Khi đó
+		$$ AI = BI \Leftrightarrow \sqrt{(x-4)^2 + 3^2} = \sqrt{(x-2)^2 + 1^2} \Leftrightarrow x = 5. $$
+		Vậy $I(5;0)$.
+	}
+\end{ex}
+
+% Bài 3
+\begin{ex}%[0H4B3-2]%[0X1Y3-2]%[0X1B4-3]%[Dự án đề kiểm tra HKII NH22-23 - Quan Ón]%[THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI]
+	Trong mặt phẳng $Oxy$, viết phương trình chính tắc của elip đi qua điểm $A(6;4)$ và có độ dài trục lớn gấp hai lần độ dài trục nhỏ.
+	\loigiai{
+		Gọi phương trình chính tắc của elip là $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, ($a > b$).\\
+		Vì elip đi qua điểm $A(6;4)$ nên $\dfrac{36}{a^2} + \dfrac{16}{b^2} = 1$. $\hfill (1)$\\
+		Hơn nữa, vì elip có độ dài trục lớn gấp hai lần độ dài trục nhỏ nên $a = 2b$. $\hfill (2)$\\
+		Từ $(1)$ và $(2)$, ta có
+		$$ \heva{&\dfrac{36}{a^2} + \dfrac{16}{b^2} = 1\\&a = 2b} \Leftrightarrow \heva{&a^2 = 100\\&b^2 = 25.} $$
+		Vậy $(E)\colon \dfrac{x^2}{100} + \dfrac{y^2}{25} = 1$.
+	}
+\end{ex}
+
+% Bài 4
+\begin{ex}%[0X2B3-1]%[0X2K3-2]%[0X1Y3-2]%[0X1B4-3]%[Dự án đề kiểm tra HKII NH22-23 - Quan Ón]%[THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI]
+	\textrm{ }
+	\begin{enumerate}
+		\item Khai triển biểu thức $(x-2)^5$.
+		\item Biết rằng
+		$$ (x-2)(2x+1)^4 = a_5x^5 + x_4x^4 + a_3x^3 + a_2x^2 + a_1z + a_0. $$
+		Tìm $a_3$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Theo công thức khai triển nhị thức Newton, ta có
+			\begin{eqnarray*}
+				(x-2)^2 &=& x^5 - \mathrm{C}^4_5x^4\cdot 2 + \mathrm{C}^3_5x^3\cdot 2^2 - \mathrm{C}^2_5x^2\cdot 2^3 + \mathrm{C}^1_5x\cdot 2^2 - 2^5\\
+				&=& x^5 - 10x^4 + 40x^3 - 80x^2 + 80x - 32.
+			\end{eqnarray*}
+			\item Ta có $(2x + 1)^4 = 16x^4 + 32x^3 + 24x^2 + 8x + 1$.\\
+			Suy ra
+			\begin{eqnarray*}
+				(x-2)(2x+1)^4 &=& (x-2)\left(16x^4 + 32x^3 + 24x^2 + 8x + 1\right)\\
+				&=& 16x^5 - 40x^3 - 40x^2 - 15x - 2.
+			\end{eqnarray*}
+			Vậy hệ số trước $x^3$ là $a_3 = -40$.
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 5
+\begin{ex}%[0X3B1-2]%[0X3K2-4]%[0X1Y3-2]%[0X1B4-3]%[Dự án đề kiểm tra HKII NH22-23 - Quan Ón]%[THPT CHUYÊN LƯƠNG THẾ VINH - ĐỒNG NAI]
+	Một bài kiểm tra trắc nghiệm với 10 câu hỏi, mỗi câu hỏi có $4$ đáp án và trong đó chỉ có duy nhất một đáp án là đúng. Xét phép thử $T$: bạn Minh làm bài kiểm tra bằng cách chọn ngẫu nhiên các đáp án cho các câu hỏi. Biết mỗi câu trả lời đúng bạn được $1$ điểm và sai thì không mất điểm.
+	\begin{enumerate}
+		\item Xác định (có giải thích) số phần tử cho không gian mẫu $\Omega$ của phép thử $T$.
+		\item Gọi biến cố \lq\lq Học sinh không làm đúng câu nào\rq\rq\, là $A$, tính xác suất của $A$.
+		\item Có người cho rằng, xác suất để bạn Minh được $0$ điểm cao hơn xác suất bạn Minh đạt được từ $5$ điểm trở lên. Nhận xét này đúng hay sai? Giải thích.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Vì mỗi câu hỏi có $4$ sự lựa chọn nên có $4^{10}$ cách làm bài kiểm tra với $10$ câu hỏi hay $n(\Omega) = 4^{10}$.
+			\item Mỗi câu hỏi có $3$ cách chọn đáp án sai nên có $3^{10}$ cách làm bài kiểm tra mà không có câu nào đúng, vậy $n(A) = 3^{10}$.\\
+			Xác suất để xảy ra biến cố $A$ là $\mathrm{P}(A) = \left(\dfrac{3}{4}\right)^{10} \approx 0{,}05631$.
+			\item Gọi $B$ là biến cố \lq\lq Bạn Minh được ít nhất 5 điểm\rq\rq.\\
+			Khi đó, ta có các trường hợp sau
+			\begin{itemize}
+				\item Bạn Minh có được $5$ điểm, khi đó số cách làm bài để Minh được $5$ điểm là $\mathrm{C}^5_{10}\cdot 3^5$ cách.
+				\item Bạn Minh có được $6$ điểm, khi đó số cách làm bài để Minh được $6$ điểm là $\mathrm{C}^6_{10}\cdot 3^4$ cách.
+				\item Bạn Minh có được $7$ điểm, khi đó số cách làm bài để Minh được $7$ điểm là  $\mathrm{C}^7_{10}\cdot 3^3$ cách.
+				\item Bạn Minh có được $8$ điểm, khi đó số cách làm bài để Minh được $8$ điểm là  $\mathrm{C}^8_{10}\cdot 3^2$ cách.
+				\item Bạn Minh có được $9$ điểm, khi đó số cách làm bài để Minh được $9$ điểm là  $\mathrm{C}^9_{10}\cdot 3$ cách.
+				\item Bạn Minh có được $10$ điểm, khi đó số cách làm bài để Minh được $10$ điểm là $\mathrm{C}^{10}_{10}$ cách.
+			\end{itemize}
+			Số phần tử của biến cố $B$ là
+			$$ n(B) = \mathrm{C}^5_{10}\cdot 3^5 + \mathrm{C}^6_{10}\cdot 3^4 + \mathrm{C}^7_{10}\cdot 3^3 + \mathrm{C}^8_{10}\cdot 3^2 + \mathrm{C}^9_{10}\cdot 3 + \mathrm{C}^{10}_{10} = 81922. $$
+			Xác suất của biến cố $B$ là
+			$$ \mathrm{P}(B) = \dfrac{81922}{4^{10}} \approx 0{,}07813. $$
+			Vì $\mathrm{P}(A) = \left(\dfrac{3}{4}\right)^{10} \approx 0{,}05631$ nên $\mathrm{P}(A) < \mathrm{P}(B)$.\\
+			Do đó, nhận xét của người đó là sai.
+		\end{enumerate}
+	}
+\end{ex}

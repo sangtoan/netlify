@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search id</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .input {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #search {
+            width: 200px;
+            font-size: larger;
+        }
+        @media only screen and (max-width: 600px) {
+            #search {
+                font-size: xx-large;
+            }
+        }
+        .frame {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #img {
+            display: none;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff; /* Màu xanh lam */
+            overflow: hidden;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body id="body" style="background-image: url('background.jpg')">
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+        <a href="menu_tree.html">Menu ID</a>
+    </div>
+    <div class="input">
+        <select name="type" id="type">
+            <option value="png">png</option>
+            <option value="jpg">jpg</option>
+            <option value="svg">svg</option>
+            <option value="pdf">pdf</option>
+        </select>
+        <input id="search" />
+        <button onclick="find()">Tìm</button>
+        <button onclick="clearImage()">Xóa ảnh</button>
+    </div>
+    <img id="img" />
+    <iframe class="frame" id="frame"></iframe>
+
+    <script>
+        function find() {
+            const val = document.getElementById("search").value;
+            const type = document.getElementById("type").value;
+            const text = val.toString();
+            let n = 55; // số lượng thư mục image
+            let found = false; // biến kiểm tra xem ảnh có được tìm thấy không
+
+            if (['png', 'jpg', 'svg'].includes(type)) {
+                frame.style.display = "none";
+                img.style.display = "none"; // ẩn ảnh trước đó nếu có
+
+                for (let i = 1; i <= n; i++) {
+                    const showImg = new Image();
+                    showImg.src = `./image${i}/${text}.${type}`;
+                    showImg.onload = () => {
+                        if (!found) { // chỉ hiển thị ảnh đầu tiên tìm thấy
+                            found = true;
+                            img.src = showImg.src;
+                            img.style.width = "100%";
+                            img.style.marginTop = "10px";
+                            img.style.display = "block";
+                        }
+                    };
+                }
+            } else if (type === "pdf") {
+                img.style.display = "none";
+                const index = text.split("_")[0];
+                frame.src = `./pdf${index}/${text}.pdf`;
+                frame.style.display = "block";
+            }
+        }
+
+        function clearImage() {
+            img.src = "";
+            img.style.display = "none";
+            frame.src = "";
+            frame.style.display = "none";
+        }
+    </script>
+</body>
+</html>

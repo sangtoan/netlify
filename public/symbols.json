@@ -1,0 +1,404 @@
+{
+    "Symbols": {
+        "Leftrightarrow": {
+            "latex": "\\Leftrightarrow ",
+            "icon": "pic_png/Leftrightarrow.png"
+        },
+        "Rightarrow": {
+            "latex": "\\Rightarrow ",
+            "icon": "pic_png/Rightarrow.png"
+        },
+        "Leftarrow": {
+            "latex": "\\Leftarrow ",
+            "icon": "pic_png/Leftarrow.png"
+        },
+        "leq": {
+            "latex": "\\leq ",
+            "icon": "pic_png/leq.png"
+        },
+        "geq": {
+            "latex": "\\geq ",
+            "icon": "pic_png/geq.png"
+        },
+        "approx": {
+            "latex": "\\approx ",
+            "icon": "pic_png/approx.png"
+        },
+        "neq": {
+            "latex": "\\neq ",
+            "icon": "pic_png/neq.png"
+        },
+        "equiv": {
+            "latex": "\\equiv ",
+            "icon": "pic_png/equiv.png"
+        },
+        "perp": {
+            "latex": "\\perp ",
+            "icon": "pic_png/perp.png"
+        },
+        "parallel": {
+            "latex": "\\parallel ",
+            "icon": "pic_png/parallel.png"
+        },
+        "in": {
+            "latex": "\\in ",
+            "icon": "pic_png/in.png"
+        },
+        "notin": {
+            "latex": "\\notin ",
+            "icon": "pic_png/notin.png"
+        },
+        "pm": {
+            "latex": "\\pm ",
+            "icon": "pic_png/pm.png"
+        },
+        "mp": {
+            "latex": "\\mp ",
+            "icon": "pic_png/mp.png"
+        },
+        "cup": {
+            "latex": "\\cup ",
+            "icon": "pic_png/cup.png"
+        },
+        "cap": {
+            "latex": "\\cap ",
+            "icon": "pic_png/cap.png"
+        },
+        "subset": {
+            "latex": "\\subset ",
+            "icon": "pic_png/subset.png"
+        },
+        "supset": {
+            "latex": "\\supset ",
+            "icon": "pic_png/supset.png"
+        },
+        "notsubset": {
+            "latex": "\\not\\subset ",
+            "icon": "pic_png/notsubset.png"
+        },
+        "notsupset": {
+            "latex": "\\not\\supset ",
+            "icon": "pic_png/notsupset.png"
+        },
+        "subseteq": {
+            "latex": "\\subseteq ",
+            "icon": "pic_png/subseteq.png"
+        },
+        "inftys": {
+            "latex": "+\\inftys ",
+            "icon": "pic_png/inftys.png"
+        },
+        "infty": {
+            "latex": "-\\infty ",
+            "icon": "pic_png/infty.png"
+        },
+        "exists": {
+            "latex": "\\exists ",
+            "icon": "pic_png/exists.png"
+        },
+        "forall": {
+            "latex": "\\forall ",
+            "icon": "pic_png/forall.png"
+        },
+        "varnothing": {
+            "latex": "\\varnothing ",
+            "icon": "pic_png/varnothing.png"
+        },
+        "mathbbR": {
+            "latex": "\\mathbb{R} ",
+            "icon": "pic_png/mathbbR.png"
+        },
+        "mathbbQ": {
+            "latex": "\\mathbb{Q} ",
+            "icon": "pic_png/mathbbQ.png"
+        },
+        "mathbbZ": {
+            "latex": "\\mathbb{Z} ",
+            "icon": "pic_png/mathbbZ.png"
+        },
+        "mathbbN": {
+            "latex": "\\mathbb{N} ",
+            "icon": "pic_png/mathbbN.png"
+        },
+        "alpha": {
+            "latex": "\\alpha ",
+            "icon": "pic_png/alpha.png"
+        },
+        "beta": {
+            "latex": "\\beta ",
+            "icon": "pic_png/beta.png"
+        },
+        "gamma": {
+            "latex": "\\gamma ",
+            "icon": "pic_png/gamma.png"
+        },
+        "varphi": {
+            "latex": "\\varphi ",
+            "icon": "pic_png/varphi.png"
+        },
+        "varepsilon": {
+            "latex": "\\varepsilon ",
+            "icon": "pic_png/varepsilon.png"
+        },
+        "lambda": {
+            "latex": "\\lambda ",
+            "icon": "pic_png/lambda.png"
+        },
+        "mu": {
+            "latex": "\\mu ",
+            "icon": "pic_png/mu.png"
+        },
+        "omega": {
+            "latex": "\\omega ",
+            "icon": "pic_png/omega.png"
+        },
+        "pi": {
+            "latex": "\\pi ",
+            "icon": "pic_png/pi.png"
+        },
+        "e": {
+            "latex": "\\mathrm{e} ",
+            "icon": "pic_png/e.png"
+        },
+        "phi": {
+            "latex": "\\phi ",
+            "icon": "pic_png/phi.png"
+        },
+        "theta": {
+            "latex": "\\theta ",
+            "icon": "pic_png/theta.png"
+        },
+        "sigma": {
+            "latex": "\\sigma ",
+            "icon": "pic_png/sigma.png"
+        },
+        "dola": {
+            "latex": "$ $",
+            "icon": "pic_png/dola.png"
+        },
+        "chiahet": {
+            "latex": "a\\vdots b ",
+            "icon": "pic_png/chiahet.png"
+        },
+        "kochiahet": {
+            "latex": "a{\\not\\Large\\vdots} b ",
+            "icon": "pic_png/kochiahet.png"
+        }
+    },
+    "Math Symbols": {
+        "frac": {
+            "latex": "\\dfrac{ }{ } ",
+            "icon": "pic_png/frac.png"
+        },
+        "sqrt": {
+            "latex": "\\sqrt{ } ",
+            "icon": "pic_png/sqrt.png"
+        },
+        "sqrtn": {
+            "latex": "\\sqrt[]{ } ",
+            "icon": "pic_png/sqrtn.png"
+        },
+        "xtrenduoi": {
+            "latex": "x_{ }^{ } ",
+            "icon": "pic_png/xtrenduoi.png"
+        },
+        "xmua": {
+            "latex": "x^{ } ",
+            "icon": "pic_png/xmua.png"
+        },
+        "xchana": {
+            "latex": "x_{ } ",
+            "icon": "pic_png/xchana.png"
+        },
+        "ngoacnhon": {
+            "latex": "\\left(    \\right) ",
+            "icon": "pic_png/ngoacnhon.png"
+        },
+        "ngoacvuong": {
+            "latex": "\\left[    \\right] ",
+            "icon": "pic_png/ngoacvuong.png"
+        },
+        "ngoacn": {
+            "latex": "\\left\\lbrace    \\right\\rbrace ",
+            "icon": "pic_png/ngoacn.png"
+        },
+        "gttd": {
+            "latex": "\\left|    \\right| ",
+            "icon": "pic_png/gttd.png"
+        },
+        "vuongtron": {
+            "latex": "\\left[    \\right) ",
+            "icon": "pic_png/vuongtron.png"
+        },
+        "tronvuong": {
+            "latex": "\\left(    \\right] ",
+            "icon": "pic_png/tronvuong.png"
+        },
+        "abcTren": {
+            "latex": "\\overbrace{ }^{ } ",
+            "icon": "pic_png/abcTren.png"
+        },
+        "abcDuoi": {
+            "latex": "\\underbrace{ }^{ } ",
+            "icon": "pic_png/abcDuoi.png"
+        },
+        "vecto": {
+            "latex": "\\overrightarrow{ } ",
+            "icon": "pic_png/vecto.png"
+        },
+        "overline": {
+            "latex": "\\overline{ } ",
+            "icon": "pic_png/overline.png"
+        },
+        "widehat": {
+            "latex": "\\widehat{ } ",
+            "icon": "pic_png/widehat.png"
+        },
+        "cung": {
+            "latex": "\\stackrel\\frown{ } ",
+            "icon": "pic_png/cung.png"
+        },
+        "cunglg": {
+            "latex": "\\widearcarrow{ABC} %%CHÚ Ý: Cần khái báo thêm trước document \\usetikzlibrary{tikzmark}\n\\newcounter{widearc}\n\\newcommand{\\widearcarrow}[2][3mm]{%\n\t\\stepcounter{widearc}%\n\t\\tikzset{tikzmark prefix=\\thewidearc}%\n\t\\tikzmark{start}#2\\tikzmark{stop}%\n\t\\tikz[remember picture, overlay]{%\n\t\t\\draw[->]([shift={(.5mm,#1)}]pic cs:start) to[bend left] ([shift={(-.5mm,#1)}]pic cs:stop);\n\t}%\n}",
+            "icon": "pic_png/cunglg.png"
+        },
+        "sin": {
+            "latex": "\\sin{ } ",
+            "icon": "pic_png/sin.png"
+        },
+        "cos": {
+            "latex": "\\cos{ } ",
+            "icon": "pic_png/cos.png"
+        },
+        "tan": {
+            "latex": "\\tan{ } ",
+            "icon": "pic_png/tan.png"
+        },
+        "cot": {
+            "latex": "\\cot{ } ",
+            "icon": "pic_png/cot.png"
+        },
+        "nguyenham": {
+            "latex": "\\displaystyle\\int {f(x)} \\mathrm{\\,d}x ",
+            "icon": "pic_png/nguyenham.png"
+        },
+        "tichphan": {
+            "latex": "\\displaystyle\\int_{a}^{b} {f(x)} \\mathrm{\\,d}x ",
+            "icon": "pic_png/tichphan.png"
+        },
+        "tongxichma": {
+            "latex": "\\displaystyle\\sum\\limits_{a}^{b}{f(x)} ",
+            "icon": "pic_png/tongxichma.png"
+        },
+        "tichxichma": {
+            "latex": "\\displaystyle\\prod\\limits_{a}^{b}{f(x)} ",
+            "icon": "pic_png/tichxichma.png"
+        },
+        "limd": {
+            "latex": "\\lim \\limits {f(n)} ",
+            "icon": "pic_png/limd.png"
+        },
+        "limfx": {
+            "latex": "\\lim \\limits_{x \\to {x_0}} {f(x)} ",
+            "icon": "pic_png/limfx.png"
+        },
+        "muitenHaveUp": {
+            "latex": "\\xrightarrow{\\text{abc}} ",
+            "icon": "pic_png/muitenHaveUp.png"
+        },
+        "chinhhop": {
+            "latex": "\\mathrm{A}_{n}^{k} ",
+            "icon": "pic_png/chinhhop.png"
+        },
+        "tohop": {
+            "latex": "\\mathrm{C}_{n}^{k} ",
+            "icon": "pic_png/tohop.png"
+        },
+        "hoanvi": {
+            "latex": "\\mathrm{P}_{n} ",
+            "icon": "pic_png/hoanvi.png"
+        },
+        "Ccalc": {
+            "latex": "\\dfrac{n!}{k!(n-k)!} ",
+            "icon": "pic_png/Ccalc.png"
+        },
+        "heva": {
+            "latex": "\\heva{& pt1\\\\ & pt2} ",
+            "icon": "pic_png/heva.png"
+        },
+        "hoac": {
+            "latex": "\\hoac{& pt1\\\\ & pt2} ",
+            "icon": "pic_png/hoac.png"
+        },
+        "datri": {
+            "latex": "\\heva{& pt1 &\\text{ khi }... \\\\ & pt2 &\\text{ khi }...} ",
+            "icon": "pic_png/datri.png"
+        },
+        "datriba": {
+            "latex": "\\heva{& pt1 &\\text{ khi }... \\\\\n & pt2 &\\text{ khi }...\\\\\n & pt3 &\\text{ khi }...} ",
+            "icon": "pic_png/datriba.png"
+        },
+        "ABtoC": {
+            "latex": "\\left. \\begin{aligned}\n\t& { } \\\\ \n\t& { } \\\\ \n\t& { } \\\\ \n\t\\end{aligned} \\right\\} \\Rightarrow { } ",
+            "icon": "pic_png/ABtoC.png"
+        },
+        "ln": {
+            "latex": "\\ln x ",
+            "icon": "pic_png/ln.png"
+        },
+        "log": {
+            "latex": "\\log x ",
+            "icon": "pic_png/log.png"
+        },
+        "loga": {
+            "latex": "\\log_{a} x ",
+            "icon": "pic_png/loga.png"
+        },
+        "min": {
+            "latex": "\\min\\limits_{x\\in\\mathscr{D}} f(x) ",
+            "icon": "pic_png/min.png"
+        },
+        "max": {
+            "latex": "\\max\\limits_{x\\in\\mathscr{D}} f(x) ",
+            "icon": "pic_png/max.png"
+        },
+        "kcDD": {
+            "latex": "\\mathrm{d}(\\Delta,\\Delta’) ",
+            "icon": "pic_png/kcDD.png"
+        },
+        "kcD": {
+            "latex": "\\mathrm{d}(A,(P)) ",
+            "icon": "pic_png/kcD.png"
+        },
+        "NguyenHamTP3": {
+            "latex": "\\begin{tikzpicture}[yscale=0.5,line join = round, line cap = round, >=stealth, scale=1]\n\t\t\\def \\x{3}\n\t\t% Định nghĩa các nodes\n\t\t\\node at (0,0) {1};\n\t\t\\node at (\\x,0) {+};\n\t\t\\node at (2*\\x,0) {3};\n\t\t\\node at (0,\\x) {4};\n\t\t\\node at (\\x,\\x) {-};\n\t\t\\node at (2*\\x,\\x) {6};\n\t\t\\node at (0,2*\\x) {7};\n\t\t\\node at (\\x,2*\\x) {+};\n\t\t\\node at (2*\\x,2*\\x) {9};\n\t\t\\node at (0,3*\\x) {Đạo Hàm};\n\t\t\\node at (\\x,3*\\x) {Dấu};\n\t\t\\node at (2*\\x,3*\\x) {Nguyên hàm};\n\t\t\\foreach \\i in {0,1,2}{\n\t\t\t\\foreach \\j in {0,1,2,3}{\n\t\t\t\t\\draw[rounded corners,teal] (\\i*\\x-\\x/2, \\j*\\x-\\x/2) rectangle ++(\\x,\\x);\n\t\t}}\n\t\t\\draw[->,teal] (0.5*\\x,2*\\x) to[out=45,in=-135] (1.5*\\x,1*\\x);\n\t\t\\draw[->,teal] (0.5*\\x,1*\\x)to[out=45,in=-135] (1.5*\\x,0*\\x);\n\t\\end{tikzpicture} ",
+            "icon": "pic_png/NguyenHamTP3.png"
+        },
+        "NguyenHamTP4": {
+            "latex": "\\begin{tikzpicture}[yscale=0.5,line join = round, line cap = round, >=stealth, scale=1]\n\t\t\\def \\x{3}\n\t\t% Định nghĩa các nodes\n\t\t\\node at (0,-\\x) {0};\n\t\t\\node at (\\x,-\\x) {-};\n\t\t\\node at (2*\\x,-\\x) {2};\n\t\t\\node at (0,0) {1};\n\t\t\\node at (\\x,0) {+};\n\t\t\\node at (2*\\x,0) {3};\n\t\t\\node at (0,\\x) {4};\n\t\t\\node at (\\x,\\x) {-};\n\t\t\\node at (2*\\x,\\x) {6};\n\t\t\\node at (0,2*\\x) {7};\n\t\t\\node at (\\x,2*\\x) {+};\n\t\t\\node at (2*\\x,2*\\x) {9};\n\t\t\\node at (0,3*\\x) {Đạo Hàm};\n\t\t\\node at (\\x,3*\\x) {Dấu};\n\t\t\\node at (2*\\x,3*\\x) {Nguyên hàm};\n\t\t\\foreach \\i in {0,1,2}{\n\t\t\\foreach \\j in {-1,0,1,2,3}{\n\t\t\t\\draw[rounded corners,teal] (\\i*\\x-\\x/2, \\j*\\x-\\x/2) rectangle ++(\\x,\\x);\n\t\t}}\n\t\\draw[->,teal] (0.5*\\x,2*\\x) to[out=45,in=-135] (1.5*\\x,1*\\x);\n\t\\draw[->,teal] (0.5*\\x,1*\\x)to[out=45,in=-135] (1.5*\\x,0*\\x);\n\t\\draw[->,teal] (0.5*\\x,0)to[out=45,in=-135] (1.5*\\x,-\\x);\n\t\\end{tikzpicture} ",
+            "icon": "pic_png/NguyenHamTP4.png"
+        },
+        "NguyenHamTP5": {
+            "latex": "\\begin{tikzpicture}[yscale=0.5,line join = round, line cap = round, >=stealth, scale=1]\n\t\t\\def \\x{3}\n\t\t% Định nghĩa các nodes\n\t\t\\node at (0,-\\x) {0};\n\t\t\\node at (\\x,-\\x) {};\n\t\t\\node at (2*\\x,-\\x) {2};\n\t\t\\node at (0,0) {1};\n\t\t\\node at (\\x,0) {-};\n\t\t\\node at (2*\\x,0) {3};\n\t\t\\node at (0,\\x) {4};\n\t\t\\node at (\\x,\\x) {};\n\t\t\\node at (2*\\x,\\x) {6};\n\t\t\\node at (0,2*\\x) {7};\n\t\t\\node at (\\x,2*\\x) {+};\n\t\t\\node at (2*\\x,2*\\x) {9};\n\t\t\\node at (0,3*\\x) {Đạo Hàm};\n\t\t\\node at (\\x,3*\\x) {Dấu};\n\t\t\\node at (2*\\x,3*\\x) {Nguyên hàm};\n\t\t\\foreach \\i in {0,1,2}{\n\t\t\\foreach \\j in {-1,0,1,2,3}{\n\t\t\t\\draw[rounded corners,teal] (\\i*\\x-\\x/2, \\j*\\x-\\x/2) rectangle ++(\\x,\\x);\n\t\t}}\n\t\\draw[->,teal] (0.5*\\x,2*\\x) to[out=45,in=-135] (1.5*\\x,1*\\x);\n\t\\draw[->,teal] (0.5*\\x,1*\\x-\\x/3)--(1.5*\\x,1*\\x-\\x/3)node[midway,above]{\\tiny Chuyển mẫu sang phải};\n\t\\draw[->,teal] (0.5*\\x,0)to[out=45,in=-135] (1.5*\\x,-\\x);\n\t\\end{tikzpicture} ",
+            "icon": "pic_png/NguyenHamTP5.png"
+        },
+        "datri2": {
+            "latex": "y=\\begin{cases}\n\t& f(x) \\text{ nếu } x\\geq \\\\ \n\t& g(x) \\text{ nếu } x< \n\\end{cases}",
+            "icon": "pic_png/datri2.png"
+        }
+    },
+    "Môi Trường": {
+        "aligned": {
+            "latex": "$\\begin{aligned}\n\ta &= ....\\\\\n\t&= ....\\\\\n\t&= ....\\\\\n\\end{aligned}$ ",
+            "icon": "pic_png/aligned.png"
+        },
+        "eqnarray": {
+            "latex": "\\begin{eqnarray*}\n\ta &=&....\\\\\n\t&=&....\\\\\n\t&=&....\\\\\n\\end{eqnarray*} ",
+            "icon": "pic_png/eqnarray.png"
+        },
+        "eqnarrayL": {
+            "latex": "\\begin{eqnarray*}\n\t&&....\\\\\n\t&\\Leftrightarrow&....\\\\\n\t&\\Leftrightarrow&....\\\\\n\\end{eqnarray*} ",
+            "icon": "pic_png/eqnarrayL.png"
+        }
+    }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ Hình</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            display: flex;
+            margin-top: 50px; /* Adjust this value if needed */
+            height: calc(100vh - 50px);
+        }
+        #tree {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        #content {
+            width: 70%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        li > ul {
+            display: none;
+        }
+        li.expanded > ul {
+            display: block;
+        }
+        li:before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 5px;
+        }
+        li.expanded:before {
+            content: '▼';
+        }
+        li:hover {
+            color: #007bff;
+        }
+        #controls {
+            margin-bottom: 10px;
+        }
+        #latexContent {
+            white-space: pre-wrap; /* Đảm bảo ngắt dòng đúng */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Fix Code</a>
+        <a href="find_latex.html">Tìm Kiếm</a>
+        <a href="Ve_hinh.html">Vẽ Hình</a>
+        <a href="tuong_tu.html">Đề Tương Tự</a>
+    </div>
+    <div class="container">
+        <div id="tree"></div>
+        <div id="content">
+            <div id="controls">
+                <button onclick="copyContent()">Copy</button>
+                <button onclick="increaseFontSize()">Tăng kích thước chữ</button>
+                <button onclick="decreaseFontSize()">Giảm kích thước chữ</button>
+            </div>
+            <pre id="latexContent"></pre>
+        </div>
+    </div>
+
+    <script>
+        let currentFontSize = 16;
+
+        async function fetchJson() {
+            const response = await fetch('ve_hinh.json');
+            const data = await response.json();
+            buildTree(data);
+        }
+
+        function buildTree(data, parentElement = document.getElementById('tree')) {
+            const ul = document.createElement('ul');
+            parentElement.appendChild(ul);
+
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const li = document.createElement('li');
+                    li.textContent = key;
+                    ul.appendChild(li);
+
+                    if (typeof data[key] === 'object') {
+                        li.classList.add('parent');
+                        li.onclick = function(event) {
+                            event.stopPropagation();
+                            this.classList.toggle('expanded');
+                        };
+                        buildTree(data[key], li);
+                    } else {
+                        li.dataset.content = data[key];
+                        li.onclick = function(event) {
+                            event.stopPropagation();
+                            displayContent(this.dataset.content);
+                        };
+                    }
+                }
+            }
+        }
+
+        function displayContent(content) {
+            const latexContentElement = document.getElementById('latexContent');
+            latexContentElement.innerHTML = applySyntaxHighlighting(content);
+        }
+
+        function applySyntaxHighlighting(content) {
+            // Replace your custom syntax here, for example:
+            content = content.replace(/\\begin{.*?}/g, '<span style="color: blue;">$&</span>');
+            content = content.replace(/\\end{.*?}/g, '<span style="color: red;">$&</span>');
+            // Add more replacements as needed
+            return content;
+        }
+
+        function copyContent() {
+            const content = document.getElementById('latexContent').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                alert('Đã sao chép nội dung!');
+            }).catch(err => {
+                alert('Không thể sao chép nội dung: ' + err);
+            });
+        }
+
+        function increaseFontSize() {
+            currentFontSize += 2;
+            document.getElementById('latexContent').style.fontSize = currentFontSize + 'px';
+        }
+
+        function decreaseFontSize() {
+            currentFontSize = Math.max(12, currentFontSize - 2);
+            document.getElementById('latexContent').style.fontSize = currentFontSize + 'px';
+        }
+
+        fetchJson();
+    </script>
+</body>
+</html>

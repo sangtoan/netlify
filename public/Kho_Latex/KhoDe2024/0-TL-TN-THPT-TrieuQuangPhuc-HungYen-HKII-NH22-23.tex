@@ -1,0 +1,689 @@
+
+\de{ĐỀ THI HỌC KỲ II NĂM HỌC 2022-2023}{THPT Triệu Quang Phục - Hưng Yên}
+\begin{center}
+	\textbf{PHẦN 1 - TRẮC NGHIỆM}
+\end{center}
+\Opensolutionfile{ans}[ans/ans]
+%Câu 1...........................
+\begin{ex}%[0H4Y2-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong mặt phẳng với hệ trục $Oxy$ cho đường tròn $(C)\colon (x-2)^2 +(y+ 4)^2=16$. Đường tròn $(C)$ có toạ độ tâm $I$ và bán kính $R$ bằng
+	\choice
+		{\True $I(2;-4)$, $R=4$}
+		{$I(2;-4)$, $R=16$}
+		{$I(-2;4)$, $R=4$}
+		{$I(-2;4)$, $R=16$}
+		\loigiai{
+		Đường tròn $(C)$ có toạ độ tâm $I$ và bán kính $R$ bằng	$I(2;-4)$, $R=4$.
+		}
+	\end{ex}
+%Câu 2...........................
+\begin{ex}%[0D3B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tập xác định $\mathscr{D}$ của hàm số $y=\dfrac{3x-1}{2x-2}$ là
+	\choice
+	{\True $\mathscr{D}=\mathbb{R}\setminus\{1\}$}
+	{$\mathscr{D}=[1;+\infty)$}
+	{$\mathscr{D}=(1;+\infty)$}
+	{$\mathscr{D}=\mathbb{R}$}
+	\loigiai{
+	Điều kiện $2x-2\neq 0\Leftrightarrow x\neq 1 $.\\
+	Vậy tập xác định là $\mathscr{D}=\mathbb{R}\setminus\{1\}$.
+	}
+\end{ex}
+
+%Câu 3...........................
+\begin{ex}%[0D4Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Biểu thức nào sau đây là tam thức bậc hai?
+	\choice
+	{$f(x)=2x-1$}
+	{$f(x)=x^3+7x-2022$}
+	{\True $f(x)=3x^2+2x-10$}
+	{$f(x)=\sqrt{x^2-4x+3}$}
+	\loigiai{
+	Biểu thức tam thức bậc hai là $f(x)=3x^2+2x-10$.
+	}
+\end{ex}
+
+%Câu 4...........................
+\begin{ex}%[0H4Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho đường $(d)\colon \heva{&x=-1+2t\\&y=3-4t} (t\in\mathbb{R})$. Véc-tơ nào sau đây là một véc-tơ chỉ phương của $(d)$?
+	\choice
+	{$\overrightarrow{a}=(1;2)$}
+	{$\overrightarrow{a}=(-1;3)$}
+	{\True $\overrightarrow{a}=(2;-4)$}
+	{$\overrightarrow{a}=(-1;-2)$}
+	\loigiai{
+	Véc-tơ chỉ phương của $(d)$ là $\overrightarrow{a}=(2;-4)$.
+	}
+\end{ex}
+
+%Câu 5...........................
+\begin{ex}%[0D3Y2-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	\immini{
+	Cho hàm bậc hai $y=ax^2+bx+c$, $a\neq 0$ có đồ thị như hình vẽ dưới đây.
+	Hàm số đã cho đồng biến trên khoảng nào sau đây?
+	\choice
+	{$(-\infty;-1)$}
+	{$(-2;+\infty)$}
+	{\True $(-1;+\infty)$}
+	{$(-\infty;0)$}
+	}
+	{	
+		\begin{tikzpicture}[line cap=butt,line join=miter,>=stealth]
+			\tikzset{declare function={xmin=-3;xmax=2;ymin=-2.5;ymax=2;
+					f(\x)=1*(\x)^2+2*(\x)-1;
+				},
+				smooth,samples=450
+			}
+			\draw[->] (xmin,0)--(xmax,0) node[shift={(-100:7pt)},font=\normalsize]{$ x $};
+			\draw[->] (0,ymin)--(0,ymax) node[shift={(190:7pt)},font=\normalsize]{$ y $};
+			\fill (0,0) node[shift={(225:7pt)},font=\normalsize]{$ O $};
+			\draw[dashed] (-2,0)node[above]{$-2$} (-1,0)node[above]{$-1$}--(-1,-2)--(0,-2)node[right]{$-2$}  (0,-1)node[right]{$-1$} ;
+			\fill (-1,-2) circle (1pt); \fill (-2,0) circle (1pt); \fill (0,-1) circle (1pt);
+			\clip (xmin,ymin) rectangle (xmax,ymax);
+			\draw  plot[domain=xmin:xmax] (\x, {f(\x)});
+		\end{tikzpicture}
+	}
+	\loigiai{
+	Hàm số đã cho đồng biến trên khoảng $(-1;+\infty)$.
+	}
+\end{ex}
+
+%Câu 6...........................
+\begin{ex}%[0D4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho tam thức bậc hai $f(x)=ax^2+bx+c $ ($a\neq 0$), $\Delta=b^2-4ac$. Ta có $f(x)<0$ với $x\in\mathbb{R}$ khi và chỉ khi
+	\choice
+	{\True $\heva{&a<0\\&\Delta <0}$}
+	{$\heva{&a\geq 0\\&\Delta <0}$}
+	{$\heva{&a>0\\&\Delta\geq 0}$}
+	{$\heva{&a>0\\&\Delta \leq 0}$}
+	\loigiai{
+	Ta có $f(x)<0$ với $x\in\mathbb{R}$ khi và chỉ khi 	$\heva{&a<0\\&\Delta <0}$.
+	}
+\end{ex}
+
+%Câu 7...........................
+\begin{ex}%[0D4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tam thức nào dưới đây luôn dương với mọi giá trị của $x$?
+	\choice
+	{\True $x^2-6x+11$}
+	{$x^2-2x-10$}
+	{$x^2-2x+1$}
+	{$-x^2+2x+10$}
+	\loigiai{
+	Tam thức luôn dương với mọi giá trị của $x$ là 	$x^2-6x+11$ vì có $\Delta =-8<0$.
+	}
+\end{ex}
+
+%Câu 8...........................
+\begin{ex}%[0X2B3-3]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tổng $T=\mathrm{C}_{2023}^0 +\mathrm{C}_{2023}^1+\mathrm{C}_{2023}^2+\cdots+\mathrm{C}_{2023}^{2023}$ bằng
+	\choice
+	{$2^{n+1}$}
+	{$2^{2022}$}
+	{$2^n$}
+	{\True $2^{2023}$}
+	\loigiai{
+	Ta có 	$T=\mathrm{C}_{2023}^0 +\mathrm{C}_{2023}^1+\mathrm{C}_{2023}^2+\cdots+\mathrm{C}_{2023}^{2023}=(1+1)^{2023}=2^{2023}$.
+	}
+\end{ex}
+
+%Câu 9...........................
+\begin{ex}%[0X2Y3-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong khai triển nhị thức Niu-ton của $(a +1)^5$ có bao nhiêu số hạng?
+	\choice
+	{$1$}
+	{$5$}
+	{\True $6$}
+	{$4$}
+	\loigiai{
+	Trong khai triên nhị thức Niu-ton của $(a +1)^5$ có $6$ số hạng.
+	}
+\end{ex}
+
+%Câu 10...........................
+\begin{ex}%[0D4B2-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Gọi $S$ là tập nghiệm của bất phương trình $x^2 - 8x + 7 > 0$. Tập hợp nào sau đây là tập $S$?
+	\choice
+	{$[7;+\infty)$}
+	{$(-\infty;1]$}
+	{$[1;7]$}
+	{\True $(-\infty;1]\cup [7;+\infty)$}
+	\loigiai{
+	Tam thức $x^2 - 8x + 7 $ có hai nghiệm $\hoac{&x=1\\&x=7.}$\\
+	Ta có bảng xét dấu
+	\begin{center}
+		\begin{tikzpicture}[font=\normalsize,t style/.style={style=solid}]
+			\tkzTabInit[nocadre=false,lgt=3,espcl=2.5,deltacl=0.5]
+			{$x$ /1.5, $x^2 - 8x + 7$/2.5}
+			{$ -\infty $,$ 1 $,$ 7 $,$ +\infty $}
+			\tkzTabLine{  , +,0 , -,0  , +,  }  % z, t, d;
+			\end{tikzpicture}
+	\end{center}
+	Suy ra $x^2 - 8x + 7 > 0\Leftrightarrow x\in (-\infty;1]\cup [7;+\infty)$.\\
+	Vậy $S=(-\infty;1]\cup [7;+\infty)$.
+	}
+\end{ex}
+
+%Câu 11...........................
+\begin{ex}%[0D4B2-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tìm tập nghiệm $S$ của bất phương trình $x^2 - 4x + 4 > 0$.
+	\choice
+	{\True $S=\mathbb{R}\setminus\{2\}$}
+	{$S=\mathbb{R}$}
+	{$S=(2;+\infty)$}
+	{$S=\mathbb{R}\setminus\{-2\}$}
+	\loigiai{
+	Ta có 	$x^2 - 4x + 4 > 0\Leftrightarrow (x-2)^2>0\Leftrightarrow x\neq 2$.\\
+	Vậy $S=\mathbb{R}\setminus\{2\}$.
+	}
+\end{ex}
+
+%Câu 12...........................
+\begin{ex}%[0D4B3-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tập nghiệm của phương trình $\sqrt{x^2+3x-2}=\sqrt{1+x}$ là
+	\choice
+	{$S=\{3\}$}
+	{$S=\{2\}$}
+	{\True $S=\{1\}$}
+	{$S=\{-3;1\}$}
+	\loigiai{
+	Ta có 	
+	\allowdisplaybreaks
+	\begin{align*}
+		&\sqrt{x^2+3x-2}=\sqrt{1+x}
+		\\
+		\Rightarrow\,\,&x^2+3x-2=1+x
+		\\
+		\Rightarrow\,\,&x^2+2x-3=0
+		\\
+		\Rightarrow\,\,&\hoac{&x=1\\&x=-3.}
+	\end{align*}
+	Thử lại chỉ có $x=1$ thỏa phương trình.\\
+	Vậy $S=\{1\}$.
+	}
+\end{ex}
+
+%Câu 13...........................
+\begin{ex}%[0H4Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho đường thẳng $(d)$ có phương trình $\heva{&x=1-t\\&y=3+2t}$. Khi đó, một véc-tơ pháp tuyến cùa đường thẳng $(d)$ là
+	\choice
+	{$\overrightarrow{n}=(-1;2)$}
+	{$\overrightarrow{n}=(1;2)$}
+	{\True $\overrightarrow{n}=(2;1)$}
+	{$\overrightarrow{n}=(2;-1)$}
+	\loigiai{
+	Một véc-tơ pháp tuyến cùa đường thẳng $(d)$ là	$\overrightarrow{n}=(2;1)$.
+	}
+\end{ex}
+
+%Câu 14...........................
+\begin{ex}%[0H4B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho $\triangle ABC$ có $A(2;-1)$; $B(4;5)$; $C(-3;2)$. Viết phương trình tổng quát của đường cao $AH$.
+	\choice
+	{\True $7x+3y-11=0 $}
+	{$3x+7y+1=0$}
+	{$7x+3y+11=0$}
+	{$-7x+3y+11=0$}
+	\loigiai{
+	$AH$	qua $A(2;-1)$, có một véc-tơ pháp tuyến là $\overrightarrow{BC}=(-7;-3)$.\\
+	Phương trình đường cao $AH$ là $$ -7(x-2)-3(y+1)=0\Leftrightarrow -7x-3y+11=0\Leftrightarrow 7x+3y-11=0.$$
+	}
+\end{ex}
+
+%Câu 15...........................
+\begin{ex}%[0H4B1-5]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Khoảng cách từ điểm $M(5;-1)$ đến đường thẳng $3x + 2y +13 = 0$ là
+	\choice
+	{\True $2\sqrt{13}$}
+	{$\dfrac{28}{\sqrt{13}}$}
+	{$26$}
+	{$\dfrac{\sqrt{13}}{2}$}
+	\loigiai{
+	Ta có $\mathrm{d}\left(M,(d)\right)=\dfrac{|3\cdot 5+2\cdot (-1)+13|}{\sqrt{3^2+2^2}}= 2\sqrt{13}$.	
+	}
+\end{ex}
+
+%Câu 16...........................
+\begin{ex}%[0H4B1-4]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong mặt phẳng $Oxy$, tính góc giữa hai đường thẳng $(d)\colon  x - 2y -1 = 0$ và  $(d')\colon x + 3y -11 = 0$. 
+	\choice
+	{$30^\circ$}
+	{\True $45^\circ$}
+	{$60^\circ$}
+	{$135^\circ$}
+	\loigiai{
+	Ta có $\cos\left((d),(d')\right)=\dfrac{|1\cdot 1+(-2)\cdot 3|}{\sqrt{1^2+(-2)^2}\cdot\sqrt{1^2+3^2}}=\dfrac{\sqrt{2}}{2}$.\\
+	Suy ra 	$\left((d),(d')\right)=45^\circ$.
+	}
+\end{ex}
+
+%Câu 17...........................
+\begin{ex}%[0H4B2-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Phương trình đường tròn có tâm $I(-2; 4)$ và bán kính $R = 5$ là
+	\choice
+	{$(x-2)^2+(y+4)^2=5$}
+	{$(x+2)^2+(y-5)^2=25$}
+	{\True $(x+2)^2+(y-4)^2=25$}
+	{$(x-2)^2+(y+4)^2=25$}
+	\loigiai{
+	Phương trình đường tròn có tâm $I(-2; 4)$ và bán kính $R = 5$ là	$(x+2)^2+(y-4)^2=25$.
+	}
+\end{ex}
+
+%Câu 18...........................
+\begin{ex}%[0X2B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong một cuộc thi tìm hiểu về đất nước Việt Nam, ban tổ chức công bố danh sách các đề tài bao gồm: $8$ đề tài về lịch sử, $7$ đề tài về thiên nhiên, $10$ đề tài về con người và $6$ đề tài về văn hóa. Mỗi thí sinh được quyền chọn một đề tài. Hỏi mỗi thí sinh có bao nhiêu khả năng lựa chọn đề tài?
+	\choice
+	{$20$}
+	{\True $3360$}
+	{$31$}
+	{$30$}
+	\loigiai{
+	Số cách chọn là $8\cdot 7\cdot 10\cdot 6=3360$	cách.
+	}
+\end{ex}
+
+%Câu 19...........................
+\begin{ex}%[0X2B3-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tìm số hạng không chứa $x$ trong khai triên nhị thức Niu-tơn của $\left(\dfrac{1}{x}+x^3\right)^4$.
+	\choice
+	{$1$}
+	{\True $4$}
+	{$6$}
+	{$12$}
+	\loigiai{
+	Ta có 
+	\allowdisplaybreaks
+	\begin{align*}
+		\left(\dfrac{1}{x}+x^3\right)^4&=\mathrm{C}_4^0\left(\dfrac{1}{x}\right)^4 +\mathrm{C}_4^1\left(\dfrac{1}{x}\right)^3\cdot (x^3)^1+\mathrm{C}_4^2\left(\dfrac{1}{x}\right)^2(x^3)^2+\mathrm{C}_4^3\left(\dfrac{1}{x}\right)^1\cdot (x^3)^3+\mathrm{C}_4^4(x^3)^4
+		\\
+		&=\dfrac{1}{x^4}+4\cdot \dfrac{1}{x^3}\cdot x^3+6\cdot \dfrac{1}{x^2}\cdot x^6+4\cdot \dfrac{1}{x}\cdot x^9+x^{12}
+		\\
+		&=\dfrac{1}{x^4}+4+6 x^4+4 x^8+x^{12}.
+	\end{align*}
+	Vậy số hạng không chứa $x$ trong khai triển nhị thức Niu-tơn là số hạng thứ hai bằng $4$.
+	}
+\end{ex}
+
+%Câu 20...........................
+\begin{ex}%[0X2B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Có bao nhiêu cách chọn một học sinh từ một nhóm gồm $8$ học sinh nam và $9$ học sinh nữ? 
+	\choice
+	{$8$}
+	{$17$}
+	{\True $72$}
+	{$9$}
+	\loigiai{
+	Số cách chọn một học sinh từ một nhóm gồm $8$ học sinh nam và $9$ học sinh nữ là $8\cdot 9=72 $ cách.	
+	}
+\end{ex}
+
+%Câu 21...........................
+\begin{ex}%[0X2B2-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Một tổ có $15$ học sinh. Hỏi có bao nhiêu cách chọn $2$ học sinh từ tổ đó để giữ hai chức vụ tổ trưởng và tổ phó?
+	\choice
+	{$\mathrm{C}_{15}^2$}
+	{\True $\mathrm{A}_{15}^2$}
+	{$\mathrm{A}_{15}^8$}
+	{$15^2$}
+	\loigiai{
+	Có 	$\mathrm{A}_{15}^2$ cách chọn $2$ học sinh từ tổ đó để giữ hai chức vụ tổ trưởng và tổ phó.
+	}
+\end{ex}
+
+%Câu 22...........................
+\begin{ex}%[0X2B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Bình có $5$ cái áo khác nhau, $4$ chiếc quần khác nhau, $3$ đôi giầy khác nhau và $2$ chiếc mũ khác nhau. Số cách chọn một bộ gồm quần, áo, giầy và mũ của Bình là
+	\choice
+	{\True $120$}
+	{$60$}
+	{$5$}
+	{$14$}
+	\loigiai{
+	Số cách chọn một bộ gồm quần, áo, giầy và mũ của Bình là $5\cdot 4\cdot 3\cdot 2 =120$ cách.	
+	}
+\end{ex}
+
+%Câu 23...........................
+\begin{ex}%[0X3B2-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Gieo một con súc sắc cân đối đồng chất ba lần. Xác suất tích số chấm trong ba lần gieo bằng $6$ là
+	\choice
+	{$\dfrac{1}{2}$}
+	{$\dfrac{5}{108}$}
+	{$\dfrac{5}{9}$}
+	{\True $\dfrac{1}{24}$}
+	\loigiai{
+	Ta có số phần tử của  không gian mẫu là $n(\Omega)=6^3=216$.\\
+	Các bộ ba số có tích bằng $6$ là $(1;1;4)$, $(1;2;3)$.\\
+	Bộ số $(1;1;4)$ có $3$ hoán vị.\\
+	Bộ số $(1;2;3)$ có $6$ hoán vị.\\
+	Gọi $A$ là biến cố \lq\lq tích số chấm trong ba lần gieo bằng $6$\rq\rq.\\
+	Suy ra $n(A)=3+6=9$.\\
+	Ta có $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{9}{216}=\dfrac{1}{24}$.
+	}
+\end{ex}
+
+%Câu 24...........................
+\begin{ex}%[0D3B1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Tập xác định của hàm số $f(x)=\sqrt{3-x}+\dfrac{1}{\sqrt{x-1}}$ là
+	\choice
+	{\True $\mathscr{D}=(1;3] $}
+	{$\mathscr{D}=(-\infty;1)\cup [3;+\infty)$}
+	{$\mathscr{D}=[1;3]$}
+	{$\mathscr{D}=\varnothing$}
+	\loigiai{
+	Điều kiện $\heva{&3-x\geq 0\\&x-1>0}\Leftrightarrow\heva{&x\leq 3\\&x>1.}$	\\
+	Vậy $\mathscr{D}=(1;3] $.
+	}
+\end{ex}
+
+%Câu 25...........................
+\begin{ex}%[0H4K1-5]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Đường thẳng $\Delta\colon ax + by-3 =0$ ($a, b\in\mathbb{N}$) đi qua điểm $N(1;1)$ và cách điểm $M(2;3)$ một khoảng bằng $\sqrt{5}$. Khi đó $b-2a$ bằng
+	\choice
+	{$5$}
+	{$2$}
+	{$4$}
+	{\True $0$}
+	\loigiai{
+	Vì 	$\Delta\colon ax + by-3 =0$ đi qua điểm $N(1;1)$ nên $a+b-3=0$. $\qquad(1) $\\
+	Ta có $\mathrm{d}\left(M,\Delta\right)=\dfrac{|2a+3b-3|}{\sqrt{a^2+b^2}}=\sqrt{5}\Leftrightarrow |2a+3b-3|=\sqrt{5}\cdot \sqrt{a^2+b^2}$. $\qquad(2)$\\
+	Từ $(1)$ suy ra $b=3-a$ thế vào $(2)$ ta được
+	\allowdisplaybreaks
+	\begin{align*}
+		&|2a+3(3-a)-3|=\sqrt{5}\cdot \sqrt{a^2+(3-a)^2}
+		\\
+		\Leftrightarrow\,\,&|6-a|=\sqrt{5}\cdot \sqrt{2a^2-6a+9}
+		\\
+		\Leftrightarrow\,\,&(6-a)^2=5(2a^2-6a+9)
+		\\
+		\Leftrightarrow\,\,&9a^2-18a+9=0
+		\\
+		\Leftrightarrow\,\,&a=1\Rightarrow b=2.
+	\end{align*}
+	Vậy $b-2a=2-2=0$.
+	}
+\end{ex}
+
+%Câu 26...........................
+\begin{ex}%[0H4B3-3]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho elip $(E)\colon \dfrac{x^2}{25}+\dfrac{y^2}{16}=1$, với tiêu điểm $F_1$, $F_2$. Lấy hai điểm $A$, $B\in (E)$ sao cho $AF_1 + BF_2 =6$. Tính giá trị của $AF_2 + BF_1$.
+	\choice
+	{$6$}
+	{\True $14$}
+	{$12$}
+	{$10$}
+	\loigiai{
+	Ta có $a^2=25\Rightarrow a=5$.\\
+	$b^2=16\Rightarrow b=4$.\\
+	Vì $A\in (E)$	nên $AF_1+AF_2=2a=10$.\\
+	$B\in (E) $ nên $BF_1+BF_2=2a=10$.\\
+	Suy ra $AF_1+AF_2+BF_1+BF_2=20$.\\
+	Mà $AF_1 + BF_2 =6$ suy ra $AF_2 + BF_1=14$.
+	}
+\end{ex}
+
+%Câu 27...........................
+\begin{ex}%[0H4B2-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong mặt phẳng $Oxy$, đường tròn đi qua ba điểm $A(1;2)$, $B(5;2)$, $C(1;-3)$ có phương trình là
+	\choice
+	{$x^2+y^2+6x+y-1=0$}
+	{$x^2+y^2-6x-y-1=0$}
+	{\True $x^2+y^2-6x+y-1=0$}
+	{$x^2+y^2+6x-y-1=0$}
+	\loigiai{
+	$(C)\colon x^2+y^2-2ax-2by+c=0$.\\
+	$(C)$	đi qua ba điểm $A(1;2)$, $B(5;2)$, $C(1;-3)$ nên ta có hệ phương trình
+	$$\heva{&-2a-4b+c=-5\\&-10a-4b+c=-29\\&-2a+6b+c=-10}\Leftrightarrow\heva{&a=3\\&b=-\dfrac{1}{2}\\&c=-1.}$$
+	Vậy $(C)\colon  x^2+y^2-6x+y-1=0$.
+	}
+\end{ex}
+
+%Câu 28...........................
+\begin{ex}%[0H4B3-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Phương trình chính tắc của elip đi qua điểm $B(0;4)$ và có một tiêu điểm $F_2(3;0)$ là
+	\choice
+	{$\dfrac{x^2}{10}+\dfrac{y^2}{8}=1$}
+	{\True $\dfrac{x^2}{25}+\dfrac{y^2}{16}=1$}
+	{$\dfrac{x^2}{25}+\dfrac{y^2}{9}=1$}
+	{$\dfrac{x^2}{16}+\dfrac{y^2}{25}=1$}
+	\loigiai{
+	Elip đi qua điểm $B(0;4)$ và có một tiêu điểm $F_2(3;0)$ suy ra $b=4$, $c=3$.\\
+	Ta có $a^2=b^2+c^2=4^2+3^2=25$.\\
+	Vậy $(E)\colon  \dfrac{x^2}{25}+\dfrac{y^2}{16}=1$.
+	}
+\end{ex}
+
+%Câu 29...........................
+\begin{ex}%[0X3Y1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho phép thử có không gian mẫu $\Omega = \{1,2,3,4,5\}$. Tìm cặp biến cố đối nhau trong các cặp biến cố sau?
+	\choice
+	{$C=\{1;4\}$ và $D=\{2;3\}$}
+	{$A=\{-1\}$ và $B=\{2;3;4;5\}$}
+	{\True $E=\{1;3;5\}$ và $F=\{2;4\}$}
+	{$\Omega$ và $n(\Omega)$}
+	\loigiai{
+	Cặp biến cố đối nhau là $E=\{1;3;5\}$ và $F=\{2;4\}$.
+	}
+\end{ex}
+
+%Câu 30...........................
+\begin{ex}%[0D4G2-6]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho bất phương trình $4\sqrt{(x + 1)(3-x)}\leq x^2-2x+m-3$. Số giá	trị	nguyên	của tham số
+	$m\in (2022; 2023]$ để bất phưong trình nghiệm đúng với $\forall x\in [-1;3]$	là
+	\choice
+	{$2011$}
+	{$2022$}
+	{\True $1$}
+	{$2$}
+	\loigiai{
+	Ta có 
+	\allowdisplaybreaks
+	\begin{align*}
+		&4\sqrt{(x + 1)(3-x)}\leq x^2-2x+m-3
+		\\
+		\Leftrightarrow\,\,&4\sqrt{(x + 1)(3-x)}\leq (x+1)(x-3)+m
+		\\
+		\Leftrightarrow\,\,&4\sqrt{(x + 1)(3-x)}+ (x+1)(3-x)\leq m
+	\end{align*}
+\immini{
+	Đặt $t= \sqrt{(x + 1)(3-x)}$, $t\geq 0 $.\\
+	Ta có $4t+t^2\leq 0,\forall t\geq 0$.\\
+	Vẽ đồ thị $y=f(t)=4t+t^2, \forall t\geq 0$.\\
+	Yêu cầu bài toán $\Leftrightarrow m\geq f(0)\Leftrightarrow m\geq 0$.\\
+	Mà $m\in (2022; 2023]$ nên $m=2023$.\\
+	Vậy có $1$ giá trị nguyên của $m$ thỏa đề bài.
+	}
+	{
+		\begin{tikzpicture}[line cap=butt,line join=miter,>=stealth]
+			\tikzset{declare function={xmin=-2;xmax=2;ymin=-1;ymax=4;
+					f(\x)=1*(\x)^2+4*(\x);
+				},
+				smooth,samples=450
+			}
+			\draw[->] (xmin,0)--(xmax,0) node[shift={(-100:7pt)},font=\normalsize]{$t $};
+			\draw[->] (0,ymin)--(0,ymax) node[shift={(190:7pt)},font=\normalsize]{$ y $};
+			\fill (0,0) node[shift={(225:7pt)},font=\normalsize]{$ O $};
+			\clip (xmin,ymin) rectangle (xmax,ymax);
+			\draw  plot[domain=0:xmax] (\x, {f(\x)});
+		\end{tikzpicture}
+	}
+		}
+\end{ex}
+
+%Câu 31...........................
+\begin{ex}%[0H4G2-5]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho đường thẳng $\Delta\colon 3x-4y-19=0$ và đường tròn $(C)\colon (x-1)^2 +(y-1)^2 =25$. Biết đường 	thẳng $\Delta$ cắt $(C)$ tại hai điểm phân biệt $A$ và $B$, khi đó độ dài đọan thẳng $AB$ là
+	\choice
+	{\True $6$}
+	{$3$}
+	{$4$}
+	{$8$}
+	\loigiai{
+	\immini{
+	$(C)$	có tâm $I(1;1)$, bán kính $R=5$.	\\
+	Gọi $H$ là trung điểm $AB$.\\
+	Ta có $IH=\mathrm{d}\left(I,\Delta\right)=\dfrac{|3\cdot 1-4\cdot 1-19|}{\sqrt{3^2+(-4)^2}}=4$.\\
+	$HA=\sqrt{IA^2-IH^2}=\sqrt{25-16}=3$.\\
+	Vậy $AB=6$.
+	}
+	{
+	\begin{tikzpicture}[declare function={r=2;}]
+	\path (0:0) coordinate (I)
+	(40:r) coordinate (A)
+	(140:r) coordinate (B)
+	($(A)!.5!(B)$) coordinate (H)
+	;
+		\path pic[draw,angle radius=5pt]{right angle= I--H--A};
+	\draw (I)--(H) (A)--(B) (I)--(A)
+	(I) circle (r);
+	\foreach \t/\g in {A/0,B/180,I/-90,H/90}{
+		\draw[fill=black] (\t) circle (1pt) node[shift={(\g:7pt)},font=\scriptsize]{$ \t $};
+	}
+	\end{tikzpicture}
+	}
+	}
+\end{ex}
+
+%Câu 32...........................
+\begin{ex}%[0X2B3-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Viết khai triển theo công thức nhị thức Niu-tơn $(x^2 - y)^5$ .
+	\choice
+	{\True $x^{10}-5x^8y+10x^6y^2-10x^4y^3+5x^2y^4-y^5$}
+	{$x^{10}-5x^8y-10x^6y^2-10x^4y^3-5x^2y^4+y^5$}
+	{$x^{10}+5x^8y+10x^6y^2+10x^4y^3+5x^2y^4+y^5$}
+	{$x^{10}+5x^8y-10x^6y^2+10x^4y^3-5x^2y^4+y^5$}
+	\loigiai{
+	Ta có 	$(x^2 - y)^5=x^{10}-5x^8y+10x^6y^2-10x^4y^3+5x^2y^4-y^5$.
+	}
+\end{ex}
+
+%Câu 33...........................
+\begin{ex}%[0X3B2-4]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Để kiểm tra chất lượng sản phẩm từ công ty sữa, người ta gửi đến bộ phận kiểm nghiệm $5$ hộp sữa cam, $4$ hộp sữa dâu và $3$ hộp sữa nho. Bộ phận kiểm nghiệm chọn ngẫu nhiên $3$ hộp để phân tích mẫu. Xác suất để $3$ hộp sữa được chọn có cả $3$ loại là
+	\choice
+	{\True $\dfrac{3}{11}$}
+	{$\dfrac{1}{110}$}
+	{$\dfrac{3}{55}$}
+	{$\dfrac{1}{22}$}
+	\loigiai{
+	Số phần tử của không gian mẫu là $n(\Omega)=\mathrm{C}_{12}^3=220$.\\
+	Gọi $A$	 là biến cố \lq\lq chọn $3$ hộp sữa được chọn có cả $3$ loại\rq\rq.\\
+	Ta có $n(A)=5\cdot 4\cdot 3=60$.\\
+	Vậy $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{3}{11}$.
+	}
+\end{ex}
+
+%Câu 34...........................
+\begin{ex}%[0D3G1-2]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Có tât cả bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=\dfrac{2x+1}{\sqrt{(m+2)x^2-2(m+2)x+4}}$ xác định với mọi $x\in\mathbb{R}$ .
+	\choice
+	{$3$}
+	{\True $4$}
+	{$5$}
+	{$6$}
+	\loigiai{
+	Yêu cầu bài toán $\Leftrightarrow f(x)=(m+2)x^2-2(m+2)x+4>0,\forall x\in\mathbb{R}$. $\qquad(1)$	
+	\begin{itemize}
+		\item Trường hợp $1$: $m+2=0\Leftrightarrow m=-2$.\\
+		Ta có $(1)\Leftrightarrow 4>0,\forall x\in\mathbb{R}$.\\
+		Nhận $m=-2$.
+		\item Trường hợp $2$: $m+2\neq 0\Leftrightarrow m\neq -2$.\\
+		Ta có $(1)\Leftrightarrow \heva{&m+2>0\\&(m+2)^2-4(m+2)<0}\Leftrightarrow\heva{&m>-2\\&0<m+2<4}\Leftrightarrow -2<m<2$.\\
+		Mà $m$ nguyên suy ra $m\in\{-1;0;1\}$.
+	\end{itemize}
+	Vậy có $4$ giá trị $m\in\{-2;-1;0;1\}$.
+	}
+\end{ex}
+
+%Câu 35...........................
+\begin{ex}%[0X3B1-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Gieo $3$ đồng tiền là một phép thử ngẫu nhiên có không gian mẫu là
+	\choice
+	{$\{NN,NS, SN,SS\}$}
+	{$\{NNN, SSS, NNS, SSN, NSN, SNS\}$}
+	{\True $\{NNN, SSS, NNS, SSN, NSN, SNS, NSS, SNN\}$}
+	{$\{NNN, SSS, NNS, SSN, NSS, SNN\}$}
+	\loigiai{
+	Gieo $3$ đồng tiền là một phép thử ngẫu nhiên có không gian mẫu là	$$\{NNN, SSS, NNS, SSN, NSN, SNS, NSS, SNN\}.$$
+	}
+\end{ex}
+\Closesolutionfile{ans}
+%\begin{center}
+%	\textbf{ĐÁP ÁN}
+%	\inputansbox{10}{ans/ans}	
+%\end{center}
+\begin{center}
+	\textbf{PHẦN 2 - TỰ LUẬN}
+\end{center}
+%Bài 1
+\begin{bt}%[0X2Y1-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Có bao nhiêu cách sắp xếp $2$ nữ sinh, $2$ nam sinh thành một hàng ngang sao cho các bạn nam và nữ ngồi xen kẽ.
+\loigiai{
+\begin{itemize}
+	\item Trường hợp $1$: Nam ở vị trí lẻ, nữ ở vị trí chẵn có $2\cdot 2=4$ cách.
+	\item Trường hợp $2$: Nam ở vị trí chẵn, nữ ở vị trí lẻ có $2\cdot 2=4$ cách.
+\end{itemize}
+Vậy có $4+4=8$ cách.
+}
+\end{bt}
+
+%Bài 2
+\begin{bt}%[0H4G1-5]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Trong mặt phẳng $Oxy$ cho điểm $M(2; 4)$ và $d\colon \heva{&x=1-3t\\&y=2+t}$. Viết phương trình đường thẳng song song với đường thẳng $d$ và cách điểm $M$ một khoảng bằng $\sqrt{10}$.
+	\loigiai{
+		Ta có một véc-tơ chỉ phương của đường thẳng $d$ là $\overrightarrow{u}=(-3;1)$.\\
+		Suy ra  một véc-tơ pháp tuyến của đường thẳng $d$ là $\overrightarrow{n}_d=(1;3)$.\\
+		Do $\Delta \parallel d$ nên $\Delta$ có một véc-tơ pháp tuyến là $\overrightarrow{n}_{\Delta}=\overrightarrow{n}_d=(1;3)$.\\
+		Suy ra $\Delta\colon x+3y+c=0$, (vì $\Delta \parallel d$ nên $c\neq -7$).\\
+		Ta có $\mathrm{d}\left(M,\Delta\right)=\dfrac{|2+3\cdot 4+c|}{\sqrt{1^2+3^2}}=\sqrt{10}\Leftrightarrow |c+14|=10\Leftrightarrow\hoac{&c=-4\\&c=-24.}$\\
+		Vậy có hai đường thẳng $\hoac{&\Delta\colon x+3y-4=0\\&\Delta\colon x+3y-24=0.} $
+	}
+\end{bt}
+
+%Bài 3
+\begin{bt}%[0X3K2-6]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Cho tập hợp $X=\{0;1;2;3;4;5;6;7;8\}$. Gọi $S$ là tập hợp tất cả các số tự nhiên có $5$ chữ số đôi một khác nhau được lập từ tập hợp $X$ . Chọn ngẫu nhiên một số từ $S$. Tính xác suất để chọn được số chia hết cho $5$.
+	\loigiai{
+	Số các số tự nhiên có $5$ chữ số đôi một khác nhau được lập từ $X$ là	$n(\Omega)=8\cdot \mathrm{A}_8^4=13\,440$.\\
+	Gọi $A$ là biến cố chọn được số chia hết cho $5$ từ $S$.
+	\begin{itemize}
+		\item Trường hợp $1$: số có chữ số tận cùng bằng $5$.\\
+		Khi đó, ta có $7\cdot \mathrm{A}_7^3$ số thoả yêu cầu bài toán.
+		\item Trường hợp $2$: số có chữ số tận cùng bằng $0$.\\
+		Khi đó, ta có $ \mathrm{A}_8^4$ số thoả yêu cầu bài toán.
+	\end{itemize}
+	Áp dụng quy tắc cộng ta có $n(A)= 7\cdot \mathrm{A}_7^3+\mathrm{A}_8^4=3\,150$.\\
+	Suy ra xác suất của biến cố $A$ là $\mathrm{P}(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{15}{64}$.
+	}
+\end{bt}
+
+%Bài 4
+\begin{bt}%[0H4K3-1]%[Dự án đề kiểm tra HKII NH22-23- Mui Doan]%[THPT Triệu Quang Phục]
+	Để cắt một biển quảng cáo hình Elip có trục lớn là $80$ cm và trục nhỏ là $40$ cm, từ một tấm Inox hình chữ nhật có kích thước $80\times 40$, người ta ghim hai chiếc đinh tại hai tiêu điểm của Elip và vẽ hình Elip đó lên tấm Inox (như hình vẽ minh họa dưới đây). Hỏi phải ghim hai chiếc đinh cách các mép tấm Inox bao nhiêu và lấy vòng dây không đàn hồi có độ dài bao nhiêu?
+	\begin{center}
+		\begin{tikzpicture}[line cap=butt,line join=miter,>=stealth]
+			\tikzset{declare function={xmin=-3;xmax=3;ymin=-2;ymax=2;},
+				smooth,samples=450
+			}
+			\path (0,0) coordinate (O);
+			\draw[->] (xmin,0)--(xmax,0) node[shift={(-100:7pt)},font=\normalsize]{$ x $};
+			\draw[->] (0,ymin)--(0,ymax) node[shift={(190:7pt)},font=\normalsize]{$ y $};
+			\fill (0,0) node[shift={(225:7pt)},font=\normalsize]{$ O $};
+			\clip (xmin,ymin) rectangle (xmax,ymax);
+			\fill (-2,0) circle (1pt); \fill (2,0) circle (1pt); \fill (0,-1) circle (1pt); \fill (0,1) circle (1pt); \fill (-1.2,0) circle (1pt); \fill (1.2,0) circle (1pt);
+			\draw (O) ellipse (2 and 1) 
+			(-2,1)node[left]{$P$}--(2,1)node[right]{$Q$}--(2,-1)node[right]{$R$}--(-2,-1)node[left]{$S$}--(-2,1) (0,1)node[above left]{$B_2$} (0,1)node[above right]{$b$}
+			(0,-1)node[below left]{$B_1$} (0,-1)node[below right]{$-b$}
+			(-2,0)node[above left]{$-a$} (-2,0)node[below left]{$A_1$}
+			(2,0)node[above right]{$a$} (2,0)node[below right]{$A_2$}
+			(-1.2,0)node[above]{$F_1$} (1.2,0)node[above ]{$F_2$}
+			;
+			
+			\end{tikzpicture}
+	\end{center}
+	\loigiai{
+	Ghim đinh cách mép tấm Inox: $A_1F_1=A_2F_2=a-c=40-20\sqrt{3}$.\\
+	Độ dài vòng dây không đàn hồi: $2a+2c=80+40\sqrt{2}$.	
+	}
+\end{bt}

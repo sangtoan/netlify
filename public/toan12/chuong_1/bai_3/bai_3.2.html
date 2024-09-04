@@ -1,0 +1,90 @@
+\begin{dang}{Tìm $\max - \min$ khi biết bảng biến thiên hoặc đồ thị hàm số}
+    Dựa vào bảng biến thiên hoặc đồ thị hàm số để trả lời.
+\end{dang}
+\subsection{Ví Dụ Minh Hoạ}
+\begin{vd}
+    Cho hàm số $f(x)$ có bảng biến thiên như sau
+<img src="khohinh/hchuong1/hinh91.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+Khẳng định nào sau đây \textbf{sai}?
+    \choice
+    {$f_{\text{CT}}=1$}
+    {$f_{\text{CĐ}}=2$}
+    {$\max\limits_{\mathbb{R}} f(x)=2$}
+    {\True $\min\limits_{\mathbb{R}} f(x)=1$}
+    \loigiai{
+    Dựa vào BBT ta thấy $\min\limits_{\mathbb{R}} f(x)=1$ là sai.}
+\end{vd}
+\begin{vd}
+    Cho hàm số $y=f(x)$ có bảng biến thiên như sau
+<img src="khohinh/hchuong1/hinh92.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+Khẳng định nào sau đây là đúng?
+    \choice
+    {$\min\limits_{(1;+\infty)} f(x)=1$}
+    {$\min\limits_{(-\infty;-1)} f(x)=1$}
+    {\True $\max\limits_{(-1;1)} f(x)=0$}
+    {$\max\limits_{\mathbb{R} \backslash \left(\pm 1\right)} f(x)=0$}
+    \loigiai{
+    Dựa vào bảng biến thiên, hàm số $y=f(x)$ có $\max\limits_{(-1;1)} f(x)=0$.}
+\end{vd}
+\begin{vd}
+    Cho hàm số $ y=f(x)$ liên tục trên $\mathbb{R}$ và có bảng biến thiên trên đoạn $\left[-1;4\right]$ như sau
+<img src="khohinh/hchuong1/hinh93.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+    Giá trị lớn nhất của hàm số $ y= f(x)$ trên đoạn đoạn $\left[1;4\right]$ bằng
+    \choice
+    {$ 4$}
+    {\True $24$}
+    {$ 8$}
+    {$ 0$}
+    \loigiai{
+    Dựa vào bảng biến thiên, ta có $\underset{\left[1;4\right]}{\min}\,f(x)=-8\Leftrightarrow x=3$; $\underset{\left[1;4\right]}{\max}\,f(x)=4\Leftrightarrow x=1$.
+    }
+\end{vd}
+\begin{vd}
+    Cho hàm số $f(x)$ có đồ thị như hình vẽ bên. Khẳng định nào sau đây \textbf{sai}?
+    <img src="khohinh/hchuong1/hinh94.png" alt="Mô tả hình ảnh" class="center-img tiny-size">  
+    \choice
+    {$\min\limits_{[-1;2]} f(x)=-3$}
+    {$\min\limits_{[-3;3]} f(x)=-3$}
+    {$\max\limits_{[-3;3]} f(x)=3$}
+    {\True $\max\limits_{[-1;2]} f(x)=1$}
+    \loigiai{Dựa vào đồ thị đã cho, dễ thấy $\max\limits_{[-1;2]} f(x)=1$ là sai.}
+\end{vd}
+\begin{vd}
+    Cho hàm số $y=f\left(x\right)$ liên tục trên đoạn $\left[0;\dfrac{7}{2}\right]$ có đồ thị hàm số $f'\left(x\right)$ như hình vẽ. Hàm số $y=f\left(x\right)$ đạt giá trị lớn nhất trên đoạn $\left[\dfrac{1}{2};3\right]$ tại điểm $x_0$ nào dưới đây?
+<img src="khohinh/hchuong1/hinh95.png" alt="Mô tả hình ảnh" class="center-img tiny-size">  
+    \choice
+{$x_0=\dfrac{1}{2}$}
+{$x_0=1$}
+{$x_0=3$}
+{\True $x_0=2$}
+    \loigiai{
+    Dựa vào đồ thị ta thấy $f'\left(x\right) \ge 0$ trên đoạn $\left[\dfrac{1}{2};2\right]$ và $f'\left(x\right) \le 0$ trên đoạn $\left[2;3\right]$.\\
+    Bảng biến thiên
+    \begin{center}
+    \begin{tikzpicture}
+        \tkzTabInit[nocadre=false,lgt=1.5,espcl=3,deltacl=.7]
+        {$x$ /.7, $f’(x)$ /.7,$f(x)$ /2}
+        {$\tfrac{1}{2}$ , $2$, $3$}
+        \tkzTabLine{,+,z,-,}
+        \tkzTabVar{-/$f\left(\tfrac{1}{2}\right)$ ,+/ $f(2)$ ,-/$f(3)$}
+    \end{tikzpicture}
+    \end{center}
+    Từ đó ta có GTLN của hàm số $y=f\left(x\right)$ đạt tại $x=2$.
+    }
+\end{vd}
+\begin{vd}
+    Cho hàm số $ f(x)$ có đạo hàm là $f'(x)$. Đồ thị hàm số  $ y=f'(x)$ được cho như hình vẽ bên. Biết rằng\break $ f(0)+f(2)=f(1)+f(3)$. Giá trị lớn nhất của $ f(x)$ trên đoạn $\left[0;3\right]$ là
+    <img src="khohinh/hchuong1/hinh96.png" alt="Mô tả hình ảnh" class="center-img tiny-size">      
+    \choice
+        {$ f(1)$}
+        {$ f(0)$}
+        {$ f(2)$}
+        {\True $f(3)$}
+    \loigiai{
+        Từ đồ thị của hàm số $ y=f'(x)$ ta có bảng biến thiên của hàm số $ y=f(x)$ như sau
+        <img src="khohinh/hchuong1/hinh97.png" alt="Mô tả hình ảnh" class="center-img tiny-size">  
+        Từ bảng biến thiên ta có $ f(3)>f(2)>f(1)$.\\
+        Theo bài ra $ f(0)+f(2)=f(1)+f(3)\Rightarrow f(3)-f(0)=f(2)-f(1)>0\Rightarrow f(3)>f(0)$.\\
+        Vậy giá trị lớn nhất của hàm số trên $\left[0;3\right]$ là $f(3)$.
+    }
+\end{vd}

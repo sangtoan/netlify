@@ -1,0 +1,318 @@
+\begin{dang}{Tìm $m$ để hàm số $y=f(x)$ đạt cực trị tại điểm $x_0$ cho trước}
+	\begin{itemize}
+	\item $\checkmark$ Hàm số $y=f(x)$ đạt cực trị tại điểm $x_0$ $\textcolor{red}{ \text{suy ra} }$ $f'\left(x_0\right)=0$ từ đó tìm được $m$.
+	\item $\checkmark$ Thử lại với $m$ tìm được.
+	\end{itemize}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[Thi thử Trường THPT chuyên Quốc học Huế lần 1, 2019][Sang Nguyen, 12EX5]%[2D1B2-3]
+	Tìm giá trị thực của tham số $m$ để hàm số $y=x^3-3x^2+mx$ đạt cực đại tại $x=0$.
+	\loigiai{
+    Hàm số $f(x)$ đạt cực trị tại $x_0$ thì $f'\left(x_0\right)=0$ chỉ là điều kiện cần. Nên khi tìm được $m$ ta phải thử lại.
+	\begin{luuy}
+	Khi $m=0$ ta có thể thử lại bằng cách tính $\begin{cases} y'\left(0\right)=?\\ y''\left(0\right)=? \end{cases}$ để kết luận tại $x=0$ hàm số đạt cực đại hay cực tiểu.
+	\end{luuy}
+	Ta có $y'=3x^2-6x+m$.\\
+	Hàm số đạt cực đại tại $x=0\Rightarrow y'(0)=0\Leftrightarrow m=0$.\\
+	Thử lại, thay $m=0$, hàm số trở thành $y=x^3-3x^2$.\\
+	Ta có $y'=3x^2-6x$, $y'=0\Leftrightarrow \hoac{&x=0\\&x=2.}$\\
+	Bảng biến thiên:
+	<img src="khohinh/hchuong1/hinh53.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+    \textbf{Kết luận:} Dựa vào bảng biến thiên ta thấy hàm số đạt cực đại tại $x=0$.
+	Vậy $m=0$ (nhận).
+	}
+\end{vd}
+\begin{vd}%[Đề kiểm tra bán kỳ 1 Toán 12, THPT Nho Quan A Ninh Bình, 2018]%[Tuan Nguyen, Dự Án 12EX2-2019]%[2D1K2-3]
+	Tìm $m$ để hàm số $y=\dfrac{x^2+mx+1}{x+m}$ đạt cực tiểu tại $x=2$.
+	\loigiai{
+	Ta có $y'=\dfrac{x^2+2mx+m^2-1}{(x+m)^2}$.\\
+	Để hàm số đạt cực đại tại $x=2$ thì $y'(2)=0\Leftrightarrow \dfrac{2^2+2m\cdot 2+m^2-1}{\left(2+m\right)^2}=0\Rightarrow m^2+4m+3=0\Leftrightarrow\hoac{& m=-1 \\ & m=-3.}$
+	\begin{itemize}
+	\item Với $m=-1$, ta có $y'=\dfrac{x^2-2x}{(x-1)^2}, y'=0\Leftrightarrow \left[\begin{array}{l} x=0 \\   x=2. \end{array}\right.$\\ Bảng biến thiên\\
+<img src="khohinh/hchuong1/hinh54.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Khi đó $x=2$ là điểm cực tiểu của hàm số (nhận).
+	\item Với $m=-3$, ta có $y'=\dfrac{x^2-6x+8}{(x-3)^2}, y'=0\Leftrightarrow \left[\begin{array}{l} x=2 \\   x=4. \end{array}\right.$\\ Bảng biến thiên\\
+<img src="khohinh/hchuong1/hinh55.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Khi đó $x=2$ là điểm cực đại của hàm số (loại).
+	\end{itemize}
+	Vậy $m=-1$ là giá trị cần tìm.
+	}
+\end{vd}
+\begin{vd}%[Nguyễn Tài Chung]%[2D1K2]
+	Xác định các hệ số $a,b,c$ sao cho hàm số $f(x) = -x^3 + ax^2 + bx + c$ đạt cực trị bằng $4$ tại $x = 2$ và đồ thị của hàm số đi qua điểm $M(1;2)$.
+	\loigiai{
+    $\bullet$ $f'(2) = 0$: Điều kiện cần để hàm số có cực trị.\\
+	$\bullet$ $f(2) = 4$: Điểm cực trị thuộc đồ thị hàm số.\\ 	
+    $\bullet$ $f(2) = 4$: Đồ thị của hàm số đi qua điểm $M(1;2)$.\\
+	Tập xác định: $\mathscr{D}=\mathbb{R}$; $f'(x) = - 3x^2 + 2ax + b$.\\ Yêu cầu bài toán là
+	$$\begin{cases} f'(2) = 0\\ f(2) = 4\\ f(1) = 2 \end{cases}
+	\Leftrightarrow \begin{cases} - 12 + 4a + b = 0\\ - 8 + 4a + 2b + c = 4\\ - 1 + a + b + c = 2 \end{cases}
+	\Leftrightarrow (a;b;c) = (3;0;0).$$
+	Thử lại thấy thỏa mãn.
+	}
+\end{vd}
+\begin{vd}%[Thi thử L1, Star Education HCM, 2019]%[Nguyễn Ngọc Dũng, dự án 12EX6]%[2D1B2-3]
+	Tìm $m$ thì hàm số $y=\dfrac{1}{3}x^3-mx^2+(m^2-m-1)x$ đạt cực đại tại $x=1$.
+	\loigiai{
+	Ta có $y'=x^2-2mx+m^2-m-1\Rightarrow y''= 2x-2m$.\\
+	Hàm số đạt cực đại tại $x=1$ khi và chỉ khi
+	$$\heva{&y'(1)=0 \\ & y''(1)  < 0} \Leftrightarrow \begin{cases} m^2-3m=0\\   -2m+2 < 0 \end{cases}\Leftrightarrow m=3.$$
+	}
+\end{vd}
+\begin{vd}%[Kiểm tra giữa HKI, Nguyễn Thượng Hiền, HCM, 2018-2019]%[Phạm Đức, 12-EX-2-2019]%[2D1K2-3]
+	Gọi $S$ là tập hợp tất cả các giá trị của tham số $m$ để hàm số $y=x^4+(m-1)x^2+(m^2-m)x-3$ đạt cực tiểu tại $x=0$. Tìm số phần tử của $S$.
+	\loigiai{
+	Ta có $y{'}=4x^3+2(m-1)x+m^2-m$ và $y{''}=12x^2+2(m-1)$.
+	\begin{itemize}
+	\item $\star$ Hàm số đạt cực tiểu tại $x=0$ suy ra $y{'}(0)=0 \Leftrightarrow m^2-m=0 \Leftrightarrow m=0$ hoặc $m=1$.
+	\item $\star$ Ta xét hai trường hợp:
+	\begin{enumerate}
+	\item $\star$ Với $m=0$, ta có $y{''}(0)=-2 < 0$ nên $x=0$ là điểm cực đại. Vậy $m=0$ không thỏa mãn.
+	\item $\star$ Với $m=1$ hàm số đã cho trở thành $y=x^4-3$ có điểm cực tiểu là $x=0$. Vậy $m=1$ thỏa mãn.
+	\end{enumerate}
+	\end{itemize}
+	Vậy số phần tử của $S$ là $1$.
+	}
+\end{vd}
+\begin{vd}%[Thi thử, THPT Sơn Tây, Hà Nội, 2019]%[Huỳnh Xuân Tín, 12EX3]%[2D1K2-3]
+	Gọi các số $a,b,c$ thỏa đồ thị hàm số $y=x^3+ax^2+bx+c$ đi qua điểm $(0;1)$ và có cực trị $(-2;0)$. Tính giá trị của biểu thức $T=4a+b+c$.
+	\loigiai{
+    Hàm số $(C)\colon y=x^3+ax^2+bx+c$ có tập xác định là $\mathscr{D}=\mathbb{R}$, và có đạo hàm $y'=3x^2+2ax+b$.\\
+	Đồ thị hàm số $(C)$ đi qua điểm $(0;1)$ nên $c=1$.\\
+	Đồ thị hàm số $(C)$có cực trị $(-2;0)$ ta được
+	$$ \begin{cases} a^2-3b > 0\\ y(-2)=0\\ y'(2)=0 \end{cases}\Leftrightarrow \begin{cases} a^2-3b > 0\\ -8+4a-2b+c=0\\ 12-4a+b=0 \end{cases}\Leftrightarrow \begin{cases} a=\dfrac{17}{4}\\ b=5. \end{cases}$$
+	Do đó $T=4a+b+c=4\cdot\dfrac{17}{4}+5+1=23.$
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}%[Đề KSCL Toán 12 trường Nguyễn Trãi, Thanh Hoá, năm 2018, lần 1]%[Nguyễn Thành Khang, dự án 2019-12-Ex-4]%[2D1Y2-3]
+	Với giá trị nào của tham số $m$ thì hàm số $y=x^3-mx^2+(2m-3)x-3$ đạt cực đại tại $x=1$?
+	\choice
+	{$m\le 3$}
+	{$m=3$}
+	{$m < 3$}
+	{\True $m > 3$}
+	\loigiai{
+	Tập xác định: $\mathscr{D}=\mathbb{R}$.\\
+	Ta có $y'=3x^2-2mx+(2m-3)$ và $y''=6x-2m$.\\
+	Hàm số đạt cực đại tại $x=1$ khi $\begin{cases} y'(1)=0 \\  y''(1) < 0 \end{cases}\Leftrightarrow \begin{cases} 3-2m+2m-3=0 \\  6-2m < 0 \end{cases} \Leftrightarrow m > 3$.
+	}
+\end{ex}
+\begin{ex}%[Hải Phòng, 2018]%[Phan Anh Tiến, 12-EX-05]%[2D1B2-3]
+	Tìm tất cả các giá trị của $m$ để hàm số $f(x)=-x^3+2(2m-1)x^2-(m^2-8)x$ đạt cực tiểu tại điểm $x=-1$.
+	\choice
+	{$ m=-9 $}
+	{$ m=-2 $}
+	{\True $ m=1 $}
+	{$ m=3 $}
+	\loigiai{Ta có $\mathscr{D}=\mathbb{R}$ và $y'=-3x^2+4(2m-1)x-m^2+8,\,y''=-6x+4(2m-1)$.\\
+	Để $x=-1$ là điểm cực tiểu của hàm số khi $\begin{cases} y'(-1)=0\\ y''(-1) > 0. \end{cases}$\\
+	Mà $y'(-1)=0\Leftrightarrow m^2+8m-9=0\Leftrightarrow \left[\begin{array}{l} m=1\\ m=-9. \end{array}\right.$\\
+	Với $m=1$ ta có $y''(-1) > 0$ (nhận).\\
+	Với $m=-9$ ta có $y''(-1) < 0$ (loại).
+	}
+\end{ex}
+\begin{ex}%[Thi thử L1, THPT Toàn Thắng Hải Phòng,2018]%[Nguyễn Anh Tuấn, dự án 12EX-1-2019]%[2D1B2-3]
+	Hàm số $ y=x^4-2m^2x^2+5 $ đạt cực đại tại $ x=-2 $ khi
+	\choice
+	{$ m=2, m=-2 $}
+	{$ m=2 $}
+	{$ m=-2 $}
+	{\True Không có giá trị $ m $}
+	\loigiai{
+	Đạo hàm $ y'=4x^3-4m^2x=4x(x^2-m^2)=0\Leftrightarrow \left[\begin{array}{l} x=0\\  x^2=m^2. \end{array}\right. $\\
+	Theo giả thiết, ta có $ y'(-2)=0 \Leftrightarrow m=\pm 2 $.\\
+	Với $ m=\pm 2 $, hàm số đã cho trở thành $ y=x^4-8x^2+5 $, lập bảng biến thiên của hàm số ta được
+	<img src="khohinh/hchuong1/hinh56.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Dựa vào bảng biến thiên, ta thấy không có giá trị của $ m $ để hàm số đạt cực đại tại $ x=-2 $.}
+\end{ex}
+\begin{ex}%[Thi thử L1, THPT Toàn Thắng Hải Phòng,2018]%[Nguyễn Anh Tuấn, dự án 12EX-1-2019]%[2D1B2-3]
+	Hàm số $ y=-\dfrac{1}{3}x^3+\dfrac{1}{2}ax^2+bx+\dfrac{1}{3} $ đạt cực đại tại $ x=1 $ và giá trị cực đại tại điểm đó bằng $ 2 $. Khi đó, $ a+b $ bằng
+	\choice
+	{$ 0 $}
+	{\True $ 1 $}
+	{$ 2 $}
+	{$ 3 $}
+	\loigiai{
+	Đạo hàm $ y'=-x^2+ax+b $ và $ y''=-2x+a $. Theo giả thiết, ta có
+	$$\begin{cases} y'(1)=0\\ y''(1) < 0\\ y(1)=2 \end{cases}\Leftrightarrow \begin{cases} a+b=1\\ \dfrac{1}{2}a+b=2\\ -2+a < 0 \end{cases}\Leftrightarrow \begin{cases} a=-2\\ b=3 \end{cases}\Rightarrow a+b=1.$$
+	}
+\end{ex}
+\begin{ex}%[Khảo sát lần 1, Đoàn Thượng, Hải Dương, 1819]%[Phạm Doãn Lê Bình, dự án 12EX1-2019]%[2D1B2-3]
+	Biết hàm số $f(x) = x^3+ax^2 +bx +c$ đạt cực tiểu tại điểm $x=1$, $f(1) = -3$ và đồ thị của hàm số cắt trục tung tại điểm có tung độ bằng $2$, Tính giá trị của hàm số tại $x=3$.
+	\choice
+	{$f(3)=81$}
+	{$f(3)=27$}
+	{\True $f(3) = 29$}
+	{$f(3)=-29$}
+	\loigiai{Theo đề ta có
+	$$\begin{cases} f'(1) = 0 \\   f''(1)  > 0 \\   f(1) =-3 \\   f(0) = 2 \end{cases} \Leftrightarrow \begin{cases} 3+2a+b = 0 \\   6 + 2a  > 0 \\   1 + a + b + c = -3 \\   c = 2 \end{cases} \Leftrightarrow \begin{cases} a= 3 \\   b = -9 \\   c = 2. \end{cases}$$
+	Vậy $f(x) = x^3+3x^2-9x+2$ và từ đó ta có $f(3) = 29$.
+	}
+\end{ex}
+\begin{dang}{Cực trị hàm số $y=ax^3+bx^2+cx+d$}
+Đạo hàm $y'=3ax^2+2bx+c$. Gọi $\Delta_{y'}$ là biệt thức tương ứng của $y'$.
+	\begin{itemize}
+	\item $\checkmark$ Nếu $\begin{cases} a\neq 0\\ \Delta_{y'} > 0 \end{cases}$ thì hàm số có $2$ cực trị ($1$ cực đại và $1$ cực tiểu).
+	\item $\checkmark$ Nếu $\begin{cases} a=0\\ b=0 \end{cases}$ hoặc $\Delta_{y'}\leq 0$ thì hàm số không có cực trị.
+	\end{itemize}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[Kiểm tra 2, Quang Trung - Dong Da HN, 2018]%[Nguyễn Trung Kiên, dự án 12-EX-2-2019]%[2D1B2-1]
+	Viết phương trình đường thẳng đi qua hai điểm cực trị của đồ thị hàm số $y = -2x^3+3x^2+1$.
+	\loigiai{
+    Cho $A\left( x_A; y_A\right) $ và $B\left( x_B; y_B\right) $. Phương trình đường thẳng đi qua hai điểm $A$, $B$ là $$\dfrac{x-x_A}{x_B-x_A}=\dfrac{y-y_A}{y_B-y_A}$$ với $x_A\neq x_B$ và $y_A\neq y_B$.\\
+	Ta có $y' = -6x^2+6x$.\\
+	$y' = 0 \Leftrightarrow \hoac{&x = 0\\&x = 1}$, $y'$ đổi dấu qua hai nghiệm đó.\\
+	Tọa độ hai điểm cực trị của đồ thị hàm số là $A(0;1)$, $B(1;2)$.\\
+	Phương trình đường thẳng $AB$ là $$\dfrac{x-0}{1-0}=\dfrac{y-1}{2-1}\Leftrightarrow y=x+1.$$
+	}
+\end{vd}
+\begin{vd}%[Thi GHK1, Trần Nguyên Hãn - Vũng Tàu, 2019]%[Nguyện Ngô, 12EX2-2019]%[2D1B2-4]
+	Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y=\dfrac{1}{3}x^3-mx^2+(2+m)x-1$ có cực trị.
+	\loigiai{
+    Phương trình bậc hai $ax^2+bx+c=0$ có biệt thức thu gọn $\Delta'=b'^2-ac$ với $b=2b'$.\\
+	Tập xác định $\mathscr{D}=\mathbb{R}$.\\
+	Ta có $y'=x^2-2mx+2+m$.\\
+	Hàm số có cực trị khi và chỉ khi $y'=0$ có $2$ nghiệm phân biệt	$$\Leftrightarrow \Delta'=m^2-m-2 > 0\Leftrightarrow m < -1\vee m > 2.$$
+	}
+\end{vd}
+\begin{vd}%[Minh Thắng, dự án 12-EX-1-DCHT]%[2D1B2-4]%[Khối D năm 2012]
+	Cho hàm số $ y=\dfrac{2}{3}x^3-mx^2-2(3m^2-1)x-\dfrac{2}{3} $ có đồ thị $(C_m)$. Tìm tất cả các giá trị của tham số $m$ sao cho đồ thị hàm số $(C_m)$ có hai điểm cực trị $ x_1 $, $ x_2 $ sao cho $ x_1\cdot x_2+2(x_1+x_2)=1 $.
+	%\dapso{$ m=\dfrac{2}{3} $}
+	\loigiai{
+    Nếu phương trình bậc hai $ax^2+bx+c=0$ có $2$ nghiệm $x_1, x_2$ thì $\heva{&x_1+x_2=-\dfrac{b}{a}\\&x_1\cdot x_2=\dfrac{c}{a}.}$
+	Ta có: $ y'=2x^2-2mx-2(3m^2-1). $\\
+	Hàm số có $2$ điểm cực trị thì $ y'=0 $ phải có hai nghiệm phân biệt $ x_1 $, $ x_2 $ 
+	$$\Leftrightarrow \Delta ' > 0 \Leftrightarrow m^2+4(3m^2-1) > 0 \Leftrightarrow m < -\dfrac{2}{\sqrt{13}} \vee m > \dfrac{2}{\sqrt{13}}$$
+	Theo định lý Vi-et ta có $ \begin{cases} x_1+x_2=m \\  x_1x_2=1-3m^2. \end{cases}$\\
+	Theo đề: $ x_1\cdot x_2+2(x_1+x_2)=1 \Leftrightarrow 1-3m^2+2m=1 \Leftrightarrow m=0 \text{ (loại)} \vee m=\dfrac{2}{3}$.\\
+    \textbf{Kết luận:} Vậy $ m=\dfrac{2}{3}$.
+	}
+\end{vd}
+\begin{vd}%[Đề kiểm tra học kì 1, THPT Trần Phú, 2018-2019]%[Lê Hồng Phi, dự án EX-2-2019]%[2D1B2-4]
+	Hàm số $ y=x^3-3x+m $ có đồ thị là $ (C) $, gọi $ A $, $ B $ là hai điểm cực trị của $ (C) $. Có tất cả bao nhiêu giá trị thực của tham số $ m $ để tam giác $ OAB $ cân tại $ O $, ($ O $ là gốc tọa độ).
+	\loigiai{
+    Thế $x=1$ vào hàm số $ y=x^3-3x+m $ ta được $y=m-2$. Do đó ta có tọa độ điểm $A\left(1;m-2\right)$.\\Tương tự với $x=-1$.\\
+	Tập xác định $ \mathscr{D}=\mathbb{R} $.\\
+	Ta có $ y'=3x^2-3 $ và $ y'=0\Leftrightarrow \left[\begin{array}{l} x=-1 \\   x= 1. \end{array}\right. $\\
+	Tọa độ các điểm cực trị là $ A(1; m-2) $ và $ B(-1; m+2) $.\\
+	Tam giác $ OAB $ cân tại $ O $ khi và chỉ khi $$OA=OB\Leftrightarrow OA^2=OB^2\Leftrightarrow 1+(m-2)^2=1+(m+2)^2\Leftrightarrow -4m=4m\Leftrightarrow m=0.$$ 
+	\textbf{Kết luận:} Vậy $m=0$.
+	}
+\end{vd}
+\begin{vd}%[Thi thử, Trường THPT Lý Thái Tổ - Bắc Ninh]%[Dự án 12EX-3-2019]%[Phạm Tuấn]%[2D1B2-1]
+	Gọi $A,B$ là hai điểm cực trị của đồ thị hàm số $y=x^3-3x^2+2018$. Tính độ dài đoạn $AB$.
+	\loigiai{
+	Ta có $y' = 3x^2-6x$, $y'=0 \Leftrightarrow \left[\begin{array}{l} x=0\\ x=2 \end{array}\right.$.\\
+    Tọa độ các điểm cực trị là $A(0;2018)$ và $B(2;2014)$. Suy ra $AB=\sqrt{2^2+4^2} = 2\sqrt{5}$.
+	}
+\end{vd}
+\begin{vd}%[Đề tập huấn, Sở GD và ĐT - Quảng Trị, 2018]%[Nguyễn Văn Nay, 12EX10]%[2D1B2-4]
+	Tìm tất cả các giá trị của tham số $m$ để hàm số $y=\dfrac{1}{3}x^3+mx^2+(2m-1)x-1$ có cực trị.
+	\loigiai{
+	Ta có $y{'}=x^2+2mx+(2m-1)$.\\
+	Hàm số đã cho là hàm số bậc ba nên để hàm số có cực trị thì $m^2-2m+1 > 0 \Leftrightarrow m \ne 1$.
+	}
+\end{vd}
+\begin{vd}%[Thi thử L1, Chuyên Bắc Giang, 2019]%[Phan Minh Tâm, Nguyễn Tiến Thùy, dự án EX1-2019]%[2D1B2-4]
+	Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y=\dfrac{1}{3}x^3-6x^2+(m-2)x+11$ có hai điểm cực trị trái dấu.
+	\loigiai{
+	Tập xác định: $\mathscr{D}=\mathbb{R}$.\\
+	Ta có $y'=x^2-12x+m-2$. \\
+	Hàm số có hai điểm cực trị trái dấu khi và chỉ khi $y'=0$ có hai nghiệm trái dấu.\\
+    Khi đó $$m-2  <  0\Leftrightarrow m < 2.$$
+	}
+\end{vd}
+\begin{vd}%[HK1, THPT Đoàn Thượng - Hải Dương, 2019]%[Đào Trung Kiên, 12EX6]%[2D1B2-4]
+	Tìm tất cả các giá trị của tham số $m$ để hàm số $y=x^3-3x^2+mx-1$ có hai điểm cực trị $x_1$, $x_2$ sao cho $x_1^2+x_2^2-x_1x_2=13$.	\loigiai{
+	Tập xác định: $\mathscr{D}=\mathbb{R}$.\\
+	$y'=3x^2-6x+m$, cho $y'=0\Leftrightarrow 3x^2-6x+m=0$.\\
+	Hàm số có hai cực trị $x_1$, $x_2$ thì $\Delta' > 0\Leftrightarrow 9-3m > 0\Leftrightarrow m < 3$.\\
+	Theo định lí Vi-ét ta có $\begin{cases} x_1+x_2=2\\ x_1 x_2=\dfrac{m}{3}. \end{cases}$\\
+	Ta có $x_1^2+x_2^2-x_1x_2=13 \Leftrightarrow \left(x_1+x_2\right)^2-3x_1x_2-13=0 \Rightarrow 4-m=13 \Leftrightarrow m=-9 \text{ (thỏa mãn)}.$}
+\end{vd}
+\begin{vd}%[Đề kiểm tra giữa học kỳ I THPT Thăng Long, 2018-2019]%[Nguyễn Quốc Thịnh, 12EX2]%[2D1K2-4]
+	Cho hàm số $y=-x^3-3mx^2+m-2$ với $m$ là tham số. Tìm tất cả các giá trị của $m$ để đồ thị hàm số có hai điểm cực trị $A,B$ sao cho $AB=2$.
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}$.\\
+	Ta có $y'=-3x^2-6mx$; $y'=0\Leftrightarrow
+	\hoac{&x=0\\&x=-2m.\\}$\\
+	Hàm số có hai điểm cực trị khi và chỉ khi $m\ne 0$.\\
+	Gọi hai điểm cực trị của đồ thị hàm số là $A$, $B$.\\
+	Ta có $A\left(0;m-2\right)$, $ B\left(-2m;-4{m}^{3}+m-2\right)$.\\
+	Do đó $AB=2\Leftrightarrow AB^2=4m^2+16m^6=4\Leftrightarrow 4m^6+m^2-1=0\Leftrightarrow m^2=\dfrac{1}{2}\Leftrightarrow m=\pm \dfrac{1}{\sqrt{2}}$
+}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}%[Khảo sát chất lượng, THPT Lý Thánh Tông - Hà Nội]%[Vương Quyền, dự án 12-EX-2-2019]%[2D1Y2-4]
+	Điều kiện nào sau đây để hàm số $y=ax^3+bx^2+cx+d$ $(a\neq 0)$ có cực đại và cực tiểu?
+	\choice
+	{$y'(x)=0$ có nghiệm}
+	{$y'(x)=0$ có duy nhất một nghiệm}
+	{$y'(x)=0$ vô nghiệm}
+	{\True $y'(x)=0$ có hai nghiệm phân biệt}
+	\loigiai{
+	Điều kiện để hàm số $y=ax^3+bx^2+cx+d$ $(a\neq 0)$ có cực đại và cực tiểu là phương trình $y'(x)=0$ có hai nghiệm phân biệt.
+	}
+\end{ex}
+\begin{ex}%[Dự án EX3 GHK1 2018 - Nguyễn Sỹ]%[2D1B2-4]
+	Có bao nhiêu giá nguyên của $m$ để hàm số $y=x^3-mx^2-(2m-9)x+2$ không có cực trị?
+	\choice
+	{$11$}
+	{$12$}
+	{\True $13$}
+	{$14$}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}$.
+	Ta có $y'=3x^2-2mx-(2m-9), \forall x\in \mathbb{R}$. \\
+	Ta có, biệt thức $\Delta ' =m^2+3(2m-9)=m^2+6m-27$.
+	\begin{itemize}
+	\item $\checkmark$  Nếu $\Delta ' > 0$ thì $y'=0$ có hai nghiệm phân biệt và $y'$ đổi dấu khi $x$ qua hai nghiệm đó, nên hàm số có cực trị.
+	\item $\checkmark$  Nếu $\Delta \leq 0 \Leftrightarrow m^2+6m-27\le 0 \Leftrightarrow -9\le m\le 3$, thì $y'\geq 0 \,\forall x \in \mathbb{R}$. Do đó hàm số không có cực trị
+	\end{itemize}
+	Vậy có $13$ giá nguyên của $m$.
+	}
+\end{ex}
+
+\begin{ex}%[Giữa HK1, Trường THPT Nguyễn Thái Bình, 2018-2019]%[Đỗ Đường Hiếu, dự án 12EX-2]%[2D1B2-4]
+	Tìm tất cả giá trị thực của tham số $m$ để hàm số $y=x^3-3x^2+3mx+1$ có cực trị.
+	\choice
+	{$m > 1$}
+	{\True $m < 1$}
+	{$m\ge 1$}
+	{$m\le 1$}
+	\loigiai{
+	Ta có $y'=3x^2-6x+3m$.\\
+	Hàm số đã cho có cực trị khi và chỉ khi $y'=0$ có hai nghiệm phân biệt\\
+	$\Leftrightarrow 3x^2-6x+3m=0$ có hai nghiệm phân biệt\\
+	$\Leftrightarrow x^2-2x+m=0$ có hai nghiệm phân biệt\\
+	$\Leftrightarrow \Delta'=1-m > 0\Leftrightarrow m < 1$.
+	}
+\end{ex}
+\begin{ex}%[GHK1 Toán 12, Nguyễn Chí Thanh, HCM, 2018-2019]%[Vũ Nguyễn Hoàng Anh, 12EX2-19]%[2D1B2-4]
+	Cho hàm số $y=\dfrac{1}{3}x^3-mx^2-x+m+1$. Tìm $m$ để đồ thị hàm số có $2$ điểm cực trị $A$, $B$ thỏa mãn $x_A^2+x_B^2=2$.
+	\choice
+	{\True $m=0$}
+	{$m=\pm 1$}
+	{$m=\pm 3$}
+	{$m=2$}
+	\loigiai{
+	Ta có $y'=x^2-2mx-1$ và $\Delta'_{y'}=m^2+1 > 0$ nên hàm số luôn có hai điểm cực trị. Theo định lí Vi-ét ta có $\heva{&x_A+x_B=2m\\ &x_Ax_B=-1}$. Suy ra
+	\[ 2=x_A^2+x_B^2=(x_A+x_B)^2-2x_Ax_B=4m^2+2.\]
+	Vậy $m=0$.
+	}
+\end{ex}
+\begin{ex}%[Dự án EX6-2019]%[Phạm Tuấn]%[2D1B2-4]
+	Biết $m_0$ là giá trị nhỏ nhất của tham số $m$ để hàm số $y=f(x) = x^3-3x^2+m$ có hai điểm cực trị $x_1x_2$ sao cho $f(x_1) \cdot f(x_2)=5$. Mệnh đề nào sau đây đúng?
+	\choice
+	{$m_0 \in (-1;1)$}
+	{$m_0 \in (0;6)$}
+	{$m_0 \in (1;4)$}
+	{\True $m_0 \in (-7;0)$}
+	\loigiai{
+	Ta có $y' =3x^2-6x$; $y'=0 \Leftrightarrow \hoac{&x=0\\&x=2.}$ \\
+	$f(x_1)\cdot f(x_2)=5 \Leftrightarrow f(0) \cdot f(2) =5 \Leftrightarrow m^2-4m=5 \Leftrightarrow \hoac{&m=-1\\&m=5.}$ \\
+	Vậy $m_0=-1$.
+	}
+\end{ex}

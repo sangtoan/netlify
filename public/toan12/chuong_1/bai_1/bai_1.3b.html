@@ -1,0 +1,142 @@
+\begin{dang1}{Tính đơn điệu của hàm số phân thức bậc nhất trên (a;b)}
+\textbf{Bài toán} Tìm $m$ để hàm số $y=\dfrac{ax+b}{cx+d}$ đơn điệu trên $( \alpha ; \beta ) \subset \mathbb { R } \backslash \left\{ - \dfrac { d } { c } \right\}$
+	\begin{itemize}
+	\item Hàm số đồng biến trên khoảng $( \alpha ; \beta )\Leftrightarrow \begin{cases} y'>0\\-\dfrac{d}{c}\notin ( \alpha ; \beta ) \end{cases}\Leftrightarrow \begin{cases} a\cdot d-c\cdot b'>0\\-\dfrac{d}{c}\leq\alpha\;\text{hoặc}\;-\dfrac{d}{c}\geq \beta. \end{cases}$
+	\item Hàm số nghịch biến trên khoảng $( \alpha ; \beta )\Leftrightarrow \begin{cases} y' < 0\\-\dfrac{d}{c}\notin ( \alpha ; \beta ) \end{cases}\Leftrightarrow \begin{cases} a\cdot d-c\cdot b' < 0\\-\dfrac{d}{c}\leq\alpha\;\text{hoặc}\;-\dfrac{d}{c}\geq \beta. \end{cases}$
+\end{itemize}
+\end{dang1}
+
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[Đề kiểm tra định kỳ, THPT Nguyễn Huệ - Huế, 2019]%[Bùi Quốc Hoàn, dự án EX9]%[2D1B1-3]
+	Gọi $S$ là tập hợp các giá trị nguyên của tham số $m$ sao cho hàm số $y = \dfrac{x - 1}{x - m}$ nghịch biến trên khoảng $\left(4; + \infty\right)$. Tính tổng $P$ của các giá trị $m$ của $S$.
+	\loigiai{Tập xác định $\mathscr{D} = \mathbb{R}\setminus\left\{m\right\}$.\\
+	Ta có $y' = \dfrac{\left(x - m\right) - \left(x - 1\right)}{\left(x - m\right)^2} = \dfrac{1 - m}{\left(x - m\right)^2}$.\\
+	Để thỏa mãn bài toán khi $\heva{&y'  <  0\\ &m\notin\left(4;+\infty\right)}\Leftrightarrow \heva{&1 - m  <  0\\ &m\leq 4}\Leftrightarrow \begin{cases} m > 1 \\ m\leq 4 \end{cases}\Leftrightarrow 1  <  m\leq 4$.\\
+	Do $m\in\mathbb{Z}$ suy ra $m = 2$, $m = 3$ và $m = 4$.\\
+	Khi đó $S = 2 + 3 + 4 = 9$.
+	}
+\end{vd}
+\begin{vd}%[Thi thử lần 1, Ngô Sĩ Liên, Bắc Giang 2019]%[Đoàn Nhật Thiện, 12-EX3-2019]%[2D1B1-3]
+	Cho hàm số $y=\dfrac{mx+4}{x+m}$. Tìm các giá trị của $m$ để hàm số đồng biến trên $(2;+\infty)$.
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}\setminus \{-m\}$.\\
+	Ta có $y'=\dfrac{m^2-4}{(x-m)^2}$. Để hàm số đồng biến trên khoảng $(2;+\infty)$ thì $$\begin{cases} -m\le 2\\ m^2-4>0 \end{cases}\Leftrightarrow\begin{cases} m\ge -2\\ m < -2 \text{ hoặc } m>2 \end{cases}\Leftrightarrow m>2.$$
+	}
+\end{vd}
+\begin{vd}%[Thi thử L1, Liên trường THPT Thành phố Vinh - Nghệ An, 2019]%[Đinh Thanh Hoàng, 12-EX-5-2019]%[2D1B1-3]
+Tìm tất cả các giá trị thực của $m$ để hàm số $y=\dfrac{3x-1-2m}{x-m}$ nghịch biến trên khoảng $(5; +\infty)$.
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{m\}$.\\
+	Ta có $y'=\dfrac{1-m}{(x-m)^2}$.\\
+	Hàm số đã cho nghịch biến trên khoảng $(5; +\infty)\Leftrightarrow \begin{cases} 1-m < 0 \\ m\leq 5 \end{cases}\Leftrightarrow 1 < m \leq 5$.
+	}
+\end{vd}
+\begin{vd}%[HKI, THPT Mạc Đĩnh Chi - Hồ Chí Minh, 2019]%[Duong Xuan Loi, 12EX6-19]%[2D1B1-3]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=\dfrac{x+1}{x+3m}$ nghịch biến trên khoảng $(6;+\infty)$?
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}\setminus\{-3m\}$.\\
+		$y'=\dfrac{3m-1}{(x+3m)^2}$.\\
+		Để hàm số nghịch biến trên khoảng $(6;+\infty)$ thì $\begin{cases} 3m-1  <  0 \\   -3m\notin(6;+\infty) \end{cases}$\\
+        $\begin{cases} m < \dfrac{1}{3} \\   m\ge -2 \end{cases} \Leftrightarrow m\in \left[-2;\dfrac{1}{3}\right)$.\\
+		Vì $m$ nguyên nên $m\in \{-2;-1;0\}$.
+	}
+\end{vd}
+\begin{vd}%[Thi thử, Sở GD và ĐT - Thanh Hóa, 2019]%[Lê Đạt, 12EX6]%[2D1B1-3]
+	Cho hàm số $ y= \dfrac{x-2}{x-m} $. Tìm các giá trị của tham số $ m $ để hàm số đồng biến trên $ (0;3] $.
+	\loigiai{
+		Tập xác định $ \mathscr{D}=\mathbb{R}\setminus{\{m\}} $.\\
+		Ta có $ y'=\dfrac{2-m}{(x-m)^2} $.\\
+		Để hàm số đồng biến trên $ (0;3] $ thì $ \begin{cases} 2-m>0\\ m\notin (0;3] \end{cases} \Leftrightarrow m\le 0 $.
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}%[HK1, Gia Định, HCM, 2019][Lê Văn Thiện, 12-EX-4-2019]%[2D1B1-3]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=\dfrac{x+2}{x+5m}$ đồng biến trên khoảng $(-\infty;-10)$?
+	\choice
+	{Vô số}
+	{$1$}
+	{\True $2$}
+	{$3$}
+	\loigiai{
+	Tập xác định $\mathscr{D}=\mathbb{R}\setminus \{-5m\}$.\\
+	Hàm số $y=\dfrac{x+2}{x+5m}$ đồng biến trên khoảng $(-\infty;-10)$ khi và chỉ khi \\
+	$\begin{cases} y'>0\\ -5m\notin (-\infty;-10) \end{cases} \Leftrightarrow  \begin{cases} y'=\dfrac{5m-2}{(x+5m)^2}>0\\ -5m\ge-10 \end{cases}\Leftrightarrow \begin{cases} m>\dfrac{2}{5}\\ m\le 2 \end{cases}\Leftrightarrow \dfrac{2}{5} < m\le 2$.\\
+	Vậy có $2$ giá trị nguyên của $m$.
+	}
+\end{ex}
+
+\begin{ex}
+	Cho hàm số $y= \dfrac{mx+2}{2x+m}$, với $m$ là tham số thực. Gọi $S$ là tập hợp tất cả các giá trị nguyên của tham số $m$ để hàm số nghịch biến trên khoảng $(0;1)$. Tìm số phần tử của $S$.
+	\choice
+	{$1$}
+	{$5$}
+	{\True $2$}
+	{$3$}
+	\loigiai{
+	TXĐ: $D= \mathbb{R} \setminus \left\{-\dfrac{m}{2}\right\}$.\\
+    Ta có $y'= \dfrac{m^2- 4}{(2x+m)^2}$. Khi đó\\
+	$
+	\text{YCBT} \Leftrightarrow \begin{cases} m^2-4  <  0 \\  \dfrac{-m}{2} \notin (0;1) \end{cases}$\\
+    $ \Leftrightarrow \begin{cases} -2 <  m <  2\\  \left[\begin{array}{l} \dfrac{-m}{2}\le 0\\  \dfrac{-m}{2} \ge 1 \end{array}\right. \end{cases} $\\
+    $\Leftrightarrow \begin{cases} -2 <  m <  2\\  \left[\begin{array}{l} m\ge 0\\  m \le -2 \end{array}\right. \end{cases} \Leftrightarrow 0\le m <  2 \Rightarrow m\in \left\{0; 1\right\}.	$
+	}
+\end{ex}
+
+\begin{ex}
+	Gọi $ S $ là tập hợp giá trị thực của tham số $ m $ để hàm số $ y=\dfrac{x+2m-3}{x-m} $ đồng biến trên khoảng $ (0;+\infty) $. Mệnh đề nào sau đây \textbf{đúng}?
+	\choice
+	{$ S=(-\infty;1) $}
+	{\True$ S=(-\infty;0] $}
+	{$ S=(0;1) $}
+	{$ S=[0;1) $}
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}\setminus \{m\}$.\\
+		Đạo hàm $ y=\dfrac{x+2m-3}{x-m} \Rightarrow y'=-\dfrac{3m-3}{(x-m)^2} $. \\
+		Điều kiện cần để hàm số đã cho đồng biến trên $ (0;+\infty) $ là
+		$\begin{cases}
+			 y' \geq 0,\forall x\in(0;+\infty)\\ m \leq 0.
+		\end{cases}$\\
+		Vậy $ S=(-\infty;0] $.
+	}
+\end{ex}
+\begin{ex}
+	Tồn tại bao nhiêu số nguyên $m$ để hàm số $y=\dfrac{x-2}{x-m}$ đồng biến trên khoảng $(- \infty;-1)$?
+	\choice
+	{$3$}
+	{$4$}
+	{\True $2$}
+	{Vô số}
+	\loigiai{Tập xác định $\mathscr{D}=\mathbb{R}\setminus \{m\}$.\\
+		Đạo hàm $y'=\dfrac{-m+2}{(x-m)^2}.$\\
+		Hàm số đồng biến trên khoảng $(-\infty;-1) $ khi và chỉ khi $$ \begin{cases} -m+2 > 0\\ m > -1 \end{cases} \Leftrightarrow -1 <  m <  2.$$
+		Vậy $m \in \{0;1\}$ để hàm số $y=\dfrac{x-2}{x-m}$ đồng biến trên khoảng $(-\infty;-1)$.}
+\end{ex}
+\begin{ex}
+	Tìm tất cả các giá trị thực của $m$ để hàm số $y=\dfrac{x-m}{(m-1)x-2}$ nghịch biến trên $(-\infty ;1)$.
+	\choice
+	{$m\in (-1;2)$}
+	{$m\in (-1;3]$}
+	{\True $m\in [1;2)$}
+	{$m\in (1;2]$}
+	\loigiai{
+		Với $m=1$ thì $y=\dfrac{1}{2}-\dfrac{1}{2}x$ là hàm số nghịch biến trên $(-\infty ;1)$.\\
+		Với $m\ne 1$. Ta có $y'=\dfrac{m^2-m-2}{{[(m-1)x-2]}^2}$. Hàm số nghịch biến trên $(-\infty ;1)$
+		$$\Leftrightarrow \dfrac{m^2-m-2}{{[(m-1)x-2]}^2} < 0,\forall x\in (-\infty ;1)\Leftrightarrow \begin{cases} m^2-m-2 < 0 \\
+			  \dfrac{2}{m-1}\ge 1 \\ \end{cases}\Leftrightarrow 1 < m < 2.$$
+		Vậy $m\in [1;2)$.}
+\end{ex}
+\begin{ex}
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y = \dfrac{x + 2}{x + 3m}$ đồng biến trên khoảng $\left(- \infty;  - 6\right)$?
+	\choice
+	{\True $2$}
+	{$6$}
+	{Vô số}
+	{$1$}
+	\loigiai{
+		Điều kiện $x\neq -3m$.\\
+		Có $y'=\dfrac{3m-2}{(x+3m)^3}$. Hàm số đồng biến trên khoảng $(-\infty;-6)$ khi và chỉ khi
+		$\begin{cases} 3m-2 > 0\\  -3m\geq -6 \end{cases}$$\Leftrightarrow\begin{cases} m > \dfrac{2}{3}\\  m\leq 2 \end{cases}$
+		$$\Leftrightarrow \dfrac{2}{3} < m\leq 2.$$
+		Suy ra có hai giá trị nguyên của $m$ thỏa mãn.
+	}
+\end{ex}

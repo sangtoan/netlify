@@ -1,0 +1,124 @@
+\begin{dang}{Tìm $m$ để hàm số dạng phân thức bậc 2 trên bậc 1 có 2 cực trị}
+
+\end{dang}
+
+\begin{vd}%%[D1B230]%[2D1B2-6]
+Tìm tất cả giá trị của tham số $m$ để  hàm số $y= \dfrac{x^2+2x-m}{x-1}$ có hai điểm cực trị.
+\choice
+{$m > 3$}
+{\True $m < 3$}
+{$m < 4$}
+{$m \leq 3$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{1\}$. \\
+Ta có $y' = \dfrac{x^2-2x+m-2}{(x-1)^2}$. \\
+Hàm số có hai điểm cực trị khi và chỉ khi phương trình $x^2-2x+m -2=0$ có hai nghiệm phân biệt khác $1$
+$$\Leftrightarrow \begin{cases} m\neq 3\\  \Delta' = 3 -m  > 0 \end{cases} \Leftrightarrow m < 3.$$
+}
+\end{vd}
+
+
+\begin{vd}%%[D1B231]%[2D1B2-6]
+Tìm tất cả giá trị của tham số  $m$ để  hàm số $y= \dfrac{x^2+x+m}{x-2}$ không có cực trị.
+\choice
+{$m  > -6$}
+{$m < -6$}
+{\True $m \leq -6$}
+{$m  <  -8$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{2\}$. \\
+Ta có $y' = \dfrac{x^2-4x-m-2}{(x-2)^2}$. \\
+Hàm số không có cực trị khi và chỉ khi phương trình $x^2-4x-m-2=0$ vô nghiệm hoặc có nghiệm kép hoặc có nghiệm bằng $2$
+$$\Leftrightarrow \left[\begin{array}{l} m= -6\\  \Delta' = m+6  \leq 0 \end{array}\right. \Leftrightarrow m \leq -6.$$
+}
+\end{vd}
+
+\begin{vd}%%[D1B232]%[2D1B2-6]
+Có bao nhiêu giá trị nguyên của $m$ để hàm số $y=  \dfrac{mx^2+4x-m-1}{x+1}$ có hai điểm cực trị trái dấu?
+\choice
+{$1$}
+{$2$}
+{$3$}
+{\True $4$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{-1\}$. \\
+Ta có $y' = \dfrac{mx^2+2mx+m+5}{(x+1)^2}$. \\
+Hàm số  có hai điểm cực trị trái dấu khi và chỉ khi phương trình $mx^2+2mx+m+5 =0 $ có hai nghiệm trái dấu khác $-1$
+$$
+\Leftrightarrow \begin{cases} 5\neq 0\\  m(m+5)   <   0 \end{cases} \Leftrightarrow -5  <  m  < 0.
+$$
+Mặt khác $m$  nguyên nên $m \in  \{ -4;-3;-2;-1\}$.
+}
+\end{vd}
+
+\begin{vd}%%[D1B233]%[2D1K2-6]
+Tìm tất cả giá trị của tham số $m$ để đồ thị hàm số $y=\dfrac{x^2-2x-m}{x+2}$ có hai điểm cực trị nằm về hai phía khác nhau của trục hoành.
+\choice
+{$m < -2$}
+{\True $m < -1$}
+{$m \leq -1$}
+{$m \leq -2$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{-2\}$. \\
+Ta có $y' = \dfrac{x^2+4x+m-4}{(x+2)^2}$. \\
+Hàm số có hai điểm cực trị khi và chỉ khi phương trình $x^2+4x+m-4=0$ có hai nghiệm phân biệt khác $-2$
+$$
+\Leftrightarrow \begin{cases} m\neq 8\\  \Delta' = 8 -m  > 0 \end{cases} \Leftrightarrow m < 8.
+$$
+Gọi $x_1$, $x_2$ là hai điểm cực trị. Khi đó $x_1,x_2$ là nghiệm của phương trình $x^2+4x+m-4=0$. \\
+Suy ra
+$$
+\begin{cases} x_1+x_2 = -4\\ x_1x_2=m-4. \end{cases}
+$$
+Áp dụng tính chất $\left (\dfrac{u}{v}\right )' = \dfrac{u'v-uv'}{v^2}$, suy ra $\left (\dfrac{u}{v}\right )'  =0 \Leftrightarrow \dfrac{u}{v} = \dfrac{u'}{v'}$. \\ Do đó
+$y(x_1) = 2x_1-2$ và $y(x_2) = 2x_2-2$.  \\
+Hai điểm cực trị nằm về hai phía trục hoành khi  và chỉ khi
+$$y(x_1) y(x_2)   < 0 \Leftrightarrow 4(x_1-1)(x_2-1)  < 0$$
+$$\Leftrightarrow x_1x_2 - (x_1+x_2)+1  < 0 $$
+$$\Leftrightarrow m-4 +4+1  < 0 $$
+$$\Leftrightarrow m < -1 \text{ (thỏa mãn)}.$$
+}
+\end{vd}
+
+\begin{vd}%%[D1B234]%[2D1K2-6]
+Cho hàm số $y= \dfrac{x^2+x-m}{x+1}$ có hai điểm cực trị $x_1$, $x_2$ thỏa mãn $x_1^2+x_2^2-3x_1x_2=19$. Khi đó $m$ thuộc khoảng nào dưới đây?
+\choice
+{\True $(-\infty;1)$}
+{$(1;3)$}
+{$(3;6)$}
+{$(6;+\infty)$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{ -1\}$. \\
+Ta có $y' = \dfrac{x^2+2x+m+1}{(x+1)^2}$. \\
+Hàm số có hai điểm cực trị khi và chỉ khi phương trình $x^2+2x+m+1=0$ có hai nghiệm phân biệt khác $-1$
+$$
+\Leftrightarrow \begin{cases} m\neq 0\\  \Delta' = -m  >  0 \end{cases} \Leftrightarrow m < 0.
+$$
+Theo định lí Vi-ét ta có $\begin{cases} x_1+x_2 = -2\\ x_1x_2=m+1. \end{cases}$ \\
+Khi đó
+$$x_1^2+x_2^2-3x_1x_2=19 \Leftrightarrow (x_1+x_2)^2 - 5x_1 x_2 =19$$
+$$\Leftrightarrow -5(m+1) = 15$$
+$$\Leftrightarrow m= -4 \text{ (thỏa mãn)}.$$
+}
+\end{vd}
+
+\begin{vd}%%[D1B235]%[2D1K2-6]
+Gọi $d$ là đường thẳng đi qua hai điểm cực trị của đồ thị hàm số $y= \dfrac{x^2+mx+1}{2x-1}$. Nếu $d$ đi qua điểm $M(-2;-1)$ thì $m$ thuộc khoảng nào dưới đây?
+\choice
+{$(5;+\infty)$}
+{\True  $(1;5)$}
+{$(-3;1)$}
+{$(-\infty;-3)$}
+\loigiai{
+Tập xác định: $\mathscr{D} = \mathbb{R} \setminus \{\tfrac{1}{2}\}$. \\
+Ta có $y' = \dfrac{2x^2-2x-m-2}{(2x-1)^2}$. \\
+Hàm số có hai điểm cực trị khi và chỉ khi phương trình $2x^2-2x-m-2=0$ có hai nghiệm phân biệt khác $\dfrac{1}{2}$
+$$
+\Leftrightarrow \begin{cases} m\neq -\dfrac{5}{2}\\  \Delta' = 2m+5  > 0 \end{cases} \Leftrightarrow m > - \dfrac{5}{2}.
+$$
+Gọi $x_1$, $x_2$ là hai điểm cực trị.  \\
+Áp dụng tính chất $\left (\dfrac{u}{v}\right )' = \dfrac{u'v-uv'}{v^2}$, suy ra $y(x_1) = \dfrac{2x_1+m}{2}$ và $y(x_2) =  \dfrac{2x_2+m}{2}$.   \\
+Suy ra đường thẳng $d$ có phương trình $y=  \dfrac{2x+m}{2}$. \\
+$d$ đi qua $M(-2;-1)$ khi $-1 =  \dfrac{-4+m}{2} \Leftrightarrow m=2$.
+}
+\end{vd}

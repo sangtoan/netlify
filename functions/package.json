@@ -1,0 +1,17 @@
+{
+  "name": "functions",
+  "scripts": {
+    "start": "python main.py"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "tesseract.js": "^5.1.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

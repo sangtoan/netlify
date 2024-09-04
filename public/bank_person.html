@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX ID Structure Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: #f0f0f0;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            display: flex;
+            margin-top: 50px;
+            height: calc(100vh - 50px);
+        }
+        #tree-container {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            padding: 10px;
+            background: #fff;
+        }
+        #result-container {
+            width: 70%;
+            padding: 20px;
+            overflow-y: auto;
+            background: #fff;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 5px 0;
+            position: relative;
+        }
+        li > ul {
+            display: none;
+            padding-left: 20px;
+        }
+        li.expanded > ul {
+            display: block;
+        }
+        li:before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 5px;
+        }
+        li.expanded:before {
+            content: '▼';
+        }
+        li:hover {
+            color: #007bff;
+        }
+        .file-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            background: #fafafa;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 5px;
+        }
+        #file-input {
+            display: none;
+        }
+        .buttons {
+            margin: 10px;
+        }
+        .buttons button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .buttons button#load-tex {
+            background-color: #28a745; /* Màu xanh lá */
+        }
+        .buttons button#load-more {
+            background-color: #ffc107; /* Màu vàng */
+        }
+        .buttons button:hover {
+            opacity: 0.8;
+        }
+        h2 {
+            color: #28a745; /* Màu xanh lá */
+        }
+        #status-message {
+            color: red;
+            font-weight: bold;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Quay Lại Trang Chủ</a>
+    </div>
+    <div class="container">
+        <div id="tree-container">
+            <div id="choice-container"></div>
+            <div id="choiceTF-container"></div>
+            <div id="others-container"></div>
+        </div>
+        <div id="result-container"></div>
+    </div>
+    <div class="buttons">
+        <button id="load-tex">Load kho .tex</button>
+        <button id="load-more">Load thêm</button>
+        <input type="file" id="file-input" webkitdirectory multiple>
+    </div>
+    <div id="status-message"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const treeContainer = document.getElementById('tree-container');
+            const choiceContainer = document.getElementById('choice-container');
+            const choiceTFContainer = document.getElementById('choiceTF-container');
+            const othersContainer = document.getElementById('others-container');
+            const fileInput = document.getElementById('file-input');
+            const loadTexButton = document.getElementById('load-tex');
+            const loadMoreButton = document.getElementById('load-more');
+            const statusMessage = document.getElementById('status-message');
+            const resultContainer = document.getElementById('result-container');
+
+            let choiceTree = {};
+            let choiceTFTree = {};
+            let othersTree = {};
+
+            loadTexButton.addEventListener('click', () => {
+                if (confirm('Bạn có chắc muốn xoá và tải lại toàn bộ dữ liệu không?')) {
+                    resetTrees();
+                    fileInput.click();
+                }
+            });
+
+            loadMoreButton.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', handleFiles, false);
+
+            function handleFiles() {
+                const files = this.files;
+                statusMessage.textContent = 'Đang xử lý...';
+                const filePromises = [];
+                for (let i = 0; i < files.length; i++) {
+                    filePromises.push(readFileContent(files[i]));
+                }
+
+                Promise.all(filePromises).then(fetchedFiles => {
+                    const newTrees = buildTrees(fetchedFiles);
+                    mergeTrees(choiceTree, newTrees.choiceTree);
+                    mergeTrees(choiceTFTree, newTrees.choiceTFTree);
+                    mergeTrees(othersTree, newTrees.othersTree);
+
+                    buildTreeView(choiceContainer, choiceTree, 'Trắc Nghiệm');
+                    buildTreeView(choiceTFContainer, choiceTFTree, 'Câu True/False');
+                    buildTreeView(othersContainer, othersTree, 'Câu Tự Luận');
+                    statusMessage.textContent = '';
+                }).catch(error => {
+                    statusMessage.textContent = 'Có lỗi xảy ra trong quá trình xử lý.';
+                    console.error(error);
+                });
+            }
+
+            function readFileContent(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        resolve({ path: file.webkitRelativePath || file.name, content: event.target.result });
+                    };
+                    reader.onerror = function(error) {
+                        reject(error);
+                    };
+                    reader.readAsText(file);
+                });
+            }
+
+            function buildTrees(files) {
+                const choiceTree = {};
+                const choiceTFTree = {};
+                const othersTree = {};
+
+                files.forEach(file => {
+                    const exPattern = /\\begin{ex}.*?\\end{ex}/gs;
+                    const idPattern = /\[(\d[A-Z]\d[YBKGTNHVC]\d-\d)\]/;
+                    let match;
+                    while ((match = exPattern.exec(file.content)) !== null) {
+                        const element = match[0];
+                        const idMatch = idPattern.exec(element);
+                        if (idMatch) {
+                            const id = idMatch[0].replace(/[\[\]-]/g, ''); // Loại bỏ dấu gạch nối và dấu ngoặc để hiển thị gọn
+                            const parts = id.split('');
+                            let currentTree;
+
+                            if (element.includes('choice')) {
+                                currentTree = choiceTree;
+                            } else if (element.includes('choicTF')) {
+                                currentTree = choiceTFTree;
+                            } else {
+                                currentTree = othersTree;
+                            }
+
+                            let current = currentTree;
+                            parts.forEach((part, index) => {
+                                if (!current[part]) {
+                                    current[part] = { _files: [] };
+                                }
+                                if (index === parts.length - 1) {
+                                    current[part]._files.push({ path: file.path, id: id, content: element });
+                                }
+                                current = current[part];
+                            });
+                        }
+                    }
+                });
+
+                return { choiceTree, choiceTFTree, othersTree };
+            }
+
+            function mergeTrees(target, source) {
+                for (const key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        if (!target[key]) {
+                            target[key] = source[key];
+                        } else if (typeof source[key] === 'object') {
+                            mergeTrees(target[key], source[key]);
+                        }
+                    }
+                }
+            }
+
+            function buildTreeView(container, data, title) {
+                container.innerHTML = ''; // Clear existing content
+
+                const titleEl = document.createElement('h2');
+                titleEl.textContent = title;
+                container.appendChild(titleEl);
+
+                const ul = document.createElement('ul');
+                container.appendChild(ul);
+
+                buildTreeBranch(ul, data);
+            }
+
+            function buildTreeBranch(container, data) {
+                for (const key in data) {
+                    if (key === '_files') {
+                        data[key].forEach(file => {
+                            const fileLi = document.createElement('li');
+                            fileLi.className = 'file';
+                            fileLi.textContent = file.id; // Hiển thị ID không có dấu gạch nối
+                            fileLi.addEventListener('click', (event) => {
+                                event.stopPropagation(); // Ngăn sự kiện click lan lên phần tử cha
+                                displayFileContent(file);
+                            });
+                            container.appendChild(fileLi);
+                        });
+                    } else {
+                        const dirLi = document.createElement('li');
+                        dirLi.textContent = key;
+                        dirLi.classList.add('directory');
+                        dirLi.addEventListener('click', function (event) {
+                            event.stopPropagation();
+                            this.classList.toggle('expanded');
+                            const childUl = this.querySelector('ul');
+                            if (childUl) {
+                                childUl.classList.toggle('hidden');
+                            }
+                        });
+
+                        const childUl = document.createElement('ul');
+                        childUl.classList.add('hidden');
+                        buildTreeBranch(childUl, data[key]);
+                        dirLi.appendChild(childUl);
+                        container.appendChild(dirLi);
+                    }
+                }
+            }
+
+            function displayFileContent(file) {
+                const fileContentDiv = document.createElement('div');
+                fileContentDiv.className = 'file-content';
+                fileContentDiv.innerHTML = `
+                    <h2>${file.id}</h2>
+                    <pre>${file.content}</pre>
+                    <button class="copy-btn">Copy</button>
+                    <button class="close-btn">X</button>
+                `;
+                fileContentDiv.querySelector('.copy-btn').addEventListener('click', () => {
+                    copyToClipboard(file.content);
+                });
+                fileContentDiv.querySelector('.close-btn').addEventListener('click', () => {
+                    resultContainer.removeChild(fileContentDiv);
+                });
+                resultContainer.appendChild(fileContentDiv);
+            }
+
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('Copied to clipboard');
+            }
+
+            function resetTrees() {
+                choiceTree = {};
+                choiceTFTree = {};
+                othersTree = {};
+                choiceContainer.innerHTML = '';
+                choiceTFContainer.innerHTML = '';
+                othersContainer.innerHTML = '';
+            }
+
+            window.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = 'Bạn có chắc chắn muốn tải lại trang? Tất cả dữ liệu chưa lưu sẽ bị mất.';
+            });
+        });
+    </script>
+</body>
+</html>

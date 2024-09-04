@@ -1,0 +1,191 @@
+\begin{dang}{Tìm $m$ để hàm số bậc ba có hai cực trị}
+\end{dang}
+\begin{vd}%%[D1B217]%[2D1B2-4]
+	Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y=x^3-3x^2+(m+1)x+2$ có hai điểm cực trị.
+	\choice
+	{$m > 2$}
+	{$m  < -4$}
+	{$m\leq 2$}
+	{\True $m < 2$}
+	\loigiai{
+		Ta có $y'=3x^2-6x+m+1$. \\
+		Hàm số có hai điểm cực trị khi phương trình $y'=0$ có hai nghiệm phân biệt
+		$$\Leftrightarrow \Delta' > 0\Leftrightarrow 9-3(m+1) > 0\Leftrightarrow m < 2.$$}
+\end{vd}
+
+\begin{vd}%%[D1B218]%[2D1B2-4]
+	Tìm tham số $m$ để hàm số $y=\dfrac{1}{3}x^3-mx^2+(m+2)x+2018$ {\bf không} có cực trị.
+	\choice
+	{\True $-1\leq m\leq 2$}
+	{$m\leq-1$}
+	{$m\geq 2$}
+	{$m\leq-1$ hoặc $m\geq 2$}
+	\loigiai{
+		Ta có $y'=x^2-2mx+m+2$.\\
+		Để hàm số đã cho không có cực trị khi phương trình $y'=0$ vô nghiệm hoặc có nghiệm kép  $$\Delta'\leq 0\Leftrightarrow m^2-(m+2)\leq 0\Leftrightarrow-1\leq m\leq 2.$$}
+\end{vd}
+
+\begin{vd}%%[D1B219]%[2D1B2-4]%Câu 435.
+	Biết $m_0$ là giá trị của tham số $m$ để hàm số $y=x^3-3x^2+mx-1$ có hai điểm cực trị $x_1,x_2$ sao cho $x_1^2+x_2^2-x_1x_2=13$. Mệnh đề nào dưới đây đúng?
+	\choice
+	{$m_0\in(-1;7)$}
+	{$m_0\in(7;10)$}
+	{\True $m_0\in(-15;-7)$}
+	{$m_0\in(-7;-1)$}
+	\loigiai{
+		TXĐ: $\mathscr{D}=\mathbb{R}$.\\
+		$y'=3x^2-6x+m$.\\
+		Xét $y'=0\Leftrightarrow 3x^2-6x+m=0$; $\Delta'=9-3m$.\\
+		Hàm số có hai điểm cực trị $\Leftrightarrow\Delta' > 0\Leftrightarrow m < 3$.\\
+		Hai điểm cực trị $x_1;x_2$ là nghiệm của $y'=0$ nên: $x_1+x_2=2; x_1\cdot x_2=\dfrac{m}{3}$.\\
+		Khi đó
+		\[x_1^2+x_2^2-x_1x_2=13\Leftrightarrow(x_1+x_2)^2-3x_1\cdot x_1=13\Leftrightarrow 4-m=13\Leftrightarrow m=-9.\]
+		Vậy $m_0=-9\in(-15;-7)$.}
+\end{vd}
+
+\begin{vd}%%[D1B220]%[2D1K2-4]
+	Cho hàm số $y=\dfrac{1}{3}mx^3-(m-1)x^2+3(m-2)x+2018$ với $m$ là tham số. Tổng bình phương tất cả các giá trị của $m$ để hàm số có hai điểm cực trị $x_1$, $x_2$ thỏa mãn $2x_1+x_2=2$ bằng
+	\choice
+	{$\dfrac{73}{16}$}
+	{\True $\dfrac{52}{9}$}
+	{$\dfrac{34}{9}$}
+	{$\dfrac{10}{9}$}
+	\loigiai{
+		Ta có $y'=mx^2-2(m-1)x+3(m-2)$.\\
+		Để hàm số có hai điểm cực trị $x_1$, $x_2$ thỏa mãn $2x_1+x_2=2$ thì $\begin{cases} \Delta' > 0 (1)\\ 2x_1+x_2=2 (2) \end{cases}$ \\
+		Ta có $(1)\Leftrightarrow-2m^2+4m+1 > 0\Leftrightarrow\dfrac{2-\sqrt{6}}{2} < m < \dfrac{2+\sqrt{6}}{2}$\hfill(*)\\
+		Mặt khác ta có $x_1+x_2=\dfrac{2(m-1)}{2}$\hfill(3)\\
+		Từ $(2)$ và $(3)$ ta có $x_1=\dfrac{2}{m}$.\\
+		Vì $y'(x_1)=0\Leftrightarrow m\left(\dfrac{2}{m}\right)^2-2(m-1)\cdot\dfrac{2}{m}+3m-6=0\Leftrightarrow 3m^2-10m+8=0\Leftrightarrow\left[\begin{array}{l} m=2\\ m=\dfrac{4}{3} \end{array}\right.$ (thỏa $(*)$).\\
+		Vậy $2^2+\left(\dfrac{4}{3}\right)^2=\dfrac{52}{9}$.}
+\end{vd}
+
+\begin{vd}%%[D1B221]%[2D1B2-4]
+	Tìm tất cả các giá trị thực của tham số $m$ để hàm số $y=\dfrac{m}{3}x^3+2x^2+mx+1$ có $2$ điểm cực trị thỏa mãn $x_\text{CĐ} < x_\text{CT}$.
+	\choice
+	{$-2 < m < 0$}
+	{$-2 < m < 2$}
+	{\True $0 < m < 2$}
+	{$m < 2$}
+	\loigiai{
+		Ta có $y'=mx^2+4x+m$.\\
+		Hàm số có $2$ điểm cực trị $\Leftrightarrow y'=0$ có $2$ nghiệm phân biệt $\Leftrightarrow\begin{cases} m\neq 0\\ 4-m^2 > 0 \end{cases}\Leftrightarrow\begin{cases} m\neq 0\\ -2 < m < 2 \end{cases}$\hfill(1)\\
+		Căn cứ vào dạng của đồ thị hàm số bậc $3$, để hàm số có $2$ điểm cực trị thỏa mãn thì $m > 0$\hfill(2)\\
+		Từ $(1)$ và $(2)$ suy ra giá trị $m$ cần tìm là $0 < m < 2$.}
+\end{vd}
+
+
+\begin{vd}%%[D1B222]%[2D1K2-4]
+	Có bao nhiêu giá trị nguyên của $m\in (-5;5)$ để đồ thị hàm số $y=  x^3 - 4x^2 + (1-m^2) x + 1$ có $2$ điểm cực trị nằm về hai phía so với trục tung $Oy$?
+	\choice
+	{$3$}
+	{$4$}
+	{$5$}
+	{\True $6$}
+	\loigiai{
+		Tập xác định $\mathscr{D}=\mathbb{R}$.\\
+		$y’=  3  x^2 - 8x +1-m^2$.\\
+		Để đồ thị hàm số có $2$ điểm cực trị nằm về hai phía so với trục tung $Oy$, phương trình $y'=0$ có hai nghiệm $x_1$, $x_2$ phân biệt trái dấu
+		\[\Leftrightarrow x_1\cdot x_2  < 0 \Leftrightarrow \dfrac{1-m^2}{3}  <  0 \Leftrightarrow \left[\begin{array}{l} m  <  -1\\   m > 1. \end{array}\right.\]
+		Vì $m\in \mathbb{Z}$ và $m\in (-5;5)$   nên $m\in \{-4;-3;-2;2;3;4\}$. Vậy có $6$ giá trị $m$ thỏa mãn yêu cầu bài toán.
+	}
+\end{vd}
+
+\begin{vd}%%[D1B223]%[2D1K2-4]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để đồ thị hàm số $y=  -x^3  + 6 x^2   + m -1$ có  hai điểm cực trị nằm về hai bên của trục hoành $Ox$?
+	\choice
+	{$7$}
+	{$9$}
+	{\True $31$}
+	{$33$}
+	\loigiai{
+		Tập xác định $\mathscr{D} = \mathbb{R}$.\\
+		$y'=-3x^2 + 12 x =0\Leftrightarrow \left[\begin{array}{l} x=0\\  x=4. \end{array}\right.$\\
+		Đồ thị hàm số $y=  -x^3  + 6 x^2   + m -1$ có  hai điểm cực trị nằm về hai bên của trục hoành $Ox$ khi và chỉ khi
+		\[y(0)\cdot y(4) < 0\Leftrightarrow (m-1)(m+31) < 0\Leftrightarrow -31 < m < 1.\]
+		Vì $m\in \mathbb{Z}$ nên $m\in \{-30;-29;\ldots;-1;0\}$. Vậy có $31$ giá trị $m$ thỏa mãn yêu cầu bài toán.
+	}
+\end{vd}
+\begin{vd}%%[D1B224]%[Doãn Thịnh]%[TexBook12-HamSo]%[2D1B2-5]
+	Tìm tất cả giá trị của tham số $m$ để hàm số $y=x^4+2\left(m-2\right)x^2+3m-2$ có ba điểm cực trị.
+	\choice
+	{$m\in \left(2;+\infty \right)$}
+	{$m\in \left(-2;2\right)$}
+	{\True $m\in \left(-\infty;2\right)$}
+	{$m\in \left(0;2\right)$}
+	\loigiai{
+		Ta có $y'=4x^3+4\left(m-2\right)x=4x\left(x^2+m-2\right)$.\\
+		$y'=0\Leftrightarrow \left[\begin{array}{l} x=0 \\  x^2=2-m\quad (1) \end{array}\right.$.\\
+		Để hàm số có ba điểm cực trị thì phương trình $y'=0$ có ba nghiệm phân biệt.\\
+		Suy ra phương trình $(1)$ có hai nghiệm phân biệt khác $0\Leftrightarrow 2-m > 0\Leftrightarrow m < 2$.
+	}
+\end{vd}
+
+
+\begin{vd}%%[D1B225]%[2D1B2-5]
+	Cho hàm số $y=2x^4-(m+1)x^2-2$. Tìm tất cả các giá trị thực của tham số $m$ để hàm số có 1 điểm cực trị.
+	\choice
+	{$m > -1$}
+	{$m < -1$}
+	{$ m=-1$}
+	{\True $m\le -1$}
+	\loigiai{%A
+		Ta có $y'=8x^3-2(m+1)x=0\Leftrightarrow \left[\begin{array}{l}x=0\\ 4x^2=m+1\ (1).
+		\end{array}\right.$\\
+		Hàm số có 1 cực trị $\Leftrightarrow y'=0$ có 1 nghiệm duy nhất $\Leftrightarrow $ (1) có 1 nghiệm $x=0$ hoặc vô nghiệm $\Leftrightarrow m+1\le 0\Leftrightarrow m\le -1$.
+	}
+\end{vd}
+
+\begin{vd}%%[D1B226]%[Đề KSCL TSĐH Lần 2, Phan Châu Trinh, Đà Nẵng 2018]%%[Dương Xuân Lợi-12Ex10]%[2D1B2-5]
+	Cho hàm số $y=(m+1)x^4-(m-1)x^2+1$. Có bao nhiêu giá trị nguyên của $m$ để hàm số có một điểm cực đại mà không có điểm cực tiểu?
+	\choice
+	{$1$}
+	{$2$}	
+	{$3$}	
+	{\True $0$}
+	\loigiai{
+		\begin{itemize}
+			\item Với $m=-1$ hàm số có dạng: $y=2x^2+1$.\\
+			$y'=4x$; $y''=4 > 0$, $\forall x\in\mathbb{R}$.\\
+			$y'=0 \Leftrightarrow x=0$.\\
+			Hàm số đạt cực tiểu tại $x=0$ $\Rightarrow m=-1$ (loại).
+			\item Với $m\ne -1$ để hàm số có một cực đại không có cực tiểu thì
+			$$\begin{cases} -(m+1)(m-1)\ge 0\\ m+1 < 0 \end{cases} \Leftrightarrow \begin{cases} -1\le m\le 1\\ m < -1 \end{cases} \Leftrightarrow m\in \varnothing.$$
+		\end{itemize}
+	}
+\end{vd}
+\begin{vd}%%[D1B227]%[2D1K2-5]
+	Có bao nhiêu giá trị nguyên của tham số $m$ để hàm số $y=mx^4-(m-3)x^2+m^2$ có điểm cực tiểu nhưng không có điểm cực đại?
+	\choice
+	{vô số}
+	{$0$}
+	{$2$}
+	{\True$4$}
+	\loigiai{%A
+		$\bullet\ m=0\Rightarrow y=3x^2$. Đồ thị hàm số là một parabol có duy nhất điểm cực tiểu, do đó $m=0$ thỏa mãn.\\
+		$\bullet\ m\ne 0$: Yêu cầu bài toán thỏa mãn khi hàm trùng phương chỉ có đúng 1 điểm cực tiểu\\
+		$\Leftrightarrow \begin{cases} a=m > 0\\ ab=-m(m-3) \ge 0
+		\end{cases}\Leftrightarrow \begin{cases}
+			m > 0\\ 0\le m\le3
+		\end{cases}\Leftrightarrow 0 < m\le 3.$
+		\\Vậy $m\in\{0;1;2;3\}$.
+	}
+\end{vd}
+\begin{vd}%%[D1B228] %[2D1B2-5]
+	Tìm tất cả các giá trị thực của $m$ để hàm số $y=m{{x}^{4}}-\left( m+1 \right){{x}^{2}}+2m-1$ có 3 điểm cực trị?
+	\choice{$-1 < m < 0$}	{$m < -1$}	{$m > -1$}	{\True $\left[ \begin{aligned}
+			& m < -1 \\
+			& m > 0 \\
+		\end{aligned} \right.$}
+	\loigiai{
+		Hàm số có 3 điểm cực trị khi và chỉ khi $m\left( -m-1 \right) < 0\Leftrightarrow \left[ \begin{aligned}
+			& m < -1 \\
+			& m > 0 \\
+		\end{aligned} \right.$.}
+	
+\end{vd}
+\begin{vd}%%[D1B229]%[2D1B2-5]
+	Tìm tất cả các giá trị của tham số $m$ để hàm số $y=(m-1)x^4+2x^2+3$ có duy nhất một cực trị. \choice
+	{\True $m\ge1$} {$m\le 1$} {$m > 1$} {$m < 1$}
+	\loigiai{Hàm số đã cho có một cực trị $\Leftrightarrow (m-1)\cdot2 \ge 0 \Leftrightarrow m \ge 1$}
+\end{vd}

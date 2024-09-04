@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi LaTeX</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        textarea, pre {
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        textarea {
+            border-right: 1px solid #ccc;
+        }
+        .toolbar {
+            padding: 10px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .highlight {
+            background-color: #ffffcc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="toolbar">
+    <button id="copyButton">Copy</button>
+</div>
+<div class="container">
+    <textarea id="inputText" placeholder="Dán mã LaTeX vào đây..."></textarea>
+    <pre id="outputText"></pre>
+</div>
+
+<script>
+    function layCacNgoacLon(text) {
+        let ngoacLon = [];
+        let demNgoac = 0;
+        let batDau = null;
+
+        for (let i = 0; i < text.length; i++) {
+            let kyTu = text[i];
+            if (kyTu === "{") {
+                if (demNgoac === 0) {
+                    batDau = i;
+                }
+                demNgoac += 1;
+            } else if (kyTu === "}") {
+                demNgoac -= 1;
+                if (demNgoac === 0 && batDau !== null) {
+                    let ketThuc = i;
+                    ngoacLon.push([batDau, ketThuc]);
+                    batDau = null;
+                }
+            }
+        }
+
+        return ngoacLon;
+    }
+
+    function replaceHeva(content) {
+        const regexHeva = /\\heva\s*\{/g;
+        let match;
+        while ((match = regexHeva.exec(content)) !== null) {
+            const startIndex = match.index;
+            const ngoacLon = layCacNgoacLon(content.slice(startIndex));
+            if (ngoacLon.length > 0) {
+                const [batDau, ketThuc] = ngoacLon[0];
+                const innerContent = content.slice(startIndex + batDau + 1, startIndex + ketThuc);
+                const newContent = innerContent.replace(/&/g, ' ').trim();
+                const fullMatch = content.slice(startIndex, startIndex + ketThuc + 1);
+                const replacedMatch = `\\begin{cases} ${newContent} \\end{cases}`;
+                content = content.replace(fullMatch, replacedMatch);
+            }
+        }
+        return content;
+    }
+
+    function replaceHoac(content) {
+        const regexHoac = /\\hoac\s*\{/g;
+        let match;
+        while ((match = regexHoac.exec(content)) !== null) {
+            const startIndex = match.index;
+            const ngoacLon = layCacNgoacLon(content.slice(startIndex));
+            if (ngoacLon.length > 0) {
+                const [batDau, ketThuc] = ngoacLon[0];
+                const innerContent = content.slice(startIndex + batDau + 1, startIndex + ketThuc);
+                const newContent = innerContent.replace(/&/g, ' ').trim().replace(/\\\\\\/g, '\\\\');;
+                const fullMatch = content.slice(startIndex, startIndex + ketThuc + 1);
+                const replacedMatch = `\\left[\\begin{array}{l} ${newContent} \\end{array}\\right.`;
+                content = content.replace(fullMatch, replacedMatch);
+            }
+        }
+        return content;
+    }
+
+    function replaceSymbols(content) {
+        return content.replace(/</g, ' < ').replace(/>/g, ' > ');
+    }
+
+    function highlightLatex(content) {
+        return content.replace(/\\begin\{cases\}|\\end\{cases\}|\\left\[\\begin\{array\}\{l\}|\\end\{array\}\\right\./g, match => `<span class="highlight">${match}</span>`);
+    }
+
+    document.getElementById('inputText').addEventListener('input', function() {
+        const inputContent = this.value;
+        let outputContent = replaceHeva(inputContent);
+        outputContent = replaceHoac(outputContent);
+        outputContent = replaceSymbols(outputContent);
+        outputContent = highlightLatex(outputContent);
+        document.getElementById('outputText').innerHTML = outputContent;
+    });
+
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const outputText = document.getElementById('outputText').textContent;
+        navigator.clipboard.writeText(outputText).then(() => {
+            alert('Đã sao chép nội dung!');
+        }).catch(err => {
+            alert('Không thể sao chép nội dung!');
+        });
+    });
+</script>
+
+</body>
+</html>

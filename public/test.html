@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Ordered Lists</title>
+    <style>
+        /* Tùy chỉnh các chỉ số của danh sách ol */
+        ol {
+            counter-reset: item;
+            list-style-type: none;
+            /* Xóa kiểu danh sách mặc định */
+        }
+
+        ol>li {
+            counter-increment: item;
+            margin-bottom: 10px;
+        }
+
+        ol>li::before {
+            content: counter(item) ". ";
+            font-weight: bold;
+            color: #ff6600;
+            /* Màu cam nổi bật */
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        /* Tùy chỉnh các chỉ số của danh sách ol lồng nhau */
+        ol ol {
+            counter-reset: subitem;
+        }
+
+        ol ol>li {
+            counter-increment: subitem;
+            margin-bottom: 10px;
+        }
+
+        ol ol>li::before {
+            content: counters(item, ".") "." counter(subitem, lower-alpha) ". ";
+            font-weight: bold;
+            color: #0066ff;
+            /* Màu xanh dương nổi bật */
+            font-size: 1.0em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Nested Ordered Lists</h2>
+    <ol>
+        <li>First item
+            <ol>
+                <li>First sub-item</li>
+                <li>Second sub-item</li>
+                <li>Third sub-item</li>
+            </ol>
+        </li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ol>
+
+</body>
+
+</html>

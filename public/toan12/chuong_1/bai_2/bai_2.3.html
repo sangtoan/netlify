@@ -1,0 +1,179 @@
+\begin{dang}{Cực trị hàm số trùng phương $y=ax^4+bx^2+c,\;a\neq 0$}
+	\begin{enumerate}
+	\item $\star$  Đạo hàm $y'=4ax^3+2bx=2x\left( 2ax^2+b\right)$; $y'=0\Leftrightarrow\hoac{&x=0\\&2ax^2+b=0\quad (\star).}$
+	\item $\star$  Số lượng cực trị:
+	\begin{itemize}
+	\item $\checkmark$  Hàm số có $3$ điểm cực trị $\Leftrightarrow (\star)$ có $2$ nghiệm phân biệt khác $0\Leftrightarrow a\cdot b < 0$.
+	\item $\checkmark$  Hàm số có $1$ điểm cực trị $\Leftrightarrow a\cdot b\geq 0$.
+	\end{itemize}
+	\end{enumerate}
+	\begin{luuy}
+	\begin{enumerate}
+	\item $\star$  Khi $a\cdot b < 0$ hàm số có $3$ điểm cực trị có tọa độ là $A(0;c)$, $B\left(\sqrt{-\dfrac{b}{2a}};y_1\right)$, $C\left(-\sqrt{-\dfrac{b}{2a}};y_2\right)$ thì:
+	\begin{itemize}
+	\item $\checkmark$  $y_1=y_2$.
+	\item $\checkmark$  $B$ và $C$ đối xứng nhau qua trục $Oy$, điểm $A$ nằm trên trục $Oy$. Do đó tam giác $ABC$ cân tại $A$.
+	\end{itemize}
+	\item $\star$  Một số công thức tính nhanh:
+	\begin{itemize}
+	\item $\checkmark$  $\cos A=\dfrac{b^3+8 a}{b^3-8 a}$. Suy ra:
+	\begin{itemize}
+	\item $\checkmark$  Tam giác $ABC$ vuông khi  $b^3+8a=0$.
+	\item $\checkmark$  Tam giác $ABC$ đều khi $b^3+24a=0$.
+	\end{itemize} 
+	\item $\star$  $S_{A B C}^2=-\dfrac{b^5}{32 a^3}$. 
+	\end{itemize}
+	\end{enumerate}
+	\end{luuy}
+\end{dang}
+
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[2-GHK1-2-Đoàn Thượng Hải Dương - 2019]%[Phan Anh - EX-1-2019]%[2D1B2-1]
+	Gọi $M$, $N$ là các điểm cực tiểu của đồ thị hàm số $y=\dfrac{1}{4}x^4-8x^2+3$. Tính độ dài đoạn thẳng $MN$.
+	\loigiai{Ta có $y'=x^3-16x$, $y'=0\Leftrightarrow x=0\vee x=4\vee x=-4$. Hàm số có bảng biến thiên là
+<img src="khohinh/hchuong1/hinh57.png" alt="Mô tả hình ảnh" class="center-img custom-size">  
+	Từ bảng biến thiên, suy ra đồ thị hàm số có hai điểm cực tiểu là $M(-4;-61)$ và $N(4;-61)$.\\
+	Từ đó ta có $MN=8$.}
+\end{vd}
+\begin{vd}%[Đề kiểm tra giữa học kỳ I THPT Thăng Long, 2018-2019]%[Nguyễn Quốc Thịnh, 12EX2]%[2D1B2-5]
+	Tìm các giá trị của tham số $m$ để hàm số $y=\left(m-1\right)x^4+\left(m^2-2m\right)x^2+m$ có $3$ điểm cực trị.
+	\loigiai{
+	Hàm số đã cho có $3$ điểm cực trị khi và chỉ khi $a\cdot b < 0\Leftrightarrow \left(m-1\right) \cdot \left(m^2-2m\right)  < 0
+	\Leftrightarrow \left[\begin{array}{l} m < 0\\ 1 < m < 2. \end{array}\right.$
+	}
+\end{vd}
+\begin{vd}%[Khảo sát chất lượng L1, Nguyễn Viết Xuân - Vĩnh Phúc, 2019]%[Nguyễn Kiều Nhã Tú, 12EX3]%[2D1B2-5]
+	Tìm $m$ để đồ thị hàm số $y = x^4 - 2mx^2 + 2$ có ba điểm cực trị là ba đỉnh của một tam giác vuông.
+	\loigiai{
+    Áp dụng công thức: $$b^3+8a=0$$
+	Ta có $\left(2m\right)^3+8\cdot 1 =0\Leftrightarrow m=1$.\\
+	$y' = 4x^3 - 4mx; y' = 0 \Leftrightarrow \hoac{&x = 0 \\&x^2 = m.}$\\
+	Hàm số có ba điểm cực trị $\Leftrightarrow m  >  0$.\\
+	Tọa độ ba điểm cực trị là $A(0;2)$, $B\left(\sqrt{m}; 2 - m^2 \right)$, $C\left(-\sqrt{m}; 2 - m^2 \right)$.\\ 
+    Ba điểm này luôn tạo thành tam giác cân tại $A$. Vậy tam giác này vuông cân $\Leftrightarrow\overrightarrow{AB} \cdot \overrightarrow{AC} = 0$,\\
+    Hay $\sqrt{m} \cdot \left(-\sqrt{m}\right) + (-m^2) \cdot (-m^2) = 0\Leftrightarrow m=1$.
+	}
+\end{vd}
+\begin{vd}%[Đề KSCL lần 1 Toán 12,THPT Đông Sơn 1–Thanh Hóa, năm 2018-2019]%[Sang Nguyen, 12EX6]%[2D1B2-5]
+	Cho hàm số $y=mx^4+(m-1)x^2+1-2m$. Tìm tất cả các giá trị của $m$ để hàm số có $3$ điểm cực trị.
+	\loigiai{
+	Hàm số có $3$ điểm cực trị $\Leftrightarrow m(m-1) < 0\Leftrightarrow 0 < m < 1$.
+	}
+\end{vd}
+\begin{vd}%[Đề Tập Huấn -4, Sở GD và ĐT - Hải Phòng, 2019]%[Trần Xuân Thiện, 12EX5]%[2D1B2-4]
+	Cho hàm số $y = x^4 -2x^2 + 2$. Tính diện tích $S$ của tam giác có ba đỉnh là ba điểm cực trị của đồ thị hàm số đã cho.
+	\loigiai{
+		Tập xác định: $\mathscr{D} = \mathbb{R} $.\\
+		Ta có $y' = 4x^3 - 4x = 4x \left(x^2 - 1\right) \Rightarrow y' = 0 \Leftrightarrow \hoac{&x = 0\\&x = 1\\&x = -1.}$\\
+		Bảng biến thiên\\
+        <img src="khohinh/hchuong1/hinh58.png" alt="Mô tả hình ảnh" class="center-img custom-size"> 
+		Đồ thị hàm số có ba điểm cực trị là $A(0;2), B(-1;1), C(1;1)$.\\
+		Nhận xét: $\Delta ABC$ cân tại $A$. Vậy diện tích $\Delta ABC$ là $S = \dfrac{1}{2} \cdot |y_A - y_B| \cdot |x_B - x_A| = \dfrac{1}{2} \cdot 1 \cdot 2 = 1$(đvdt).
+	}
+\end{vd}
+\begin{vd}%[Vương Quyền]%[2D1B2-5]
+	Tìm tất cả các giá trị của tham số $m$ để đồ thị của hàm số $(C_m)\colon y=-x^4+2(m+1)x^2+1$ có ba điểm cực trị $A$, $B$, $C$ lập thành một tam giác đều.
+	\loigiai{
+		Từ $y=-x^4+2(m-1)x^2+1\Rightarrow a=-1$; $b=2(m+1)$ và $c=1$.\\
+			Đồ thị hàm số có ba điểm cực trị khi và chỉ khi $ab < 0\Leftrightarrow m-1 > 0\Leftrightarrow m > 1$.\\
+			Điều kiện để đồ thị hàm số có ba điểm cực trị $A$, $B$, $C$ tạo thành tam giác đều thì 
+			\begin{eqnarray*}
+				& & 24a+b^3=0\\
+				&\Leftrightarrow & 24\cdot (-1)+\left(2(m-1)\right)^3=0\\
+				&\Leftrightarrow & -24+8(m-1)^3=0\\
+				&\Leftrightarrow & m=\sqrt[3]{3}-1 
+			\end{eqnarray*}
+			Vậy với $m=\sqrt[3]{3}-1 $ thì đồ thị của hàm số $(C_m)$ có ba điểm cực trị $A$, $B$, $C$ lập lập thành một tam giác đều.
+			}
+\end{vd}
+\begin{vd}%[Thi thử L3, THPT Lương Thế Vinh Hà Nội, 2019]%[Tô Ngọc Thy, dự án EX9]%[2D1B2-5]
+	Cho hàm số $y=x^4-2mx^2+3m-2$ (với $m$ là tham số). Có bao nhiêu giá trị của tham số $m$ để đồ thị hàm số có ba điểm cực trị đều nằm trên các trục tọa độ?
+	\loigiai{
+		Ta có $y=x^4-2mx^2+3m-2\Rightarrow y'=4x^3-4mx$.\\
+		Khi đó $y'=0\Leftrightarrow\hoac{&x=0\\&x=\pm\sqrt m.}$\\
+		Với $m > 0$ thì đồ thị hàm số có $3$ điểm cực trị và các điểm cực trị là $A(0;3m-2)$, $B(\sqrt m;-m^2+3m-2)$ và $C(-\sqrt m;-m^2+3m-2)$.\\
+		Điểm $A$ đã nằm trên trục tung, vậy để các điểm cực trị đều nằm trên các trục tọa độ thì hai điểm $B$ và $C$ phải nằm trên trục hoành, suy ra $-m^2+3m-2=0\Leftrightarrow\hoac{&m=2\\&m=1.}$\\
+		Vậy có $2$ giá trị của tham số $m$ thỏa mãn yêu cầu bài toán.}
+\end{vd}
+\begin{vd}%[Hải Phòng, 2018]%[Phan Anh Tiến, 12-EX-05]%[2D1K2-5]
+	Với giá trị nào của $m$ thì đồ thị hàm số $y=x^4-2(m-1)x^2+m^4-3m^2+2017$ có ba điểm cực trị tạo thành một tam giác có diện tích bằng $32$?
+	\loigiai{Ta có $\mathscr{D}=\mathbb{R}$ và $y'=4x^3-4(m-1)x$.\\
+		Khi đó $y'=0\Leftrightarrow \hoac{&x=0\\&x^2=m-1.}$\\
+		Để đồ thị hàm số có ba điểm cực trị khi $y'=0$ có ba nghiệm, hay $m > 1$.\\
+		Ba điểm cực trị của đồ thị hàm số là $A(0;m^4-3m^2+2017)$, $B(-\sqrt{m-1};-m^4-4m^2+2m+2016)$ và $C(\sqrt{m-1};-m^4-4m^2+2m+2016)$.\\
+		Suy ra $AB=AC=\sqrt{(m-1)+(m-1)^4}$, $BC=2\sqrt{m-1}$ và đường cao $AH=(m-1)^2$.\\
+		Để tam giác $ABC$ có diện tích $32$ thì $$\dfrac{1}{2}AH\cdot BC=(m-1)^2\sqrt{m-1}=32\Leftrightarrow (m-1)^5=1024\Leftrightarrow m=5$$.
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+\begin{ex}%[Thi thử, Sở GD và ĐT -Lạng Sơn, 2019]%[Trần Duy Khương, 12EX5-2019]%[2D1B2-5]
+	Tìm $m$ để hàm số $y=x^4-(m+3)x^2+m^2-2$ có ba cực trị.
+	\choice
+	{$m\ge -3  $}
+	{\True $ m > -3$}
+	{$m < -3$}
+	{$m\ge 0$}
+	\loigiai{$y'=4x^3-2(m+3)x=4x\left(x^2-\dfrac{m+3}{2}\right)$.\\Hàm số trùng phương có ba cực trị $\Leftrightarrow y'=0$ có ba nghiệm phân biệt $\Leftrightarrow\dfrac{m+3}{2} > 0\Leftrightarrow m > -3$.}
+\end{ex}
+
+\begin{ex}%[GHK1 Toán 12, Nguyễn Chí Thanh, HCM, 2018-2019]%[Vũ Nguyễn Hoàng Anh, 12EX2-19]%[2D1B2-5]
+	Tìm $m$ để đồ thị hàm số $y=x^4-2m^2x^2+1$ có $3$ điểm cực trị $A$, $B$, $C$ và diện tích tam giác $ABC$ bằng $32$ (đơn vị diện tích).
+	\choice
+	{$m\in \{-2;3\}$}
+	{$m\in \mathbb{R}\setminus \{-2;2\}$}
+	{$m=3$}
+	{\True $m\in \{-2;2\}$}
+	\loigiai{
+		Đồ thị hàm số đã cho có ba điểm cực trị tạo thành tam giác có diện tích $32$ khi và chỉ khi
+		\[ \sqrt{-\dfrac{(-2m^2)^5}{32\cdot 1^3}}=32 \Leftrightarrow \left|m^5\right|=32 \Leftrightarrow m=\pm 2. \]
+	}
+\end{ex}
+\begin{ex}%[GHK1,  THPT Đội Cấn, Vĩnh Phúc, Lần 1, 2019]%[Vinh Vo, 12Ex4-2019]%[2D1B2-5]
+	Cho hàm số $ y = x^4 - 2mx^2 + m^2 - 2 $. Tìm $ m $ để hàm số có $ 3 $ điểm cực trị và các điểm cực trị của đồ thị hàm số là ba đỉnh của một tam giác vuông.
+	\choice
+	{ $ m= - 1 $}
+	{$ m = -2 $}
+	{\True $ m = 1 $}
+	{$ m = 2 $}
+	\loigiai{
+		Ta có $ y' = 4x^3 - 4mx = 4x(x^2 - m) $.\\
+		Với $ m  >  0 $ thì đồ thị hàm số có ba điểm cực trị là $ \heva{& A(0; m^2 - 2)   \\ & B(- \sqrt{m}; - 2)   \\ & C( \sqrt{m}; - 2). }$\\
+		Từ tính chất của đồ thị hàm bậc bốn trùng phương, ta thấy $ \triangle ABC $ cân tại $ A $. \\
+		Ta có $ \triangle ABC \text{ vuông cân tại } A \Leftrightarrow |y_A - y_B| = \dfrac{1}{2}|x_B - x_C| \Leftrightarrow m^2 = \sqrt{m}  \Leftrightarrow m = 1  $.
+	}
+\end{ex}
+\begin{ex}%[Thi thử L3, THPT Lương Thế Vinh Hà Nội, 2019]%[Tô Ngọc Thy, dự án EX9]%[2D1B2-5]
+	Cho hàm số $y=x^4-2mx^2+3m-2$ (với $m$ là tham số). Có bao nhiêu giá trị của tham số $m$ để đồ thị hàm số có ba điểm cực trị đều nằm trên các trục tọa độ?
+	\choice
+	{\True $2$}
+	{$0$}
+	{$3$}
+	{$1$}
+	\loigiai{
+		Ta có $y=x^4-2mx^2+3m-2\Rightarrow y'=4x^3-4mx$.\\
+		Khi đó $y'=0\Leftrightarrow\hoac{&x=0\\&x=\pm\sqrt m.}$\\
+		Với $m > 0$ thì đồ thị hàm số có $3$ điểm cực trị và các điểm cực trị là $A(0;3m-2)$, $B(\sqrt m;-m^2+3m-2)$ và $C(-\sqrt m;-m^2+3m-2)$.\\
+		Điểm $A$ đã nằm trên trục tung, vậy để các điểm cực trị đều nằm trên các trục tọa độ thì hai điểm $B$ và $C$ phải nằm trên trục hoành, suy ra $-m^2+3m-2=0\Leftrightarrow\hoac{&m=2\\&m=1.}$\\
+		Vậy có $2$ giá trị của tham số $m$ thỏa mãn yêu cầu bài toán.}
+\end{ex}
+\begin{ex}%[Đề tập huấn, Bắc Kạn, 2018-2019]%[Cao Thành Thái, 12EX5-2019]%[2D1K2-5]
+	Với giá trị nào của tham số $m$ thì hàm số $y=x^4+2mx^2+m^2+m$ có ba điểm cực trị lập thành một tam giác có một góc bằng $120^\circ$?
+	\choice
+	{$m=\dfrac{1}{3}$}
+	{$m=\dfrac{1}{\sqrt[3]{3}}$}
+	{$m=\dfrac{1}{\sqrt{3}}$}
+	{\True $m=-\dfrac{1}{\sqrt[3]{3}}$}
+	\loigiai
+	{
+		Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.\\
+		Ta có $y'=4x^3+4mx = 4x(x^2+m)$.
+		\[y'=0 \Leftrightarrow 4x(x^2+m)=0 \Leftrightarrow \left[\begin{array}{l} x=0 \\ x^2=-m \end{array}\right.\]
+		Đồ thị hàm số đã cho có ba điểm cực trị khi phương trình $x^2=-m$ có hai nghiệm phân biệt $x\neq 0$, suy ra $-m  > 0$ hay $m  <  0$.\\
+		Như vậy, với $m < 0$ đồ thị hàm số đã cho có điểm cực trị là $A(0;m^2+m)$, $B\left(\sqrt{-m};m\right)$, $C\left(-\sqrt{-m};m\right)$.\\
+		Dễ thấy tam giác $ABC$ cân tại $A$. Khi đó $\overrightarrow{AB}=\left(\sqrt{-m};-m^2\right)$, $\overrightarrow{AC} = \left(-\sqrt{-m}; -m^2\right)$.\\
+		Tam giác $ABC$ có một góc bằng $120^\circ$ nên $\widehat{A} = \left(\overrightarrow{AB},\overrightarrow{AC}\right) = 120^\circ$.\\
+		Suy ra\\
+			$\cos\left(\overrightarrow{AB},\overrightarrow{AC}\right) = -\dfrac{1}{2} \Leftrightarrow \dfrac{m^4+m}{m^4-m} = -\dfrac{1}{2} \Leftrightarrow 3m^4+m=0 \Leftrightarrow m(3m^3+1)=0$\\ $\Leftrightarrow \left[\begin{array}{l} m=0 \\ m=-\dfrac{1}{\sqrt[3]{3}} \end{array}\right. $.
+		Kết hợp điều kiện $m < 0$ ta được $m=-\dfrac{1}{\sqrt[3]{3}}$ là giá trị thỏa mãn yêu cầu bài toán.
+	}
+\end{ex}

@@ -1,0 +1,150 @@
+\begin{dang}{Xác định hệ số $a$, $b$, $c$, $d$}
+	 Hàm đa thức bậc $3$, bậc $4$ đạt cực trị tại điểm $A(x_A;y_A)$ suy ra $\begin{cases} y'(x_A)=0\\ y(x_A)=y_A. \end{cases}$
+\end{dang}
+\begin{vd}%%[D1B241]%[2D1B2-3]
+	Cho hàm số $y=x^3-2x^2+ax+b$, $(a,b\in \mathbb{R})$ có đồ thị $\mathscr{(C)}$. Biết đồ thị $\mathscr{(C)}$ có điểm cực trị là $A(1;3)$. Tính giá trị của $P=4a-b$.
+	\choice
+	{$P=3$}
+	{$P=2$}
+	{$P=4$}
+	{\True $P=1$}
+	\loigiai{Ta có $y=x^3-2x^2+ax+b\Rightarrow y' =3x^2-4x+1$.\\
+		Vì đồ thị $\mathscr{(C)}$ có điểm cực trị là $A(1;3)$ nên $\begin{cases} y(1)=3\\ y' (1)=0 \end{cases}\Rightarrow \begin{cases} a+b-1=3\\ a-1=0 \end{cases}\Rightarrow \begin{cases} a=1\\ b=3. \end{cases}$
+		\\
+		Vậy $P=4a-b=1$.
+	}
+\end{vd}
+\begin{vd}%%[D1B242]%[2D1B2-3]
+	Hàm số $y=x^3+2ax^2+4bx-2022$ với $a$, $b\in\mathbb{R}$ đạt cực trị tại $A(-1;-3)$. Khi đó hiệu $H=4037a-4034b$ bằng
+	\choice
+	{$H=-1$}
+	{$H=2$}
+	{\True $H=0$}
+	{$H=-2$}
+	\loigiai{
+		Ta có $y'=3x^2+4ax+4b$.\\
+		Hàm số đạt cực trị tại $A(-1;3)\Rightarrow \begin{cases} y'(-1)=0\\ y(-1)=-3 \end{cases}\Leftrightarrow\begin{cases} 4a-4b=3\\ 2a-4b=2020 \end{cases}\Leftrightarrow \begin{cases} a=-\dfrac{2017}{2}\\ b=-\dfrac{4037}{4}. \end{cases}$\\
+		Vậy $H=4037\cdot\left(-\dfrac{2017}{2}\right)-4034\cdot\left(-\dfrac{4037}{4}\right)=0$.
+	}
+\end{vd}
+\begin{vd}%%[D1B243]%[2D1B2-3]
+	Cho hàm số $y=f(x)=ax^3+bx^2+cx+d$ với $a\ne 0$. Biết đồ thị hàm số có hai điểm cực trị là $A(1;-1)$, $B(-1;3)$. Tính $f(-3)$.
+	\choice
+	{$f(-3)=53$}
+	{\True $f(-3)=-17$}
+	{$f(-3)=-53$}
+	{$f(-3)=17$}
+	\loigiai{
+		Ta có $f'(x)=3ax^2+2bx+c,\, \forall x\in\mathbb{R}$.\\
+		Hàm số $y=f(x)=ax^3+bx^2+cx+d$ có hai cực trị là $A(1;-1)$, $B(-1;3)$ khi và chỉ khi
+		$$\begin{cases} f(1)=-1\\  f(-1)=3\\  f'(1)=0\\ f'(-1)=0 \end{cases}\Leftrightarrow\begin{cases} a+b+c+d=-1\\ -a+b-c+d=3\\ 3a+b+c=0\\ 3a-b+c=0. \end{cases}$$
+		Từ đây ta giải được $a=1$, $b=0$, $c=-3$, $d=1$. Hay $f(x)=x^3-3x+1$.\\
+		Do đó $f(-3)=-17$.
+	}
+\end{vd}
+\begin{vd}%%[D1B244]%[2D1B2-3]
+	Ta xác định được các số $a,b,c$ để đồ thị hàm số $y=x^3 +ax^2 +bx + c$ đi qua điểm $(1;0)$ và có điểm cực trị $(-2;0)$. Tính giá trị biểu thức $T = a^2 + b^2 + c^2$.
+	\choice
+	{\True $25$}
+	{$-1$}
+	{$7$}
+	{$14$}
+	\loigiai{Ta có $y'=3x^2+2ax+b$. Theo đề bài ta có
+		$$\begin{cases} y(1)=0\\ y'(-2)=0\\ y(-2)=0 \end{cases}\Leftrightarrow\begin{cases} a+b+c=-1\\ 4a-b=12\\ 4a-2b+c=8 \end{cases}\Leftrightarrow\begin{cases} a=3\\ b=0\\ c=-4. \end{cases}$$
+		Vậy $T=a^2+b^2+c^2=25$.
+	}
+\end{vd}
+\begin{vd}%%[D1B245]%[2D1B2-5]
+	Biết rằng đồ thị hàm số $y=f(x)=ax^4+bx^2+c$ có hai điểm cực trị là $A(0;2)$ và $B(2;-14)$. Tính $f(1)$.
+	\choice
+	{$f(1)=0 $}
+	{$f(1)=-6 $}
+	{\True $f(1)=-5 $}
+	{$f(1)=-7 $}
+	\loigiai{
+		Ta có $f'(x)=4ax^3+2bx=2x(2ax^2+b)=0\Leftrightarrow \left[\begin{array}{l} x=0\\  x^2=\dfrac{-b}{2a}. \end{array}\right.$\\ Đồ thị hàm số có hai điểm cực trị là $A(0;2)$ và $B(2;-14)$ suy ra $\dfrac{-b}{2a}=2^2\Rightarrow b=-8a$.\\
+		Ta có đồ thị hàm số đi qua điểm $A(0;2)\Rightarrow c=2$.\\
+		Đồ thị hàm số đi qua điểm $B(2;-14)$\\
+		$\Rightarrow -14=a\cdot 2^4+b\cdot 2^2+2\Leftrightarrow -16=16a-32a\Leftrightarrow a=1\Rightarrow b=-8$.\\
+		Ta có $f(x)=x^4-8x^2+2$ suy ra $f(1)=-5$.
+	}
+\end{vd}
+\begin{ex}%%[D1B2179]%[2D1K2-3]
+	Biết điểm $M(0;4)$ là điểm cực đại của đồ thị hàm số $f(x)=x^3+ax^2+bx+a^2$. Tính $f(3)$.
+	\choice
+	{$f(3)=17$}
+	{$f(3)=49$}
+	{$f(3)=34$}
+	{\True $f(3)=13$}
+	\loigiai{
+		Từ giả thiết ta suy ra $\begin{cases} f(0)=4\\ f'(0)=0\\ f''(0) < 0 \end{cases} \Leftrightarrow\begin{cases} a=\pm 2\\ b=0\\ a < 0 \end{cases}\Leftrightarrow \begin{cases} a=-2\\ b=0. \end{cases}$\\
+		Khi đó $f(x)=x^3-2x^2+4$ nên $f(3)=13.$
+	}
+\end{ex}
+\begin{ex}%%[D1B2180]%[2D1K2-3]
+	Biết $M(0;2), N(2;-2)$ là các điểm cực trị của đồ thị hàm số $y=ax^3+bx^2+cx+d$. Tính giá trị của hàm số tại $x=-2$.
+	\choice
+	{$y(-2)=2$}
+	{$y(-2)=22$}
+	{$y(-2)=6$}
+	{\True $y(-2)=-18$}
+	\loigiai{
+		Ta có $y'=3ax^2+2bx+c$.\\
+		Do $M(0;2), N(2;-2)$ là các điểm cực trị của đồ thị hàm số nên
+		$$\begin{cases} y'(0)=0\\  y'(2)=0 \\
+			  y(0)=2\\  y(2)=-2 \end{cases}\Leftrightarrow\begin{cases} c=0\\ 12a+4b+c=0\\ d=2\\  8a+4b+2c+d=0 \end{cases}\Leftrightarrow\begin{cases} a=1\\ b=-3\\  c=0\\
+			 d=2. \end{cases} $$
+		Vậy hàm số $y=x^3-3x^2+2$. Suy ra $y(-2)=-18$.
+	}
+\end{ex}
+\begin{ex}%%[D1B2181]%[2D1K2-3]
+	Biết rằng đồ thị hàm số $ y=(3a^2-1)x^3-(b^3+1)x^2+3c^2x+4d$ có hai điểm cực trị là $A(1;-7)$ và $B(2;-8)$. Hãy tính tổng $M=a^2+b^2+c^2+d^2$.
+	\choice
+	{$-18$}
+	{\True $18$}
+	{$8$}
+	{$-8$}
+	\loigiai{
+		Đặt $\begin{cases} m=3a^2-1\\
+			 n=b^3+1\\
+			 p=3c^2 \end{cases}$. Ta có
+		$ y=mx^3-nx^2+px+4d$ và $y'=3mx^2-2nx+p$.\\
+		Theo bài ra ta có hệ phương trình
+		$\begin{cases} m\cdot (1)^3-n(1)^2+p\cdot 1+4d=-7\quad (1)\\
+			 m\cdot (2)^3-n(2)^2+p\cdot 2+4d=-8\quad (2)\\
+			 3\cdot m\cdot (1)^2-2\cdot n(1)+p=0\\
+			 3\cdot m\cdot (2)^2-2\cdot n(2)^2+p=0 \end{cases}$
+		$$\Rightarrow \begin{cases} 7m-3n+p=-1\;\text{(trừ (2) cho (1))}\\ 3m-2n+p=0\\ 12m-4n+p=0 \end{cases}\Rightarrow\begin{cases} m=2\\ n=9\\ p=12\\ d=-3\\ \end{cases}\Rightarrow\begin{cases} a^2=1\\ b^2=4\\ c^2=4\\ d^2=9. \end{cases} $$
+		Vậy $M=a^2+b^2+c^2+d^2=1+4+4+9=18$.}
+\end{ex}
+\begin{ex}%%[D1B2182]%[2D1K2-3]
+	Đồ thị hàm số $y=x^3-3x^2+ax+b$ có điểm cực tiểu $A(2; 24)$ thì tổng $a+b$ có giá trị bằng
+	\choice
+	{$-2$}
+	{\True $2$}
+	{$-3$}
+	{$3$}
+	\loigiai{
+		Ta có $y'=3x^2-6x+a$, $y''=6x-6$.\\
+		Hàm số đạt cực tiểu tại điểm $A(2;-2)\Rightarrow y'(2)=0\Rightarrow a=0$.\\
+		Với $a=0$ ta có $y''(2)=6 > 0$. Suy ra $a=0$ thỏa mãn đề bài.\\
+		Đồ thị hàm số đi qua điểm $A(2;-2)\Rightarrow y(2)=-2\Rightarrow 8-12+b=-2\Rightarrow b=2$.\\
+		Vậy $a+b=2$.
+	}
+\end{ex}
+
+\begin{ex}%%[D1B2183]%[2D1B2-5]
+	Biết rằng đồ thị hàm số $y=f(x)=ax^4+bx^2+c$ có hai điểm cực trị là $A(0;1)$ và $B(-2;3)$. Tính $f(4)$.
+	\choice
+	{$f(4)=10 $}
+	{$f(4)=-16 $}
+	{\True $f(4)=-15 $}
+	{$f(4)=-17 $}
+	\loigiai{
+		Ta có $f'(x)=4ax^3+2bx=2x(2ax^2+b)=0\Leftrightarrow \left[\begin{array}{l} x=0\\  x^2=\dfrac{-b}{2a}. \end{array}\right.$\\ Đồ thị hàm số có hai điểm cực trị là $A(0;1)$ và $B(-2;3)$ suy ra $\dfrac{-b}{2a}=2^2\Rightarrow b=-8a$.\\
+		Ta có đồ thị hàm số đi qua điểm $A(0;1)\Rightarrow c=1$.\\
+		Đồ thị hàm số đi qua điểm $B(-2;3)$\\
+		$\Rightarrow 3=a\cdot 2^4+b\cdot 2^2+1\Leftrightarrow 2=16a-32a\Leftrightarrow a=-\dfrac{1}{8}\Rightarrow b=1$.\\
+		Ta có $f(x)=-\dfrac{1}{8}x^4+x^2+1$ suy ra $f(4)=-15$.
+	}
+\end{ex}

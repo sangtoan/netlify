@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert LaTeX to DOCX</title>
+</head>
+<body>
+    <input type="file" id="latexFileInput" accept=".tex">
+    <button id="convertButton">Convert to DOCX</button>
+
+    <!-- PizZip library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.0.4/pizzip.min.js"></script>
+    <!-- Docxtemplater library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.21.1/docxtemplater.js"></script>
+    <!-- FileSaver library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const input = document.getElementById('latexFileInput');
+            if (input.files.length === 0) {
+                alert('Please select a LaTeX file.');
+                return;
+            }
+
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const latexContent = e.target.result;
+
+                // Create a DOCX template
+                const zip = new PizZip();
+                zip.file("word/document.xml", "<w:document xmlns:w='http://schemas.openxmlformats.org/wordprocessingml/2006/main'><w:body><w:p><w:r><w:t>" + latexContent + "</w:t></w:r></w:p></w:body></w:document>");
+                
+                const doc = new docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+                
+                const out = doc.getZip().generate({
+                    type: "blob",
+                    mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                });
+                
+                // Save the DOCX file
+                saveAs(out, "converted.docx");
+            };
+
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>

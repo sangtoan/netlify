@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giải Toán Đếm Số</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        h1, h2 {
+            color: #0066cc;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        #result {
+            font-weight: bold;
+            color: #0066cc;
+            text-align: center;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #005bb5;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Giải Toán Đếm Số</h1>
+        <form id="countingForm">
+            <div class="form-group">
+                <label for="setA">Nhập tập A (các số cách nhau bởi dấu phẩy):</label>
+                <input type="text" id="setA" name="setA" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionK">Có k chữ số khác nhau:</label>
+                <input type="number" id="conditionK" name="conditionK" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionAny">
+                    <input type="checkbox" id="conditionAny" name="conditionAny" onclick="calculate()"> Chữ số tùy ý có thể giống nhau
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="conditionOdd">
+                    <input type="checkbox" id="conditionOdd" name="conditionOdd" onclick="calculate()"> Là số lẻ
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="conditionEven">
+                    <input type="checkbox" id="conditionEven" name="conditionEven" onclick="calculate()"> Là số chẵn
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="conditionDivisible">Chia hết cho số x:</label>
+                <input type="number" id="conditionDivisible" name="conditionDivisible" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionInclude">Luôn có mặt chữ số x:</label>
+                <input type="text" id="conditionInclude" name="conditionInclude" oninput="calculate()">
+            </div> 
+
+            <div class="form-group">
+                <label for="conditionIncludeTwo">Luôn có mặt 2 chữ số x,y (ví dụ 0,1):</label>
+                <input type="text" id="conditionIncludeTwo" name="conditionIncludeTwo" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionAdjacent">Hai chữ số x,y luôn gần nhau (ví dụ 2,3):</label>
+                <input type="text" id="conditionAdjacent" name="conditionAdjacent" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionGreaterThan">Lớn hơn số:</label>
+                <input type="number" id="conditionGreaterThan" name="conditionGreaterThan" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionLessThan">Nhỏ hơn số:</label>
+                <input type="number" id="conditionLessThan" name="conditionLessThan" oninput="calculate()">
+            </div>
+            
+            <div class="form-group">
+                <label for="conditionSumDivisible">Tổng các chữ số chia hết cho:</label>
+                <input type="number" id="conditionSumDivisible" name="conditionSumDivisible" oninput="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label for="conditionProductDivisible">Tích các chữ số chia hết cho:</label>
+                <input type="number" id="conditionProductDivisible" name="conditionProductDivisible" oninput="calculate()">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="conditionUnique">
+                    <input type="checkbox" id="conditionUnique" name="conditionUnique" onclick="calculate()"> Bài toán rút các thẻ số
+                </label>
+            </div>
+
+            <div style="grid-column: span 2; text-align: center;">
+                <input type="button" value=" " class="btn" onclick="calculate()">
+            </div>
+        </form>
+
+        <h2 id="countResult">Kết quả:</h2>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function generateCombinations(arr, k) {
+            const results = [];
+            function helper(temp, start) {
+                if (temp.length === k) {
+                    results.push([...temp]);
+                    return;
+                }
+                for (let i = start; i < arr.length; i++) {
+                    temp.push(arr[i]);
+                    helper(temp, i + 1);
+                    temp.pop();
+                }
+            }
+            helper([], 0);
+            return results;
+        }
+
+        function permute(arr) {
+            let results = [];
+
+            function permuteHelper(tempArr, remainingArr) {
+                if (remainingArr.length === 0) {
+                    results.push(tempArr);
+                }
+                for (let i = 0; i < remainingArr.length; i++) {
+                    permuteHelper(tempArr.concat(remainingArr[i]), remainingArr.slice(0, i).concat(remainingArr.slice(i + 1)));
+                }
+            }
+
+            permuteHelper([], arr);
+            return results;
+        }
+
+        function calculate() {
+            const setA = document.getElementById('setA').value.split(',').map(Number);
+            const conditionK = document.getElementById('conditionK').value ? parseInt(document.getElementById('conditionK').value) : null;
+            const conditionAny = document.getElementById('conditionAny').checked;
+            const conditionOdd = document.getElementById('conditionOdd').checked;
+            const conditionEven = document.getElementById('conditionEven').checked;
+            const conditionDivisible = document.getElementById('conditionDivisible').value ? parseInt(document.getElementById('conditionDivisible').value) : null;
+            const conditionInclude = document.getElementById('conditionInclude').value ? document.getElementById('conditionInclude').value.split(',').map(Number) : [];
+            const conditionIncludeTwo = document.getElementById('conditionIncludeTwo').value ? document.getElementById('conditionIncludeTwo').value.split(',').map(Number) : [];
+            const conditionAdjacent = document.getElementById('conditionAdjacent').value ? document.getElementById('conditionAdjacent').value.split(',').map(Number) : [];
+            const conditionGreaterThan = document.getElementById('conditionGreaterThan').value ? parseInt(document.getElementById('conditionGreaterThan').value) : null;
+            const conditionLessThan = document.getElementById('conditionLessThan').value ? parseInt(document.getElementById('conditionLessThan').value) : null;
+            const conditionSumDivisible = document.getElementById('conditionSumDivisible').value ? parseInt(document.getElementById('conditionSumDivisible').value) : null;
+            const conditionProductDivisible = document.getElementById('conditionProductDivisible').value ? parseInt(document.getElementById('conditionProductDivisible').value) : null;
+            const conditionUnique = document.getElementById('conditionUnique').checked;
+
+            let resultArray = [];
+
+            if (conditionK !== null) {
+                const combinations = generateCombinations(setA, conditionK);
+                for (const combination of combinations) {
+                    const permutations = permute(combination);
+                    for (const perm of permutations) {
+                        const numStr = perm.join('');
+                        if (numStr[0] !== '0') { // Loại bỏ số có chữ số 0 ở đầu
+                            const num = parseInt(numStr);
+                            resultArray.push(num);
+                        }
+                    }
+                }
+            } else {
+                resultArray = [...setA];
+            }
+
+            if (conditionOdd) {
+                resultArray = resultArray.filter(num => num % 2 !== 0);
+            }
+
+            if (conditionEven) {
+                resultArray = resultArray.filter(num => num % 2 === 0);
+            }
+
+            if (conditionDivisible !== null) {
+                resultArray = resultArray.filter(num => num % conditionDivisible === 0);
+            }
+
+            if (conditionInclude.length > 0) {
+                resultArray = resultArray.filter(num => conditionInclude.every(digit => num.toString().includes(digit)));
+            }
+
+            if (conditionIncludeTwo.length === 2) {
+                resultArray = resultArray.filter(num => {
+                    const numStr = num.toString();
+                    return numStr.includes(conditionIncludeTwo[0]) && numStr.includes(conditionIncludeTwo[1]);
+                });
+            }
+
+            if (conditionAdjacent.length === 2) {
+                resultArray = resultArray.filter(num => {
+                    const numStr = num.toString();
+                    const pos1 = numStr.indexOf(conditionAdjacent[0].toString());
+                    const pos2 = numStr.indexOf(conditionAdjacent[1].toString());
+                    return pos1 !== -1 && pos2 !== -1 && Math.abs(pos1 - pos2) === 1;
+                });
+            }
+
+            if (conditionGreaterThan !== null) {
+                resultArray = resultArray.filter(num => num > conditionGreaterThan);
+            }
+
+            if (conditionLessThan !== null) {
+                resultArray = resultArray.filter(num => num < conditionLessThan);
+            }
+
+            if (conditionSumDivisible !== null) {
+                resultArray = resultArray.filter(num => {
+                    const digitSum = num.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+                    return digitSum % conditionSumDivisible === 0;
+                });
+            }
+
+            if (conditionProductDivisible !== null) {
+                resultArray = resultArray.filter(num => {
+                    const digitProduct = num.toString().split('').reduce((acc, digit) => acc * parseInt(digit), 1);
+                    return digitProduct % conditionProductDivisible === 0;
+                });
+            }
+
+            if (conditionUnique) {
+                const uniqueResults = new Set(resultArray.map(num => num.toString().split('').sort().join('')));
+                resultArray = Array.from(uniqueResults).map(numStr => parseInt(numStr));
+            }
+
+            const count = resultArray.length;
+            const resultText = count > 0 ? resultArray.join(', ') : 'Không có số nào thỏa mãn điều kiện.';
+
+            document.getElementById('countResult').innerText = `Kết quả: Có ${count} số thỏa mãn điều kiện`;
+            document.getElementById('result').innerText = resultText;
+        }
+
+        window.onload = calculate;
+    </script>
+</body>
+</html>

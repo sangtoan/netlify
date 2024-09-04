@@ -1,0 +1,340 @@
+\section{Hệ trục tọa độ $Oxyz$} % Chữ thường
+\subsubsection{Kiến Thức Phải Biết}
+\begin{enumerate}
+\item Trong không gian xét hệ trục $O x y z$, có trục $O x$ vuông góc với trục $Oy$ tại $O$, và trục $Oz$ vuông góc với
+mặt phẳng $Oxy$ tại $O$. Các vectơ đơn vị trên từng trục $Ox, Oy, Oz$ lần lượt là $\vec{i}=(1; 0; 0)$, $\vec{j}=(0; 1;
+0), \vec{k}=(0; 0; 1)$.
+\item Nếu $\vec{a}=a_1\vec{i}+a_2\vec{j}+a_3\vec{k}$ thì $\vec{a}=\left(a_1; a_2; a_3\right)$.
+\item $M\left(x_M; y_M; z_M\right) \Leftrightarrow \overrightarrow{OM}=x_M\vec{i}+y_M\vec{j}+z_M\vec{k}$.
+\item Cho $A\left(x_A; y_A; z_A\right)$ và $B\left(x_B; y_B; z_B\right)$.
+\item Ta có: $\overrightarrow{AB}=\left(x_B-x_A; y_B-y_A; z_B-z_A\right)$ và
+$AB=\sqrt{\left(x_B-x_A\right)^{2}+\left(y_B-y_A\right)^{2}+\left(z_B-z_A\right)^{2}}$.
+\item $M$ là trung điểm $AB$ thì $M\left(\dfrac{x_{A}+x_{B}}{2}; \dfrac{y_{A}+y_{B}}{2}; \dfrac{z_{A}+z_{B}}{2}\right)$.
+\item Trong không gian với hệ tọa độ $O x y z$. Cho $\vec{a}=\left(a_{1} ; a_{2} ; a_{3}\right)$ và $\vec{b}=\left(b_{1}
+; b_{2} ; b_{3}\right)$ ta có
+\begin{enumerate}
+\item $\vec{a}=\vec{b} \Leftrightarrow \heva{&a_1=b_1\\&a_2=b_2\\&a_3=b_3.}$
+\item $\vec{a} \pm \vec{b}=\left(a_{1} \pm b_{1} ; a_{2} \pm b_{2} ; a_{3} \pm b_{3}\right)$.
+\item $k \cdot \vec{a}=\left(ka_{1}; ka_{2}; k a_{3}\right)$.
+\item $\vec{a} \cdot \vec{b}=\left |\vec{a}\right | \cdot\left |\vec{b}\right |\cdot \cos \left (\vec{a}, \vec{b}\right
+)=a_1b_1+a_2b_2+a_3b_3$.
+\item $|\vec{a}|=\sqrt{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}}$.
+\item $\cos \varphi=\cos \left (\vec{a}, \vec{b}\right )=\dfrac{a_{1} \cdot b_{1}+a_{2} \cdot b_{2}+a_{3} \cdot
+b_{3}}{\sqrt{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}} \cdot \sqrt{b_{1}^{2}+b_{2}^{2}+b_{3}^{2}}}$ \quad $\left (\text{với}\,\,
+\vec{a} \neq \overrightarrow{0}, \vec{b} \neq \overrightarrow{0}\right )$.
+\item $\vec{a}$ và $\vec{b}$ vuông góc $\Leftrightarrow \vec{a} \cdot \vec{b}=0 \Leftrightarrow a_{1} \cdot b_{1}+a_{2}
+\cdot b_{2}+a_{3} \cdot b_{3}=0$.
+\item $\vec{a}$ và $\vec{b}$ cùng phương $\Leftrightarrow \exists k \in R: \vec{a}=k \vec{b} \Leftrightarrow
+\heva{&a_1=kb_1\\&a_2=kb_2\\&a_3=kb_3.}$
+\end{enumerate}
+\item Tích có hướng của $\vec{a}=\left(a_{1}; a_{2}; a_{3}\right)$ và $\vec{b}=\left(b_{1}; b_{2}; b_{3}\right)$ là \\
+$\left [\vec{a}, \vec{b}\right ]=\left(a_{2} b_{3}-a_{3} b_{2} ; a_{3} b_{1}-a_{1} b_{3} ; a_{1} b_{2}-a_{2}
+b_{1}\right)$.
+\begin{enumerate}
+\item $\vec{a}$ và $\vec{b}$ cùng phương $\Leftrightarrow \left [\vec{a}, \vec{b}\right ]=\overrightarrow{0}$.
+\item $\vec{a}, \vec{b}, \vec{c}$ đồng phẳng $\Leftrightarrow \left [\vec{a}, \vec{b}\right ]\cdot \vec{c}=0$.
+\item Diện tích tam giác: $S_{\triangle ABC}=\dfrac{1}{2}\left |\left [\overrightarrow{AB}, \overrightarrow{AC}\right
+]\right |$.
+\item Thể tích tứ diện: $V_{ABCD}=\dfrac{1}{6}\left |\left [\overrightarrow{AB}, \overrightarrow{AC}\right ] \cdot
+\overrightarrow{AD}\right |$.
+\item Thể tích khối hộp: $V_{ABCD.A'B'C'D'}=\left |\left [\overrightarrow{AB}, \overrightarrow{AD}\right ] \cdot
+\overrightarrow{AA'}\right |$.
+\end{enumerate}
+\item Một số kiến thức khác
+\begin{enumerate}
+\item Nếu $M$ chia đoạn $A B$ theo ti số $k\,\,\left (\overrightarrow{MA}=k \overrightarrow{MB}\right )$ thì ta có:\\
+$x_{M}=\dfrac{x_{A}-kx_{B}}{1-k}; y_{M}=\dfrac{y_{A}-ky_{B}}{1-k}; z_{M}=\dfrac{z_{A}-kz_{B}}{1-k}$. Với $(k
+\neq 1)$
+\item $G$ là trọng tâm của tam giác $ABC$ $$\heva{&x_{G}=\dfrac{x_{A}+x_{B}+x_{C}}{3}\\& y_{G}=\dfrac{y_{A}+y_{B}+y_{C}}{3}\\&
+z_{G}=\dfrac{z_{A}+z_{B}+z_{C}}{3}}$$
+\item $G$ là trọng tâm của tứ diện $ABCD \Leftrightarrow
+\overrightarrow{GA}+\overrightarrow{GB}+\overrightarrow{GC}+\overrightarrow{GD}=\overrightarrow{0}$.
+\end{enumerate}
+\end{enumerate}
+\subsubsection{Nhóm Toạ Độ Điểm}
+\begin{ex}%Câu 38%[2-TT-TranHungDao-NamDinh-2019]%[Đặng Mạnh Hùng, dự án tex đề W-T-B]%[2H3B1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho $\vec{a}=(2;0;0)$;$\vec{b}=4\vec{k}-5\vec{i}$. Tính độ dài của
+$\vec{a}+\vec{b}$.
+\choice
+{\True $5$}
+{$2+\sqrt{41}$}
+{$\sqrt{61}$}
+{$3\sqrt{5}$}
+\loigiai{
+Ta có: $\vec{a}=(2;0;0)$;$\vec{b}=(-5;0;4) \Rightarrow \vec{a}+\vec{b}=(-3;0;4)$.\\
+Do đó: $|\vec{a}+\vec{b}|=\sqrt{(-3)^2+0^2+4^2}=5$.}
+\end{ex}
+\begin{ex}%[Đề thi thử - trường THPT chuyên Tiền Giang - Lần 1 - 2018]%[Thầy Dương Phước Sang và Thầy Tuấn Nguyễn, dự
+án(12EX-7)]%[2H3Y1-1]
+Trong hệ tọa độ $Oxyz$, cho $\vec{OA}=3 \vec{k}- \vec{i}$. Tìm tọa độ của điểm $A$.
+\choice
+{$(3;0;-1)$}
+{\True $(-1;0;3)$}
+{$(-1;3;0)$}
+{$(3;-1;0)$}
+\loigiai{
+Ta có $\vec{OA}=3 \vec{k}- \vec{i}=-1\vec{i}+0\vec{j}+3\vec{k}$. Do đó tọa độ điểm $A(-1;0;3)$.}
+\end{ex}
+\begin{ex}%[Thi thử L2, Quỳnh Lưu 2, Nghệ An]%[Vinh Vo, dự án EX11]%[2H3Y1-1]
+Trong không gian với hệ toạ độ $ Oxyz $, cho điểm $ M $ thoả mãn hệ thức $ \overrightarrow{OM} = 2 \vec{i} + \vec{j} $.
+Toạ độ điểm $ M $ là
+\choice
+{\True $ M(2;1;0) $}
+{$ M(0;1;2) $}
+{$ M(0;2;1) $}
+{$ M(2;0;1) $}
+\loigiai{
+Ta thấy $ \overrightarrow{OM} = 2 \vec{i} + \vec{j} \Rightarrow M(2;1;0) $.
+}
+\end{ex}
+
+
+\paragraph{Nhóm Toạ Độ Điểm - Hình Bình Hành - Hình Thang}
+\begin{ex}%[2H3B1-1]
+Trong không gian với hệ toạ độ $ Oxyz $, cho tam giác $ ABC $ với $ A(1;2;1) $, $ B(-3;0;3) $, $ C(2;4;-1) $. Tìm toạ độ
+điểm $ D $ sao cho tứ giác $ ABCD $ là hình bình hành?
+\choice
+{$ D(6;6;3) $}
+{\True $ D(6;6;-3) $}
+{$ D(6;-6;-3) $}
+{$ D(6;-6;3) $}
+\loigiai{
+Giả sử $ D(x;y;z) $. Ta có $ \vec{AB}=(-4;-2;2) $, $ \vec{DC}=(2-x;4-y;-1-z) $. Vì $ ABCD $ là hình bình hành nên
+\[
+\vec{AB}=\vec{DC}\Leftrightarrow \heva{&2-x=-4\\ &4-y=-2\\ &-1-z=2}\Leftrightarrow \heva{&x=6\\ &y=6\\ &z=-3.}
+\]
+}
+\end{ex}
+\begin{ex}
+Cho tam giác $ABC$ có $A(1;-2;0)$, $B(2;1;-2)$, $C(0;3;4)$. Tìm tọa độ điểm $D$ để tứ giác $ABCD$ là hình bình hành.
+\choice{$(1;6;2)$}{$(1;6;-2)$}{\True $(-1;0;6)$}{$(1;0;-6)$}
+\loigiai{
+Giả sử $D(x;y;z)$. Để tứ giác $ABCD$ là hình bình hành thì $\vec{AB}=\vec{DC}$.\\
+Ta có $\vec{AB}=(1;3;-2)$, $\vec{DC}=(-x;3-y;4-z)$.\\
+Vậy từ đó có $\heva{& x=-1 \\ & y=0\\& z=6}$ hay $D(-1;0;6)$.
+}
+\end{ex}
+\begin{ex}%[Danh Trần]%[2H3B2-4]
+Trong hệ trục tọa độ $Oxyz$, cho các điểm $M(1;-1;1), N(2;0;-1),\mathrm{P}(-1;2;1)$. Xét điểm $Q$ sao cho tứ giác $MNPQ$
+là một hình bình hành. Tọa độ $Q$ là
+\choice
+{\True $(-2;1;3)$}
+{$(-2;1;3)$}
+{$(-2;1;-3)$}
+{$(4;1;3)$}
+\loigiai{
+Gọi $Q(x;y;z)$. Ta có $\overrightarrow{MN}=(1;1;-2)$, và $\overrightarrow{QP}=(-1-x;2-y;1-z)$.\\
+Tứ giác $MNPQ$ là hình bình hành khi và chỉ khi
+$\overrightarrow{MN}=\overrightarrow{QP}\Leftrightarrow\heva{&1=-1-x\\&1=2-y\\&-2=1-z}\Leftrightarrow\heva{&x=-2\\&y=1\\&z=3.}$
+\\
+Vậy tọa độ điểm $Q(-2;1;3)$.
+}
+\end{ex}
+\begin{ex} %[Đề KSCL học kỳ 2 Toán 12 năm học 2017 – 2018 sở GD và ĐT Nam Định] %[Trần Tuấn Việt, 12EX-9-2018]%[2H3B3-6]
+Trong không gian với hệ tọa độ $Oxyz$, cho ba điểm $A(1; 2; -1)$, $B(-3; 4; 3)$, $C(3; 1; -3)$. Số điểm $D$ sao cho $4$
+điểm $A$, $B$, $C$, $D$ là $4$ đỉnh của một hình bình hành là
+\choice
+{$3$}
+{$1$}
+{$2$}
+{\True $0$}
+\loigiai{Ta có $\vec{AB} = (-4; 2; 4)$, $\vec{AC} = (2; -1; -2)$. Suy ra $A, B, C$ thẳng hàng. Do đó không có điểm $D$
+nào thỏa mãn $A,B,C,D$ là $4$ đỉnh của hình bình hành.
+}
+\end{ex}
+\begin{ex}%[HK2 (2017-2018), THPT Chuyên Lê Hồng Phong, TP.HCM]%[Huỳnh Xuân Tín dự án (EX9)]%[2H3K1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho ba điểm $A(-2;3;1)$, $B(2;1;0)$, $C(-3;-1;1)$. Tìm tất cả các điểm $D$ sao
+cho $ABCD$ là hình thang có đáy $AD$ và $S_{ABCD}=3S_{\triangle ABC}$.
+\choice
+{$ D(8;7;-1)$}
+{$\hoac{&D(-8;-7;1)\\&D(12;1;-3)} $}
+{$\hoac{&D(8;7;-1)\\&D(-12;-1;3)} $}
+{\True $ D(-12;-1;3)$}
+\loigiai{
+Ta có \begin{eqnarray*}
+S_{ABCD}&=&\dfrac{1}{2}\cdot \mathrm{d}(A;BC) \cdot (BC+AD)\\
+&=&3S_{\triangle ABC}\\
+&=&3 \cdot \dfrac{1}{2} \cdot \mathrm{d}(A;BC) \cdot BC\\
+& \Rightarrow& AD=2BC.
+\end{eqnarray*}
+Mặt khác $BC \parallel AD \Rightarrow \vec{AD} = 2\vec{BC}$.\\
+Gọi $D(x;y;z)$.\\
+Ta có $\vec{AD}=(x+2;y-3;z-1)$ và $\vec{BC}=(-5;-2;1)$.\\
+Suy ra $\heva{&x+2=-10\\&y-3=-4\\&z-1=2} \Rightarrow \heva{&x=-12\\&y=-1\\&z=3.}$
+}
+\end{ex}
+%%=====Câu 9
+\begin{ex}%%[2H3Y1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho điểm $A(3;-2;1)$ và điểm $B(1;0;-1)$. Độ dài đoạn thẳng $AB$ bằng
+\choice
+{\True $2\sqrt{3}$}
+{$2\sqrt{2}$}
+{$3$}
+{{$2\sqrt{5}$}}
+\loigiai{
+Ta có $AB=\sqrt{\left(x_B-x_A\right)^2+\left(y_B-y_A\right)^2}=2\sqrt{3}$.
+}
+\end{ex}
+
+
+
+%%=====Câu 10
+\begin{ex}%%[2H3Y1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho điểm $A(-2;3;0)$ và điểm $B(-1;2; 5)$. Toạ độ của véc-tơ
+$\overrightarrow{AB}$ tương ứng là
+\choice
+{$(2 ;-1 ; 0)$}
+{$(1 ; 3 ;-2)$}
+{\True $(1 ;-1 ; 5)$}
+{$(2 ;-2 ; 3)$}
+\loigiai{
+Ta có $\overrightarrow{AB}=\left(1;-1;5\right)$.
+}
+\end{ex}
+
+
+%%=====Câu 11
+\begin{ex}%%[2H3B1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho điểm $A(3;4;0)$ và điểm $B(3;-4;0)$. Chu vi của tam giác $OAB$ bằng
+\choice
+{$12$}
+{$20$}
+{$10+4\sqrt{2}$}
+{\True $18$}
+\loigiai{
+Ta có $\heva{&OA=\sqrt{3^2+4^2+0^2}=5\\& OB=\sqrt{3^2+(-4)^2+0^2}=5\\&
+AB=\sqrt{\left(x_B-x_A\right)^2+\left(y_B-y_A\right)^2}=8.}$\\
+Suy ra chu vi tam giác $OAB$ bằng $OA+OB+AC=18$.
+}
+\end{ex}
+%%=====Câu 12
+\begin{ex}%%
+Trong không gian $Oxyz$, cho ba điểm $A(-1;2;3),B(2;-2;1),C(2;-3;-1)$. Tọa độ trọng tâm của tam giác $ABC$ là
+\choice
+{$(2;-1;0)$}
+{$(-1;2;-2)$}
+{\True$(1;-1;1)$}
+{$(1;-2;3)$}
+\loigiai{Tọa độ trọng tâm $G$ của tam giác $ABC$ là
+$\heva{&x_G=\dfrac{-1+2+2}{3}=1\\&y_G=\dfrac{2-2-3}{3}=-1\\&z_G=\dfrac{3+1-1}{3}=1.}$
+
+}
+\end{ex}
+%%=====Câu 13
+\begin{ex}%%
+Trong không gian $Oxyz$, cho hai vectơ $\overrightarrow u=(m;-3;2)$ và $\overrightarrow v=(2;n;-4)$ với $m,n$ là hai số
+thực. Khi hai vectơ $\overrightarrow u$ và $\overrightarrow v$ cùng phương thì giá trị của $3m+n$ bằng
+\choice
+{\True$3$}
+{$5$}
+{$1$}
+{$-3$}
+\loigiai{Ta có $\overrightarrow u$ và $\overrightarrow v$ cùng phương $\Leftrightarrow$ $
+\dfrac{m}{2}=\dfrac{-3}{n}=\dfrac{2}{-4} $ $\Leftrightarrow$ $ \heva{&m=-1\\&n=6} $.
+\\Do đó $3m+n=3$.
+
+}
+\end{ex}
+
+%%=====Câu 14
+\begin{ex}%%
+Trong không gian $Oxyz$, cho ba điểm $A(2;3;0),B(4;0;-2),C(m;n;3)$. Khi ba điểm $A,B,C$ thẳng hàng thì giá trị của
+$7m+2n$ bằng
+\choice
+{$-1$}
+{\True$8$}
+{$2$}
+{$-3$}
+\loigiai{Ta có $\overrightarrow{AB}=(2;-3;-2)$ và $\overrightarrow{AC}=(m=2;n-3;3)$.
+\\Ba điểm $A,B,C$ thẳng hàng $\Leftrightarrow$ $ \dfrac{m-2}{2}=\dfrac{n-3}{-3}=\dfrac{3}{-2} $ $\Leftrightarrow$ $
+\heva{&m=-1\\&n=\dfrac{15}{2}} $.
+\\Do đó $7m+2n=8$.
+
+}
+\end{ex}
+
+%%=====Câu 15
+\begin{ex}%%
+Trong không gian $Oxyz$, cho hai điểm $A(-2;1;3)$ và $B(1;3;4)$. Điểm $M$ thỏa mãn
+$\overrightarrow{MA}+2\overrightarrow{MB}=\overrightarrow{0}$ có tọa độ là
+\choice
+{$\left(\dfrac{4}{3};\dfrac{-2}{3};\dfrac{-1}{3} \right) $}
+{$\left(1;\dfrac{3}{2};\dfrac{-5}{3} \right) $}
+{$\left(\dfrac{1}{3};\dfrac{4}{3};\dfrac{-7}{3} \right) $}
+{\True$\left(0;\dfrac{7}{3};\dfrac{11}{3} \right) $}
+\loigiai{ Ta có $\overrightarrow{MA}+2\overrightarrow{MB}=\overrightarrow{0}$ $\Leftrightarrow$ $
+\heva{&-2+x_M+2-2x_M=0\\&1-y_M+6-2y_M=0\\&3-z_M+8-2z_M=0} \Leftrightarrow
+\heva{&x_M=0\\&y_M=\dfrac{7}{3}\\&z_M=\dfrac{11}{3}}. $
+
+}
+\end{ex}
+
+\paragraph{Nhóm Toạ Độ Điểm - Hình Chiếu}
+\begin{ex}%[Danh Trần]%[2H3Y2-4]
+Trong không gian tọa độ $Oxyz$, cho điểm $A(1;-2;5)$. Hình chiếu vuông góc của điểm $A$ trên mặt phẳng tọa độ $(Oxz)$ là
+$M$. Tính $\vec{OM}$
+\choice
+{\True $(1;0;5)$}
+{$(3;-2;0)$}
+{$(0;-2;5)$}
+{$(0;2;5)$}
+\loigiai{
+Tọa độ hình chiếu của điểm $A(3;-2;5)$ lên mặt phẳng $(Oxz)$ là $M(1;0;5)$, khi đó $\vec{OM}=(1;0;5)$.
+}
+\end{ex}
+\begin{ex}%[Danh Trần]%[2H3Y2-4]
+Trong không gian tọa độ $Oxyz$, cho điểm $A(-1;-3;2)$. Hình chiếu vuông góc của điểm $A$ trên mặt phẳng tọa độ $(Oxz)$
+là $M$. Tính $\vec{AM}$
+\choice
+{\True $(0;3;0)$}
+{$(1;0;3)$}
+{$(-1;0;2)$}
+{$(0;2;5)$}
+\loigiai{
+Tọa độ hình chiếu của điểm $A(-1;-3;2)$ lên mặt phẳng $(Oxz)$ là $M(-1;0;2)$.\\
+Khi đó tính được $\vec{AM}=(0;3;0)$.
+}
+\end{ex}
+%%=====Câu 6
+\begin{ex}%%[2H3Y1-1]
+Trong không gian với hệ tọa độ $Oxyz$. Gọi véc-tơ $\vec{v}$ là hình chiếu vuông góc của véc-tơ $\vec{u}=(1;2;3)$ lên mặt
+phẳng tọa độ $(Oxy)$. Tọa độ của véc-tơ $\vec{v}$ là
+\choice
+{$(0;0;3)$}
+{$(1;0;3)$}
+{$(0;2;0)$}
+{\True $(1;2;0)$}
+\loigiai{
+Đặt $\overrightarrow{OM}=\vec{u}=(1;2;3)$ nên $M(1;2;3)$.\\
+Gọi $M'$ hình chiếu vuông góc của điểm $M$ lên mặt phẳng tọa độ $(Oxy)$ nên $M'(1;2;0)$.\\
+Suy ra $\vec{v}=\overrightarrow{OM'}=(1;2;0)$.
+}
+\end{ex}
+
+%%=====Câu 7
+\begin{ex}%%[2H3Y1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho điểm $M(3;-1;2)$. Hình chiếu vuông góc của $M$ lên mặt phẳng
+$\left(Oxz\right)$ có tọa độ tương ứng là
+\choice
+{$(0;-1;3)$}
+{$(3;-1;0)$}
+{\True $(3;0;2)$}
+{$(0;0;2)$}
+\loigiai{
+Hình chiếu vuông góc của $M(3;-1;2)$ lên mặt phẳng $\left(Oxz\right)$ có tọa độ $M(3;0;2)$.
+}
+\end{ex}
+
+%%=====Câu 8
+\begin{ex}%%[2H3Y1-1]
+Trong không gian với hệ tọa độ $Oxyz$, cho điểm $M(1;2;3)$. Hình chiếu vuông góc của $M$ lên trục $Oy$ có tọa độ tương
+ứng là
+\choice
+{$(1;0;3)$}
+{\True $(0;2;0)$}
+{$(1;2;0)$}
+{$(0;0;3)$}
+\loigiai{
+Hình chiếu vuông góc của $M(1;2;3)$ lên trục $Oy$ có tọa độ $(0;2;0)$.
+}
+\end{ex}

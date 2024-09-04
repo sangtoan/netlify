@@ -1,0 +1,62 @@
+
+\begin{dang}{Hàm số bậc $4$ đơn điệu trên $(a;b)$}
+\end{dang}
+
+\begin{vd}
+Gọi $S$ là tập hợp các giá trị nguyên dương của tham số $m$ để hàm số $y=x^4-2mx^2+1$ đồng biến trên khoảng $(2;+\infty)$. Tổng giá trị các phần tử của $S$ là
+	\choice
+	{$4$}
+	{\True$10$}
+	{$6$}
+	{$8$}
+\loigiai{
+Ta có $y' = 4x^3 -4mx = 4x (x^2-m)$. \\
+Hàm số đồng biến trên trên khoảng $(2;+\infty)$ khi và chỉ khi
+\begin{align*}
+y ' \geq 0, \forall x\in (2;+\infty) \\
+\Leftrightarrow 4x (x^2-m) \geq 0, \forall x\in (2;+\infty) \\
+\Leftrightarrow  m \leq x^2, \forall x\in (2;+\infty) \\
+\Leftrightarrow m \leq 4.
+\end{align*}
+Mà $m$ nguyên dương suy ra  $m \in \{ 1;2;3;4\}$. \\
+Vậy tổng các phần tử của $S$ bằng $10$.
+}
+\end{vd}
+\begin{vd}
+Tìm $m$ để hàm số $y=x^4-2(m-1)x^2+m-2$ đồng biến trên khoảng $(1;5)$.
+\choice
+{$1< m < 2$}
+{\True $m\leq 2$}
+{$1\leq m\leq 2$}
+{$m< 2$}
+\loigiai{
+Ta có $y' = 4x^3 -4(m-1)x = 4x (x^2-m+1)$. \\
+Hàm số đồng biến trên trên khoảng $(1;5)$ khi và chỉ khi
+\begin{align*}
+& y ' \geq 0, \forall x\in (1;5) \\
+\Leftrightarrow & 4x (x^2-m+1) \geq 0, \forall x\in (1;5) \\
+\Leftrightarrow &  m \leq x^2+1, \forall x\in (1;5) \\
+\Leftrightarrow & m \leq 2.
+\end{align*}
+}
+\end{vd}
+\begin{vd}
+Có bao nhiêu giá trị nguyên của tham số $m$ thuộc $(-20;20)$ để hàm số $y=mx^4-2(m+1)x^2-1$ nghịch biến trên $(1;+\infty)$?
+\choice
+{$19$}
+{\True $20$}
+{$21$}
+{$18$}
+\loigiai{
+Với $m >0$, $\displaystyle \lim_{x\to +\infty } y = +\infty$ nên hàm số không nghịch biến trên khoảng $(1;+\infty)$. \\
+Với $m=0$, $y= -2x^2-1$. Dễ thấy hàm số nghịch biến trên trên khoảng  $(1;+\infty)$. \\
+Với $m < 0$, ta có   $y' = 4mx^3 - 4(m+1)x = 4mx \left (x^2 - \dfrac{m+1}{m}\right )$. \\
+Hàm số nghịch biến trên trên khoảng $(1;+\infty)$ khi và chỉ khi
+$$y ' \leq  0, \forall x\in (1;+\infty)$$
+$$\Leftrightarrow  4mx \left (x^2 - \dfrac{m+1}{m}\right ) \leq 0, \forall x\in  (1;+\infty)$$
+$$\Leftrightarrow   \dfrac{m+1}{m} \leq x^2, \forall x\in (1;+\infty)$$
+$$\Leftrightarrow  \dfrac{m+1}{m}  \leq 1$$
+$$\Leftrightarrow  m+1 \geq m \text{ (đúng khi $m < 0$).}$$
+Vậy có $20$ giá trị nguyên của tham số $m$ thỏa mãn.
+}
+\end{vd}

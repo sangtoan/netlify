@@ -1,0 +1,54 @@
+\begin{dang}{Quy về hàm nhị thức bậc nhất đơn điệu trên $(a,b)$}
+\end{dang}
+\begin{vd}
+    Có bao nhiêu giá trị nguyên $m \in(-10;10)$ để hàm số $y=\dfrac{2 \cos x+3}{2 \cos x-m}$ đồng biến $\left(0;\dfrac{\pi}{3}\right)$.
+    \choice
+    {$14$}
+    {\True $12$}
+    {$8$}
+    {$10$}
+    \loigiai{
+        Đặt $u=\cos x \Rightarrow u_{x}'=-\sin x< 0, \forall x \in\left(0;\dfrac{\pi}{3}\right)$.\\
+        Do $x \in\left(0;\dfrac{\pi}{3}\right) \Rightarrow u \in\left(\dfrac{1}{2};1\right) $.\\
+        Khi đó $y=\dfrac{2u+3}{2u-m}$ đồng biến trên khoảng $\left(\dfrac{1}{2};1\right)$ khi và chỉ khi
+        $$y'=\dfrac{-2m-6}{(2u-m)^2} \cdot u_{x}' > 0, \forall\begin{cases} u \neq \dfrac{m}{2} \\  u \in\left(\dfrac{1}{2};1\right) \end{cases}$$
+        $$\Leftrightarrow\begin{cases} -2m-6 < 0 \\  \dfrac{m}{2} \leq \dfrac{1}{2} \vee \dfrac{m}{2} \geq 1 \end{cases}\\ \Leftrightarrow \begin{cases} m > -3 \\  m \leq 1 \vee m \geq 2 \end{cases}$$
+        $$\Leftrightarrow \left[\begin{array}{l} -3 < m\leq 1\\ m\geq 2. \end{array}\right.$$
+        Do $m \in \mathbb{Z}, m \in(-10;10) \Rightarrow m \in\{-2;-1;0;1;2;3;\ldots;9\}$.\\
+        Vậy có $(9+2)+1=12$ số nguyên $m$ thỏa mãn bài toán.
+    }
+\end{vd}
+
+\begin{vd}
+    Tìm tất cả các giá trị của tham số $m$ sao cho hàm số $y = \dfrac{\tan{x} - 2}{\tan{x}-m}$ đồng biến trên từng khoảng $\left(0; \dfrac{\pi}{4}\right)$.
+    \choice{\True$m \geq 2$}{$m\leq 0$}{$1\leq m  < 2$}{\True$m \leq 0$ hoặc $1 \leq m  < 2$}
+    \loigiai{
+        Đặt $u = \tan x \Rightarrow u' = \dfrac{1}{\cos^2x}  >  0, \forall x\in \left(0;\dfrac{\pi}{4}\right).$\\
+        Do $x \in \left(0; \dfrac{\pi}{4}\right) \Rightarrow u \in (0;1) \Rightarrow y = \dfrac{u-2}{u-m}$.\\
+        Để hàm số thỏa yêu cầu đề bài
+$$\Leftrightarrow y' = \dfrac{-m + 2}{(u-m)^2}\cdot u'  >  0, \forall u \ne m, u\in (0;1)$$
+$$\Leftrightarrow \begin{cases} -m + 2  > 0 \\ \left[\begin{array}{l} m \geq 1\\ m\leq0 \end{array}\right. \end{cases}$$
+$$\Leftrightarrow \left[\begin{array}{l} m\leq0 \\ 1\leq m < 2. \end{array}\right.$$
+    }
+\end{vd}
+\begin{vd}
+    Có bao nhiêu giá trị nguyên của tham số $m\in(-8;8)$ để hàm số $y=\dfrac{2\sqrt{9-x^2}-m}{\sqrt{9-x^2}-m}$ đồng biến trên khoảng $\left(0;\sqrt{5}\right)$?
+    \choice
+    {$9$}
+    {\True $7$}
+    {$8$}
+    {$6$}
+    \loigiai
+    {
+        Điều kiện xác định của hàm số đã cho là
+        $$\begin{cases} 9-x^2\geq 0\\ \sqrt{9-x^2}\neq m \end{cases}$$
+$$\Leftrightarrow\begin{cases} -3\leq x\leq 3\\ \sqrt{9-x^2}\neq m. \end{cases}$$
+        Yêu cầu bài toán tương đương với $$y'=\dfrac{mx}{\sqrt{9-x^2}\left(\sqrt{9-x^2}-m\right)^2} > 0$$ với mọi $x\in\left(0;\sqrt{5}\right)$, tức là
+        $$\begin{cases} m > 0\\ m\neq \sqrt{9-x^2}, \ \forall x\in\left(0;\sqrt{5}\right) \end{cases}$$
+$$\Leftrightarrow \begin{cases} m > 0\\ m\notin (2;3) \end{cases}$$
+$$\Leftrightarrow \begin{cases} m > 0\\ \left[\begin{array}{l} m\leq 2\\ m\geq 3 \end{array}\right. \end{cases}$$
+$$\Leftrightarrow \left[\begin{array}{l} m\geq 3\\ 0 < m\leq 2. \end{array}\right.$$
+        Mà $m\in(-8;8)$ nên $m\in\{1;2;3;4;5;6;7\}$.\\
+        Vậy có $7$ giá trị nguyên của $m$ thỏa mãn yêu cầu bài toán.
+    }
+\end{vd}

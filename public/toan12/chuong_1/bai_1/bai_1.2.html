@@ -1,0 +1,217 @@
+\begin{dang}{$m$ để hàm số $y=ax^3+bx^2+cx+d$ đồng biến (hoặc nghịch biến) trên  $R$ }
+	\begin{enumerate}
+	\item Trường hợp $a$ không chứa tham số $m$:
+	\begin{itemize}
+	\item Hàm số đồng biến trên $\mathbb{R}$ thì $y'\geq 0$, $\forall x\in\mathbb{R}\Leftrightarrow \begin{cases} a > 0\\ \Delta_{y'}\leq 0.\end{cases}$
+	\item Hàm số nghịch biến trên $\mathbb{R}$ thì $y'\leq 0$, $\forall x\in\mathbb{R}\Leftrightarrow \begin{cases} a < 0\\ \Delta_{y'}\leq 0.\end{cases}$
+	\end{itemize}
+	\item Trường hợp $a$ chứa tham số $m$:
+	\begin{itemize}
+	\item Xét $a=0\Rightarrow m=?$ thế trực tiếp giá trị $m$ vào hàm số.
+	\item Xét $a\neq 0$ (trở về trường hợp $(1)$ đã xét ở trên).
+	\end{itemize}
+	\end{enumerate}
+\end{dang}
+\subsubsection{Ví dụ minh họa}
+\begin{vd}%[DTH, Sở GD và ĐT - Hà Nam, 2019]%[Đào-V- Thủy, 12EX5]%[2D1B1-3]
+	Tìm giá trị lớn nhất của tham số $m$ để hàm số $y= \dfrac{1}{3}x^3- mx^2+ (8+2m)x+ m+ 3$ đồng biến trên $\mathbb{R}$.
+	\loigiai{
+        Hàm số $y=ax^3+bx^2+cx+d$\\
+		$\bullet$ $y'=3ax^2+2bx+c$.\\
+		$\bullet$ Biệt thức $\Delta'=b^2-3ac$.\\
+		Ta có $y'= x^2- 2mx + (8-2m)$.\\ Hàm số đồng biến trên $\mathbb{R}$ thì $y' \ge 0\, \forall x\in \mathbb{R}\Leftrightarrow \Delta \le 0\Leftrightarrow m^2+ 2m- 8\le 0\Leftrightarrow -4\le m\le 2$.\\
+		Vậy giá trị lớn nhất của $m$ để hàm số đồng biến trên $\mathbb{R}$ là $m=2$.	
+	}
+\end{vd}
+\begin{vd}%[Thi thử THPT Lê Hồng Phong, 2018]%[Ngô Thị Loan, 12EX4]%[2D1B1-3]
+	Có bao nhiêu số nguyên $ m $ để hàm số $ y=mx^3-3mx^2+2(m-1)x+1 $ nghịch biến trên $ \mathbb{R} $?
+	\loigiai{
+			$\bullet$ Cần xét $2$ trường hợp $m=0$ và $m\neq 0$.\\
+			$\bullet$ Kết quả của bài toán là gộp kết quả của $2$ trường hợp.\\   
+            \begin{ghichu}
+            Đường thẳng $y=ax+b$ đồng biến khi  $a > 0$ , nghịch biến khi $a < 0$.
+            \end{ghichu} 
+		Khi $m=0$, hàm số thành $y=-2x+1$ luôn nghịch biến trên $ \mathbb{R} $.\\ 
+        Vậy $m=0$ là một giá trị cần tìm.\\
+		Khi $m\neq 0$, ta có $ y'=3mx^2-6mx+2(m-1)$.\\
+		Để hàm số nghịch biến trên $ \mathbb{R} $ thì $ y'\leq 0 $ với $\forall x\in \mathbb{R} $ hay\\
+$\begin{cases} 3m < 0\\ \Delta'=9m^2-6m(m-1)\leq 0 \end{cases}$\\
+$\Leftrightarrow$ $\begin{cases}m < 0 \\ 3m(m+2) \leq 0 \end{cases}$\\
+$\Leftrightarrow$ $-2 \leq m  < 0$\\
+Gộp $2$ trường hợp lại ta được $-2 \leq m \leq 0$.\
+Do $ m\in \mathbb{Z} \Rightarrow min {-2;-1;0} $.
+	}
+     
+\end{vd}
+\begin{vd}%[Đề Tập Huấn -4, Sở GD và ĐT - Hải Phòng, 2019]%[Trần Xuân Thiện, 12EX10]%[2D1Y1-3]
+	Với giá trị nào của $m$ thì hàm số $y = x^3 - 3mx^2 + 3x - 1$ đồng biến trên $\mathbb{R}$?
+	\loigiai{
+	Tập xác định: $ \mathscr{D} = \mathbb{R}$.\\
+	Ta có $y' = 3x^2 - 6mx + 3$.\\
+	Hàm số đã cho đồng biến trên $\mathbb{R}$ khi\\
+	$ y' \leq 0, \forall x \in \mathbb{R} \Leftrightarrow \begin{cases} a > 0\\ \Delta \leq 0 \end{cases} \Leftrightarrow \begin{cases} 3 > 0\\ 36m^2 - 36 \leq 0 \end{cases} \Leftrightarrow -1 \leq m \leq 1$.
+	}
+\end{vd}
+
+\begin{vd}%[Đề kiểm tra định kỳ, THPT Nguyễn Huệ - Huế, 2019]%[Bùi Quốc Hoàn, dự án EX9]%[2D1B1-3]
+	Tìm tập hợp $S$ gồm tất cả các giá trị thực của tham số $m$ sao cho hàm số \\ $$y = -\dfrac{1}{3}x^3 - mx^2 + \left(2m - 3\right)x - m + 2$$ luôn nghịch biến trên $\mathbb{R}$
+	\loigiai{Tập xác định của hàm số $\mathscr{D} = \mathbb{R}$.\\
+	Ta có $y' = - x^2 - 2mx + \left(2m - 3\right)$.\\
+	Để thỏa mãn bài toán khi $y'\leq 0\ \forall x\in\mathbb{R}$ suy ra
+	$- x^2 - 2mx + \left(2m - 3\right)\leq 0\ \forall x\in\mathbb{R}$.\\
+	Khi đó $\Delta'\leq 0\Leftrightarrow m^2 + 2m - 3\leq 0\Leftrightarrow - 3\leq m\leq 1$.\\
+	Vậy tập hợp $S = \left[-3; 1\right]$.
+	}
+\end{vd}
+\subsubsection{Câu hỏi trắc nghiệm}
+
+\begin{ex}%[GHK1, THPT Nhân Chính - Hà Nội, 2018 - 2019]%[Phan Văn Thành, 12EX2 - 2019]%[2D1B1-3]
+	Tìm tất cả các giá trị của $m$ để hàm số $y = \dfrac{x^3}{3} - (m - 1)x^2 + 2(m - 1)x + 2$ đồng biến trên tập xác định của nó.
+	\choice
+	{$1  <  m  <  3$}
+	{$m \geq 1$}
+	{\True $1 \leq m \leq 3$}
+	{$m \leq 3$}
+	\loigiai{Tập xác định của hàm số là $\mathscr{D} = \mathbb{R}$.\\
+	Ta có $y' = x^2 - 2(m - 1)x + 2(m - 1)$.\\
+	Hàm số đồng biến trên $\mathbb{R}$ khi và chỉ khi $y' \geq 0 \,\, \forall x \in \mathbb{R}$.\\
+	Hay $\Delta' = (m - 1)^2 - 2(m - 1) \leq 0 \Leftrightarrow (m - 1)(m - 3) \leq 0 \Leftrightarrow 1 \leq m \leq 3$.
+	}
+\end{ex}
+\begin{ex}%[GHK1 Toán 12, Nguyễn Chí Thanh, HCM, 2018-2019]%[Vũ Nguyễn Hoàng Anh, 12EX2-19]%[2D1B1-3]
+	Cho hàm số $y=-x^3-mx^2+(4m+9)x+5$. Có bao nhiêu giá trị nguyên của $m$ để hàm số nghịch biến trên $\mathbb{R}$?
+	\choice
+	{$4$}
+	{\True $7$}
+	{$5$}
+	{$6$}
+	\loigiai{
+	Ta có $y'=-3x^2-2mx+(4m+9)$. Hàm số đã cho nghịch biến trên $\mathbb{R}$ khi và chỉ khi
+	\[ \Delta'\le 0 \Leftrightarrow m^2+12m+27\le 0 \Leftrightarrow -9\le m\le -3. \]
+	Vậy có tất cả $7$ giá trị nguyên của $m$ thỏa mãn bài toán.
+	}
+\end{ex}
+\begin{ex}%[Đề KSCL Toán 12, THPT Yên Mỹ – Hưng Yên lần 1, 2019]%[Cao Thành Thái, 12EX-2-2019]%[2D1K1-3]
+	Cho hàm số $y= \dfrac{1}{3}(m^2-1)x^3 + (m+1)x^2 + 3x - 1$, với $m$ là tham số. Số giá trị nguyên của tham số $m$ thuộc $[-2024;2025]$ để hàm số đồng biến trên $\mathbb{R}$ là
+	\choice
+	{\True $4048$}
+	{$4036$}
+	{$4040$}
+	{$4034$}
+	\loigiai{
+	Tập xác định của hàm số là $\mathscr{D}=\mathbb{R}$.\\
+	Ta có $y'=(m^2-1)x^2+2(m+1)x+3$.
+	\begin{itemize}
+	\item Khi $m=-1$ ta được $y'=3>0,\forall x \in \mathscr{D}$ nên hàm số luôn đồng biến trên $\mathbb{R}$.\\
+	Vậy $m=-1$ là một giá trị thỏa mãn yêu cầu bài toán.
+	\item Khi $m=1$ ta được $y'=4x+3>0,\forall x \in \left(-\dfrac{3}{4};+\infty\right)$ nên hàm số đồng biến trên $\left(-\dfrac{3}{4};+\infty\right)$. Vậy $m=1$ là giá trị không thỏa mãn yêu cầu bài toán.
+	\item Khi $m\neq \pm 1$, hàm số luôn đồng biến trên $\mathbb{R}$ khi và chỉ khi $y' \geq 0, \forall x \in \mathbb{R}$.\\
+	Tức là
+	$\begin{cases} m^2-1 >0 \\(m+1)^2-3(m^2-1)\leq 0 \end{cases} \Leftrightarrow \begin{cases} m^2-1 >0 \\-2m^2+2m+4\leq 0 \end{cases}$\\
+    $\Leftrightarrow  \begin{cases}m < -1 \\m\geq 2 \end{cases}$\\
+	Vì $m \in [-2024;2025]$ nên $m \in \{-2024;-2017;-2016;\ldots;-3;-2;2;3;4;\ldots;2024;2025\}$.
+	\end{itemize}
+	Kết hợp ba trường hợp ta được $m \in \{-2024;-2023;-2022;\ldots;-3;-2;-1;2;3;4;\ldots;2024;2025\}$.\\
+	Vậy có tất cả $4048$ giá trị nguyên của $m$ thuộc $[-2024;2025]$ thỏa mãn yêu cầu bài toán.
+	}
+\end{ex}
+
+\begin{ex}%[Thành Đức Trung, Hàm số - Đợt 1 - Tư duy mở]%[2D1B1-3]
+Cho hàm số $f(x) = -x^3 + 3mx^2 - 6mx + 2$. Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để hàm số $f(x)$ nghịch biến trên $\mathbb{R}$?
+\choice
+{$1$}
+{$2$}
+{\True $3$}
+{$4$}
+\loigiai
+{
+Để $f(x)$ nghịch biến trên $\mathbb{R}$ thì $f'(x) = -3x^2 + 6mx - 6m\le 0$, $\forall x\in\mathbb{R}$.\\
+Điều này tương đương với
+\[\heva{&a=-3 < 0\\&\Delta' = 9m^2 - 18m \le 0} \Leftrightarrow 0\le m\le 2.\]
+Vậy có $3$ giá trị nguyên của $m$ thỏa mãn.
+}
+\end{ex}
+\begin{ex}%[Thành Đức Trung, Hàm số - Đợt 1 - Tư duy mở]%[2D1K1-3]
+Cho hàm số $f\left( x \right)=mx^3-6mx^2+3\left( m+6 \right)x-4$. Hỏi có tất cả bao nhiêu giá trị nguyên của tham số $m$ để hàm số $f\left( x \right)$ đồng biến trên $\mathbb{R}$?
+\choice
+{\True 3}
+{1}
+{0}
+{2}
+\loigiai{
+\textbf{Trường hợp 1:} Với $m=0$ suy ra $f\left( x \right)=18x-4$ luôn đồng biến trên $\mathbb{R}$. Nên $m=0$ thỏa mãn.\\
+\textbf{Trường hợp 2:} Với $m\ne 0$.\\
+Ta có $f\left( x \right)=mx^3-6mx^2+3\left( m+6 \right)x-4\Rightarrow f'\left( x \right)=3mx^2-12mx+3\left( m+6 \right)$.\\
+Để hàm số $f\left( x \right)$ đồng biến trên $\mathbb{R}$ thì \\
+\[f'\left( x \right)\ge 0\left( \forall x\in \mathbb{R} \right)\Leftrightarrow mx^2-4mx+m+6\ge 0\left( \forall x\in \mathbb{R} \right) \]
+$$\Leftrightarrow  \begin{cases} m>0 \\ \Delta'=(2m)^2-m\left( m+6 \right)\le 0  \end{cases}
+\Leftrightarrow  \begin{cases} m>0 \\ 3m^2-6m\le 0  \end{cases}\Leftrightarrow 0 < m \le 2.$$
+Kết hợp hai trường hợp ta có $0\le m\le 2$ mà $m\in \mathbb{Z}$ nên $m\in \left\{0;1;2 \right\}$.\\
+Vậy có tất cả 3 giá trị của $m$ thỏa mãn yêu cầu đề bài.
+}
+\end{ex}
+\begin{ex}%[Thành Đức Trung]%[dự án word to tex HDK 2019]%[2D1B1-3]%Câu 41
+Tìm tất các các giá trị thực của tham số $m$ để hàm số $y=x^3+3x^2+mx+m$ đồng biến trên tập xác định.
+\choice
+{$m\leq1$}
+{\True $m\geq3$}
+{$-1\leq m\leq3$}
+{$m < 3$}
+\loigiai
+{
+TXĐ: $\mathscr{D}=\mathbb{R}$. Đạo hàm: $y'=3x^2+6x+m$.\\
+YCBT $\Leftrightarrow y'\geq 0$, $\forall x\in\mathbb{R}$ ($y'=0$ có hữu hạn nghiệm).\\
+
+$\begin{cases} a>0 \\  \Delta'\leq0 \end{cases}\Leftrightarrow\begin{cases} 3>0 \\  9-3m\leq0 \end{cases}\Leftrightarrow m\geq3$
+}
+\end{ex}
+
+\begin{ex}
+Cho hàm số $y=\dfrac{m}{3}x^3-2x^2+(m+3)x+m$. Tìm giá trị nhỏ nhất của tham số $m$ để hàm số đồng biến trên $\mathbb{R}$.
+\choice
+{$m=-4$}
+{$m=-2$}
+{$m=0$}
+{\True $m=1$}
+\loigiai
+{
+TXĐ: $\mathscr{D}=\mathbb{R}$. Đạo hàm: $y'=mx^2-4x+m+3$.\\
+Yêu cầu bài toán $\Leftrightarrow y'\geq0$, $\forall x\in\mathbb{R}$ ($y'=0$ có hữu hạn nghiệm).\\
+TH1. $m=0$ thì $y'=-4x+3\geq0\Leftrightarrow x\leq\dfrac{3}{4}$ (không thỏa mãn).\\
+TH2. $\begin{cases} a=m>0 \\  \Delta'_{y' \end{cases}=-m^2-3m+4\leq0}\Leftrightarrow m\geq1$.
+Suy ra giá trị $m$ nhỏ nhất thỏa mãn bài toán là $m=1$.
+}
+\end{ex}
+\begin{ex}
+Cho hàm số $y=\dfrac{m}{3}x^3-2x^2+(m+3)x+m$. Tìm giá trị nhỏ nhất của tham số $m$ để hàm số đồng biến trên $\mathbb{R}$.
+\choice
+{$m=-4$}
+{$m=-2$}
+{$m=0$}
+{\True $m=1$}
+\loigiai
+{
+TXĐ: $\mathscr{D}=\mathbb{R}$. Đạo hàm: $y'=mx^2-4x+m+3$.\\
+Yêu cầu bài toán $\Leftrightarrow y'\geq0$, $\forall x\in\mathbb{R}$ ($y'=0$ có hữu hạn nghiệm).\\
+TH1. $m=0$ thì $y'=-4x+3\geq0\Leftrightarrow x\leq\dfrac{3}{4}$ (không thỏa mãn).\\
+TH2. $\begin{cases} a=m>0 \\  \Delta'_y' =-m^2-3m+4\leq 0\end{cases} \Leftrightarrow m\geq1$.
+Suy ra giá trị $m$ nhỏ nhất thỏa mãn bài toán là $m=1$.
+}
+\end{ex}
+\begin{ex}
+Hỏi có bao nhiêu số nguyên $m$ để hàm số $y=\left(m^2-1\right)x^3+(m-1)x^2-x+4$ nghịch biến trên khoảng $(-\infty;+\infty)$?
+\choice
+{$0$}
+{$1$}
+{\True $2$}
+{$3$}
+\loigiai
+{
+TH1: $m=1$. Ta có $y=-x+4$ là phương trình của một đường thẳng có hệ số góc âm nên hàm số luôn nghịch biến trên $\mathbb{R}$. Do đó nhận $m=1$.\\
+TH2: $m=-1$. Ta có $y=-2x^2-x+4$ là phương trình của một đường Parabol nên hàm số không thể nghịch biến trên $\mathbb{R}$. Do đó loại $m=-1$.\\
+TH3: $m\neq\pm1$. Khi đó hàm số nghịch biến trên khoảng $(-\infty;+\infty)\Leftrightarrow y'\leq0$, $\forall x\in\mathbb{R}$ ($y'=0$ có hữu hạn nghiệm)\\
+$\Leftrightarrow3\left(m^2-1\right)x^2+2(m-1)x-1\leq0$, $\forall x\in\mathbb{R}$\\
+$\Leftrightarrow\begin{cases} \\ a < 0 \\ \\ \Delta'\leq0 \end{cases}\Leftrightarrow\begin{cases} \\ m^2-1 < 0 \\ \\ \left(m-1\right)^2+3\left(m^2-1\right)\leq0 \end{cases}\Leftrightarrow-\dfrac{1}{2}\leq m < 1$. Ta có $m\in\mathbb{Z}$ suy ra $m=0$.\\ 
+Vậy có $2$ giá trị $m$ nguyên cần tìm là $m=0$ hoặc $m=1$.
+}
+\end{ex}

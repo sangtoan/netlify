@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Toán Đếm Số</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        .menu {
+            width: 100%;
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .menu a, .dropbtn {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .menu a:hover, .dropbtn:hover {
+            background-color: #0056b3;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .submenu {
+            position: relative;
+        }
+        .submenu .dropdown-content {
+            top: 0;
+            left: 100%;
+            margin-left: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding-top: 80px;
+            text-align: center;
+        }
+        .input {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        #digitInput {
+            width: 300px;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        @media only screen and (max-width: 600px) {
+            #digitInput {
+                font-size: 1.5em;
+            }
+        }
+        .conditions {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .conditions label {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .conditions input[type="text"] {
+            flex: 1;
+            margin-left: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="tron_de.html">Trộn Đề</a>
+        <a href="fixcode.html">Tiện Ích</a>
+        <a href="giai_toan_sympy.html">Loạt</a>
+        <div class="dropdown">
+            <span class="dropbtn">Giải Toán</span>
+            <div class="dropdown-content">
+                <div class="submenu">
+                    <a href="dem_so.html">Bài Toán Đếm Số</a>
+                    <div class="dropdown-content">
+                        <a href="#">Menu Tree</a>
+                        <a href="#">Menu Details</a>
+                    </div>
+                </div>
+                <div class="submenu">
+                    <a href="#">Chủ đề 2</a>
+                    <div class="dropdown-content">
+                        <a href="#">Submenu 2-1</a>
+                        <a href="#">Submenu 2-2</a>
+                    </div>
+                </div>
+                <a href="Ve_hinh.html">Chủ đề 3</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input">
+            <input id="digitInput" placeholder="Nhập chuỗi chữ số (ví dụ: 0,1,2,3,4,5)" />
+        </div>
+        <div class="conditions" id="conditions">
+            <label><input type="checkbox" id="condition1" /> Có k chữ số: <input type="text" id="conditionInput1" disabled /></label>
+            <label><input type="checkbox" id="condition2" /> Số chẵn</label>
+            <label><input type="checkbox" id="condition3" /> Chia hết cho: <input type="text" id="conditionInput3" disabled /></label>
+            <label><input type="checkbox" id="condition4" /> Số lẻ</label>
+            <label><input type="checkbox" id="condition5" /> Bắt đầu bằng: <input type="text" id="conditionInput5" disabled /></label>
+            <label><input type="checkbox" id="condition6" /> Chữ số khác nhau</label>
+            <label><input type="checkbox" id="condition7" /> Không bắt đầu bằng: <input type="text" id="conditionInput7" disabled /></label>
+            <label><input type="checkbox" id="condition8" /> Không có mặt đồng thời 2 chữ số: <input type="text" id="conditionInput8" disabled /></label>
+            <label><input type="checkbox" id="condition9" /> Nhỏ hơn: <input type="text" id="conditionInput9" disabled /></label>
+            <label><input type="checkbox" id="condition10" /> Lớn hơn: <input type="text" id="conditionInput10" disabled /></label>
+            <label><input type="checkbox" id="condition11" /> Luôn có mặt các chữ số: <input type="text" id="conditionInput11" disabled /></label>
+        </div>
+        <button onclick="calculate()">Tính toán</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function toggleInput(checkbox, inputId) {
+            document.getElementById(inputId).disabled = !checkbox.checked;
+        }
+
+        document.getElementById('condition1').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput1');
+        });
+        document.getElementById('condition3').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput3');
+        });
+        document.getElementById('condition5').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput5');
+        });
+        document.getElementById('condition7').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput7');
+        });
+        document.getElementById('condition8').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput8');
+        });
+        document.getElementById('condition9').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput9');
+        });
+        document.getElementById('condition10').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput10');
+        });
+        document.getElementById('condition11').addEventListener('change', function() {
+            toggleInput(this, 'conditionInput11');
+        });
+
+        function calculate() {
+            const digitInput = document.getElementById('digitInput').value.split(',');
+            let validNumbers = new Set();
+
+            if (document.getElementById('condition1').checked) {
+                const k = document.getElementById('conditionInput1').value;
+                const combinations = getCombinations(digitInput, k);
+                combinations.forEach(comb => validNumbers.add(comb.join('')));
+            } else {
+                digitInput.forEach(digit => validNumbers.add(digit));
+            }
+
+            validNumbers = [...validNumbers].filter(number => applyConditions(number));
+            document.getElementById('result').innerText = `Các số: ${validNumbers.join(', ')}`;
+        }
+
+        function getCombinations(arr, length) {
+            if (length === 1) return arr.map(item => [item]);
+            return arr.reduce((acc, current, index) => {
+                const smallerCombinations = getCombinations(arr.slice(index + 1), length - 1);
+                return acc.concat(smallerCombinations.map(combination => [current, ...combination]));
+            }, []);
+        }
+
+        function applyConditions(number) {
+            if (document.getElementById('condition2').checked && number % 2 !== 0) return false;
+            if (document.getElementById('condition3').checked && number % document.getElementById('conditionInput3').value !== 0) return false;
+            if (document.getElementById('condition4').checked && number % 2 === 0) return false;
+            if (document.getElementById('condition5').checked && !number.startsWith(document.getElementById('conditionInput5').value)) return false;
+            if (document.getElementById('condition6').checked && new Set(number).size !== number.length) return false;
+            if (document.getElementById('condition7').checked && number.startsWith(document.getElementById('conditionInput7').value)) return false;
+            if (document.getElementById('condition8').checked) {
+                const digits = document.getElementById('conditionInput8').value.split(',');
+                if (digits.every(digit => number.includes(digit))) return false;
+            }
+            if (document.getElementById('condition9').checked && parseInt(number) >= parseInt(document.getElementById('conditionInput9').value)) return false;
+            if (document.getElementById('condition10').checked && parseInt(number) <= parseInt(document.getElementById('conditionInput10').value)) return false;
+            if (document.getElementById('condition11').checked) {
+                const requiredDigits = document.getElementById('conditionInput11').value.split(',');
+                if (!requiredDigits.every(digit => number.includes(digit))) return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

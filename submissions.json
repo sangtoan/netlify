@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "author": "Nguyen Van A",
+    "email": "nguyenvana@example.com",
+    "title": "Hình 1",
+    "description": "Mô tả về hình 1",
+    "code": "\\begin{tikzpicture}\\draw (0,0) -- (1,1);\\end{tikzpicture}",
+    "image": "submissions/images/hinh1.png",
+    "group": "Group 1",
+    "newGroup": ""
+  },
+  {
+    "id": 2,
+    "author": "Tran Van B",
+    "email": "tranvanb@example.com",
+    "title": "Hình 2",
+    "description": "Mô tả về hình 2",
+    "code": "\\begin{tikzpicture}\\draw (0,0) circle (1cm);\\end{tikzpicture}",
+    "image": "submissions/images/hinh2.png",
+    "group": "",
+    "newGroup": "Group 3"
+  }
+]
